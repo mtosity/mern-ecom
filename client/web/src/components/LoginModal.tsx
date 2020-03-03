@@ -26,7 +26,7 @@ export default function LoginModal() {
   const [rightPanelActive, setRightPanelActive] = useState(false);
   let containerClass = classnames("login-modal-container", {
     "login-modal-right-panel-active": rightPanelActive
-  });
+  }, "");
   return (
     <div className={containerClass} id="login-modal-container">
       <div className="login-modal-form-container login-modal-sign-up-container">

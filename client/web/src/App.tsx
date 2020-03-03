@@ -5,11 +5,13 @@ import "./index.css";
 
 import Home from "./screen/Home"
 
+import Store from "./Store";
+
 const App = () => {
   return (
-    <div className="w-full">
+    <Provider store={Store}>
       <Home />
-    </div>
+    </Provider>
   );
 };
 
