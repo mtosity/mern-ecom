@@ -4,7 +4,7 @@ import {GlobalActionType} from '../../Actions'
 import { useDispatch } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
 
-export default function() {
+export function OptionsNav() {
     const dispatcher = useDispatch();
     return (
         <div className="grid grid-cols-6 text-center md:grid-cols-3 text-sm text-blue-400 bg-gray-800 font-bold">

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import classnames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF, faGoogle } from "@fortawesome/free-brands-svg-icons";
-import { RingLoader } from "react-spinners";
+import { SyncLoader } from "react-spinners";
 import jwt from "jsonwebtoken";
 
 import "../styles/LoginModal.css";
@@ -26,7 +26,7 @@ const styles = {
     borderColor: "#FF4B2B"
   }
 };
-export default function LoginModal() {
+export function LoginModal() {
   const [rightPanelActive, setRightPanelActive] = useState(false);
   let containerClass = classnames(
     "login-modal-container",
@@ -52,6 +52,8 @@ export default function LoginModal() {
     if (oldToken !== "") {
       var decoded = jwt.verify(oldToken, "123");
       console.log(decoded);
+      setLoadSI(false);
+      return
     }
     const body = {
       email: SIEmail,
@@ -143,7 +145,7 @@ export default function LoginModal() {
           />
           {loadSU ? (
             <div className="mt-4">
-              <RingLoader size={25} />
+              <SyncLoader size={20} />
             </div>
           ) : (
             <button
@@ -190,7 +192,7 @@ export default function LoginModal() {
           </a>
           {loadSI ? (
             <div className="mt-4">
-              <RingLoader size={25} color="blue" />
+              <SyncLoader size={20} color="blue" />
             </div>
           ) : (
             <button

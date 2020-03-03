@@ -3,9 +3,9 @@ import { Provider } from "react-redux";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import "./index.css";
-import Nav from "./components/Nav";
+import {Nav} from "./components/Nav";
 
-import Home from "./screen/Home";
+import {Home} from "./screen/Home";
 
 import Store from "./Store";
 import { AppDownload } from "./screen/AppDownload";

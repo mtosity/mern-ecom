@@ -2,13 +2,13 @@ import React from "react";
 
 import Modal from "react-modal";
 
-import Nav from "../components/Nav";
-import Banner from "../components/Banner";
-import SideCate from "../components/SideCate";
+import {Nav} from "../components/Nav";
+import {Banner} from "../components/Banner";
+import {SideCate} from "../components/SideCate";
 
 import { useSelector, useDispatch } from "react-redux";
 import { GlobalStateInterface } from "../Reducers/GlobalReducer";
-import LoginModal from "../components/LoginModal";
+import {LoginModal} from "../components/LoginModal";
 import { GlobalActionType } from "../Actions";
 
 
@@ -34,7 +34,7 @@ const customStyles: any = {
   }
 };
 
-const Home = () => {
+export const Home = () => {
   const OpenLoginModal = useSelector<GlobalStateInterface, boolean>(
     state => state.OpenLoginModal
   );
@@ -89,5 +89,3 @@ const Home = () => {
     </div>
   );
 };
-
-export default Home;

@@ -1,15 +1,15 @@
 import React from "react";
 import SearchBar from "./navbar/SearchBar";
-import CartNav from "./navbar/CartNav";
-import CartIcon from './navbar/CartIcon';
-import OptionNav from './navbar/OptionsNav';
+import {CartNav} from "./navbar/CartNav";
+import {CartIcon} from './navbar/CartIcon';
+import {OptionsNav} from './navbar/OptionsNav';
 
 import Logo from "../images/logo.jpg";
 
-const Nav = () => {
+export const Nav = () => {
   return (
     <div>
-    <OptionNav/>
+    <OptionsNav/>
     <div className="w-full flex md:flex-col items-center justify-center">
       <div className="">
         <a href="#">
@@ -40,5 +40,3 @@ const Nav = () => {
     </div>
   );
 };
-
-export default Nav;

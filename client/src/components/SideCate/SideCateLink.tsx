@@ -5,7 +5,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 interface SideCateLinkProps {
   title: string;
 }
-const SideCateLink = ({title}: SideCateLinkProps) => {
+export const SideCateLink = ({title}: SideCateLinkProps) => {
   const [hovered, setHovered] = useState(false);
   return (
     <a
@@ -19,5 +19,3 @@ const SideCateLink = ({title}: SideCateLinkProps) => {
     </a>
   );
 }
-
-export default SideCateLink;

@@ -2,7 +2,7 @@ import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
-export default function Banner() {
+export function Banner() {
   return (
     <Carousel showThumbs={false} autoPlay infiniteLoop>
       <div>

@@ -1,13 +1,13 @@
 import React, { FunctionComponent } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import CartIcon from './CartIcon'
+import {CartIcon} from './CartIcon'
 
 interface CartNavProps {
   className?: string;
 }
 
-const CartNav: FunctionComponent<CartNavProps> = ({
+export const CartNav: FunctionComponent<CartNavProps> = ({
   className
 }: CartNavProps) => {
   return (
@@ -61,5 +61,3 @@ const CartNav: FunctionComponent<CartNavProps> = ({
     </a>
   );
 };
-
-export default CartNav;
