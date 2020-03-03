@@ -7,8 +7,7 @@ export default function () {
             <a href="" className="btn-nav">SELL ON LAZADA</a>
             <a href="" className="btn-nav">CUSTOMER CARE</a>
             <a href="" className="btn-nav">TRACK MY ORDER</a>
-            <a href="" className="btn-nav">LOGIN</a>
-            <a href="" className="btn-nav">SIGN UP</a>
+            <a className="btn-nav col-span-2">LOGIN / SIGN UP</a>
         </div>
     )
 }
