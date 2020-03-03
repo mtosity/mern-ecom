@@ -34,28 +34,38 @@ User.init(
       email: {
           type: DataTypes.STRING,
           unique: true,
-          allowNull: false
+          allowNull: false,
+          validate: {
+            isEmail: {
+              msg: 'NotEmail'
+            },
+          }
       },
       password: {
         type: DataTypes.STRING,
-        allowNull: false  
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "EmptyName"
+          },
+          is: {
+            args: '^[a-zA-Z]\w{3,14}$,',
+            msg: "Password"
+          }
+        }
       },
-      roleId: {
+      role: {
           type: DataTypes.INTEGER.UNSIGNED,
           allowNull: false
       },
-      firstName: {
+      name: {
           type: DataTypes.STRING,
-          allowNull: false
-      },
-      lastName: {
-          type: DataTypes.STRING,
-          allowNull: false
-      },
-      active: {
-          type: DataTypes.BOOLEAN,
           allowNull: false,
-          defaultValue: true
+          validate: {
+            notEmpty: {
+              msg: "EmptyName"
+            }
+          }
       },
       avatar: {
           type: DataTypes.STRING,

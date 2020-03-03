@@ -4,7 +4,7 @@ import cors from 'cors';
 
 import sequelize from './config/sequelize';
 
-import user from './routes/users.route'
+import user from './routes/user.route'
 require('dotenv').config()
 
 const app = express();

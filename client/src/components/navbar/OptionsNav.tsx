@@ -7,6 +7,7 @@ import { GlobalStateInterface } from '../../Reducers/GlobalReducer';
 
 import Modal from 'react-modal';
 import { LoginModal } from '../LoginModal';
+Modal.setAppElement('#root');
 
 const customStyles: any = {
     content: {
@@ -15,10 +16,11 @@ const customStyles: any = {
       right: "auto",
       bottom: "auto",
       transform: "translate(-50%, -50%) scale(0.5)",
-      padding: "0 7px 15px 0",
+      padding: '0',
+      overflow: 'hidden',
+      boxShadow: "5px 10px",
       border: "none",
-      backgroundColor: "rgba(0, 0, 0, 0.4)",
-      borderRadius: "15px",
+      borderRadius: "20px",
     },
     overlay: {
       top: "0",

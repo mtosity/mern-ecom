@@ -19,12 +19,12 @@ input {
 
 .login-modal-container {
   background-color: #fff;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   position: relative;
 	overflow: hidden;
   /* width: 768px;
 	max-width: 100%;
-	max-height: 100%; */
+  max-height: 100%; */
   width: 60vw;
   min-height: 480px;
   font-family: "Montserrat", sans-serif;

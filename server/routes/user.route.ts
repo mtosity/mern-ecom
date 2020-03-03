@@ -3,50 +3,39 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import { uuid } from "uuidv4";
 
-import User from "../models/users.model";
+import User from "../models/user.model";
 import sequelize from "../config/sequelize";
 
 const users = express.Router();
 require("dotenv").config();
 
 users.get("/", (req, res) => {
-  // sequelize.sync().then(() =>
-  //   User.create({
-  //     email: 'req.body.email',
-  //     password: 'req.body.password',
-  //     firstName: 'req.body.firstName',
-  //     lastName: 'req.body.lastName',
-  //     roleId: 1
-  //   })
-  // );
-  // res.send("users");
-  res.send('sla')
+  res.json({sa: 'sla'})
 });
 
 users.post("/register", async (req, res) => {
-  const today = new Date();
-
   const user = await User.findOne({
     where: {
       email: req.body.email
     }
   });
-  if (user === null) {
+  if (!user) {
+    console.log('hi')
     try {
       const hashPass = await bcrypt.hash(req.body.password, 10);
-      const newUser = await User.create({
+      // await sequelize.sync();
+      await User.create({
         email: req.body.email,
         password: hashPass,
-        firstName: req.body.name,
-        lastName: req.body.name,
-        roleId: 1
+        name: req.body.name,
+        role: 1
       });
-      res.json({ status: req.body.email + " registered!" });
+      res.sendStatus(200)
     } catch (err) {
-      res.send("error: " + err);
+      res.json(err);
     }
   } else{
-    res.send('existed user')
+    res.status(400).json({name: 'UserSignUpError', errors: [{message: "ExistedUser", path: "email"}]});
   }
 });
 
