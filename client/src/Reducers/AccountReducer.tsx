@@ -1,17 +1,17 @@
 import { Reducer, Action } from "redux";
 import { GlobalActionType } from "../Actions";
 
-export interface GlobalStateInterface {
+export interface UserStateInterface {
   OpenLoginModal: boolean;
   authenticated: boolean;
 }
 
-const INIT_STATE: GlobalStateInterface = {
+const INIT_STATE: UserStateInterface = {
   OpenLoginModal: false,
   authenticated: false
 };
 
-const GlobalReducer: Reducer = (state = INIT_STATE, action: Action) => {
+const UserReducer: Reducer = (state = INIT_STATE, action: Action) => {
   switch (action.type) {
     case GlobalActionType.SetOpenLoginModalTrue:
       return { ...state, OpenLoginModal: true };
@@ -28,4 +28,4 @@ const GlobalReducer: Reducer = (state = INIT_STATE, action: Action) => {
   }
 };
 
-export default GlobalReducer;
+export default UserReducer;

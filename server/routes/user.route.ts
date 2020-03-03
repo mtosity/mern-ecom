@@ -5,13 +5,14 @@ import { uuid } from "uuidv4";
 
 import User from "../models/user.model";
 import sequelize from "../config/sequelize";
+import { LoginError, SignUpError } from "../utils/ErrorType";
 
 const users = express.Router();
 require("dotenv").config();
 
 users.get("/", (req, res) => {
   User.sync();
-  res.json({sa: 'sla'})
+  res.json({ sa: "sla" });
 });
 
 users.post("/signup", async (req, res) => {
@@ -21,7 +22,6 @@ users.post("/signup", async (req, res) => {
     }
   });
   if (!user) {
-    console.log('hi')
     try {
       const hashPass = await bcrypt.hash(req.body.password, 10);
       // await sequelize.sync();
@@ -31,12 +31,17 @@ users.post("/signup", async (req, res) => {
         name: req.body.name,
         role: 1
       });
-      res.status(200).json({status: 'user signned up'})
+      res.status(200).json({ status: "user signned up" });
     } catch (err) {
       res.status(400).json(err);
     }
-  } else{
-    res.status(400).json({name: 'UserSignUpError', errors: [{message: "User existed", path: "email"}]});
+  } else {
+    res
+      .status(400)
+      .json({
+        name: "UserSignUpError",
+        errors: [{ message: SignUpError.UserExisted, path: "email" }]
+      });
   }
 });
 
@@ -51,29 +56,37 @@ users.post("/login", (req, res) => {
         if (bcrypt.compareSync(req.body.password, user.password)) {
           let token = jwt.sign({ user }, "123");
           res.status(200).json({ token: token });
-        }else{
-          res.status(400).json({ error: "Wrong pass" });
+        } else {
+          res
+            .status(400)
+            .json({
+              name: "UserLoginError",
+              errors: [{ message: LoginError.WrongPass, path: "password" }]
+            });
         }
       } else {
-        res.status(400).json({ error: "User does not exist" });
+        res
+          .status(400)
+          .json({
+            name: "UserLoginError",
+            errors: [{ message: LoginError.UserNotExisted, path: "email" }]
+          });
       }
     })
     .catch(err => {
-      res.status(400).json({ error: err });
+      res.status(400).json(err);
     });
 });
 
 users.get("/profile", (req, res) => {
-
-  const token = req.header('auth-token');
+  const token = req.header("auth-token");
   console.log(token);
   if (token !== undefined) {
     try {
       var decoded = jwt.verify(token, "123");
       res.send(decoded);
-      
     } catch (error) {
-      res.send(error)
+      res.send(error);
     }
     // User.findOne({
     //   where: {
@@ -90,8 +103,8 @@ users.get("/profile", (req, res) => {
     //   .catch(err => {
     //     res.send("error: " + err);
     //   });
-  } else{
-    res.json({error: 'no token'})
+  } else {
+    res.json({ error: "no token" });
   }
 });
 

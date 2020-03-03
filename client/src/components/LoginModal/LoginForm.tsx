@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import classnames from "classnames";
 import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SyncLoader } from "react-spinners";
@@ -12,6 +13,7 @@ interface props {
   setSIPassword: Function;
   handleSIForm: Function;
   loadSI: boolean;
+  SIError: any;
 }
 
 export const LoginForm = ({
@@ -22,8 +24,16 @@ export const LoginForm = ({
   SIPassword,
   setSIPassword,
   handleSIForm,
-  loadSI
+  loadSI,
+  SIError
 }: props) => {
+  const {isError, path, message} = SIError
+  const emailInputClasses = classnames(classes.input,{
+    "border border-red-600": (path === "email" && isError)
+  });
+  const passwordInputClasses = classnames(classes.input,{
+    "border border-red-600": (path === "password" && isError)
+  });
   return (
     <form className={classes.form} action="#" style={{ zIndex: 999 }}>
       <h1 className={classes.h1}>Login</h1>
@@ -40,14 +50,14 @@ export const LoginForm = ({
       </div>
       <span className={classes.span}>or use your account</span>
       <input
-        className={classes.input}
+        className={emailInputClasses}
         type="email"
         placeholder="Email"
         value={SIEmail}
         onChange={e => setSIEmail(e.target.value)}
       />
       <input
-        className={classes.input}
+        className={passwordInputClasses}
         type="password"
         placeholder="Password"
         value={SIPassword}
@@ -69,6 +79,7 @@ export const LoginForm = ({
           Login
         </button>
       )}
+      <p className="text-red-500 text-md mt-2">{message}</p>
     </form>
   );
 };

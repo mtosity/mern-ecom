@@ -20,7 +20,7 @@ const classes = {
     "mt-4 rounded-full border-2 text-white text-sm font-bold px-10 py-2 login-modal-btn",
   form:
     "bg-white flex flex-col items-center px-8 h-full text-center py-16 border-none",
-  input: "w-full border-none py-2 px-4 my-2 outline-none border rounded"
+  input: "w-full py-2 px-4 my-2 outline-none rounded"
 };
 const styles = {
   button: {
@@ -42,7 +42,11 @@ export function LoginModal() {
 
   const [SIEmail, setSIEmail] = useState("");
   const [SIPassword, setSIPassword] = useState("");
-  const [SIError, setSIError] = useState({})
+  const [SIError, setSIError] = useState({
+    isError: false,
+    path: "",
+    message: ""
+  });
 
   const [SUName, setSUName] = useState("");
   const [SUEmail, setSUEmail] = useState("");
@@ -50,42 +54,50 @@ export function LoginModal() {
 
   const [loadSI, setLoadSI] = useState(false);
   const [loadSU, setLoadSU] = useState(false);
+  const [SUError, setSUError] = useState({
+    isError: false,
+    path: "",
+    message: ""
+  });
 
   const handleSIForm = async (e: any) => {
     e.preventDefault();
     setLoadSI(true);
-    const oldToken = (await localStorage.getItem("token")) || "";
-    if (oldToken !== "") {
-      var decoded = jwt.verify(oldToken, "123");
-      console.log(decoded);
-      setLoadSI(false);
-      dispatcher({ type: GlobalActionType.UserLoggedIn });
-      return;
-    }
-    const body = {
-      email: SIEmail,
-      password: SIPassword
-    };
-    const response = await fetch("user/login", {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
-      mode: "cors", // no-cors, *cors, same-origin
-      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: "same-origin", // include, *same-origin, omit
-      headers: {
-        "Content-Type": "application/json"
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      redirect: "follow", // manual, *follow, error
-      referrerPolicy: "no-referrer", // no-referrer, *client
-      body: JSON.stringify(body) // body data type must match "Content-Type" header
-    });
-    const res_json = await response.json();
-    if (response.status === 200) {
-      await localStorage.setItem("token", res_json.token);
-      setLoadSI(false);
-      dispatcher({ type: GlobalActionType.UserLoggedIn });
-    } else{
-      console.log(res_json);
+    const oldToken = await localStorage.getItem("token");
+    if (false) {
+      // var decoded = jwt.verify(oldToken, "123");
+      // console.log(decoded);
+      // setLoadSI(false);
+      // dispatcher({ type: GlobalActionType.UserLoggedIn });
+    } else {
+      const body = {
+        email: SIEmail,
+        password: SIPassword
+      };
+      const response = await fetch("user/login", {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, *cors, same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
+        headers: {
+          "Content-Type": "application/json"
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: "follow", // manual, *follow, error
+        referrerPolicy: "no-referrer", // no-referrer, *client
+        body: JSON.stringify(body) // body data type must match "Content-Type" header
+      });
+      const res_json = await response.json();
+      if (response.status === 200) {
+        await localStorage.setItem("token", res_json.token);
+        dispatcher({ type: GlobalActionType.UserLoggedIn });
+      } else {
+        setSIError({
+          isError: true,
+          path: res_json.errors[0].path,
+          message: res_json.errors[0].message
+        });
+      }
       setLoadSI(false);
     }
   };
@@ -111,8 +123,20 @@ export function LoginModal() {
       referrerPolicy: "no-referrer", // no-referrer, *client
       body: JSON.stringify(body) // body data type must match "Content-Type" header
     });
-    const res = await response.json(); // parses JSON response into native JavaScript objects
-    console.log(res);
+    const res_json = await response.json(); // parses JSON response into native JavaScript objects
+    if (response.status === 200) {
+      setSUError({
+        isError: false,
+        path: "",
+        message: "Create new account successful"
+      });
+    } else {
+      setSUError({
+        isError: true,
+        path: res_json.errors[0].path,
+        message: res_json.errors[0].message
+      });
+    }
     setLoadSU(false);
   };
   return (
@@ -129,6 +153,7 @@ export function LoginModal() {
           setSUName={setSUName}
           handleSUForm={handleSUForm}
           loadSU={loadSU}
+          SUError={SUError}
         />
       </div>
       <div className="login-modal-form-container login-modal-sign-in-container">
@@ -141,6 +166,7 @@ export function LoginModal() {
           setSIPassword={setSIPassword}
           handleSIForm={handleSIForm}
           loadSI={loadSI}
+          SIError={SIError}
         />
       </div>
       <div className="login-modal-overlay-container">
