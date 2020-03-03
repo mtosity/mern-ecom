@@ -2,8 +2,12 @@
 
 @tailwind components;
 
+.btn-nav {
+    @apply
+}
+
 .btn-nav:hover {
-    @apply text-orange-500 border-r border-l border-solid border-blue-400;
+    @apply text-orange-500 border-r border-l border-solid border-white ;
 }
 
 @tailwind utilities;

@@ -582,12 +582,15 @@ video {
   width: 100%;
 }
 
+.btn-nav {
+}
+
 .btn-nav:hover {
   color: #ed8936;
   border-right-width: 1px;
   border-left-width: 1px;
   border-style: solid;
-  border-color: #63b3ed;
+  border-color: #fff;
 }
 
 .sr-only {
