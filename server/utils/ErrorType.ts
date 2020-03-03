@@ -7,6 +7,7 @@ export const LoginError = {
     NotEmail: "Not an valid email",
     NotPassword:
       "Password not contain at least one uppercase, one number or special character",
-    NotName: "Name empty"
+    NotName: "Name empty",
+    NotAddress: "Address is empty",
   };
   

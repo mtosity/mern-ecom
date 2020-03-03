@@ -74,6 +74,15 @@ User.init(
       allowNull: false,
       defaultValue:
         "https://i.ibb.co/kJ9W9LL/0f9a7f73af1e8fbada4deb9e78631e33-man-user-operator-clip-art-at-clkercom-vector-clip-art-online-360-598.png"
+    },
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: SignUpError.NotAddress
+        }
+      }
     }
   },
   {

@@ -1,11 +1,9 @@
 import express, { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-import { uuid } from "uuidv4";
-
 import User from "../models/user.model";
-import sequelize from "../config/sequelize";
 import { LoginError, SignUpError } from "../utils/ErrorType";
+import {RoleType} from "../utils/RoleType";
 
 const users = express.Router();
 require("dotenv").config();
@@ -23,13 +21,20 @@ users.post("/signup", async (req, res) => {
   });
   if (!user) {
     try {
-      const hashPass = await bcrypt.hash(req.body.password, 10);
-      // await sequelize.sync();
+      const {email, password, name, address, isBuyer, isSeller} = req.body;
+      const hashPass = await bcrypt.hash(password, 10);
+      let role = -1;
+      if(req.body.isBuyer){
+        role = isSeller ? RoleType.Both : RoleType.Buyer;
+      }else{
+        role = isBuyer ? RoleType.Both : RoleType.Seller;
+      }
       await User.create({
-        email: req.body.email,
+        email: email,
         password: hashPass,
-        name: req.body.name,
-        role: 1
+        name: name,
+        address: address,
+        role: role
       });
       res.status(200).json({ status: "user signned up" });
     } catch (err) {
