@@ -5,6 +5,7 @@ import {CartIcon} from './navbar/CartIcon';
 import {OptionsNav} from './navbar/OptionsNav';
 
 import Logo from "../images/logo.jpg";
+import { Link } from "react-router-dom";
 
 export const Nav = () => {
   return (
@@ -12,14 +13,14 @@ export const Nav = () => {
     <OptionsNav/>
     <div className="w-full flex md:flex-col items-center justify-center">
       <div className="">
-        <a href="#">
+        <Link to="/">
           <img
             src={Logo}
             className="object-contain"
             style={{ width: "18rem" }}
             alt=""
           />
-        </a>
+        </Link>
       </div>
       <div
         className="w-2/3 h-10 md:w-full md:px-4 md:flex md:items-center"
