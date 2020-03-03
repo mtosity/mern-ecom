@@ -587,6 +587,9 @@ module.exports = function(webpackEnv) {
       //   `index.html`
       // - "entrypoints" key: Array of files which are included in `index.html`,
       //   can be used to reconstruct the HTML if necessary
+      new PurgecssPlugin({
+        paths: [paths.appHtml, ...glob.sync(`${paths.appSrc}/*`)]
+      }),
       new ManifestPlugin({
         fileName: 'asset-manifest.json',
         publicPath: publicPath,
@@ -674,3 +677,5 @@ module.exports = function(webpackEnv) {
     performance: false,
   };
 };
+const PurgecssPlugin = require('purgecss-webpack-plugin')
+const glob = require('glob-all')

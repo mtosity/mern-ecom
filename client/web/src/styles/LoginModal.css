@@ -1,109 +1,61 @@
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-* {
-	box-sizing: border-box;
-}
-
-body {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	font-family: 'Montserrat', sans-serif;
-	height: 100vh;
-	margin: -20px 0 50px;
-}
-
-a {
-	color: #333;
-	font-size: 14px;
-	text-decoration: none;
-	margin: 15px 0;
-}
-
-button {
-	border-radius: 20px;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
-	color: #FFFFFF;
-	font-size: 12px;
-	font-weight: bold;
-	padding: 12px 45px;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	transition: transform 80ms ease-in;
-}
-
-button:active {
+.login-modal-btn:active {
 	transform: scale(0.95);
 }
 
-button:focus {
+.login-modal-btn:focus {
 	outline: none;
 }
 
-button.ghost {
+.login-modal-btn.login-modal-ghost {
 	background-color: transparent;
 	border-color: #FFFFFF;
 }
 
-form {
-	background-color: #FFFFFF;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	padding: 0 50px;
-	height: 100%;
-	text-align: center;
-}
-
 input {
 	background-color: #eee;
-	border: none;
-	padding: 12px 15px;
-	margin: 8px 0;
-	width: 100%;
 }
 
-.container {
+.login-modal-container {
 	background-color: #fff;
 	border-radius: 10px;
-  	box-shadow: 0 14px 28px rgba(0,0,0,0.1), 
-			0 10px 10px rgba(0,0,0,0.1);
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
 	overflow: hidden;
 	width: 768px;
 	max-width: 100%;
 	min-height: 480px;
+	font-family: 'Montserrat', sans-serif;
 }
 
-.form-container {
+.login-modal-form-container {
 	position: absolute;
 	top: 0;
 	height: 100%;
 	transition: all 0.6s ease-in-out;
 }
 
-.sign-in-container {
+.login-modal-sign-in-container {
 	left: 0;
 	width: 50%;
 	z-index: 2;
 }
 
-.container.right-panel-active .sign-in-container {
+.login-modal-container.login-modal-right-panel-active .login-modal-sign-in-container {
 	transform: translateX(100%);
 }
 
-.sign-up-container {
+.login-modal-sign-up-container {
 	left: 0;
 	width: 50%;
 	opacity: 0;
 	z-index: 1;
 }
 
-.container.right-panel-active .sign-up-container {
+.login-modal-container.login-modal-right-panel-active .login-modal-sign-up-container {
 	transform: translateX(100%);
 	opacity: 1;
 	z-index: 5;
@@ -122,7 +74,7 @@ input {
 	}
 }
 
-.overlay-container {
+.login-modal-overlay-container {
 	position: absolute;
 	top: 0;
 	left: 50%;
@@ -133,11 +85,11 @@ input {
 	z-index: 100;
 }
 
-.container.right-panel-active .overlay-container{
+.login-modal-container.login-modal-right-panel-active .login-modal-overlay-container{
 	transform: translateX(-100%);
 }
 
-.overlay {
+.login-modal-overlay {
 	background: #FF416C;
 	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
 	background: linear-gradient(to right, #FF4B2B, #FF416C);
@@ -153,11 +105,11 @@ input {
 	transition: transform 0.6s ease-in-out;
 }
 
-.container.right-panel-active .overlay {
+.login-modal-container.login-modal-right-panel-active .login-modal-overlay {
   	transform: translateX(50%);
 }
 
-.overlay-panel {
+.login-modal-overlay-panel {
 	position: absolute;
 	display: flex;
 	align-items: center;
@@ -172,28 +124,28 @@ input {
 	transition: transform 0.6s ease-in-out;
 }
 
-.overlay-left {
+.login-modal-overlay-left {
 	transform: translateX(-20%);
 }
 
-.container.right-panel-active .overlay-left {
+.login-modal-container.login-modal-right-panel-active .login-modal-overlay-left {
 	transform: translateX(0);
 }
 
-.overlay-right {
+.login-modal-overlay-right {
 	right: 0;
 	transform: translateX(0);
 }
 
-.container.right-panel-active .overlay-right {
+.login-modal-container.login-modal-right-panel-active .login-modal-overlay-right {
 	transform: translateX(20%);
 }
 
-.social-container {
+.login-modal-social-container {
 	margin: 20px 0;
 }
 
-.social-container a {
+.login-modal-social-container a {
 	border: 1px solid #DDDDDD;
 	border-radius: 50%;
 	display: inline-flex;

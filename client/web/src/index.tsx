@@ -17,6 +17,8 @@ import Modal from "react-modal";
 
 import LoginModal from '../src/components/LoginModal'
 
+import './index.css'
+
 const customStyles = {
   content: {
     top: "50%",
