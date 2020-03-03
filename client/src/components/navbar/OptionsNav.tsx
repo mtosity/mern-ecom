@@ -2,12 +2,13 @@ import React from 'react'
 import {Dispatch, Action} from 'redux'
 import {GlobalActionType} from '../../Actions'
 import { useDispatch } from 'react-redux';
+import { withRouter, Link } from 'react-router-dom';
 
-export default function () {
+export default function() {
     const dispatcher = useDispatch();
     return (
         <div className="grid grid-cols-6 text-center md:grid-cols-3 text-sm text-blue-400 bg-gray-800 font-bold">
-            <a href="" className="btn-nav">SAVE MORE ON APP</a>
+            <Link to="/home" className="btn-nav">SAVE MORE ON APP</Link>
             <a href="" className="btn-nav">SELL ON LAZADA</a>
             <a href="" className="btn-nav">CUSTOMER CARE</a>
             <a href="" className="btn-nav">TRACK MY ORDER</a>

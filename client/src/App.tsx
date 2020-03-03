@@ -8,19 +8,21 @@ import Nav from "./components/Nav";
 import Home from "./screen/Home";
 
 import Store from "./Store";
+import { AppDownload } from "./screen/AppDownload";
+import { FOF } from "./screen/FOF";
 
 const App = () => {
   return (
     <Provider store={Store}>
       <div className="w-full">
-        <div className="w-full z-10">
-          <Nav></Nav>
-        </div>
         <BrowserRouter>
+          <div className="w-full z-10">
+            <Nav></Nav>
+          </div>
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/home" exact component={Home} />
-            <Route path="/" component={() => <div>Not Found</div>} />
+            <Route path="/appdownload" exact component={AppDownload} />
+            <Route path="/" component={FOF} />
           </Switch>
         </BrowserRouter>
       </div>
