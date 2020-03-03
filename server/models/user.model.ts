@@ -49,7 +49,7 @@ User.init(
             msg: "EmptyName"
           },
           is: {
-            args: '^[a-zA-Z]\w{3,14}$,',
+            args: '(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$',
             msg: "Password"
           }
         }

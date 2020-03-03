@@ -13,7 +13,7 @@ users.get("/", (req, res) => {
   res.json({sa: 'sla'})
 });
 
-users.post("/register", async (req, res) => {
+users.post("/signup", async (req, res) => {
   const user = await User.findOne({
     where: {
       email: req.body.email
@@ -30,9 +30,9 @@ users.post("/register", async (req, res) => {
         name: req.body.name,
         role: 1
       });
-      res.sendStatus(200)
+      res.status(200).json({status: 'user signned up'})
     } catch (err) {
-      res.json(err);
+      res.status(400).json(err);
     }
   } else{
     res.status(400).json({name: 'UserSignUpError', errors: [{message: "ExistedUser", path: "email"}]});

@@ -20,7 +20,7 @@ app.get('/register', (req: Request, res: Response) => {
     res.redirect('/')
 })
 
-app.use('/users', user);
+app.use('/user', user);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(port))
