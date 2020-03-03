@@ -4,4 +4,5 @@
 * Express with basic route (home, register)
 # Week 2 (react components):
 * Search bar
-
+* Title bar
+* 
