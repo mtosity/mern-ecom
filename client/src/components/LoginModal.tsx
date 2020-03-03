@@ -4,7 +4,8 @@ import React, { useState } from "react";
 import classnames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF, faGoogle } from "@fortawesome/free-brands-svg-icons";
-import jwt from 'jsonwebtoken';
+import { RingLoader } from "react-spinners";
+import jwt from "jsonwebtoken";
 
 import "../styles/LoginModal.css";
 
@@ -15,8 +16,7 @@ const classes = {
   aclasses: "social text-black text-xs no-underline mx-4",
   button:
     "mt-4 rounded-full border-2 text-white text-sm font-bold px-10 py-2 login-modal-btn",
-  form:
-    "bg-white flex flex-col justify-center items-center px-8 h-full text-center",
+  form: "bg-white flex flex-col items-center px-8 h-full text-center py-16",
   input: "w-full border-none py-2 px-4 my-2 outline-none border rounded"
 };
 
@@ -42,10 +42,14 @@ export default function LoginModal() {
   const [SUEmail, setSUEmail] = useState("");
   const [SUPassword, setSUPassword] = useState("");
 
+  const [loadSI, setLoadSI] = useState(false);
+  const [loadSU, setLoadSU] = useState(false);
+
   const handleSIForm = async (e: any) => {
     e.preventDefault();
-    const oldToken = await localStorage.getItem('token') || "";
-    if(oldToken !== ""){
+    setLoadSI(true);
+    const oldToken = (await localStorage.getItem("token")) || "";
+    if (oldToken !== "") {
       var decoded = jwt.verify(oldToken, "123");
       console.log(decoded);
     }
@@ -66,11 +70,13 @@ export default function LoginModal() {
       referrerPolicy: "no-referrer", // no-referrer, *client
       body: JSON.stringify(body) // body data type must match "Content-Type" header
     });
-    const {token} = await response.json()
-    await localStorage.setItem('token', token);
+    const { token } = await response.json();
+    await localStorage.setItem("token", token);
+    setLoadSI(false);
   };
 
   const handleSUForm = async (e: any) => {
+    setLoadSU(true);
     e.preventDefault();
     const body = {
       email: SUEmail,
@@ -93,6 +99,7 @@ export default function LoginModal() {
     console.log(response);
     const res = await response.json(); // parses JSON response into native JavaScript objects
     console.log(res);
+    setLoadSU(false);
   };
   return (
     <div className={containerClass} id="login-modal-container">
@@ -134,13 +141,19 @@ export default function LoginModal() {
             value={SUPassword}
             onChange={e => setSUPassword(e.target.value)}
           />
-          <button
-            className={classes.button}
-            style={styles.button}
-            onClick={e => handleSUForm(e)}
-          >
-            Sign Up
-          </button>
+          {loadSU ? (
+            <div className="mt-4">
+              <RingLoader size={25} />
+            </div>
+          ) : (
+            <button
+              className={classes.button}
+              style={styles.button}
+              onClick={e => handleSUForm(e)}
+            >
+              Sign Up
+            </button>
+          )}
         </form>
       </div>
       <div className="login-modal-form-container login-modal-sign-in-container">
@@ -175,13 +188,19 @@ export default function LoginModal() {
           <a href="#" className={classes.aclasses}>
             Forgot your password?
           </a>
-          <button
-            className={classes.button}
-            style={styles.button}
-            onClick={e => handleSIForm(e)}
-          >
-            Sign In
-          </button>
+          {loadSI ? (
+            <div className="mt-4">
+              <RingLoader size={25} color="blue" />
+            </div>
+          ) : (
+            <button
+              className={classes.button}
+              style={styles.button}
+              onClick={e => handleSIForm(e)}
+            >
+              Sign In
+            </button>
+          )}
         </form>
       </div>
       <div className="login-modal-overlay-container">
