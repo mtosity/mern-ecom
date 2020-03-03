@@ -3,11 +3,7 @@
 @tailwind components;
 
 .btn-nav:hover {
-    @apply text-orange-500 border-r border-l border-solid border-blue-400 text-orange-500;
-}
-
-.btn-nav:focus {
-    @apply text-orange-500;
+    @apply text-orange-500 border-r border-l border-solid border-blue-400;
 }
 
 @tailwind utilities;

@@ -14,7 +14,7 @@ import { FOF } from "./screen/FOF";
 const App = () => {
   return (
     <Provider store={Store}>
-      <div className="w-full">
+      <div className="w-full" style={{backgroundColor: '#FFFFF2'}}>
         <BrowserRouter>
           <div className="w-full z-10">
             <Nav></Nav>

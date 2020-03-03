@@ -108,9 +108,9 @@ input {
 }
 
 .login-modal-overlay {
-  background: #ff416c;
-  background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
-  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  background: #2C3748;
+  background: -webkit-linear-gradient(to right, #791E94, #54C6EB);
+  background: linear-gradient(to right, #791E94, #54C6EB);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
@@ -174,31 +174,6 @@ input {
   margin: 0 5px;
   height: 40px;
   width: 40px;
-}
-
-footer {
-  background-color: #222;
-  color: #fff;
-  font-size: 14px;
-  bottom: 0;
-  position: fixed;
-  left: 0;
-  right: 0;
-  text-align: center;
-  z-index: 999;
-}
-
-footer p {
-  margin: 10px 0;
-}
-
-footer i {
-  color: red;
-}
-
-footer a {
-  color: #3c97bf;
-  text-decoration: none;
 }
 
 /* .ReactModal__Overlay, .login-modal-container {

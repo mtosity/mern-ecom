@@ -24,8 +24,8 @@ const classes = {
 
 const styles = {
   button: {
-    backgroundColor: "#FF4B2B",
-    borderColor: "#FF4B2B"
+    backgroundColor: "#54C6EB",
+    borderColor: "#54C6EB"
   }
 };
 export function LoginModal() {
@@ -149,8 +149,8 @@ export function LoginModal() {
             onChange={e => setSUPassword(e.target.value)}
           />
           {loadSU ? (
-            <div className="mt-4">
-              <SyncLoader size={20} />
+            <div className="mt-4 text-blue-400" >
+              <SyncLoader size={20} color={"#54C6EB"} />
             </div>
           ) : (
             <button
@@ -196,8 +196,8 @@ export function LoginModal() {
             Forgot your password?
           </a>
           {loadSI ? (
-            <div className="mt-4">
-              <SyncLoader size={20} color="blue" />
+            <div className="mt-4 text-blue-400">
+              <SyncLoader size={20} color={"#54C6EB"} />
             </div>
           ) : (
             <button

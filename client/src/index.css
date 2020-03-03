@@ -588,11 +588,6 @@ video {
   border-left-width: 1px;
   border-style: solid;
   border-color: #63b3ed;
-  color: #ed8936;
-}
-
-.btn-nav:focus {
-  color: #ed8936;
 }
 
 .sr-only {
