@@ -8,6 +8,8 @@ import { SyncLoader } from "react-spinners";
 import jwt from "jsonwebtoken";
 
 import "../styles/LoginModal.css";
+import { useDispatch } from "react-redux";
+import { GlobalActionType } from "../Actions";
 
 const classes = {
   h1: "text-xl font-bold m-0",
@@ -27,6 +29,7 @@ const styles = {
   }
 };
 export function LoginModal() {
+  const dispatcher = useDispatch();
   const [rightPanelActive, setRightPanelActive] = useState(false);
   let containerClass = classnames(
     "login-modal-container",
@@ -53,6 +56,7 @@ export function LoginModal() {
       var decoded = jwt.verify(oldToken, "123");
       console.log(decoded);
       setLoadSI(false);
+      dispatcher({type: GlobalActionType.UserLoggedIn})
       return
     }
     const body = {
@@ -75,6 +79,7 @@ export function LoginModal() {
     const { token } = await response.json();
     await localStorage.setItem("token", token);
     setLoadSI(false);
+    dispatcher({type: GlobalActionType.UserLoggedIn})
   };
 
   const handleSUForm = async (e: any) => {

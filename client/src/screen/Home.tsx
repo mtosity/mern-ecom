@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Modal from "react-modal";
 
@@ -51,7 +51,7 @@ export const Home = () => {
   }
 
   function closeModal() {
-    dispatcher({ type: GlobalActionType.SetOpLoginModalFalse });
+    dispatcher({ type: GlobalActionType.SetOpenLoginModalFalse });
     customStyles.content = {
       ...customStyles.content, 
       transform: "translate(-50%, -50%) scale(0.5)",

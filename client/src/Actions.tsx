@@ -1,4 +1,7 @@
 export enum GlobalActionType {
-  SetOpLoginModalTrue,
-  SetOpLoginModalFalse
+  SetOpenLoginModalTrue,
+  SetOpenLoginModalFalse,
+  SetAuthenticatedTrue,
+  SetAuthenticatedFalse,
+  UserLoggedIn
 }
