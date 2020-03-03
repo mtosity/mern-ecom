@@ -1,5 +1,5 @@
 import React from 'react'
-import Search from './components/SearchBar'
+import Search from './components/navbar/SearchBar'
 
 import './css/tailwind.css';
 import './index.css';

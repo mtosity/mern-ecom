@@ -5,11 +5,13 @@ import './css/tailwind.css';
 import './index.css';
 
 import Nav from './components/Nav';
+import Banner from './components/Banner';
 
 const App = () => {
   return (
     <div className="w-full">
       <Nav></Nav>
+      <Banner/>
     </div>
   );
 }
