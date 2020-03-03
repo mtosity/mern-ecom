@@ -22,11 +22,11 @@ const Nav = () => {
         </a>
       </div>
       <div
-        className="w-2/3 h-10 md:w-full md:mt-4 md:px-8 md:flex md:items-center"
+        className="w-2/3 h-10 md:w-full md:px-4 md:flex md:items-center"
         style={{ marginLeft: "1vw", marginRight: "1vw" }}
       >
         <SearchBar />
-        <div className="hidden md:block mx-4">
+        <div className="hidden md:block mx-2">
           <CartIcon/>
         </div>
       </div>

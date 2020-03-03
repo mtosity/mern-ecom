@@ -1,22 +1,19 @@
 import React from "react";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 
 export default function Banner() {
   return (
-    <a
-      style={{
-        backgroundImage:
-          "url(" +
-          "https://laz-img-cdn.alicdn.com/images/ims-web/TB10kzJvrj1gK0jSZFuXXcrHpXa.jpg_1200x1200Q100.jpg_.webp" +
-          ")",
-        backgroundPosition: "center",
-        backgroundSize: "contain",
-        backgroundRepeat: "no-repeat",
-        height:'400px'
-      }}
-      className="w-full inline-block"
-      href="#"
-    >
-
-    </a>
+    <Carousel showThumbs={false} autoPlay infiniteLoop>
+      <div>
+        <img src="https://laz-img-cdn.alicdn.com/images/ims-web/TB10kzJvrj1gK0jSZFuXXcrHpXa.jpg_1200x1200Q100.jpg_.webp" />
+      </div>
+      <div>
+        <img src="https://laz-img-cdn.alicdn.com/images/ims-web/TB10kzJvrj1gK0jSZFuXXcrHpXa.jpg_1200x1200Q100.jpg_.webp" />
+      </div>
+      <div>
+        <img src="https://laz-img-cdn.alicdn.com/images/ims-web/TB10kzJvrj1gK0jSZFuXXcrHpXa.jpg_1200x1200Q100.jpg_.webp" />
+      </div>
+    </Carousel>
   );
 }

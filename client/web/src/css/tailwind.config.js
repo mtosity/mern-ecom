@@ -30,6 +30,7 @@ module.exports = {
     translate: ['responsive', 'hover', 'group-hover'],
     borderStyle: ['responsive', 'hover'],
     borderWidth: ['responsive', 'hover'],
-    borderColor: ['responsive', 'hover']
+    borderColor: ['responsive', 'hover'],
+    display: ['responsive', 'hover']
   },
 };

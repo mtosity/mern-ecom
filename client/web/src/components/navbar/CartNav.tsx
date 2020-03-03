@@ -19,7 +19,7 @@ const CartNav: FunctionComponent<CartNavProps> = ({
         </div>
         <CartIcon/>
       </div>
-      <div className="relative w-full">
+      <div className="relative w-full z-10">
         <ul
           className="group-hover:opacity-100 group-hover:pointer-events-auto absolute bg-gray-200 rounded opacity-0 pointer-events-none 
       group-hover:transform group-hover:translate-y-0 translate-y-8 transition-all transform duration-500 ease-in-out
