@@ -10,6 +10,7 @@ const users = express.Router();
 require("dotenv").config();
 
 users.get("/", (req, res) => {
+  User.sync();
   res.json({sa: 'sla'})
 });
 
@@ -35,7 +36,7 @@ users.post("/signup", async (req, res) => {
       res.status(400).json(err);
     }
   } else{
-    res.status(400).json({name: 'UserSignUpError', errors: [{message: "ExistedUser", path: "email"}]});
+    res.status(400).json({name: 'UserSignUpError', errors: [{message: "User existed", path: "email"}]});
   }
 });
 
@@ -51,7 +52,7 @@ users.post("/login", (req, res) => {
           let token = jwt.sign({ user }, "123");
           res.status(200).json({ token: token });
         }else{
-          res.status(400).json({ error: "wrong pass" });
+          res.status(400).json({ error: "Wrong pass" });
         }
       } else {
         res.status(400).json({ error: "User does not exist" });

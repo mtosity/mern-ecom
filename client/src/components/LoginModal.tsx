@@ -42,7 +42,8 @@ export function LoginModal() {
 
   const [SIEmail, setSIEmail] = useState("");
   const [SIPassword, setSIPassword] = useState("");
-  
+  const [SIError, setSIError] = useState({})
+
   const [SUName, setSUName] = useState("");
   const [SUEmail, setSUEmail] = useState("");
   const [SUPassword, setSUPassword] = useState("");
@@ -78,10 +79,15 @@ export function LoginModal() {
       referrerPolicy: "no-referrer", // no-referrer, *client
       body: JSON.stringify(body) // body data type must match "Content-Type" header
     });
-    const { token } = await response.json();
-    await localStorage.setItem("token", token);
-    setLoadSI(false);
-    dispatcher({ type: GlobalActionType.UserLoggedIn });
+    const res_json = await response.json();
+    if (response.status === 200) {
+      await localStorage.setItem("token", res_json.token);
+      setLoadSI(false);
+      dispatcher({ type: GlobalActionType.UserLoggedIn });
+    } else{
+      console.log(res_json);
+      setLoadSI(false);
+    }
   };
 
   const handleSUForm = async (e: any) => {

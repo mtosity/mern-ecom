@@ -15,7 +15,7 @@ export const CartNav: FunctionComponent<CartNavProps> = ({
       <div className="pl-8 border border-blue-400 inline-block flex justify-between items-center relative">
         <div className="flex justify-center items-center flex-col w-full">
           <p className="font-bold">SHOPPING CART</p>
-          <p className="text-xs">2 items - 122.38 €</p>
+          <p className="text-xs lg:hidden">2 items - 122.38 €</p>
         </div>
         <CartIcon/>
       </div>

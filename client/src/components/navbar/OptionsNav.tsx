@@ -44,7 +44,7 @@ export function OptionsNav() {
     customStyles.content = {
       ...customStyles.content,
       transform: "translate(-50%, -50%) scale(1)",
-      transition: "transform 150ms ease-out"
+      transition: "transform 300ms ease-out"
     };
   }
 
@@ -61,26 +61,26 @@ export function OptionsNav() {
   );
   return (
     <div
-      className="grid grid-cols-6 text-center md:grid-cols-3 text-sm text-blue-400 font-bold shadow	"
+      className="grid grid-cols-12 text-center md:grid-cols-7 text-sm text-blue-400 font-bold shadow	"
       style={{ background: "linear-gradient( #00387d,#2C3748)" }}
     >
-      <Link to="/appdownload" className="btn-nav">
+      <Link to="/appdownload" className="btn-nav col-span-3">
         SAVE MORE ON APP
       </Link>
-      <a href="" className="btn-nav">
+      <a href="" className="btn-nav col-span-2">
         SELL ON LAZADA
       </a>
-      <a href="" className="btn-nav">
+      <a href="" className="btn-nav col-span-2">
         CUSTOMER CARE
       </a>
-      <a href="" className="btn-nav">
+      <a href="" className="btn-nav col-span-2 md:col-span-3">
         TRACK MY ORDER
       </a>
       {authenticated ? (
-        <a className="btn-nav col-span-2 hover:cursor-pointer">User</a>
+        <a className="btn-nav col-span-3 md:col-span-4 hover:cursor-pointer">User</a>
       ) : (
         <a
-          className="btn-nav col-span-2 hover:cursor-pointer"
+          className="btn-nav col-span-3 md:col-span-4 hover:cursor-pointer"
           onClick={() =>
             dispatcher({ type: GlobalActionType.SetOpenLoginModalTrue })
           }
