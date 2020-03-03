@@ -12,8 +12,8 @@ app.use(cors());
 app.use(bodyParsers());
 // app.use(express.json());
 
-app.get('/', (req: Request, res: Response) => {
-    res.send('Hello')
+app.get('/api', (req: Request, res: Response) => {
+    res.json({hello: 'hello'})
 })
 
 app.get('/register', (req: Request, res: Response) => {

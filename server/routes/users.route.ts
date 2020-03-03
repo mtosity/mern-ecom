@@ -37,8 +37,8 @@ users.post("/register", async (req, res) => {
       const newUser = await User.create({
         email: req.body.email,
         password: hashPass,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
+        firstName: req.body.name,
+        lastName: req.body.name,
         roleId: 1
       });
       res.json({ status: req.body.email + " registered!" });
@@ -60,7 +60,9 @@ users.post("/login", (req, res) => {
       if (user) {
         if (bcrypt.compareSync(req.body.password, user.password)) {
           let token = jwt.sign({ user }, "123");
-          res.header('auth-token', token).send(token);
+          res.status(200).json({ token: token });
+        }else{
+          res.status(400).json({ error: "wrong pass" });
         }
       } else {
         res.status(400).json({ error: "User does not exist" });
@@ -98,6 +100,8 @@ users.get("/profile", (req, res) => {
     //   .catch(err => {
     //     res.send("error: " + err);
     //   });
+  } else{
+    res.json({error: 'no token'})
   }
 });
 

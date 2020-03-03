@@ -11,6 +11,7 @@ import { GlobalStateInterface } from "../Reducers/GlobalReducer";
 import LoginModal from "../components/LoginModal";
 import { GlobalActionType } from "../Actions";
 
+
 const customStyles: any = {
   content: {
     top: "50%",
@@ -28,7 +29,8 @@ const customStyles: any = {
     left: "0",
     right: "0",
     bottom: "0",
-    backgroundColor: "rgba(0,0,0,.6)"
+    backgroundColor: "rgba(0,0,0,.6)",
+    zIndex: 20
   }
 };
 
@@ -59,9 +61,6 @@ const Home = () => {
   return (
     <div className="w-full">
       {/* navbar */}
-      <div className="w-full z-10">
-        <Nav></Nav>
-      </div>
       {/* banner and categories */}
       <a
         href=""
@@ -77,7 +76,7 @@ const Home = () => {
           <Banner />
         </div>
       </div>
-      {/* Login modal */}
+      {/* Login modal, open when click sign in/sign up */}
       <Modal
         isOpen={OpenLoginModal}
         onAfterOpen={afterOpenModal}
