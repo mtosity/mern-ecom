@@ -1,18 +1,19 @@
 import React from "react";
-import Search from './Search'
+import Search from "./Search";
+import CartNav from "./CartNav";
+
+import Logo from '../images/logo.jpg'
 
 const Nav = () => {
   return (
-    <div className="w-full h-32 overflow-hidden flex items-center">
-      <a href="#" className="h-full items-center flex">
-        <img
-          src="https://i.ibb.co/s1GCt5h/shop-icon.png"
-          alt="shop-icon"
-          className="object-contain max-h-1/2"
-        />
-      </a>
-      <h1>T1 shop</h1>
-      <Search/>
+    <div className="w-full h-20 flex items-center px-2">
+      <img src={Logo} className="h-20 w-20" alt=""/>
+      <div className="w-2/3 h-10">
+        <Search />
+      </div>
+      <div className="w-1/3 mx-20">
+        <CartNav />
+      </div>
     </div>
   );
 };

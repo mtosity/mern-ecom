@@ -10,6 +10,10 @@ module.exports = {
     }
   },
   variants: {
-    backgroundColor: ['responsive', 'hover', 'focus', 'active'],
+    backgroundColor: ['hover', 'focus', 'active'],
+    opacity: ['hover', 'group-hover'],
+    pointerEvents: ['group-hover'],
+    transitionProperty: ['responsive', 'hover', 'focus', 'group-hover'],
+    translate: ['responsive', 'hover', 'group-hover'],
   },
 };
