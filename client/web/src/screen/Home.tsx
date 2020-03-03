@@ -1,5 +1,7 @@
 import React from "react";
 
+import Modal from "react-modal"
+
 import Nav from "../components/Nav";
 import Banner from "../components/Banner";
 import SideCate from "../components/SideCate";

@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+/* @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800'); */
 
 * {
   margin: 0px;
@@ -8,6 +9,7 @@
 body {
   margin: 0;
   font-family: 'Lora', sans-serif;
+	/* font-family: 'Montserrat', sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

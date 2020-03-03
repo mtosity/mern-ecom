@@ -1,8 +1,0 @@
-a:hover + .icon, /* when link is hovered select i */
-a + .icon:hover { /* when icon is hovered select i */
-  visibility: visible;
-}
-
-a .icon { /* in all other case hide it */
-    display: none;
-}
