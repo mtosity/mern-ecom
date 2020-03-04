@@ -10,7 +10,8 @@ import { Home } from "./screen/Home";
 import Store from "./Store";
 import { AppDownload } from "./screen/AppDownload";
 import { FOF } from "./screen/FOF";
-
+import { AdminScreen } from "./screen/AdminScreen";
+import './styles/font.css'
 const HomeSwitch = () => (
   <>
     <div className="w-full z-10">
@@ -27,10 +28,10 @@ const HomeSwitch = () => (
 const App = () => {
   return (
     <Provider store={Store}>
-      <div className="w-full" style={{ backgroundColor: "#FFFFF2" }}>
+      <div className="w-full main-container" style={{ backgroundColor: "#FFFFF2" }}>
         <BrowserRouter>
           <Switch>
-            <Route path="/admin" exact component={Home} />
+            <Route path="/admin" exact component={AdminScreen} />
             <Route path="/" component={HomeSwitch} />
           </Switch>
         </BrowserRouter>
