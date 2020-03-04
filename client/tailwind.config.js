@@ -20,7 +20,15 @@ module.exports = {
       "1/2": "50%",
       "3/4": "75%",
       full: "100%"
-    }
+    },
+    backgroundColor: theme => ({
+    ...theme('colors'),
+     'admin-topnav': '#1E2A31',
+     'admin-body': '#22313A',
+    }),
+   textColor: theme => ({
+   ...theme('colors'),
+   })
   },
   variants: {
     backgroundColor: ['hover', 'focus', 'active'],
@@ -32,6 +40,7 @@ module.exports = {
     borderWidth: ['responsive', 'hover'],
     borderColor: ['responsive', 'hover'],
     display: ['responsive', 'hover'],
-    cursor: ['responsive', 'hover']
+    cursor: ['responsive', 'hover'],
+    textColor: ['responsive', 'hover', 'active', 'group-hover'],
   },
 };
