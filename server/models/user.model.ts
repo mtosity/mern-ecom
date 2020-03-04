@@ -16,10 +16,9 @@ class User extends Model {
   public email!: string;
   public password!: string;
   public roleId!: number;
-  public firstName!: string;
-  public lastName!: string;
+  public name!: string;
+  public address!:string;
   public avatar!: string;
-  public active!: boolean;
 
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;

@@ -16,4 +16,5 @@ source: https://www.youtube.com/watch?v=mUdo6w87rh4
 * Connect to backend to sign in / up
 # Week 4:
 * Change file structure and script
-* Add react router to navbar top links
+* Add react router to navbar top links, add admin route
+* Change user model, add product model

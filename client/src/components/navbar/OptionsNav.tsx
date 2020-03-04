@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Dispatch, Action } from "redux";
 import { GlobalActionType } from "../../Actions";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { GlobalStateInterface } from "../../Reducers/GlobalReducer";
+import { AccountStateInterface } from "../../Reducers/AccountReducer";
 
 import Modal from "react-modal";
 import { LoginModal } from "../LoginModal";
+import { ApplicationState } from "../../Reducers/CombinedReducers";
 Modal.setAppElement("#root");
 
 const customStyles: any = {
@@ -33,10 +35,19 @@ const customStyles: any = {
 };
 
 export function OptionsNav() {
-  const OpenLoginModal = useSelector<GlobalStateInterface, boolean>(
-    state => state.OpenLoginModal
-  );
   const dispatcher = useDispatch();
+  const OpenLoginModal = useSelector<ApplicationState, boolean>(
+    state => state.GlobalReducer.OpenLoginModal
+  );
+  const authenticated = useSelector<ApplicationState, boolean>(
+    state => state.GlobalReducer.authenticated
+  );
+  const UserName = useSelector<ApplicationState, string>(
+    state => state.AccountReducer.name
+  );
+  // const UserName = useSelector<AccountStateInterface, string>(
+  //   state => state.name
+  // )
 
   function openModal() {}
 
@@ -56,9 +67,6 @@ export function OptionsNav() {
       transition: "transform 0"
     };
   }
-  const authenticated = useSelector<GlobalStateInterface, boolean>(
-    state => state.authenticated
-  );
   return (
     <div
       className="grid grid-cols-12 text-center md:grid-cols-7 text-sm text-blue-400 font-bold shadow	"
@@ -77,7 +85,7 @@ export function OptionsNav() {
         TRACK MY ORDER
       </a>
       {authenticated ? (
-        <a className="btn-nav col-span-3 md:col-span-4 hover:cursor-pointer">User</a>
+        <a className="btn-nav col-span-3 md:col-span-4 hover:cursor-pointer">{UserName}</a>
       ) : (
         <a
           className="btn-nav col-span-3 md:col-span-4 hover:cursor-pointer"

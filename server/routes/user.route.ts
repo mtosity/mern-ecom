@@ -59,8 +59,7 @@ users.post("/login", (req, res) => {
     .then(user => {
       if (user) {
         if (bcrypt.compareSync(req.body.password, user.password)) {
-          let token = jwt.sign({ user }, "123");
-          res.status(200).json({ token: token });
+          res.status(200).json(user);
         } else {
           res
             .status(400)

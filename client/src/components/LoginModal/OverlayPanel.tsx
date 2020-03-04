@@ -5,7 +5,7 @@ interface props {
   classes: any;
   setRightPanelActive: Function;
 }
-export const ChangeTransition = ({ classes, setRightPanelActive }: props) => {
+export const OverlayPanel = ({ classes, setRightPanelActive }: props) => {
   return (
     <div className="login-modal-overlay">
       <div className="login-modal-overlay-panel login-modal-overlay-left">

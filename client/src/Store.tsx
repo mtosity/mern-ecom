@@ -1,3 +1,4 @@
-import GlobalReducer from './Reducers/GlobalReducer';
+import {CombinedReducers} from './Reducers/CombinedReducers';
+
 import {createStore} from 'redux';
-export default createStore(GlobalReducer);
+export default createStore(CombinedReducers);

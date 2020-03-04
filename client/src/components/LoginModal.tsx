@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import classnames from "classnames";
 import { LoginForm } from "./LoginModal/LoginForm";
 import { SignUpForm } from "./LoginModal/SignUpForm";
-import { ChangeTransition } from "./LoginModal/ChangeTransition";
+import { OverlayPanel } from "./LoginModal/OverlayPanel";
 
 import "../styles/LoginModal.css";
 const classes = {
@@ -43,7 +43,7 @@ export function LoginModal() {
         <LoginForm classes={classes} styles={styles} />
       </div>
       <div className="login-modal-overlay-container">
-        <ChangeTransition
+        <OverlayPanel
           classes={classes}
           setRightPanelActive={setRightPanelActive}
         />

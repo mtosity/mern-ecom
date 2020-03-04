@@ -3,8 +3,9 @@ import classnames from "classnames";
 import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SyncLoader } from "react-spinners";
-import { GlobalActionType } from "../../Actions";
+import { GlobalActionType, AccountActionType } from "../../Actions";
 import { useDispatch } from "react-redux";
+import jwt from "jsonwebtoken";
 
 interface props {
   classes: any;
@@ -13,6 +14,12 @@ interface props {
 
 export const LoginForm = ({ classes, styles }: props) => {
   const dispatcher = useDispatch();
+  let isMounted = true;
+  useEffect(() => {
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   const [SIEmail, setSIEmail] = useState("");
   const [SIPassword, setSIPassword] = useState("");
@@ -27,7 +34,7 @@ export const LoginForm = ({ classes, styles }: props) => {
     e.preventDefault();
     setLoadSI(true);
     const oldToken = await localStorage.getItem("token");
-    if (false) {
+    if (!isMounted) {
       // var decoded = jwt.verify(oldToken, "123");
       // console.log(decoded);
       // setLoadSI(false);
@@ -50,18 +57,25 @@ export const LoginForm = ({ classes, styles }: props) => {
         referrerPolicy: "no-referrer", // no-referrer, *client
         body: JSON.stringify(body) // body data type must match "Content-Type" header
       });
-      const res_json = await response.json();
       if (response.status === 200) {
-        await localStorage.setItem("token", res_json.token);
+        const user = await response.json();
+        const { email, roleID, name, avatar, address } = user;
+        dispatcher({
+          type: AccountActionType.AddAccount,
+          payload: { email, roleID, name, avatar, address }
+        });
+        localStorage.setItem("auth-token", jwt.sign(user, "123"));
+        setLoadSI(false);
         dispatcher({ type: GlobalActionType.UserLoggedIn });
       } else {
+        const res_error = await response.json();
         setSIError({
           isError: true,
-          path: res_json.errors[0].path,
-          message: res_json.errors[0].message
+          path: res_error.errors[0].path,
+          message: res_error.errors[0].message
         });
+        setLoadSI(false);
       }
-      setLoadSI(false);
     }
   };
   const { isError, path, message } = SIError;

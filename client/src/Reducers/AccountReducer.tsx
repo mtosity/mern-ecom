@@ -1,31 +1,36 @@
 import { Reducer, Action } from "redux";
-import { GlobalActionType } from "../Actions";
+import { GlobalActionType, AccountActionType } from "../Actions";
 
-export interface UserStateInterface {
-  OpenLoginModal: boolean;
-  authenticated: boolean;
+export interface AccountStateInterface {
+  email: string;
+  roleId: number;
+  name: string;
+  avatar: string;
+  address: string;
 }
 
-const INIT_STATE: UserStateInterface = {
-  OpenLoginModal: false,
-  authenticated: false
+const INIT_STATE: AccountStateInterface = {
+  email: "",
+  roleId: -1,
+  name: "",
+  avatar: "",
+  address: ""
 };
 
-const UserReducer: Reducer = (state = INIT_STATE, action: Action) => {
+interface AccountActionInterface extends Action {
+  payload?: AccountStateInterface;
+}
+
+export const AccountReducer: Reducer<
+AccountStateInterface,
+  AccountActionInterface
+> = (state = INIT_STATE, action: AccountActionInterface) => {
   switch (action.type) {
-    case GlobalActionType.SetOpenLoginModalTrue:
-      return { ...state, OpenLoginModal: true };
-    case GlobalActionType.SetOpenLoginModalFalse:
-      return { ...state, OpenLoginModal: false };
-    case GlobalActionType.SetAuthenticatedTrue:
-      return { ...state, authenticated: true };
-    case GlobalActionType.SetAuthenticatedFalse:
-      return { ...state, authenticated: false };
-      case GlobalActionType.UserLoggedIn:
-        return { ...state, authenticated: true, OpenLoginModal: false };
+    case AccountActionType.AddAccount:
+      return action.payload;
+    case AccountActionType.DeleteAccount:
+      return JSON.parse(JSON.stringify(INIT_STATE));
     default:
       return state;
   }
 };
-
-export default UserReducer;
