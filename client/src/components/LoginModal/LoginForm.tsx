@@ -57,6 +57,9 @@ export const LoginForm = ({ classes, styles }: props) => {
         referrerPolicy: "no-referrer", // no-referrer, *client
         body: JSON.stringify(body) // body data type must match "Content-Type" header
       });
+      // const user = await response.json();
+      // console.log(user);
+      console.log(response);
       if (response.status === 200) {
         const user = await response.json();
         const { email, roleID, name, avatar, address } = user;

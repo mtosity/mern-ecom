@@ -2,16 +2,16 @@
 module.exports = {
   theme: {
     screens: {
-      'sm': {'max': '639px'},
+      sm: { max: "639px" },
       // => @media (max-width: 639px) { ... }
 
-      'md': {'max': '767px'},
+      md: { max: "767px" },
       // => @media (max-width: 767px) { ... }
 
-      'lg': {'max': '1023px'},
+      lg: { max: "1023px" },
       // => @media (max-width: 1023px) { ... }
 
-      'xl': {'max': '1279px'},
+      xl: { max: "1279px" }
       // => @media (max-width: 1279px) { ... }
     },
     maxHeight: {
@@ -22,25 +22,33 @@ module.exports = {
       full: "100%"
     },
     backgroundColor: theme => ({
-    ...theme('colors'),
-     'admin-topnav': '#1E2A31',
-     'admin-body': '#22313A',
+      ...theme("colors"),
+      "admin-topnav": "#1E2A31",
+      "admin-body": "#22313A",
+      "admin-card": "#2B3C46"
     }),
-   textColor: theme => ({
-   ...theme('colors'),
-   })
+    textColor: theme => ({
+      ...theme("colors"),
+      "admin-word": "#7996A9",
+      "admin-title": "#DDF3FE"
+    }),
+    borderColor: theme => ({
+      ...theme("colors"),
+      "admin-word": "#7996A9",
+      "admin-title": "#DDF3FE"
+    })
   },
   variants: {
-    backgroundColor: ['hover', 'focus', 'active'],
-    opacity: ['hover', 'group-hover'],
-    pointerEvents: ['group-hover'],
-    transitionProperty: ['responsive', 'hover', 'focus', 'group-hover'],
-    translate: ['responsive', 'hover', 'group-hover'],
-    borderStyle: ['responsive', 'hover'],
-    borderWidth: ['responsive', 'hover'],
-    borderColor: ['responsive', 'hover'],
-    display: ['responsive', 'hover'],
-    cursor: ['responsive', 'hover'],
-    textColor: ['responsive', 'hover', 'active', 'group-hover'],
-  },
+    backgroundColor: ["hover", "focus", "active"],
+    opacity: ["hover", "group-hover"],
+    pointerEvents: ["group-hover"],
+    transitionProperty: ["responsive", "hover", "focus", "group-hover"],
+    translate: ["responsive", "hover", "group-hover"],
+    borderStyle: ["responsive", "hover"],
+    borderWidth: ["responsive", "hover"],
+    borderColor: ["responsive", "hover"],
+    display: ["responsive", "hover"],
+    cursor: ["responsive", "hover"],
+    textColor: ["responsive", "hover", "active", "group-hover"]
+  }
 };

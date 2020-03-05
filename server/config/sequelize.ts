@@ -14,9 +14,14 @@ import {
 //     dialect: 'mysql'
 // });
 
-const sequelize = new Sequelize(
-  "mysql://jn2Sep8vJX:cHLEv1lOPS@remotemysql.com:3306/jn2Sep8vJX"
-);
+// const sequelize = new Sequelize(
+//   "mysql://jn2Sep8vJX:cHLEv1lOPS@remotemysql.com:3306/jn2Sep8vJX"
+// );
+const sequelize = new Sequelize('minhtamos', 'minhtamos', '123qwe!@#', {
+    host: 'db4free.net',
+    port: 3306,
+    dialect: 'mysql'
+});
 
 // sequelize
 //   .sync()

@@ -11,7 +11,7 @@ interface props {
 }
 
 export const SideNavLink = ({icon, iconColor, focus}: props) => {
-    const textClass = "ml-4 font-thin text-gray-600 text-sm group-hover:text-gray-400"
+    const textClass = "ml-4 font-hairline text-admin-word text-sm group-hover:text-admin-title"
     const linkClass = classnames("flex items-center w-full p-4 group", {
         "bg-admin-topnav rounded text-blue-00": focus
     })
