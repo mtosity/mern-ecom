@@ -12,12 +12,13 @@ import { uuid } from "uuidv4";
 
 class Product extends Model {
     public id!: number;
-    public userID!: number;
     public title!: string;
     public description!: string;
     public quantity!:number;
-    public status!:string;
-    public reviewStart!:number;
+    public image!:string;
+    public originPrice!:number;
+    public salePrice!:number;
+    public categoryID!:number;
   
     public readonly createdAt!: Date;
     public readonly updatedAt!: Date;
@@ -28,15 +29,6 @@ Product.init({
     type: DataTypes.INTEGER.UNSIGNED,
     primaryKey: true,
     autoIncrement: true
-  },
-  sellerID: {
-    type: DataTypes.INTEGER.UNSIGNED,
-    allowNull: false,
-    validate: {
-      notEmpty: {
-        msg: "Product have no seller"
-      }
-    }
   },
   title: {
     type: DataTypes.STRING,
@@ -57,7 +49,7 @@ Product.init({
     }
   },
   quantity: {
-    type: DataTypes.STRING,
+    type: DataTypes.INTEGER.UNSIGNED,
     allowNull: false,
     validate: {
       notEmpty: {
@@ -65,42 +57,58 @@ Product.init({
       },
       min: {
         args: [0],
-        msg: "Product must have quantity greater than zero"
+        msg: "Product must have quantity greater or equal than zero"
       }
     }
   },
-  status: {
+  image: {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
       notEmpty: {
-        msg: "Product have no status"
-      },
-      isIn: {
-        args: [['avalible', 'OutOffStock']],
-        msg: "Product have unknown status",
+        msg: "Product have no image"
       }
     }
   },
-  reviewStart: {
-    type: DataTypes.FLOAT.UNSIGNED,
+  originPrice: {
+    type: DataTypes.INTEGER.UNSIGNED,
     allowNull: false,
     validate: {
       notEmpty: {
-        msg: "Product have no start"
+        msg: "Product have no origin price"
       },
       min: {
         args: [0],
-        msg: "Product have start lower than zero",
-      },
-      max: {
-        args: [5],
-        msg: "Product have start greater than five",
-      }            
+        msg: "Product must have origin price greater or equal than zero"
+      }
     }
-  }
+  },
+  salePrice: {
+    type: DataTypes.INTEGER.UNSIGNED,
+    allowNull: false,
+    validate: {
+      notEmpty: {
+        msg: "Product have no sale price"
+      },
+      min: {
+        args: [0],
+        msg: "Product must have sale price greater or equal than zero"
+      }
+    }
+  },
+  categoryID: {
+    type: DataTypes.INTEGER.UNSIGNED,
+    allowNull: false,
+    validate: {
+      notEmpty: {
+        msg: "Product have no category"
+      }
+    }
+  },
 },
 {
   sequelize: sequelize,
   tableName: "product"
 })
+
+export default Product;

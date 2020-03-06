@@ -4,7 +4,8 @@ import cors from 'cors';
 
 import sequelize from './config/sequelize';
 
-import user from './routes/user.route'
+import UserRoute from './routes/user.route'
+import ProductRoute from './routes/product.route';
 require('dotenv').config()
 
 const app = express();
@@ -20,7 +21,8 @@ app.get('/register', (req: Request, res: Response) => {
     res.redirect('/')
 })
 
-app.use('/user', user);
+app.use('/user', UserRoute);
+app.use('/product', ProductRoute);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(port))
