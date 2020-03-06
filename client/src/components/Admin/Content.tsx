@@ -9,7 +9,7 @@ import { useTable } from 'react-table'
 
 export const Content = ({children}: props) => {
     return (
-        <div className=" bg-transparent absolute w-30 h-30" style={{top: '-120px', left: '304px', bottom: '0px', right: '40px'}}>
+        <div className=" bg-transparent absolute w-30 h-30" style={{top: '-120px', left: '280px', bottom: '0px', right: '40px'}}>
             {children}
         </div>
     )
