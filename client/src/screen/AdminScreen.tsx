@@ -1,11 +1,9 @@
 import React from 'react'
 import { NavTop } from '../components/Admin/NavTop'
-import { Colors } from '../utils/AdminColor'
 import { SideNav } from '../components/Admin/SideNav'
-import { Content } from '../components/Admin/Content'
-import { Title } from '../components/Admin/Content/Title'
-import { TableView } from '../components/Admin/Content/Table'
-import { ContentCard } from '../components/Admin/Content/ContentCard'
+import { Switch, Route } from 'react-router-dom'
+import { AdminProducts } from './Admin/AdminProducts'
+import { FOF } from './FOF'
 
 export const AdminScreen = () => {
     return (
@@ -16,12 +14,9 @@ export const AdminScreen = () => {
                     <SideNav/>
                 </div>
                 <div className="">
-                    <Content>
-                        <Title title="DATA TABLES"/>
-                        <ContentCard>
-                            <TableView/>
-                        </ContentCard>
-                    </Content>
+                    <Switch>
+                        <Route path="/admin/products" exact component={AdminProducts}/>
+                    </Switch>
                 </div>
             </div>
         </div>
