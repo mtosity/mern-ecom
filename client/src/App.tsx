@@ -12,6 +12,7 @@ import { AppDownload } from "./screen/AppDownload";
 import { FOF } from "./screen/FOF";
 import { AdminScreen } from "./screen/AdminScreen";
 import './styles/font.css'
+
 const HomeSwitch = () => (
   <>
     <div className="w-full z-10">
@@ -31,7 +32,7 @@ const App = () => {
       <div className="w-full main-container" style={{ backgroundColor: "#FFFFF2" }}>
         <BrowserRouter>
           <Switch>
-            <Route path="/admin" exact component={AdminScreen} />
+            <Route path="/admin" component={AdminScreen} />
             <Route path="/" component={HomeSwitch} />
           </Switch>
         </BrowserRouter>
