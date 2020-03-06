@@ -30,12 +30,14 @@ module.exports = {
     textColor: theme => ({
       ...theme("colors"),
       "admin-word": "#7996A9",
-      "admin-title": "#DDF3FE"
+      "admin-title": "#DDF3FE",
+      "admin-input": "#97B9D0"
     }),
     borderColor: theme => ({
       ...theme("colors"),
-      "admin-word": "#7996A9",
-      "admin-title": "#DDF3FE"
+      "admin-word": "#566C7C",
+      "admin-title": "#C2D8E3",
+      "admin-input": '#7C98AB'
     })
   },
   variants: {
@@ -46,7 +48,7 @@ module.exports = {
     translate: ["responsive", "hover", "group-hover"],
     borderStyle: ["responsive", "hover"],
     borderWidth: ["responsive", "hover"],
-    borderColor: ["responsive", "hover"],
+    borderColor: ["responsive", "hover", "focus"],
     display: ["responsive", "hover"],
     cursor: ["responsive", "hover"],
     textColor: ["responsive", "hover", "active", "group-hover"]
