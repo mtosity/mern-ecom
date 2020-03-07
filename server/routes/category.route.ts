@@ -23,7 +23,12 @@ CategoryRoute.post("/add", async (req, res) => {
   } catch (error) {
     res.status(400).json(error);    
   }
-
 })
+
+CategoryRoute.get("/all", async (req, res) => {
+  const categories = await Category.findAll();
+  res.json({ categories });
+});
+
 
 export default CategoryRoute;

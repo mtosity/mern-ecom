@@ -5,6 +5,8 @@ import { Content } from "../../components/Admin/Content";
 import { AddProductForm } from "../../components/Admin/AdminProduct/AddProductForm";
 import { AdminSyncTableButton } from "../../components/Admin/Content/AdminSyncTableButton";
 import { AddCategoryForm } from "../../components/Admin/AdminCategory/AddCategoryForm";
+import { AdminTable } from "../../components/Admin/Content/AdminTable";
+import { CategoryTable } from "../../components/Admin/AdminCategory/CategoryTable";
 
 export const AdminCategories = () => {
   return (
@@ -13,6 +15,9 @@ export const AdminCategories = () => {
       <ContentCard>
         <Title title="Add new category" />
         <AddCategoryForm/>
+      </ContentCard>
+      <ContentCard>
+        <CategoryTable/>
       </ContentCard>
       <ContentCard>
         <Title title="Configure database" color="red" />
