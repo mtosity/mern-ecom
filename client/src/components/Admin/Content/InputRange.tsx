@@ -1,10 +1,13 @@
 import * as React from 'react';
 import { Range, getTrackBackground } from 'react-range';
-const STEP = 1;
-const MIN = 1;
-const MAX = 100;
 
-export const InputRange = () => {
+interface props {
+  step: number;
+  min:number;
+  max:number;
+}
+
+export const InputRange = ({step, min, max}: props) => {
   const [state, setState] = React.useState({values: [50]})
     return (
       <div
@@ -15,9 +18,9 @@ export const InputRange = () => {
       >
         <Range
           values={state.values}
-          step={STEP}
-          min={MIN}
-          max={MAX}
+          step={step}
+          min={min}
+          max={max}
           onChange={values => setState({ values })}
           renderTrack={({ props, children }) => (
             <div
@@ -39,8 +42,8 @@ export const InputRange = () => {
                   background: getTrackBackground({
                     values: state.values,
                     colors: ['#368D8D', '#1E2A31'],
-                    min: MIN,
-                    max: MAX
+                    min: min,
+                    max: max
                   }),
                   alignSelf: 'center'
                 }}
