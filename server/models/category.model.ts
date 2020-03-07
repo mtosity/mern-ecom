@@ -13,7 +13,6 @@ import { uuid } from "uuidv4";
 class Category extends Model {
   public id!: number;
   public name!: string;
-  public gender!: string;
 
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
@@ -35,24 +34,11 @@ Category.init(
         }
       }
     },
-    gender: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: {
-          msg: "Product have no gender"
-        },
-        isIn: {
-          args: [["female", "male", "both"]],
-          msg: "Product have gender not in female, male or both"
-        }
-      }
-    }
   },
   {
     sequelize: sequelize,
-    tableName: "product"
+    tableName: "category"
   }
 );
 
-export default Product;
+export default Category;

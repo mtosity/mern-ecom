@@ -7,6 +7,8 @@ interface props {
   name: string;
   type: string;
   textarea?: boolean;
+  value: string;
+  onChange: Function;
 }
 
 export const AdminInput = ({
@@ -14,7 +16,9 @@ export const AdminInput = ({
   placeholder,
   name,
   type,
-  textarea
+  textarea,
+  value,
+  onChange
 }: props) => {
   return textarea ? (
     <textarea
@@ -25,6 +29,8 @@ export const AdminInput = ({
       )}
       name={name}
       placeholder={placeholder}
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
     />
   ) : (
     <input
@@ -35,6 +41,8 @@ export const AdminInput = ({
         classname,
         "p-2 mb-4 text-admin-input rounded border border-admin-word bg-admin-card text-sm w-1/2 outline-none focus:border-admin-input",
       )}
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
     />
   );
 };

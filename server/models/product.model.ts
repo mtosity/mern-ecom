@@ -19,6 +19,7 @@ class Product extends Model {
     public originPrice!:number;
     public salePrice!:number;
     public categoryID!:number;
+    public gender!: string;
   
     public readonly createdAt!: Date;
     public readonly updatedAt!: Date;
@@ -105,6 +106,19 @@ Product.init({
       }
     }
   },
+  gender: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: {
+        msg: "Product have no gender"
+      },
+      isIn: {
+        args: [["female", "male", "both"]],
+        msg: "Product have gender not in female, male or both"
+      }
+    }
+  }
 },
 {
   sequelize: sequelize,

@@ -17,7 +17,6 @@ export const SideNavLink: React.FC<props> = ({
   title,
   to
 }: props) => {
-  console.log(to);
 
   return (
     <NavLink

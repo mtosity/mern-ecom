@@ -8,9 +8,9 @@ import {RoleType} from "../utils/RoleType";
 const ProductRoute = express.Router();
 require("dotenv").config();
 
-ProductRoute.get("/", (req, res) => {
-    Product.sync();
-  res.json({ sa: "sla" });
+ProductRoute.get("/sync", async (req, res) => {
+  await Product.sync();
+  res.json({ msg: "Table synced" });
 });
 
 export default ProductRoute;

@@ -6,6 +6,7 @@ import sequelize from './config/sequelize';
 
 import UserRoute from './routes/user.route'
 import ProductRoute from './routes/product.route';
+import CategoryRoute from './routes/category.route';
 require('dotenv').config()
 
 const app = express();
@@ -13,16 +14,20 @@ app.use(cors());
 app.use(bodyParsers());
 // app.use(express.json());
 
-app.get('/api', (req: Request, res: Response) => {
-    res.json({hello: 'hello'})
-})
+// app.get('/api', (req: Request, res: Response) => {
+//     res.json({hello: 'hello'})
+// })
 
 app.get('/register', (req: Request, res: Response) => {
     res.redirect('/')
 })
 
-app.use('/user', UserRoute);
-app.use('/product', ProductRoute);
+const api = express.Router();
+api.use('/user', UserRoute);
+api.use('/product', ProductRoute);
+api.use('/category', CategoryRoute);
+
+app.use('/api', api);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(port))
