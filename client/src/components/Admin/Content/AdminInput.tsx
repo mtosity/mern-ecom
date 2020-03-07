@@ -3,7 +3,7 @@ import classnames from "classnames";
 
 interface props {
   classname?: string;
-  placeholder: string;
+  placeholder?: string;
   name: string;
   type: string;
   textarea?: boolean;
@@ -20,8 +20,8 @@ export const AdminInput = ({
     <textarea
       rows={3}
       className={classnames(
-        "p-2 mb-4 text-admin-input rounded border border-admin-word bg-admin-card text-sm w-1/2 outline-none focus:border-admin-input",
-        classname
+        classname,
+        "p-2 mb-4 text-admin-input rounded border border-admin-word bg-admin-card text-sm w-1/2 outline-none focus:border-admin-input", 
       )}
       name={name}
       placeholder={placeholder}
@@ -32,8 +32,8 @@ export const AdminInput = ({
       name={name}
       placeholder={placeholder}
       className={classnames(
+        classname,
         "p-2 mb-4 text-admin-input rounded border border-admin-word bg-admin-card text-sm w-1/2 outline-none focus:border-admin-input",
-        classname
       )}
     />
   );

@@ -4,6 +4,7 @@ import { SideNav } from '../components/Admin/SideNav'
 import { Switch, Route } from 'react-router-dom'
 import { AdminProducts } from './Admin/AdminProducts'
 import { FOF } from './FOF'
+import { AdminCategories } from './Admin/AdminCategories'
 
 export const AdminScreen = () => {
     return (
@@ -16,6 +17,7 @@ export const AdminScreen = () => {
                 <div className="">
                     <Switch>
                         <Route path="/admin/products" exact component={AdminProducts}/>
+                        <Route path="/admin/categories" exact component={AdminCategories}/>
                     </Switch>
                 </div>
             </div>
