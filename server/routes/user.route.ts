@@ -8,8 +8,13 @@ import {RoleType} from "../utils/RoleType";
 const users = express.Router();
 require("dotenv").config();
 
-users.get("/", (req, res) => {
+users.get("/sync", (req, res) => {
   User.sync();
+  res.json({ sa: "sla" });
+});
+
+users.get("/sync/force", (req, res) => {
+  User.sync({force: true});
   res.json({ sa: "sla" });
 });
 

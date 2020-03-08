@@ -27,9 +27,9 @@ class Product extends Model {
 
 Product.init({
   id:{
-    type: DataTypes.INTEGER.UNSIGNED,
+    type: DataTypes.UUID,
     primaryKey: true,
-    autoIncrement: true
+    defaultValue: uuid()
   },
   title: {
     type: DataTypes.STRING,

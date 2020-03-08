@@ -27,9 +27,9 @@ class User extends Model {
 User.init(
   {
     id: {
-      type: DataTypes.INTEGER.UNSIGNED,
+      type: DataTypes.UUID,
       primaryKey: true,
-      autoIncrement: true
+      defaultValue: uuid()
     },
     email: {
       type: DataTypes.STRING,

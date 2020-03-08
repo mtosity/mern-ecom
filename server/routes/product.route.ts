@@ -12,5 +12,9 @@ ProductRoute.get("/sync", async (req, res) => {
   await Product.sync();
   res.json({ msg: "Table synced" });
 });
+ProductRoute.get("/sync/force", async (req, res) => {
+  await Product.sync({force: true});
+  res.json({ msg: "Table synced" });
+});
 
 export default ProductRoute;

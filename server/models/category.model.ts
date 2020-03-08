@@ -21,9 +21,9 @@ class Category extends Model {
 Category.init(
   {
     id: {
-      type: DataTypes.INTEGER.UNSIGNED,
+      type: DataTypes.UUID,
       primaryKey: true,
-      autoIncrement: true
+      defaultValue: uuid()
     },
     name: {
       type: DataTypes.STRING,
