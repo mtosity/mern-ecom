@@ -27,34 +27,21 @@ createTheme("dark", {
   }
 });
 
-const data = [{ id: 1, title: "Conan the Barbarian", year: "1982" }];
-const columns = [
-  {
-    name: "Title",
-    selector: "title",
-    sortable: true
-  },
-  {
-    name: "Year",
-    selector: "year",
-    sortable: true,
-    right: true
-  }
-];
-
 interface props {
   columns: IDataTableColumn<Object>[];
   data: Array<Object>;
   title: string;
+  onRowDoubleClicked: Function;
 }
 
-export const AdminTable = ({columns, data, title}: props) => {
+export const AdminTable = ({columns, data, title, onRowDoubleClicked}: props) => {
   return (
     <DataTable
       title={title}
       columns={columns}
       data={data}
       theme="dark"
+      onRowDoubleClicked={(row) => onRowDoubleClicked(row)}
     />
   );
 };

@@ -1,5 +1,4 @@
 import React from 'react'
-import makeData from './makeData';
 
 import { useTable } from 'react-table'
 

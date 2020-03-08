@@ -31,7 +31,7 @@ Category.init(
       validate: {
         notEmpty: {
           msg: "Product have no name"
-        }
+        },
       }
     },
   },

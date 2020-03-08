@@ -5,18 +5,28 @@ import { AdminButton } from "../Content/AdminButton";
 
 export const AddCategoryForm = () => {
   const [name, setName] = useState("");
+  const [msg, setMsg] = useState("");
+  const [msgColor, setMsgColor] = useState("");
   const addCate = async () => {
     const body = { name: name };
-    const response = await fetch('/api/category/add', {
-      method: "POST",
-      mode: "cors", 
+    const res = await fetch("/api/category", {
+      method: "PUT",
+      mode: "cors",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(body) 
+      body: JSON.stringify(body)
     });
-    const res_json = response.json();
-    console.log(res_json);
+    if (res.status === 200) {
+      const { status } = await res.json();
+      setMsg(status);
+      setMsgColor("green");
+    } else {
+      const { errors } = await res.json();
+      console.log(errors);
+      setMsg(errors[0].message);
+      setMsgColor("red");
+    }
   };
   return (
     <>
@@ -30,7 +40,10 @@ export const AddCategoryForm = () => {
           onChange={setName}
         />
       </div>
-      <AdminButton title="Add" onClick={() => addCate()} />
+      <div className="flex items-center">
+        <AdminButton title="Add" onClick={() => addCate()} />
+        <p className="ml-4" style={{color: msgColor}}>{msg}</p>
+      </div>
     </>
   );
 };
