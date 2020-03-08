@@ -87,34 +87,4 @@ users.post("/login", (req, res) => {
     });
 });
 
-users.get("/profile", (req, res) => {
-  const token = req.header("auth-token");
-  console.log(token);
-  if (token !== undefined) {
-    try {
-      var decoded = jwt.verify(token, "123");
-      res.send(decoded);
-    } catch (error) {
-      res.send(error);
-    }
-    // User.findOne({
-    //   where: {
-    //     id: decoded.id
-    //   }
-    // })
-    //   .then(user => {
-    //     if (user) {
-    //       res.json(user);
-    //     } else {
-    //       res.send("User does not exist");
-    //     }
-    //   })
-    //   .catch(err => {
-    //     res.send("error: " + err);
-    //   });
-  } else {
-    res.json({ error: "no token" });
-  }
-});
-
 export default users;
