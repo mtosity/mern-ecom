@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import { InputTitle } from "../Content/InputTitle";
 import { AdminInput } from "../Content/AdminInput";
 import { AdminButton } from "../Content/AdminButton";
+import Swal from 'sweetalert2';
 
 export const AddCategoryForm = () => {
   const [name, setName] = useState("");
-  const [msg, setMsg] = useState("");
-  const [msgColor, setMsgColor] = useState("");
   const addCate = async () => {
     const body = { name: name };
     const res = await fetch("/api/category", {
@@ -19,13 +18,19 @@ export const AddCategoryForm = () => {
     });
     if (res.status === 200) {
       const { status } = await res.json();
-      setMsg(status);
-      setMsgColor("green");
+      Swal.fire({
+        title: `<p class="text-admin-title">${status}</p>`,
+        icon: 'success',
+        showCancelButton: true,
+        background: '#1E2A31',
+      })
     } else {
       const { errors } = await res.json();
-      console.log(errors);
-      setMsg(errors[0].message);
-      setMsgColor("red");
+      Swal.fire({
+        title: `<p class="text-admin-title">${errors[0].message}</p>`,
+        icon: 'error',
+        background: '#1E2A31',
+      })
     }
   };
   return (
@@ -42,7 +47,6 @@ export const AddCategoryForm = () => {
       </div>
       <div className="flex items-center">
         <AdminButton title="Add" onClick={() => addCate()} />
-        <p className="ml-4" style={{color: msgColor}}>{msg}</p>
       </div>
     </>
   );
