@@ -4,9 +4,15 @@ import bcrypt from "bcrypt";
 import { LoginError, SignUpError } from "../utils/ErrorType";
 import { RoleType } from "../utils/RoleType";
 import Category from "../models/category.model";
+import { uuid } from "uuidv4";
 
 const CategoryRoute = express.Router();
 require("dotenv").config();
+
+CategoryRoute.get("/sync/force", async (req, res) => {
+  await Category.sync({force: true});
+  res.json({ msg: "Table synced" });
+});
 
 CategoryRoute.get("/sync", async (req, res) => {
   await Category.sync();
@@ -19,6 +25,7 @@ CategoryRoute.put("/", async (req, res) => {
     const existedCate = await Category.findOne({ where: { name: name } });
     if (existedCate === null) {
       await Category.create({
+        id: uuid(),
         name: name
       });
       res.status(200).json({ status: "added successful" });
@@ -47,7 +54,7 @@ CategoryRoute.delete("/", async (req, res) => {
 //   res.json({ msg: "Table synced" });
 // });
 
-CategoryRoute.get("/all", async (req, res) => {
+CategoryRoute.get("/", async (req, res) => {
   const categories = await Category.findAll();
   res.json({ categories });
 });

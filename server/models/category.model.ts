@@ -11,7 +11,7 @@ import sequelize from "../config/sequelize";
 import { uuid } from "uuidv4";
 
 class Category extends Model {
-  public id!: number;
+  public id!: string;
   public name!: string;
 
   public readonly createdAt!: Date;
