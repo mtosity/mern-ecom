@@ -42,7 +42,7 @@ export const SideNav = () => {
     <div className="flex-col items-center justify-center w-full">
       {
         nav.map(n => {
-          return <SideNavLink icon={n.icon} iconColor={n.iconColor} title={n.title} to={n.to}/>
+          return <SideNavLink icon={n.icon} iconColor={n.iconColor} title={n.title} to={n.to} key={n.title}/>
         })
       }
     </div>
