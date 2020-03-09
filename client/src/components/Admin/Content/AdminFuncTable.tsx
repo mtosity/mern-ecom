@@ -14,11 +14,11 @@ interface props {
   columns: Array<col>;
 }
 
-export const CategoryTable = ({ tableName, tableTitle, columns }: props) => {
+export const AdminFuncTable = ({ tableName, tableTitle, columns }: props) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const getTableData = () => {
-    fetch(`/api/${tableName}/all`).then(res => {
+    fetch(`/api/${tableName}`).then(res => {
       res.json().then(data => {
         switch (1) {
           default:
@@ -33,7 +33,7 @@ export const CategoryTable = ({ tableName, tableTitle, columns }: props) => {
   const deleteTableRow = async (row: any) => {
     Swal.fire({
       title: `<p class="text-admin-title">Are you sure?</p>`,
-      html: `<p class="text-admin-title">You gonna delete row id ${row.id}!</p>`,
+      html: `<p class="text-admin-title">You gonna delete the row id ${row.id}!</p>`,
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#BA3632",
@@ -83,7 +83,7 @@ export const CategoryTable = ({ tableName, tableTitle, columns }: props) => {
         "Double click the row to delete that row"
       </p>
       <AdminTable
-        title="Categories"
+        title={tableTitle}
         data={data}
         columns={columns}
         onRowDoubleClicked={deleteTableRow}

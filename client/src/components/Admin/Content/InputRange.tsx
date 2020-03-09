@@ -5,10 +5,12 @@ interface props {
   step: number;
   min:number;
   max:number;
+  values: number[];
+  onChange: Function;
 }
 
-export const InputRange = ({step, min, max}: props) => {
-  const [state, setState] = React.useState({values: [50]})
+export const InputRange = ({step, min, max, values, onChange}: props) => {
+  // const [state, setState] = React.useState({values: [50]})
     return (
       <div
         style={{
@@ -17,11 +19,11 @@ export const InputRange = ({step, min, max}: props) => {
         }}
       >
         <Range
-          values={state.values}
+          values={values}
           step={step}
           min={min}
           max={max}
-          onChange={values => setState({ values })}
+          onChange={values => onChange(values)}
           renderTrack={({ props, children }) => (
             <div
               onMouseDown={props.onMouseDown}
@@ -40,7 +42,7 @@ export const InputRange = ({step, min, max}: props) => {
                   width: '100%',
                   borderRadius: '4px',
                   background: getTrackBackground({
-                    values: state.values,
+                    values: values,
                     colors: ['#368D8D', '#1E2A31'],
                     min: min,
                     max: max
@@ -79,7 +81,7 @@ export const InputRange = ({step, min, max}: props) => {
           )}
         />
         <output style={{ marginTop: '15px' }} id="output" className="text-admin-input">
-          {state.values[0].toFixed(0)}
+          {values[0].toFixed(0)}
         </output>
       </div>
     );

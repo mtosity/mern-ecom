@@ -42,6 +42,7 @@ export const AdminTable = ({columns, data, title, onRowDoubleClicked}: props) =>
       data={data}
       theme="dark"
       onRowDoubleClicked={(row) => onRowDoubleClicked(row)}
+      selectableRows
     />
   );
 };
