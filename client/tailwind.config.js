@@ -29,9 +29,9 @@ module.exports = {
     }),
     textColor: theme => ({
       ...theme("colors"),
-      "admin-word": "#7996A9",
+      "admin-word": "#728EA0",
       "admin-title": "#DDF3FE",
-      "admin-input": "#97B9D0"
+      "admin-input": "#ADD0E8"
     }),
     borderColor: theme => ({
       ...theme("colors"),

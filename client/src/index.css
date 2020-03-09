@@ -7990,7 +7990,7 @@ video {
 }
 
 .text-admin-word {
-  color: #7996A9;
+  color: #728EA0;
 }
 
 .text-admin-title {
@@ -7998,7 +7998,7 @@ video {
 }
 
 .text-admin-input {
-  color: #97B9D0;
+  color: #ADD0E8;
 }
 
 .hover\:text-transparent:hover {
@@ -8374,7 +8374,7 @@ video {
 }
 
 .hover\:text-admin-word:hover {
-  color: #7996A9;
+  color: #728EA0;
 }
 
 .hover\:text-admin-title:hover {
@@ -8382,7 +8382,7 @@ video {
 }
 
 .hover\:text-admin-input:hover {
-  color: #97B9D0;
+  color: #ADD0E8;
 }
 
 .active\:text-transparent:active {
@@ -8758,7 +8758,7 @@ video {
 }
 
 .active\:text-admin-word:active {
-  color: #7996A9;
+  color: #728EA0;
 }
 
 .active\:text-admin-title:active {
@@ -8766,7 +8766,7 @@ video {
 }
 
 .active\:text-admin-input:active {
-  color: #97B9D0;
+  color: #ADD0E8;
 }
 
 .group:hover .group-hover\:text-transparent {
@@ -9142,7 +9142,7 @@ video {
 }
 
 .group:hover .group-hover\:text-admin-word {
-  color: #7996A9;
+  color: #728EA0;
 }
 
 .group:hover .group-hover\:text-admin-title {
@@ -9150,7 +9150,7 @@ video {
 }
 
 .group:hover .group-hover\:text-admin-input {
-  color: #97B9D0;
+  color: #ADD0E8;
 }
 
 .text-xs {
@@ -17861,7 +17861,7 @@ video {
   }
 
   .sm\:text-admin-word {
-    color: #7996A9;
+    color: #728EA0;
   }
 
   .sm\:text-admin-title {
@@ -17869,7 +17869,7 @@ video {
   }
 
   .sm\:text-admin-input {
-    color: #97B9D0;
+    color: #ADD0E8;
   }
 
   .sm\:hover\:text-transparent:hover {
@@ -18245,7 +18245,7 @@ video {
   }
 
   .sm\:hover\:text-admin-word:hover {
-    color: #7996A9;
+    color: #728EA0;
   }
 
   .sm\:hover\:text-admin-title:hover {
@@ -18253,7 +18253,7 @@ video {
   }
 
   .sm\:hover\:text-admin-input:hover {
-    color: #97B9D0;
+    color: #ADD0E8;
   }
 
   .sm\:active\:text-transparent:active {
@@ -18629,7 +18629,7 @@ video {
   }
 
   .sm\:active\:text-admin-word:active {
-    color: #7996A9;
+    color: #728EA0;
   }
 
   .sm\:active\:text-admin-title:active {
@@ -18637,7 +18637,7 @@ video {
   }
 
   .sm\:active\:text-admin-input:active {
-    color: #97B9D0;
+    color: #ADD0E8;
   }
 
   .group:hover .sm\:group-hover\:text-transparent {
@@ -19013,7 +19013,7 @@ video {
   }
 
   .group:hover .sm\:group-hover\:text-admin-word {
-    color: #7996A9;
+    color: #728EA0;
   }
 
   .group:hover .sm\:group-hover\:text-admin-title {
@@ -19021,7 +19021,7 @@ video {
   }
 
   .group:hover .sm\:group-hover\:text-admin-input {
-    color: #97B9D0;
+    color: #ADD0E8;
   }
 
   .sm\:text-xs {
@@ -27733,7 +27733,7 @@ video {
   }
 
   .md\:text-admin-word {
-    color: #7996A9;
+    color: #728EA0;
   }
 
   .md\:text-admin-title {
@@ -27741,7 +27741,7 @@ video {
   }
 
   .md\:text-admin-input {
-    color: #97B9D0;
+    color: #ADD0E8;
   }
 
   .md\:hover\:text-transparent:hover {
@@ -28117,7 +28117,7 @@ video {
   }
 
   .md\:hover\:text-admin-word:hover {
-    color: #7996A9;
+    color: #728EA0;
   }
 
   .md\:hover\:text-admin-title:hover {
@@ -28125,7 +28125,7 @@ video {
   }
 
   .md\:hover\:text-admin-input:hover {
-    color: #97B9D0;
+    color: #ADD0E8;
   }
 
   .md\:active\:text-transparent:active {
@@ -28501,7 +28501,7 @@ video {
   }
 
   .md\:active\:text-admin-word:active {
-    color: #7996A9;
+    color: #728EA0;
   }
 
   .md\:active\:text-admin-title:active {
@@ -28509,7 +28509,7 @@ video {
   }
 
   .md\:active\:text-admin-input:active {
-    color: #97B9D0;
+    color: #ADD0E8;
   }
 
   .group:hover .md\:group-hover\:text-transparent {
@@ -28885,7 +28885,7 @@ video {
   }
 
   .group:hover .md\:group-hover\:text-admin-word {
-    color: #7996A9;
+    color: #728EA0;
   }
 
   .group:hover .md\:group-hover\:text-admin-title {
@@ -28893,7 +28893,7 @@ video {
   }
 
   .group:hover .md\:group-hover\:text-admin-input {
-    color: #97B9D0;
+    color: #ADD0E8;
   }
 
   .md\:text-xs {
@@ -37605,7 +37605,7 @@ video {
   }
 
   .lg\:text-admin-word {
-    color: #7996A9;
+    color: #728EA0;
   }
 
   .lg\:text-admin-title {
@@ -37613,7 +37613,7 @@ video {
   }
 
   .lg\:text-admin-input {
-    color: #97B9D0;
+    color: #ADD0E8;
   }
 
   .lg\:hover\:text-transparent:hover {
@@ -37989,7 +37989,7 @@ video {
   }
 
   .lg\:hover\:text-admin-word:hover {
-    color: #7996A9;
+    color: #728EA0;
   }
 
   .lg\:hover\:text-admin-title:hover {
@@ -37997,7 +37997,7 @@ video {
   }
 
   .lg\:hover\:text-admin-input:hover {
-    color: #97B9D0;
+    color: #ADD0E8;
   }
 
   .lg\:active\:text-transparent:active {
@@ -38373,7 +38373,7 @@ video {
   }
 
   .lg\:active\:text-admin-word:active {
-    color: #7996A9;
+    color: #728EA0;
   }
 
   .lg\:active\:text-admin-title:active {
@@ -38381,7 +38381,7 @@ video {
   }
 
   .lg\:active\:text-admin-input:active {
-    color: #97B9D0;
+    color: #ADD0E8;
   }
 
   .group:hover .lg\:group-hover\:text-transparent {
@@ -38757,7 +38757,7 @@ video {
   }
 
   .group:hover .lg\:group-hover\:text-admin-word {
-    color: #7996A9;
+    color: #728EA0;
   }
 
   .group:hover .lg\:group-hover\:text-admin-title {
@@ -38765,7 +38765,7 @@ video {
   }
 
   .group:hover .lg\:group-hover\:text-admin-input {
-    color: #97B9D0;
+    color: #ADD0E8;
   }
 
   .lg\:text-xs {
@@ -47477,7 +47477,7 @@ video {
   }
 
   .xl\:text-admin-word {
-    color: #7996A9;
+    color: #728EA0;
   }
 
   .xl\:text-admin-title {
@@ -47485,7 +47485,7 @@ video {
   }
 
   .xl\:text-admin-input {
-    color: #97B9D0;
+    color: #ADD0E8;
   }
 
   .xl\:hover\:text-transparent:hover {
@@ -47861,7 +47861,7 @@ video {
   }
 
   .xl\:hover\:text-admin-word:hover {
-    color: #7996A9;
+    color: #728EA0;
   }
 
   .xl\:hover\:text-admin-title:hover {
@@ -47869,7 +47869,7 @@ video {
   }
 
   .xl\:hover\:text-admin-input:hover {
-    color: #97B9D0;
+    color: #ADD0E8;
   }
 
   .xl\:active\:text-transparent:active {
@@ -48245,7 +48245,7 @@ video {
   }
 
   .xl\:active\:text-admin-word:active {
-    color: #7996A9;
+    color: #728EA0;
   }
 
   .xl\:active\:text-admin-title:active {
@@ -48253,7 +48253,7 @@ video {
   }
 
   .xl\:active\:text-admin-input:active {
-    color: #97B9D0;
+    color: #ADD0E8;
   }
 
   .group:hover .xl\:group-hover\:text-transparent {
@@ -48629,7 +48629,7 @@ video {
   }
 
   .group:hover .xl\:group-hover\:text-admin-word {
-    color: #7996A9;
+    color: #728EA0;
   }
 
   .group:hover .xl\:group-hover\:text-admin-title {
@@ -48637,7 +48637,7 @@ video {
   }
 
   .group:hover .xl\:group-hover\:text-admin-input {
-    color: #97B9D0;
+    color: #ADD0E8;
   }
 
   .xl\:text-xs {
