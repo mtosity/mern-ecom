@@ -47,4 +47,14 @@ ProductRoute.put("/", async (req, res) => {
   }
 });
 
+ProductRoute.get("/", async (req, res) => {
+  const products = await Product.findAll();
+  res.json({ products });
+});
+
+ProductRoute.delete("/truncate", async (req, res) => {
+  const products = await Product.destroy({truncate: true});
+  res.json({ msg: "Table truncated" });
+});
+
 export default ProductRoute;

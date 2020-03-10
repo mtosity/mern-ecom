@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom'
 import { AdminProducts } from './Admin/AdminProducts'
 import { FOF } from './FOF'
 import { AdminCategories } from './Admin/AdminCategories'
+import { AdminImages } from './Admin/AdminImages'
 
 export const AdminScreen = () => {
     return (
@@ -18,6 +19,7 @@ export const AdminScreen = () => {
                     <Switch>
                         <Route path="/admin/products" exact component={AdminProducts}/>
                         <Route path="/admin/categories" exact component={AdminCategories}/>
+                        <Route path="/admin/images" exact component={AdminImages}/>
                     </Switch>
                 </div>
             </div>

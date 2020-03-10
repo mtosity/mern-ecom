@@ -30,9 +30,15 @@ export const AdminFuncTable = ({ tableName, tableTitle, columns }: props) => {
           default:
             break;
         }
-        const { categories } = data;
-        setData(categories);
-        setLoading(false);
+        if(tableName === "category"){
+          const { categories } = data;
+          setData(categories);
+          setLoading(false);
+        } else if (tableName === "product"){
+          const { products } = data;
+          setData(products);
+          setLoading(false);
+        }
       });
     });
   };
@@ -136,16 +142,13 @@ export const AdminFuncTable = ({ tableName, tableTitle, columns }: props) => {
     <div>loading table...</div>
   ) : (
     <div>
-      <p className="text-admin-word">
-        "Double click the row to delete that row"
-      </p>
       <AdminTable
         title={tableTitle}
         data={data}
         columns={columns}
         onSelectedRowsChange={setSelectedState}
       />
-      <div className="flex items-center">
+      <div className="flex items-center mt-4">
         <AdminButton title="Delete selected rows" onClick={deleteTableRows} />
         <AdminButton title="Reload" onClick={getTableData} classname="ml-4" />
       </div>
