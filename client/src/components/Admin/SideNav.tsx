@@ -1,13 +1,13 @@
 import React from "react";
 import classnames from 'classnames'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faCubes, faUserFriends, faPeopleCarry, faTh } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faCubes, faUserFriends, faPeopleCarry, faTh, faImage } from "@fortawesome/free-solid-svg-icons";
 import { SideNavLink } from "./SideNav/SideNavLink";
 
 const nav = [
   {
     icon: faHome,
-    iconColor: '#2799E9',
+    iconColor: 'white',
     title: 'Dashboard',
     to: '/admin/dashboard',
   },
@@ -34,6 +34,12 @@ const nav = [
     iconColor: '#368D8D',
     title: 'Orders',
     to: '/admin/orders',
+  },
+  {
+    icon: faImage,
+    iconColor: '#2799E9',
+    title: 'Images',
+    to: '/admin/images',
   }
 ]
 
