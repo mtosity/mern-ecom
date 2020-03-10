@@ -37,7 +37,7 @@ CategoryRoute.put("/", async (req, res) => {
         id: uuid(),
         name: name
       });
-      res.status(200).json({ msg: "added successful" });
+      res.status(200).json({ msg: "Added successful" });
     }else{
       res.status(400).json({errors: [{message: 'Existed category'}]});
     }

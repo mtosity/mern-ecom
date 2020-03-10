@@ -98,7 +98,7 @@ Product.init({
     }
   },
   categoryID: {
-    type: DataTypes.INTEGER.UNSIGNED,
+    type: DataTypes.UUID,
     allowNull: false,
     validate: {
       notEmpty: {
