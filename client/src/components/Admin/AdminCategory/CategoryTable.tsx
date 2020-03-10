@@ -4,11 +4,6 @@ import { AdminFuncTable } from "../Content/AdminFuncTable";
 export const CategoryTable = () => {
   const columns = [
     {
-      name: "ID",
-      selector: "id",
-      sortable: true
-    },
-    {
       name: "Name",
       selector: "name",
       sortable: true

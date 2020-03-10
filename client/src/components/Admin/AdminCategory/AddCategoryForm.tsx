@@ -17,9 +17,9 @@ export const AddCategoryForm = () => {
       body: JSON.stringify(body)
     });
     if (res.status === 200) {
-      const { status } = await res.json();
+      const { msg } = await res.json();
       Swal.fire({
-        title: `<p class="text-admin-title">${status}</p>`,
+        title: `<p class="text-admin-title">${msg}</p>`,
         icon: 'success',
         showCancelButton: true,
         background: '#1E2A31',

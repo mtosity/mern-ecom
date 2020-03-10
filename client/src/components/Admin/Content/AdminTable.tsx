@@ -1,5 +1,8 @@
 import React from "react";
-import DataTable, { createTheme, IDataTableColumn } from "react-data-table-component";
+import DataTable, {
+  createTheme,
+  IDataTableColumn
+} from "react-data-table-component";
 
 createTheme("dark", {
   text: {
@@ -31,18 +34,29 @@ interface props {
   columns: IDataTableColumn<Object>[];
   data: Array<Object>;
   title: string;
-  onRowDoubleClicked: Function;
+  onSelectedRowsChange: Function;
 }
 
-export const AdminTable = ({columns, data, title, onRowDoubleClicked}: props) => {
+const ExpanableComponent = ({ data }: any) => <p className="ml-32 text-sm text-admin-input">ID: {data.id}</p>;
+
+
+export const AdminTable = ({
+  columns,
+  data,
+  title,
+  onSelectedRowsChange,
+}: props) => {
   return (
     <DataTable
       title={title}
       columns={columns}
       data={data}
       theme="dark"
-      onRowDoubleClicked={(row) => onRowDoubleClicked(row)}
       selectableRows
+      onSelectedRowsChange={state => onSelectedRowsChange(state)}
+      expandableRows
+      expandableRowsComponent={<ExpanableComponent />}
+      noContextMenu
     />
   );
 };

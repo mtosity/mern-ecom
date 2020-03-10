@@ -19,6 +19,15 @@ CategoryRoute.get("/sync", async (req, res) => {
   res.json({ msg: "Table synced" });
 });
 
+CategoryRoute.delete("/truncate", async (req, res) => {
+  try {
+    await Category.destroy({truncate: true});
+    res.status(200).json({ msg: "Table truncated" });
+  } catch (error) {
+    res.status(400).json(error);    
+  }
+});
+
 CategoryRoute.put("/", async (req, res) => {
   const { name } = req.body;
   try {
@@ -28,7 +37,7 @@ CategoryRoute.put("/", async (req, res) => {
         id: uuid(),
         name: name
       });
-      res.status(200).json({ status: "added successful" });
+      res.status(200).json({ msg: "added successful" });
     }else{
       res.status(400).json({errors: [{message: 'Existed category'}]});
     }
@@ -43,7 +52,7 @@ CategoryRoute.delete("/", async (req, res) => {
     await Category.destroy({where: {
       id: id
     }})
-    res.status(200).json({ status: "Deleted successful" });
+    res.status(200).json({ msg: "Deleted successful" });
   } catch (error) {
     res.status(400).json(error);
   }
