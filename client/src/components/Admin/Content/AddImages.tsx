@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ImageUploader from "react-images-upload";
 import { AdminButton } from "./AdminButton";
+import Swal from "sweetalert2"
 
 export const AddImages = (props: any) => {
   const [picture, setPicture] = useState<File>();
@@ -32,8 +33,8 @@ export const AddImages = (props: any) => {
 
       fetch("https://api.imgur.com/3/image", requestOptions)
         .then(response => response.json())
-        .then(result => setUrl(result.link))
-        .catch(error => console.log("error", error));
+        .then(result => setUrl(result.data.link))
+        .catch(error => console.log(error.text));
     }
   };
 
@@ -56,9 +57,9 @@ export const AddImages = (props: any) => {
         buttonClassName="hover:bg-purple-200"
         label="Max upload file size: 5mb, accepted: JPG | GIF | PNG"
       />
-      <div>
+      <div className="flex">
         <AdminButton title="Get URL" onClick={getURL} />
-        <p className="text-admin-title"></p>
+      <p className="text-admin-title ml-4">{url}</p>
       </div>
     </div>
   );
