@@ -3,16 +3,39 @@ import ImageUploader from "react-images-upload";
 import { AdminButton } from "./AdminButton";
 
 export const AddImages = (props: any) => {
-  const [pictures, setPictures] = useState<Array<File>>([]);
+  const [picture, setPicture] = useState<File>();
+  const [url, setUrl] = useState("");
 
   const onDrop = (picture: Array<File>) => {
-    console.log(picture);
-    setPictures([...pictures, ...picture]);
+    setPicture(picture[0]);
   };
-  
-  const getURL = () => {
-    
-  }
+
+  const getURL = async () => {
+    if (picture) {
+      var myHeaders = new Headers();
+      // myHeaders.append("Authorization", "Client-ID a8fbbe85d3e9bbe");
+      myHeaders.append(
+        "Authorization",
+        "Bearer 72f4f8c97dbc1d7eb0d89a93b554358a35d1d589"
+      );
+
+      var formdata = new FormData();
+      formdata.append("image", picture);
+      formdata.append("name", "Ryo");
+
+      var requestOptions: RequestInit = {
+        method: "POST",
+        headers: myHeaders,
+        body: formdata,
+        redirect: "follow"
+      };
+
+      fetch("https://api.imgur.com/3/image", requestOptions)
+        .then(response => response.json())
+        .then(result => setUrl(result.link))
+        .catch(error => console.log("error", error));
+    }
+  };
 
   return (
     <div>
@@ -33,7 +56,10 @@ export const AddImages = (props: any) => {
         buttonClassName="hover:bg-purple-200"
         label="Max upload file size: 5mb, accepted: JPG | GIF | PNG"
       />
-      <AdminButton title="Get URL" onClick={() => {}}/>
+      <div>
+        <AdminButton title="Get URL" onClick={getURL} />
+        <p className="text-admin-title"></p>
+      </div>
     </div>
   );
 };
