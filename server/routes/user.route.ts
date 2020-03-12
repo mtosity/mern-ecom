@@ -5,20 +5,20 @@ import User from "../models/user.model";
 import { LoginError, SignUpError } from "../utils/ErrorType";
 import {RoleType} from "../utils/RoleType";
 
-const users = express.Router();
+const UserRoute = express.Router();
 require("dotenv").config();
 
-users.get("/sync", (req, res) => {
+UserRoute.get("/sync", (req, res) => {
   User.sync();
   res.json({ sa: "sla" });
 });
 
-users.get("/sync/force", (req, res) => {
+UserRoute.get("/sync/force", (req, res) => {
   User.sync({force: true});
   res.json({ sa: "sla" });
 });
 
-users.put("/", async (req, res) => {
+UserRoute.put("/", async (req, res) => {
   const user = await User.findOne({
     where: {
       email: req.body.email
@@ -26,14 +26,8 @@ users.put("/", async (req, res) => {
   });
   if (!user) {
     try {
-      const {email, password, name, address, isBuyer, isSeller} = req.body;
+      const {email, password, name, address, role} = req.body;
       const hashPass = await bcrypt.hash(password, 10);
-      let role = -1;
-      if(req.body.isBuyer){
-        role = isSeller ? RoleType.Both : RoleType.Buyer;
-      }else{
-        role = isBuyer ? RoleType.Both : RoleType.Seller;
-      }
       await User.create({
         email: email,
         password: hashPass,
@@ -49,13 +43,39 @@ users.put("/", async (req, res) => {
     res
       .status(400)
       .json({
-        name: "UserSignUpError",
+        name: "UserRouteignUpError",
         errors: [{ message: SignUpError.UserExisted, path: "email" }]
       });
   }
 });
 
-users.post("/signup", async (req, res) => {
+UserRoute.get("/", async (req, res) => {
+  const products = await User.findAll();
+  res.json( products );
+});
+
+UserRoute.delete("/truncate", async (req, res) => {
+  try {
+    await User.destroy({ truncate: true });
+    res.json({ msg: "Table truncated" });
+  } catch (error) {
+    res.status(400).json(error);
+  }
+});
+
+UserRoute.delete("/", async (req, res) => {
+  const { id } = req.body;
+  try {
+    await User.destroy({where: {
+      id: id
+    }})
+    res.status(200).json({ msg: "Deleted successful" });
+  } catch (error) {
+    res.status(400).json(error);
+  }
+});
+
+UserRoute.post("/signup", async (req, res) => {
   const user = await User.findOne({
     where: {
       email: req.body.email
@@ -63,14 +83,8 @@ users.post("/signup", async (req, res) => {
   });
   if (!user) {
     try {
-      const {email, password, name, address, isBuyer, isSeller} = req.body;
+      const {email, password, name, address, role} = req.body;
       const hashPass = await bcrypt.hash(password, 10);
-      let role = -1;
-      if(req.body.isBuyer){
-        role = isSeller ? RoleType.Both : RoleType.Buyer;
-      }else{
-        role = isBuyer ? RoleType.Both : RoleType.Seller;
-      }
       await User.create({
         email: email,
         password: hashPass,
@@ -86,13 +100,13 @@ users.post("/signup", async (req, res) => {
     res
       .status(400)
       .json({
-        name: "UserSignUpError",
+        name: "UserRouteignUpError",
         errors: [{ message: SignUpError.UserExisted, path: "email" }]
       });
   }
 });
 
-users.post("/login", (req, res) => {
+UserRoute.post("/login", (req, res) => {
   User.findOne({
     where: {
       email: req.body.email
@@ -124,4 +138,4 @@ users.post("/login", (req, res) => {
     });
 });
 
-export default users;
+export default UserRoute;

@@ -48,13 +48,33 @@ ProductRoute.put("/", async (req, res) => {
 });
 
 ProductRoute.get("/", async (req, res) => {
-  const products = await Product.findAll();
-  res.json({ products });
+  try {
+    const products = await Product.findAll();
+    res.json(products);
+  } catch (error) {
+    res.status(400).json(error);    
+  }
 });
 
 ProductRoute.delete("/truncate", async (req, res) => {
-  const products = await Product.destroy({truncate: true});
-  res.json({ msg: "Table truncated" });
+  try {
+    await Product.destroy({ truncate: true });
+    res.json({ msg: "Table truncated" });
+  } catch (error) {
+    res.status(400).json(error);
+  }
+});
+
+ProductRoute.delete("/", async (req, res) => {
+  const { id } = req.body;
+  try {
+    await Product.destroy({where: {
+      id: id
+    }})
+    res.status(200).json({ msg: "Deleted successful" });
+  } catch (error) {
+    res.status(400).json(error);
+  }
 });
 
 export default ProductRoute;

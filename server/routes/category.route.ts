@@ -65,7 +65,7 @@ CategoryRoute.delete("/", async (req, res) => {
 
 CategoryRoute.get("/", async (req, res) => {
   const categories = await Category.findAll();
-  res.json({ categories });
+  res.json(categories);
 });
 
 export default CategoryRoute;
