@@ -2,8 +2,8 @@ import React from "react";
 import { Title } from "../../components/Admin/Content/Title";
 import { ContentCard } from "../../components/Admin/Content/ContentCard";
 import { Content } from "../../components/Admin/Content";
-import { AddProductForm } from "../../components/Admin/AdminProduct/AddProductForm";
-import { ProductTable } from "../../components/Admin/AdminProduct/ProductTable";
+import { AddProductForm } from "../../components/Admin/AdminProducts/AddProductForm";
+import { ProductTable } from "../../components/Admin/AdminProducts/ProductTable";
 import { AdminSyncTableButton } from "../../components/Admin/Content/AdminSyncTableButton";
 
 export const AdminProducts = () => {

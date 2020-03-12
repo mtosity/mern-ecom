@@ -6,6 +6,7 @@ import { AdminProducts } from './Admin/AdminProducts'
 import { FOF } from './FOF'
 import { AdminCategories } from './Admin/AdminCategories'
 import { AdminImages } from './Admin/AdminImages'
+import { AdminUsers } from './Admin/AdminUsers'
 
 export const AdminScreen = () => {
     return (
@@ -20,6 +21,7 @@ export const AdminScreen = () => {
                         <Route path="/admin/products" exact component={AdminProducts}/>
                         <Route path="/admin/categories" exact component={AdminCategories}/>
                         <Route path="/admin/images" exact component={AdminImages}/>
+                        <Route path="/admin/users" exact component={AdminUsers}/>
                     </Switch>
                 </div>
             </div>

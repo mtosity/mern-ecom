@@ -2,11 +2,11 @@ import React from "react";
 import { Title } from "../../components/Admin/Content/Title";
 import { ContentCard } from "../../components/Admin/Content/ContentCard";
 import { Content } from "../../components/Admin/Content";
-import { AddProductForm } from "../../components/Admin/AdminProduct/AddProductForm";
+import { AddProductForm } from "../../components/Admin/AdminProducts/AddProductForm";
 import { AdminSyncTableButton } from "../../components/Admin/Content/AdminSyncTableButton";
-import { AddCategoryForm } from "../../components/Admin/AdminCategory/AddCategoryForm";
+import { AddCategoryForm } from "../../components/Admin/AdminCategories/AddCategoryForm";
 import { AdminTable } from "../../components/Admin/Content/AdminTable";
-import { CategoryTable } from "../../components/Admin/AdminCategory/CategoryTable";
+import { CategoryTable } from "../../components/Admin/AdminCategories/CategoryTable";
 
 export const AdminCategories = () => {
   return (

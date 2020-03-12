@@ -13,6 +13,7 @@ export const AddImages = (props: any) => {
 
   const getURL = async () => {
     if (picture) {
+      setUrl("uploading...")
       var myHeaders = new Headers();
       // myHeaders.append("Authorization", "Client-ID a8fbbe85d3e9bbe");
       myHeaders.append(
@@ -31,6 +32,7 @@ export const AddImages = (props: any) => {
         redirect: "follow"
       };
 
+      setUrl("creating url...")
       fetch("https://api.imgur.com/3/image", requestOptions)
         .then(response => response.json())
         .then(result => setUrl(result.data.link))
