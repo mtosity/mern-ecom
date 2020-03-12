@@ -25,7 +25,7 @@ export const AddProductForm = () => {
       res
         .json()
         .then(data => {
-          const categories: Array<CategoryType> = data.categories;
+          const categories: Array<CategoryType> = data;
           setCates(categories);
           setLoadCate(false);
           setCate(categories[0].id);

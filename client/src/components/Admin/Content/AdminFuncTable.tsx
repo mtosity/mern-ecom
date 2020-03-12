@@ -3,6 +3,7 @@ import { AdminTable } from "../Content/AdminTable";
 import { AdminButton } from "../Content/AdminButton";
 import Swal from "sweetalert2";
 import { CategoryType } from "../../../DataType";
+import { InputTitle } from "./InputTitle";
 
 interface col {
   name: string;
@@ -26,24 +27,12 @@ export const AdminFuncTable = ({ tableName, tableTitle, columns }: props) => {
   const getTableData = () => {
     fetch(`/api/${tableName}`).then(res => {
       res.json().then(data => {
-        switch (1) {
-          default:
-            break;
-        }
-        if(tableName === "category"){
-          const { categories } = data;
-          setData(categories);
-          setLoading(false);
-        } else if (tableName === "product"){
-          const { products } = data;
-          setData(products);
-          setLoading(false);
-        }
+        setData(data);
+        setLoading(false);
       });
     });
   };
   const deleteTableRows = async () => {
-    console.log(selectedState);
     if (selectedState.allSelected) {
       Swal.fire({
         title: `<p class="text-admin-title">Are you sure?</p>`,
@@ -148,6 +137,7 @@ export const AdminFuncTable = ({ tableName, tableTitle, columns }: props) => {
         columns={columns}
         onSelectedRowsChange={setSelectedState}
       />
+      <InputTitle title="Shift + scroll to left right scroll"/>
       <div className="flex items-center mt-4">
         <AdminButton title="Delete selected rows" onClick={deleteTableRows} />
         <AdminButton title="Reload" onClick={getTableData} classname="ml-4" />
