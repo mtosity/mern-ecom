@@ -18,6 +18,43 @@ users.get("/sync/force", (req, res) => {
   res.json({ sa: "sla" });
 });
 
+users.put("/", async (req, res) => {
+  const user = await User.findOne({
+    where: {
+      email: req.body.email
+    }
+  });
+  if (!user) {
+    try {
+      const {email, password, name, address, isBuyer, isSeller} = req.body;
+      const hashPass = await bcrypt.hash(password, 10);
+      let role = -1;
+      if(req.body.isBuyer){
+        role = isSeller ? RoleType.Both : RoleType.Buyer;
+      }else{
+        role = isBuyer ? RoleType.Both : RoleType.Seller;
+      }
+      await User.create({
+        email: email,
+        password: hashPass,
+        name: name,
+        address: address,
+        role: role
+      });
+      res.status(200).json({ msg: "user signned up" });
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  } else {
+    res
+      .status(400)
+      .json({
+        name: "UserSignUpError",
+        errors: [{ message: SignUpError.UserExisted, path: "email" }]
+      });
+  }
+});
+
 users.post("/signup", async (req, res) => {
   const user = await User.findOne({
     where: {
