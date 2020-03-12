@@ -56,7 +56,7 @@ User.init(
       }
     },
     role: {
-      type: DataTypes.INTEGER.UNSIGNED,
+      type: DataTypes.STRING,
       allowNull: false
     },
     name: {
