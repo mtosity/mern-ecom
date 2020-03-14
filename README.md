@@ -32,4 +32,11 @@ https://preview.themeforest.net/item/material-admin-extended-dark-responsive-tem
 * Display table compoent, sortable, dropdown to see row id, select rows to delete <br/>
 connect with backend to show, delete
 # Week 7 (Images upload):
-72f4f8c97dbc1d7eb0d89a93b554358a35d1d589
+* react-images-upload to load a file from client
+* Using imgur api to upload to imgur and create a url
+* React-input-range
+* Product table and add form
+* Change the table to width based on content
+# Week 8 (Main Website):
+* Based on a theme, again, no code is copied <br/>
+https://preview.uideck.com/items/shopr-theme/index.html 

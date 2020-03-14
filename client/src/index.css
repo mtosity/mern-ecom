@@ -13857,62 +13857,6 @@ video {
     box-sizing: content-box;
   }
 
-  .sm\:cursor-auto {
-    cursor: auto;
-  }
-
-  .sm\:cursor-default {
-    cursor: default;
-  }
-
-  .sm\:cursor-pointer {
-    cursor: pointer;
-  }
-
-  .sm\:cursor-wait {
-    cursor: wait;
-  }
-
-  .sm\:cursor-text {
-    cursor: text;
-  }
-
-  .sm\:cursor-move {
-    cursor: move;
-  }
-
-  .sm\:cursor-not-allowed {
-    cursor: not-allowed;
-  }
-
-  .sm\:hover\:cursor-auto:hover {
-    cursor: auto;
-  }
-
-  .sm\:hover\:cursor-default:hover {
-    cursor: default;
-  }
-
-  .sm\:hover\:cursor-pointer:hover {
-    cursor: pointer;
-  }
-
-  .sm\:hover\:cursor-wait:hover {
-    cursor: wait;
-  }
-
-  .sm\:hover\:cursor-text:hover {
-    cursor: text;
-  }
-
-  .sm\:hover\:cursor-move:hover {
-    cursor: move;
-  }
-
-  .sm\:hover\:cursor-not-allowed:hover {
-    cursor: not-allowed;
-  }
-
   .sm\:block {
     display: block;
   }
@@ -23727,62 +23671,6 @@ video {
 
   .md\:box-content {
     box-sizing: content-box;
-  }
-
-  .md\:cursor-auto {
-    cursor: auto;
-  }
-
-  .md\:cursor-default {
-    cursor: default;
-  }
-
-  .md\:cursor-pointer {
-    cursor: pointer;
-  }
-
-  .md\:cursor-wait {
-    cursor: wait;
-  }
-
-  .md\:cursor-text {
-    cursor: text;
-  }
-
-  .md\:cursor-move {
-    cursor: move;
-  }
-
-  .md\:cursor-not-allowed {
-    cursor: not-allowed;
-  }
-
-  .md\:hover\:cursor-auto:hover {
-    cursor: auto;
-  }
-
-  .md\:hover\:cursor-default:hover {
-    cursor: default;
-  }
-
-  .md\:hover\:cursor-pointer:hover {
-    cursor: pointer;
-  }
-
-  .md\:hover\:cursor-wait:hover {
-    cursor: wait;
-  }
-
-  .md\:hover\:cursor-text:hover {
-    cursor: text;
-  }
-
-  .md\:hover\:cursor-move:hover {
-    cursor: move;
-  }
-
-  .md\:hover\:cursor-not-allowed:hover {
-    cursor: not-allowed;
   }
 
   .md\:block {
@@ -33601,62 +33489,6 @@ video {
     box-sizing: content-box;
   }
 
-  .lg\:cursor-auto {
-    cursor: auto;
-  }
-
-  .lg\:cursor-default {
-    cursor: default;
-  }
-
-  .lg\:cursor-pointer {
-    cursor: pointer;
-  }
-
-  .lg\:cursor-wait {
-    cursor: wait;
-  }
-
-  .lg\:cursor-text {
-    cursor: text;
-  }
-
-  .lg\:cursor-move {
-    cursor: move;
-  }
-
-  .lg\:cursor-not-allowed {
-    cursor: not-allowed;
-  }
-
-  .lg\:hover\:cursor-auto:hover {
-    cursor: auto;
-  }
-
-  .lg\:hover\:cursor-default:hover {
-    cursor: default;
-  }
-
-  .lg\:hover\:cursor-pointer:hover {
-    cursor: pointer;
-  }
-
-  .lg\:hover\:cursor-wait:hover {
-    cursor: wait;
-  }
-
-  .lg\:hover\:cursor-text:hover {
-    cursor: text;
-  }
-
-  .lg\:hover\:cursor-move:hover {
-    cursor: move;
-  }
-
-  .lg\:hover\:cursor-not-allowed:hover {
-    cursor: not-allowed;
-  }
-
   .lg\:block {
     display: block;
   }
@@ -43471,62 +43303,6 @@ video {
 
   .xl\:box-content {
     box-sizing: content-box;
-  }
-
-  .xl\:cursor-auto {
-    cursor: auto;
-  }
-
-  .xl\:cursor-default {
-    cursor: default;
-  }
-
-  .xl\:cursor-pointer {
-    cursor: pointer;
-  }
-
-  .xl\:cursor-wait {
-    cursor: wait;
-  }
-
-  .xl\:cursor-text {
-    cursor: text;
-  }
-
-  .xl\:cursor-move {
-    cursor: move;
-  }
-
-  .xl\:cursor-not-allowed {
-    cursor: not-allowed;
-  }
-
-  .xl\:hover\:cursor-auto:hover {
-    cursor: auto;
-  }
-
-  .xl\:hover\:cursor-default:hover {
-    cursor: default;
-  }
-
-  .xl\:hover\:cursor-pointer:hover {
-    cursor: pointer;
-  }
-
-  .xl\:hover\:cursor-wait:hover {
-    cursor: wait;
-  }
-
-  .xl\:hover\:cursor-text:hover {
-    cursor: text;
-  }
-
-  .xl\:hover\:cursor-move:hover {
-    cursor: move;
-  }
-
-  .xl\:hover\:cursor-not-allowed:hover {
-    cursor: not-allowed;
   }
 
   .xl\:block {

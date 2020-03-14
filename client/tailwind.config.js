@@ -51,6 +51,7 @@ module.exports = {
     borderColor: ["responsive", "hover", "focus"],
     display: ["responsive", "hover"],
     cursor: ["responsive", "hover"],
-    textColor: ["responsive", "hover", "active", "group-hover"]
+    textColor: ["responsive", "hover", "active", "group-hover"],
+    cursor: ['hover']
   }
 };
