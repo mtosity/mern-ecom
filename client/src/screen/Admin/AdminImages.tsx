@@ -1,16 +1,16 @@
 import React from "react";
-import { Content } from "../../components/Admin/Content";
-import { ContentCard } from "../../components/Admin/Content/ContentCard";
+import { AdminContent } from "../../components/Admin/AdminContent";
+import { AdminContentCard } from "../../components/Admin/Content/AdminContentCard";
 import { AddImages } from "../../components/Admin/Content/AddImages";
-import { Title } from "../../components/Admin/Content/Title";
+import { AdminTitle } from "../../components/Admin/Content/AdminTitle";
 
 export const AdminImages = () => {
   return (
-    <Content>
-      <Title title="Upload image and create image url" />
-      <ContentCard>
+    <AdminContent>
+      <AdminTitle title="Upload image and create image url" />
+      <AdminContentCard>
         <AddImages />
-      </ContentCard>
-    </Content>
+      </AdminContentCard>
+    </AdminContent>
   );
 };

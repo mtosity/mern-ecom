@@ -1,7 +1,7 @@
 import React from "react";
 import { AdminFuncTable } from "../Content/AdminFuncTable";
 
-export const UserTable = () => {
+export const AdminUserTable = () => {
   const columns = [
     {
       name: "Email",

@@ -3,7 +3,7 @@ import { AdminTable } from "../Content/AdminTable";
 import { AdminButton } from "../Content/AdminButton";
 import Swal from "sweetalert2";
 import { CategoryType } from "../../../DataType";
-import { InputTitle } from "./InputTitle";
+import { AdminInputTitle } from "./AdminInputTitle";
 
 interface col {
   name: string;
@@ -137,7 +137,7 @@ export const AdminFuncTable = ({ tableName, tableTitle, columns }: props) => {
         columns={columns}
         onSelectedRowsChange={setSelectedState}
       />
-      <InputTitle title="Shift + scroll to left right scroll"/>
+      <AdminInputTitle title="Shift + scroll to left right scroll"/>
       <div className="flex items-center mt-4">
         <AdminButton title="Delete selected rows" onClick={deleteTableRows} />
         <AdminButton title="Reload" onClick={getTableData} classname="ml-4" />

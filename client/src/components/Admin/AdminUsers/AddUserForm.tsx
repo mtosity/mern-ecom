@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { InputTitle } from "../Content/InputTitle";
+import { AdminInputTitle } from "../Content/AdminInputTitle";
 import { AdminInput } from "../Content/AdminInput";
-import { Title } from "../Content/Title";
+import { AdminTitle } from "../Content/AdminTitle";
 import { AdminButton } from "../Content/AdminButton";
 import Swal from "sweetalert2";
 
@@ -50,8 +50,8 @@ export const AddUserForm = () => {
   };
   return (
     <>
-      <Title title="Add new user" />
-      <InputTitle title="Email" />
+      <AdminTitle title="Add new user" />
+      <AdminInputTitle title="Email" />
       <AdminInput
         name="email"
         type="text"
@@ -59,7 +59,7 @@ export const AddUserForm = () => {
         value={email}
         onChange={setEmail}
       />
-      <InputTitle title="Password" />
+      <AdminInputTitle title="Password" />
       <AdminInput
         name="password"
         type="password"
@@ -67,7 +67,7 @@ export const AddUserForm = () => {
         value={password}
         onChange={setPassword}
       />
-      <InputTitle title="Role" />
+      <AdminInputTitle title="Role" />
       <select
         onChange={e => {
           setRole(e.target.value);
@@ -83,7 +83,7 @@ export const AddUserForm = () => {
           );
         })}
       </select>
-      <InputTitle title="Full name" classname="mt-4" />
+      <AdminInputTitle title="Full name" classname="mt-4" />
       <AdminInput
         name="name"
         type="text"
@@ -91,7 +91,7 @@ export const AddUserForm = () => {
         value={name}
         onChange={setName}
       />
-      <InputTitle title="Avatar url (if not create one in image side bar)" />
+      <AdminInputTitle title="Avatar url (if not create one in image side bar)" />
       <AdminInput
         name="avatar"
         type="text"
@@ -99,7 +99,7 @@ export const AddUserForm = () => {
         value={avatar}
         onChange={setAvatar}
       />
-      <InputTitle title="Address" classname="mt-4" />
+      <AdminInputTitle title="Address" classname="mt-4" />
       <AdminInput
         name="address"
         type="text"

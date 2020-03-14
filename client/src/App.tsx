@@ -11,7 +11,7 @@ import Store from "./Store";
 import { AppDownload } from "./screen/AppDownload";
 import { FOF } from "./screen/FOF";
 import { AdminScreen } from "./screen/AdminScreen";
-import './styles/font.css'
+import './styles/font.css';
 
 const HomeSwitch = () => (
   <>

@@ -1,20 +1,20 @@
 import React, { useState } from "react";
-import { Content } from "../../components/Admin/Content";
-import { ContentCard } from "../../components/Admin/Content/ContentCard";
-import { Title } from "../../components/Admin/Content/Title";
+import { AdminContent } from "../../components/Admin/AdminContent";
+import { AdminContentCard } from "../../components/Admin/Content/AdminContentCard";
+import { AdminTitle } from "../../components/Admin/Content/AdminTitle";
 import { AddUserForm } from "../../components/Admin/AdminUsers/AddUserForm";
-import { UserTable } from "../../components/Admin/AdminUsers/UserTable";
+import { AdminUserTable } from "../../components/Admin/AdminUsers/AdminUserTable";
 
 export const AdminUsers = () => {
   return (
-    <Content>
-      <Title title="Manage users" />
-      <ContentCard>
+    <AdminContent>
+      <AdminTitle title="Manage users" />
+      <AdminContentCard>
         <AddUserForm />
-      </ContentCard>
-      <ContentCard>
-        <UserTable />
-      </ContentCard>
-    </Content>
+      </AdminContentCard>
+      <AdminContentCard>
+        <AdminUserTable />
+      </AdminContentCard>
+    </AdminContent>
   );
 };

@@ -9,7 +9,7 @@ interface props {
   onChange: Function;
 }
 
-export const InputRange = ({step, min, max, values, onChange}: props) => {
+export const AdminInputRange = ({step, min, max, values, onChange}: props) => {
   // const [state, setState] = React.useState({values: [50]})
     return (
       <div

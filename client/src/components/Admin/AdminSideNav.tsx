@@ -2,7 +2,7 @@ import React from "react";
 import classnames from 'classnames'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faCubes, faUserFriends, faPeopleCarry, faTh, faImage } from "@fortawesome/free-solid-svg-icons";
-import { SideNavLink } from "./SideNav/SideNavLink";
+import { AdminSideNavLink } from "./SideNav/AdminSideNavLink";
 
 const nav = [
   {
@@ -43,12 +43,12 @@ const nav = [
   }
 ]
 
-export const SideNav = () => {
+export const AdminSideNav = () => {
   return (
     <div className="flex-col items-center justify-center w-full">
       {
         nav.map(n => {
-          return <SideNavLink icon={n.icon} iconColor={n.iconColor} title={n.title} to={n.to} key={n.title}/>
+          return <AdminSideNavLink icon={n.icon} iconColor={n.iconColor} title={n.title} to={n.to} key={n.title}/>
         })
       }
     </div>

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { InputTitle } from "../Content/InputTitle";
+import { AdminInputTitle } from "../Content/AdminInputTitle";
 import { AdminInput } from "../Content/AdminInput";
 import { AdminButton } from "../Content/AdminButton";
 import Swal from 'sweetalert2';
 
-export const AddCategoryForm = () => {
+export const AdmiAddCategoryForm = () => {
   const [name, setName] = useState("");
   const addCate = async () => {
     const body = { name: name };
@@ -35,7 +35,7 @@ export const AddCategoryForm = () => {
   };
   return (
     <>
-      <InputTitle title="Category name" />
+      <AdminInputTitle title="Category name" />
       <div>
         <AdminInput
           type="text"

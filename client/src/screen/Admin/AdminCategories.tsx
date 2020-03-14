@@ -1,28 +1,28 @@
 import React from "react";
-import { Title } from "../../components/Admin/Content/Title";
-import { ContentCard } from "../../components/Admin/Content/ContentCard";
-import { Content } from "../../components/Admin/Content";
+import { AdminTitle } from "../../components/Admin/Content/AdminTitle";
+import { AdminContentCard } from "../../components/Admin/Content/AdminContentCard";
+import { AdminContent } from "../../components/Admin/AdminContent";
 import { AddProductForm } from "../../components/Admin/AdminProducts/AddProductForm";
 import { AdminSyncTableButton } from "../../components/Admin/Content/AdminSyncTableButton";
-import { AddCategoryForm } from "../../components/Admin/AdminCategories/AddCategoryForm";
+import { AdmiAddCategoryForm } from "../../components/Admin/AdminCategories/AdminAddCategoryForm";
 import { AdminTable } from "../../components/Admin/Content/AdminTable";
-import { CategoryTable } from "../../components/Admin/AdminCategories/CategoryTable";
+import { AdminCategoryTable } from "../../components/Admin/AdminCategories/AdminCategoryTable";
 
 export const AdminCategories = () => {
   return (
-    <Content>
-      <Title title="Category Admin" />
-      <ContentCard>
-        <Title title="Add new category" />
-        <AddCategoryForm/>
-      </ContentCard>
-      <ContentCard>
-        <CategoryTable/>
-      </ContentCard>
-      <ContentCard>
-        <Title title="Configure database" color="red" />
+    <AdminContent>
+      <AdminTitle title="Category Admin" />
+      <AdminContentCard>
+        <AdminTitle title="Add new category" />
+        <AdmiAddCategoryForm/>
+      </AdminContentCard>
+      <AdminContentCard>
+        <AdminCategoryTable/>
+      </AdminContentCard>
+      <AdminContentCard>
+        <AdminTitle title="Configure database" color="red" />
         <AdminSyncTableButton tableName="category"/>
-      </ContentCard>
-    </Content>
+      </AdminContentCard>
+    </AdminContent>
   );
 };

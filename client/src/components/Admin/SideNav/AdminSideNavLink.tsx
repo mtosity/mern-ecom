@@ -11,7 +11,7 @@ interface props {
   to: string;
 }
 
-export const SideNavLink: React.FC<props> = ({
+export const AdminSideNavLink: React.FC<props> = ({
   icon,
   iconColor,
   title,

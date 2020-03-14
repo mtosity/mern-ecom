@@ -1,6 +1,6 @@
 import React from 'react'
-import { NavTop } from '../components/Admin/NavTop'
-import { SideNav } from '../components/Admin/SideNav'
+import { AdminNavTop } from '../components/Admin/AdminNavTop'
+import { AdminSideNav } from '../components/Admin/AdminSideNav'
 import { Switch, Route } from 'react-router-dom'
 import { AdminProducts } from './Admin/AdminProducts'
 import { FOF } from './FOF'
@@ -11,10 +11,10 @@ import { AdminUsers } from './Admin/AdminUsers'
 export const AdminScreen = () => {
     return (
         <div className="w-screen h-screen bg-admin-body overflow-auto h-auto">
-            <NavTop/>
+            <AdminNavTop/>
             <div className="w-full flex relative">
                 <div className="p-4" style={{width: '280px'}}>
-                    <SideNav/>
+                    <AdminSideNav/>
                 </div>
                 <div className="">
                     <Switch>

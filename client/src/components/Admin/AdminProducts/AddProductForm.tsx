@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import classnames from "classnames";
-import { InputTitle } from "../Content/InputTitle";
+import { AdminInputTitle } from "../Content/AdminInputTitle";
 import { AdminInput } from "../Content/AdminInput";
-import { InputRange } from "../Content/InputRange";
+import { AdminInputRange } from "../Content/AdminInputRange";
 import { CategoryType } from "../../../DataType";
 import { AdminButton } from "../Content/AdminButton";
 import Swal from "sweetalert2";
@@ -71,7 +71,7 @@ export const AddProductForm = () => {
   };
   return (
     <>
-      <InputTitle title="Title" />
+      <AdminInputTitle title="Title" />
       <AdminInput
         type="text"
         placeholder="Some clothes"
@@ -81,7 +81,7 @@ export const AddProductForm = () => {
       />
       <div className="w-1/2 flex">
         <div className="flex-1">
-          <InputTitle title="Select product category" />
+          <AdminInputTitle title="Select product category" />
           {loadCate ? (
             <div>Loading categories</div>
           ) : (
@@ -103,7 +103,7 @@ export const AddProductForm = () => {
           )}
         </div>
         <div className="flex-1">
-          <InputTitle title="Gender for this product" />
+          <AdminInputTitle title="Gender for this product" />
           <select
             onChange={e => {
               setGender(e.target.value);
@@ -121,7 +121,7 @@ export const AddProductForm = () => {
           </select>
         </div>
       </div>
-      <InputTitle title="Description" classname="mt-4" />
+      <AdminInputTitle title="Description" classname="mt-4" />
       <AdminInput
         type="text"
         placeholder="This hat is awesome"
@@ -130,15 +130,15 @@ export const AddProductForm = () => {
         value={description}
         onChange={setDescription}
       />
-      <InputTitle title="Quantity" />
-      <InputRange
+      <AdminInputTitle title="Quantity" />
+      <AdminInputRange
         min={0}
         max={60}
         step={1}
         values={quantity}
         onChange={setQuantity}
       />
-      <InputTitle title="Original price" />
+      <AdminInputTitle title="Original price" />
       <AdminInput
         type="number"
         placeholder="0"
@@ -146,7 +146,7 @@ export const AddProductForm = () => {
         value={originPrice}
         onChange={setOriginPrice}
       />
-      <InputTitle title="Sale price" />
+      <AdminInputTitle title="Sale price" />
       <AdminInput
         type="number"
         placeholder="0"
@@ -154,7 +154,7 @@ export const AddProductForm = () => {
         value={salePrice}
         onChange={setSalePrice}
       />
-      <InputTitle title="Image url" />
+      <AdminInputTitle title="Image url" />
       <AdminInput
         type="text"
         placeholder="imgur"

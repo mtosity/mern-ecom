@@ -1,7 +1,7 @@
 import React from "react";
 import { AdminFuncTable } from "../Content/AdminFuncTable";
 
-export const ProductTable = () => {
+export const AdminProductTable = () => {
   const columns = [
     {
       name: "Title",

@@ -4,7 +4,7 @@ import Logo from "../../images/trade.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faBell } from "@fortawesome/free-solid-svg-icons";
 
-export const NavTop = () => {
+export const AdminNavTop = () => {
   return (
     <div className=" w-screen p-2 h-64 flex justify-around bg-admin-topnav">
       <div className="w-full flex h-16 items-center justify-around">

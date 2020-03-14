@@ -5,7 +5,7 @@ interface props {
     color?: string
 }
 
-export const Title = ({title, color}: props) => {
+export const AdminTitle = ({title, color}: props) => {
     return (
         <div>
             <h1 className="text-admin-title pb-8 pl-8 font-hairline tracking-wider" style={{color: color}}>{title}</h1>
