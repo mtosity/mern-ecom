@@ -2,6 +2,7 @@ import React, { } from "react";
 
 import {Banner} from "../components/Banner";
 import {SideCate} from "../components/SideCate";
+import { TopInfo } from "../components/TopInfo";
 
 export const Home = () => {
   return (
