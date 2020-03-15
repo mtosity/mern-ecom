@@ -7,13 +7,14 @@ import { OptionsNav } from "./navbar/OptionsNav";
 import Logo from "../images/trade.png";
 import { Link } from "react-router-dom";
 import { TopInfo } from "./TopInfo";
+import { TopNav } from "./TopNav";
 
 export const Nav = () => {
   return (
     <div>
       <TopInfo />
-      <OptionsNav />
-      <div className="w-full flex md:flex-col items-center justify-center mt-2">
+      <TopNav/>
+      {/* <div className="w-full flex md:flex-col items-center justify-center mt-2">
         <Link to="/" className=" pl-2 flex items-center md:mb-2">
           <div>
             <img src={Logo} className="object-contain md:h-16 h-24" alt="" />
@@ -38,7 +39,7 @@ export const Nav = () => {
         >
           <CartNav />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

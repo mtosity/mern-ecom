@@ -16,10 +16,7 @@ export const Home = () => {
         Categories
       </a>
       <div className="w-full flex">
-        <div style={{ flex: 1 }} className="md:hidden mx-4">
-          <SideCate />
-        </div>
-        <div style={{ flex: 4 }} className="shadow-md">
+        <div className="shadow-md">
           <Banner />
         </div>
       </div>
