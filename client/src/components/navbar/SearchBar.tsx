@@ -15,7 +15,7 @@ export default function SearchBar() {
       <div
         className="flex items-center justify-center bg-red-400 text-white w-32 md:w-24"
       >
-        <p>Gategories</p>
+        <p>Categories</p>
         <FontAwesomeIcon className="w-3 h-3 ml-1" icon={faChevronDown} />
       </div>
       <input
@@ -26,7 +26,7 @@ export default function SearchBar() {
       <button
         type="submit"
         className="h-full outline-none bg-red-400"
-        style={{ width: "50px" }}
+        style={{ width: "40px" }}
       >
         <FontAwesomeIcon className="" icon={faSearch} color="white" />
       </button>
