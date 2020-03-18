@@ -25,7 +25,9 @@ module.exports = {
       ...theme("colors"),
       "admin-topnav": "#1E2A31",
       "admin-body": "#22313A",
-      "admin-card": "#2B3C46"
+      "admin-card": "#2B3C46",
+      "btn": "#D9424E",
+      "btn-hovered": "#F24A57" 
     }),
     textColor: theme => ({
       ...theme("colors"),
