@@ -11,8 +11,9 @@ import Store from "./Store";
 import { AppDownload } from "./screen/AppDownload";
 import { FOF } from "./screen/FOF";
 import { AdminScreen } from "./screen/AdminScreen";
-import './styles/font.css';
-
+import "./styles/font.css";
+import "./styles/hover-image.css";
+import "./styles/animation.css";
 const HomeSwitch = () => (
   <>
     <div className="w-full z-10">
@@ -29,7 +30,10 @@ const HomeSwitch = () => (
 const App = () => {
   return (
     <Provider store={Store}>
-      <div className="w-full main-container" style={{ backgroundColor: "#FFFFF2" }}>
+      <div
+        className="w-full main-container"
+        style={{ backgroundColor: "#FFFFF2" }}
+      >
         <BrowserRouter>
           <Switch>
             <Route path="/admin" component={AdminScreen} />
