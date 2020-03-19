@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/Cellar/node/13.8.0/bin/node /usr/local/Cellar/yarn/1.22.0/libexec/bin/yarn.js
+  /usr/local/Cellar/node/13.8.0/bin/node /usr/local/Cellar/yarn/1.22.0/libexec/bin/yarn.js add @types/react-multi-carousel -D
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools:/Users/minhtamos/Library/Android/sdk/emulator:/Users/minhtamos/Library/Android/sdk/tools:/Users/minhtamos/Library/Android/sdk/tools/bin:/Users/minhtamos/Library/Android/sdk/platform-tools
@@ -14,12 +14,17 @@ Platform:
   darwin x64
 
 Trace: 
-  SyntaxError: /Volumes/minhtamos/projects/learn-projects/mern-ecom/package.json: Unexpected token } in JSON at position 1247
-      at JSON.parse (<anonymous>)
-      at /usr/local/Cellar/yarn/1.22.0/libexec/lib/cli.js:1625:59
-      at Generator.next (<anonymous>)
-      at step (/usr/local/Cellar/yarn/1.22.0/libexec/lib/cli.js:310:30)
-      at /usr/local/Cellar/yarn/1.22.0/libexec/lib/cli.js:321:13
+  Error: https://registry.yarnpkg.com/@types%2freact-multi-carousel: Not found
+      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.22.0/libexec/lib/cli.js:66975:18)
+      at Request.self.callback (/usr/local/Cellar/yarn/1.22.0/libexec/lib/cli.js:140727:22)
+      at Request.emit (events.js:321:20)
+      at Request.<anonymous> (/usr/local/Cellar/yarn/1.22.0/libexec/lib/cli.js:141699:10)
+      at Request.emit (events.js:321:20)
+      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.22.0/libexec/lib/cli.js:141621:12)
+      at Object.onceWrapper (events.js:427:28)
+      at IncomingMessage.emit (events.js:333:22)
+      at endReadableNT (_stream_readable.js:1201:12)
+      at processTicksAndRejections (internal/process/task_queues.js:84:21)
 
 npm manifest: 
   {
@@ -52,6 +57,7 @@ npm manifest:
     "dependencies": {
       "prop-types": "^15.7.2",
       "ra-data-json-server": "^3.2.3",
+      "react-multi-carousel": "^2.5.3"
     },
     "devDependencies": {
       "concurrently": "^5.1.0"
@@ -167,11 +173,6 @@ Lockfile:
     version "0.0.7"
     resolved "https://registry.yarnpkg.com/ast-types-flow/-/ast-types-flow-0.0.7.tgz#f70b735c6bca1a5c9c22d982c3e39e7feba3bdad"
     integrity sha1-9wtzXGvKGlycItmCw+Oef+ujva0=
-  
-  autobind-decorator@^1.3.4:
-    version "1.4.3"
-    resolved "https://registry.yarnpkg.com/autobind-decorator/-/autobind-decorator-1.4.3.tgz#4c96ffa77b10622ede24f110f5dbbf56691417d1"
-    integrity sha1-TJb/p3sQYi7eJPEQ9du/VmkUF9E=
   
   camelcase@^5.0.0:
     version "5.3.1"
@@ -479,7 +480,7 @@ Lockfile:
     dependencies:
       asap "~2.0.3"
   
-  prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.7.2:
+  prop-types@^15.6.1, prop-types@^15.7.2:
     version "15.7.2"
     resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
     integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -521,18 +522,15 @@ Lockfile:
       query-string "^5.1.1"
       ra-core "^3.2.3"
   
-  react-input-range@^1.3.0:
-    version "1.3.0"
-    resolved "https://registry.yarnpkg.com/react-input-range/-/react-input-range-1.3.0.tgz#f96d001631ab817417f1e26d8f9f9684b4827f59"
-    integrity sha1-+W0AFjGrgXQX8eJtj5+WhLSCf1k=
-    dependencies:
-      autobind-decorator "^1.3.4"
-      prop-types "^15.5.8"
-  
   react-is@^16.8.1, react-is@^16.8.4:
     version "16.13.0"
     resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.0.tgz#0f37c3613c34fe6b37cd7f763a0d6293ab15c527"
     integrity sha512-GFMtL0vHkiBv9HluwNZTggSn/sCyEt9n02aM0dSAjGGyqyNlAyftYm4phPxdvCigG15JreC5biwxCgTAJZ7yAA==
+  
+  react-multi-carousel@^2.5.3:
+    version "2.5.3"
+    resolved "https://registry.yarnpkg.com/react-multi-carousel/-/react-multi-carousel-2.5.3.tgz#c7268d17099a8ad483eb11d6ad7243716ee3158c"
+    integrity sha512-unjDa96C4W7CFmBNjhO+z1J2r5tphaVLxyhdBFP3ucQ1b6+jW6BHjX1p5UBZ9tBKDVtomlgHYyH7w2HZ6Yvyrg==
   
   read-pkg@^4.0.1:
     version "4.0.1"

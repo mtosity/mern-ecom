@@ -30,6 +30,7 @@
     "ra-data-json-server": "^3.2.3"
   },
   "devDependencies": {
+    "@types/react-alice-carousel": "^1.15.3",
     "concurrently": "^5.1.0"
   }
 }
