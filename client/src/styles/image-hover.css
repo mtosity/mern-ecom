@@ -21,3 +21,17 @@
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
+
+.img-hover-darker:hover img {
+  animation: darker-img;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards; 
+}
+
+@keyframes darker-img {
+  from {
+  }
+  to {
+    filter: brightness(50%);
+  }
+}
