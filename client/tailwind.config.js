@@ -2,17 +2,10 @@
 module.exports = {
   theme: {
     screens: {
-      sm: { max: "639px" },
-      // => @media (max-width: 639px) { ... }
-
-      md: { max: "767px" },
-      // => @media (max-width: 767px) { ... }
-
-      lg: { max: "1023px" },
-      // => @media (max-width: 1023px) { ... }
-
-      xl: { max: "1279px" }
-      // => @media (max-width: 1279px) { ... }
+      lg: { max: "1200px" },
+      md: { max: "992px" },
+      sm: { max: "768px" },
+      xs: { max: "576px" }
     },
     maxHeight: {
       "0": "0",
@@ -26,8 +19,8 @@ module.exports = {
       "admin-topnav": "#1E2A31",
       "admin-body": "#22313A",
       "admin-card": "#2B3C46",
-      "btn": "#D9424E",
-      "btn-hovered": "#F24A57" 
+      btn: "#D9424E",
+      "btn-hovered": "#F24A57"
     }),
     textColor: theme => ({
       ...theme("colors"),
@@ -39,21 +32,22 @@ module.exports = {
       ...theme("colors"),
       "admin-word": "#566C7C",
       "admin-title": "#C2D8E3",
-      "admin-input": '#7C98AB'
+      "admin-input": "#7C98AB"
     })
   },
   variants: {
     backgroundColor: ["hover", "focus", "active"],
     opacity: ["hover", "group-hover"],
     pointerEvents: ["group-hover"],
-    transitionProperty: ["responsive", "hover", "focus", "group-hover"],
-    translate: ["responsive", "hover", "group-hover"],
-    borderStyle: ["responsive", "hover"],
-    borderWidth: ["responsive", "hover"],
-    borderColor: ["responsive", "hover", "focus"],
-    display: ["responsive", "hover"],
-    cursor: ["responsive", "hover"],
-    textColor: ["responsive", "hover", "active", "group-hover"],
-    cursor: ['hover']
+    transitionProperty: ["hover", "focus", "group-hover"],
+    translate: ["hover", "group-hover"],
+    borderStyle: ["hover"],
+    borderWidth: ["hover"],
+    borderColor: ["hover", "focus"],
+    display: ["responsive", "hover", "group-hover"],
+    cursor: ["hover"],
+    textColor: ["hover", "active", "group-hover"],
+    cursor: ["hover"],
+    boxShadow: ['group-hover', 'hover']
   }
 };
