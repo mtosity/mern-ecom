@@ -8,14 +8,17 @@ import {
 import { translate } from "react-range/lib/utils";
 
 export const ProductSlider = () => {
-  const jump = 240;
+  const jump = 270;
   const [x, setX] = useState(0);
   return (
-    <div className="w-full px-16 flex items-center justify-between ">
-      <div className=" cursor-pointer" onClick={() => setX(x + jump)}>
-        <FontAwesomeIcon icon={faArrowAltCircleLeft} size="2x" />
-      </div>
-      <div className="overflow-hidden" style={{ width: "900px"}}>
+    <div className=" w-full pb-16 px-16 ">
+      <div className="flex items-center justify-center overflow-hidden pb-4">
+        <div
+          className=" cursor-pointer z-10"
+          onClick={() => setX((x + jump) % (4 * jump))}
+        >
+          <FontAwesomeIcon icon={faArrowAltCircleLeft} size="2x" />
+        </div>
         <div
           className="flex transform duration-700"
           style={{ transform: `translateX(${x}px)` }}
@@ -25,9 +28,12 @@ export const ProductSlider = () => {
           <ProductCard />
           <ProductCard />
         </div>
-      </div>
-      <div className=" cursor-pointer" onClick={() => setX(x - jump)}>
-        <FontAwesomeIcon icon={faArrowAltCircleRight} size="2x" />
+        <div
+          className=" cursor-pointer z-10"
+          onClick={() => setX((x - jump) % (4 * jump))}
+        >
+          <FontAwesomeIcon icon={faArrowAltCircleRight} size="2x" />
+        </div>
       </div>
     </div>
   );
