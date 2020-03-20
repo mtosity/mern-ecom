@@ -31,7 +31,7 @@ const App = () => {
         className="w-screen main-container"
         style={{ backgroundColor: "#FFFFF2" }}
       >
-        <BrowserRouter>
+        <BrowserRouter basename="/React">
           <Switch>
             <Route path="/admin" component={AdminScreen} />
             <Route path="/" component={HomeSwitch} />

@@ -6,11 +6,11 @@ import { MiddleTitle } from "../components/MiddleTitle";
 import { ProductList } from "../components/ProductList";
 import { MiddleBanner } from "../components/MiddleBanner";
 import { ProductSlider } from "../components/ProductSlider";
-import { Review } from "../components/Review";
+import { Reviews } from "../components/Reviews";
 
 export const Home = () => {
   return (
-    <div className="">
+    <div className="w-full">
         <Banner />
         <FeatureCategories/>
         <MiddleTitle title="New Arrivals"/>
@@ -18,7 +18,7 @@ export const Home = () => {
         <MiddleBanner/>
         <MiddleTitle title="Featured Products"/>
         <ProductSlider/>
-        <Review/>
+        <Reviews/>
     </div>
   );
 };
