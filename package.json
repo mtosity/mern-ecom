@@ -5,11 +5,11 @@
   "main": "server.js",
   "scripts": {
     "start": "node dist/server.js",
-    "build": "concurrently \"tsc -p .\" \"cd client && yarn build\"",
+    "build": "concurrently \"tsc\" \"cd client && yarn build\"",
     "clean": "concurrently \"rimraf node_modules yarn.lock package-lock.json\" \"cd client && rimraf node_modules build yarn.lock package-lock.json\"",
     "heroku-postbuild": "yarn build",
-    "install": "(yarn) && (cd server && yarn)",
-    "dev": "concurrently \"nodemon server.ts\" \"cd client && yarn start\""
+    "dev": "concurrently \"nodemon server.ts\" \"cd client && yarn start\"",
+    "ts-build": "tsc -p ."
   },
   "author": "minhtamos",
   "license": "MIT",
@@ -30,8 +30,9 @@
     "concurrently": "^5.1.0",
     "nodemon": "^2.0.2",
     "ts-node": "^8.6.2",
-    "tslint": "^6.0.0",
-    "typescript": "^3.8.2"
+    "tsc": "^1.20150623.0",
+    "tslint": "^6.1.0",
+    "typescript": "^3.8.3"
   },
   "dependencies": {
     "bcrypt": "^3.0.8",

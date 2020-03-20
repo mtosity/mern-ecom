@@ -26,12 +26,12 @@ api.use("/category", CategoryRoute);
 app.use("/api", api);
 // the __dirname is the current directory from where the script is running
 // app.use(express.static(__dirname));
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, "/../client", 'build')));
 // app.get('/ping', function (req, res) {
 //  return res.send('pong');
 // });
-app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, '/../client', 'build', 'index.html'));
 });
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(port));
