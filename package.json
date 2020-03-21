@@ -9,10 +9,11 @@
   "scripts": {
     "start": "node dist/server.js",
     "build": "concurrently \"tsc\" \"cd client && yarn build\"",
+    "iall": "concurrently \"yarn\" \"cd client && yarn\"",
     "clean": "concurrently \"rimraf node_modules yarn.lock package-lock.json\" \"cd client && rimraf node_modules build yarn.lock package-lock.json\"",
-    "heroku-postbuild": "concurrently \"yarn && yarn run ts-build\" \"cd client && yarn && yarn build\"",
+    "heroku-postbuild": "yarn run iall && yarn run build",
     "dev": "concurrently \"cd server && nodemon server.ts\" \"cd client && yarn start\"",
-    "ts-build": "tsc -p ."
+    "ts-build": "tsc"
   },
   "author": "minhtamos",
   "license": "MIT",
