@@ -1,8 +1,5 @@
 {
   "name": "mern-ecom",
-  "engines": {
-    "yarn": "1.22.0"
-  },
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -11,7 +8,7 @@
     "build": "concurrently \"tsc\" \"cd client && yarn build\"",
     "iall": "concurrently \"yarn\" \"cd client && yarn\"",
     "clean": "concurrently \"rimraf node_modules yarn.lock package-lock.json\" \"cd client && rimraf node_modules build yarn.lock package-lock.json\"",
-    "heroku-postbuild": "yarn run iall && yarn run build",
+    "heroku-postbuild": "yarn run iall && tsc && cd client && yarn build",
     "dev": "concurrently \"cd server && nodemon server.ts\" \"cd client && yarn start\"",
     "ts-build": "tsc"
   },
