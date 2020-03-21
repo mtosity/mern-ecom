@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node dist/server.js",
-    "build": "concurrently \"tsc\" \"cd client && yarn build\"",
+    "build": "yarn run iall && tsc && cd client && yarn build",
     "iall": "concurrently \"yarn\" \"cd client && yarn\"",
     "clean": "concurrently \"rimraf node_modules yarn.lock package-lock.json\" \"cd client && rimraf node_modules build yarn.lock package-lock.json\"",
     "heroku-postbuild": "yarn run iall && tsc && cd client && yarn build",
