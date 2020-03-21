@@ -47,7 +47,7 @@ module.exports = {
     display: ["responsive", "hover", "group-hover"],
     cursor: ["hover"],
     textColor: ["hover", "active", "group-hover"],
-    cursor: ["hover"],
-    boxShadow: ['group-hover', 'hover']
+    boxShadow: ['group-hover', 'hover'],
+    rotate: ['group-hover'],
   }
 };
