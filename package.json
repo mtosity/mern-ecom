@@ -10,7 +10,7 @@
     "start": "node dist/server.js",
     "build": "concurrently \"tsc\" \"cd client && yarn build\"",
     "clean": "concurrently \"rimraf node_modules yarn.lock package-lock.json\" \"cd client && rimraf node_modules build yarn.lock package-lock.json\"",
-    "heroku-postbuild": "concurrently \"yarn\" \"cd client && yarn\" \"yarn build\"",
+    "heroku-postbuild": "concurrently \"yarn && yarn run ts-build\" \"cd client && yarn && yarn build\"",
     "dev": "concurrently \"cd server && nodemon server.ts\" \"cd client && yarn start\"",
     "ts-build": "tsc -p ."
   },
@@ -48,6 +48,13 @@
     "mysql2": "^2.1.0",
     "react-modal": "^3.11.1",
     "sequelize": "^5.21.3",
-    "uuidv4": "^6.0.2"
+    "uuidv4": "^6.0.2",
+    "autoprefixer": "^9.7.4",
+    "glob-all": "^3.1.0",
+    "postcss": "^7.0.27",
+    "postcss-cli": "^7.1.0",
+    "purgecss-webpack-plugin": "^2.0.6",
+    "react-scripts": "^3.4.0",
+    "tailwindcss": "^1.2.0"
   }
 }
