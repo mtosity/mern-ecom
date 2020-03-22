@@ -21,7 +21,7 @@ export const ProductSlider = () => {
           <FontAwesomeIcon icon={faArrowLeft} size="2x" color="white" />
         </div>
         <div
-          className="flex transform duration-700 px-4"
+          className="flex transform duration-700 px-8 py-8"
           style={{ transform: `translateX(${x}px)` }}
         >
           <ProductCard />
