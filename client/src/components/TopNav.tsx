@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../images/trade.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -7,8 +7,14 @@ import {
   faCaretDown
 } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
+import { CatalogDropDown } from "./TopNav/CatalogDropDown";
+import { BlogDropDown } from "./TopNav/BlogDropDown";
+import { useDispatch } from "react-redux";
+import { GlobalActionType } from "../Actions";
+import { AccountNav } from "./TopNav/AccountNav";
 
 export const TopNav = () => {
+  const dispatcher = useDispatch();
   return (
     <div
       className="w-full flex items-center px-16 justify-between md:px-8"
@@ -42,27 +48,18 @@ export const TopNav = () => {
               CATALOG
               <FontAwesomeIcon icon={faChevronDown} className="h-3 w-3 ml-2" />
             </a>
-            <div className="relative z-10">
-              <div
-                className="absolute top-0 left-0 opacity-0 
-                border-t border-red-400
-                group-hover:opacity-100
-                group-hover:transform group-hover:translate-y-0 translate-y-8 transition-all transform duration-500 ease-in-out
-                w-full h-32 bg-blue-200
-                "
-                style={{ top: "18px" }}
-              >
-                hi
-              </div>
-            </div>
+            <CatalogDropDown />
           </div>
-          <a
-            href="#"
-            className="inline-block px-4 ml-4 py-3 hover:bg-red-500 hover:text-white text-gray-700"
-          >
-            BLOG
-            <FontAwesomeIcon icon={faChevronDown} className="h-3 w-3 ml-2" />
-          </a>
+          <div className="group">
+            <a
+              href="#"
+              className="inline-block px-4 ml-4 py-3 hover:bg-red-500 hover:text-white text-gray-700"
+            >
+              BLOG
+              <FontAwesomeIcon icon={faChevronDown} className="h-3 w-3 ml-2" />
+            </a>
+            <BlogDropDown />
+          </div>
           <a
             href="#"
             className="inline-block px-4 ml-4 py-3 hover:bg-red-500 hover:text-white text-gray-700"
@@ -72,15 +69,7 @@ export const TopNav = () => {
         </div>
       </div>
       <div className="flex">
-        <div className="py-2 px-8 flex items-center border border-red-400 rounded">
-          <FontAwesomeIcon icon={faUser} color="red" />
-          <p className="ml-2 text-red-600 md:hidden">Account</p>
-          <FontAwesomeIcon
-            icon={faChevronDown}
-            className="ml-2 md:hidden"
-            color="red"
-          />
-        </div>
+        <AccountNav/>
         <div className="py-2 px-8 flex items-center border border-red-400 rounded hidden lg:inline-block ml-4">
           <FontAwesomeIcon icon={faCaretDown} color="red" />
         </div>
