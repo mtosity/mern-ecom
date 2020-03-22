@@ -18,7 +18,6 @@ const HomeSwitch = () => (
     <Nav></Nav>
     <Switch>
       <Route path="/" exact component={Home} />
-      <Route path="/appdownload" exact component={AppDownload} />
       <Route path="/" component={FOF} />
     </Switch>
   </>
@@ -31,7 +30,7 @@ const App = () => {
         className="w-screen main-container"
         style={{ backgroundColor: "#FFFFF2" }}
       >
-        <BrowserRouter basename="/React">
+        <BrowserRouter>
           <Switch>
             <Route path="/admin" component={AdminScreen} />
             <Route path="/" component={HomeSwitch} />

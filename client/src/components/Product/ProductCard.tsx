@@ -10,7 +10,7 @@ export const ProductCard = () => {
         src="https://preview.uideck.com/items/shopr-theme/assets/img/products/img-08.jpg"
         alt=""
       />
-      <div className="absolute top-0 left-0 w-64 h-64 flex justify-center items-center
+      <div className="absolute top-0 left-0 w-full h-64 flex justify-center items-center
       -translate-y-5 group-hover:translate-y-0 transform duration-500 ease-in-out">
         <PopupIcon icon={faCartPlus}/>
         <PopupIcon icon={faHeart}/>
