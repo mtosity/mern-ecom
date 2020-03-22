@@ -12,7 +12,7 @@ export const AdminSyncTableButton = ({ tableName }: props) => {
     const { msg } = await res.json();
     setMsg(msg);
   };
-  const btnTitle = "Sync " + tableName + " table";
+  const btnTitle = "Force recreate " + tableName + " table";
   return (
     <div>
       <AdminButton title={btnTitle} onClick={() => syncTable()} />

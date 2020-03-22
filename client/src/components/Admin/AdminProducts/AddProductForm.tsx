@@ -22,14 +22,13 @@ export const AddProductForm = () => {
   const [gender, setGender] = useState(genders[0]);
   useEffect(() => {
     fetch("/api/category").then(res => {
-      res
-        .json()
-        .then(data => {
-          const categories: Array<CategoryType> = data;
+      res.json().then(categories => {
+        if (categories.length > 0) {
           setCates(categories);
           setLoadCate(false);
           setCate(categories[0].id);
-        });
+        }
+      });
     });
   }, []);
 
