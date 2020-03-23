@@ -9,11 +9,11 @@ import {
 export default function SearchBar() {
   return (
     <div
-      className="flex focus:shadow-lg border border-red-400 rounded"
+      className="flex focus:shadow-lg border border-red-600 rounded"
       style={{ height: "38px" }}
     >
       <div
-        className="flex items-center justify-center bg-red-400 text-white w-32 md:w-24"
+        className="flex items-center justify-center bg-red-600 text-white w-32 md:w-24"
       >
         <p>Categories</p>
         <FontAwesomeIcon className="w-3 h-3 ml-1" icon={faChevronDown} />
@@ -25,7 +25,7 @@ export default function SearchBar() {
       ></input>
       <button
         type="submit"
-        className="h-full outline-none bg-red-400"
+        className="h-full outline-none bg-red-600"
         style={{ width: "40px" }}
       >
         <FontAwesomeIcon className="" icon={faSearch} color="white" />
