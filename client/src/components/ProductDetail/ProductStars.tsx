@@ -11,7 +11,7 @@ interface props {
   stars: number;
 }
 
-export const ProductStarts = ({ stars }: props) => {
+export const ProductStars = ({ stars }: props) => {
   const [startIcons, setStartIcons] = useState<Array<IconDefinition>>([]);
   const [msg, setMsg] = useState("");
   useEffect(() => {
@@ -29,9 +29,6 @@ export const ProductStarts = ({ stars }: props) => {
     setStartIcons(tempStarIcons);
     setMsg(stars.toString())
   }, []);
-  useEffect(() => {
-    console.log(startIcons);
-  }, [startIcons]);
   return (
     <div className="flex items-center">
       {startIcons.map((s, i) => {
