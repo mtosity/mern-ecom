@@ -12,6 +12,7 @@ import { BlogDropDown } from "./TopNav/BlogDropDown";
 import { useDispatch } from "react-redux";
 import { GlobalActionType } from "../Actions";
 import { AccountNav } from "./TopNav/AccountNav";
+import { Link } from "react-router-dom";
 
 export const TopNav = () => {
   const dispatcher = useDispatch();
@@ -22,11 +23,11 @@ export const TopNav = () => {
     >
       {/* LOGO */}
       <div className="flex items-center">
-        <div className="flex items-center">
+        <Link className="flex items-center" to="/">
           <FontAwesomeIcon icon={faStoreAlt} size="2x" color="red" />
           <p className="text-xl text-red-600 font-bold ml-2">MTOS</p>
           <p className="text-lg text-red-400">hop</p>
-        </div>
+        </Link>
         <div className="flex ml-4 items-center lg:hidden">
           <a
             href="#"
