@@ -13,11 +13,13 @@ import { FOF } from "./screen/FOF";
 import { AdminScreen } from "./screen/AdminScreen";
 import "./styles/font.css";
 import "./styles/image-hover.css";
+import { ProductDetail } from "./screen/ProductDetail";
 const HomeSwitch = () => (
   <>
     <Nav></Nav>
     <Switch>
       <Route path="/" exact component={Home} />
+      <Route path="/detail" exact component={ProductDetail} />
       <Route path="/" component={FOF} />
     </Switch>
   </>

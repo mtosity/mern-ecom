@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ProductCard } from "./Product/ProductCard";
+import { ProductCard } from "./ProductCard/ProductCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowLeft,
