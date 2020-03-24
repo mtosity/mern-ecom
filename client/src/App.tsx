@@ -14,6 +14,7 @@ import { AdminScreen } from "./screen/AdminScreen";
 import "./styles/font.css";
 import "./styles/image-hover.css";
 import { ProductDetail } from "./screen/ProductDetail";
+import { Footer } from "./components/Footer";
 const HomeSwitch = () => (
   <>
     <Nav></Nav>
@@ -22,6 +23,7 @@ const HomeSwitch = () => (
       <Route path="/detail" exact component={ProductDetail} />
       <Route path="/" component={FOF} />
     </Switch>
+    <Footer />
   </>
 );
 

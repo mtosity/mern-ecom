@@ -8,7 +8,6 @@ import { MiddleBanner } from "../components/MiddleBanner";
 import { ProductSlider } from "../components/ProductSlider";
 import { Reviews } from "../components/Reviews";
 import { Advantages } from "../components/Advantages";
-import { Footer } from "../components/Footer";
 
 export const Home = () => {
   return (
@@ -22,7 +21,6 @@ export const Home = () => {
         <ProductSlider/>
         <Reviews/>
         <Advantages/>
-        <Footer/>
     </div>
   );
 };
