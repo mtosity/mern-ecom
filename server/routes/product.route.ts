@@ -1,5 +1,6 @@
-import expressuid } from "uuidv4";
-
+import {uuid} from "uuidv4";
+import express from "express";
+import Product from "../models/product.model";
 const ProductRoute = express.Router();
 require("dotenv").config();
 

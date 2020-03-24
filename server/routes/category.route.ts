@@ -1,4 +1,6 @@
-import express uuid } from "uuidv4";
+import express from "express"
+import Category from "../models/category.model";
+import { uuid } from "uuidv4";
 
 const CategoryRoute = express.Router();
 require("dotenv").config();
@@ -51,11 +53,6 @@ CategoryRoute.delete("/", async (req, res) => {
     res.status(400).json(error);
   }
 });
-
-// CategoryRoute.delete("/sync", async (req, res) => {
-//   await Product.sync();
-//   res.json({ msg: "Table synced" });
-// });
 
 CategoryRoute.get("/", async (req, res) => {
   const categories = await Category.findAll();

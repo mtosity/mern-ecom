@@ -1,5 +1,7 @@
-import expressuser.model";
+import express from "express";
 import { LoginError, SignUpError } from "../utils/ErrorType";
+import User from "../models/user.model";
+import bcrypt from "bcrypt";
 
 const UserRoute = express.Router();
 require("dotenv").config();
