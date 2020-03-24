@@ -1,0 +1,55 @@
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { CatalogDropDown } from "./CatalogDropDown";
+import { BlogDropDown } from "./BlogDropDown";
+import classnames from "classnames";
+
+interface props {
+  show: boolean;
+}
+
+export const NavLinksMobile = ({ show }: props) => {
+  return (
+    <div className={classnames("items-center w-full justify-center", show ? "flex" : "hidden")}>
+      <a
+        href="#"
+        className="inline-block px-4 ml-4 py-3 hover:bg-red-500 hover:text-white text-gray-700"
+      >
+        HOME
+      </a>
+      <a
+        href="#"
+        className="inline-block px-4 ml-4 py-3 hover:bg-red-500 hover:text-white text-gray-700"
+      >
+        ABOUT
+      </a>
+      <div className="group">
+        <a
+          href="#"
+          className="flex items-center hover:bg-red-500 hover:text-white text-gray-700 px-4 ml-4 py-3"
+        >
+          CATALOG
+          <FontAwesomeIcon icon={faChevronDown} className="h-3 w-3 ml-2" />
+        </a>
+        <CatalogDropDown />
+      </div>
+      <div className="group">
+        <a
+          href="#"
+          className="inline-block px-4 ml-4 py-3 hover:bg-red-500 hover:text-white text-gray-700"
+        >
+          BLOG
+          <FontAwesomeIcon icon={faChevronDown} className="h-3 w-3 ml-2" />
+        </a>
+        <BlogDropDown />
+      </div>
+      <a
+        href="#"
+        className="inline-block px-4 ml-4 py-3 hover:bg-red-500 hover:text-white text-gray-700"
+      >
+        CONTACT
+      </a>
+    </div>
+  );
+};
