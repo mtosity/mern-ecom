@@ -71,7 +71,9 @@ export const AccountNav = () => {
         }
       >
         <FontAwesomeIcon icon={faUser} color="red" />
-        <p className="ml-2 text-red-600 md:hidden">Account</p>
+      <p className="ml-2 text-red-600 md:hidden">{
+        authenticated ? UserName : "Account"
+      }</p>
       </button>
       {/* Login modal, open when click sign in/sign up */}
       <Modal

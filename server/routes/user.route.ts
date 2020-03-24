@@ -1,9 +1,5 @@
-import express, { NextFunction, Request, Response } from "express";
-import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt";
-import User from "../models/user.model";
+import expressuser.model";
 import { LoginError, SignUpError } from "../utils/ErrorType";
-import {RoleType} from "../utils/RoleType";
 
 const UserRoute = express.Router();
 require("dotenv").config();

@@ -15,8 +15,6 @@ export const SignUpForm = ({
   const [SUEmail, setSUEmail] = useState("");
   const [SUPassword, setSUPassword] = useState("");
   const [SUAddress, setSUAddress] = useState("");
-  const [SUIsSeller, setSUIsSeller] = useState(false);
-  const [SUIsBuyer, setSUIsBuyer] = useState(false);
   const [loadSU, setLoadSU] = useState(false);
   const [SUError, setSUError] = useState({
     isError: false,
@@ -31,10 +29,9 @@ export const SignUpForm = ({
       password: SUPassword,
       name: SUName,
       address: SUAddress,
-      isSeller: SUIsSeller,
-      isBuyer: SUIsBuyer
+      role: "user"
     };
-    const response = await fetch("user/signup", {
+    const response = await fetch("/api/user/signup", {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       mode: "cors", // no-cors, *cors, same-origin
       cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -108,29 +105,9 @@ export const SignUpForm = ({
         value={SUAddress}
         onChange={e => setSUAddress(e.target.value)}
       />
-      <div className="flex justify-around w-full">
-        <div className="flex justify-center items-center">
-          <input
-            type="checkbox"
-            name="buyer"
-            checked={SUIsBuyer}
-            onChange={() => setSUIsBuyer(!SUIsBuyer)}
-          />
-          <p className="ml-2 mt-1">Shopping</p>
-        </div>
-        <div className="flex justify-center items-center">
-          <input
-            type="checkbox"
-            name="seller"
-            checked={SUIsSeller}
-            onChange={() => setSUIsSeller(!SUIsSeller)}
-          />
-          <p className="ml-2 mt-1">Selling</p>
-        </div>
-      </div>
       {loadSU ? (
         <div className="mt-4 text-blue-400">
-          <SyncLoader size={20} color={"#54C6EB"} />
+          <SyncLoader size={20} />
         </div>
       ) : (
         <button

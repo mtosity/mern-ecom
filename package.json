@@ -10,7 +10,8 @@
     "clean": "concurrently \"rimraf node_modules yarn.lock package-lock.json\" \"cd client && rimraf node_modules build yarn.lock package-lock.json\"",
     "heroku-postbuild": "yarn run iall && tsc && cd client && yarn build",
     "dev": "concurrently \"cd server && nodemon server.ts\" \"cd client && yarn start\"",
-    "ts-build": "tsc"
+    "ts-build": "tsc",
+    "remove-unsed-import": "node ./node_modules/tslint/bin/tslint --config tslint-imports.json --fix --project ."
   },
   "author": "minhtamos",
   "license": "MIT",
@@ -21,6 +22,7 @@
     "ts-node": "^8.6.2",
     "tsc": "^1.20150623.0",
     "tslint": "^6.1.0",
+    "tslint-etc": "^1.10.1",
     "typescript": "^3.8.3"
   },
   "dependencies": {
@@ -37,22 +39,22 @@
     "@types/sequelize": "^4.28.8",
     "@types/uuidv4": "^5.0.0",
     "@types/validator": "^12.0.1",
+    "autoprefixer": "^9.7.4",
     "bcrypt": "^3.0.8",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "glob-all": "^3.1.0",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.1.0",
-    "react-modal": "^3.11.1",
-    "sequelize": "^5.21.3",
-    "uuidv4": "^6.0.2",
-    "autoprefixer": "^9.7.4",
-    "glob-all": "^3.1.0",
     "postcss": "^7.0.27",
     "postcss-cli": "^7.1.0",
     "purgecss-webpack-plugin": "^2.0.6",
+    "react-modal": "^3.11.1",
     "react-scripts": "^3.4.0",
-    "tailwindcss": "^1.2.0"
+    "sequelize": "^5.21.3",
+    "tailwindcss": "^1.2.0",
+    "uuidv4": "^6.0.2"
   }
 }

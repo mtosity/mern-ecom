@@ -9,12 +9,13 @@ import {
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { CatalogDropDown } from "./TopNav/CatalogDropDown";
 import { BlogDropDown } from "./TopNav/BlogDropDown";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { GlobalActionType } from "../Actions";
 import { AccountNav } from "./TopNav/AccountNav";
 import { Link } from "react-router-dom";
 import { NavLinks } from "./TopNav/NavLinks";
 import { NavLinksMobile } from "./TopNav/NavLinksMobile";
+import { ApplicationState } from "../Reducers/CombinedReducers";
 
 export const TopNav = () => {
   const dispatcher = useDispatch();

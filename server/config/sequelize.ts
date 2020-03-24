@@ -1,12 +1,4 @@
-import { Sequelize, Model, DataTypes, BuildOptions } from "sequelize";
-import {
-  HasManyGetAssociationsMixin,
-  HasManyAddAssociationMixin,
-  HasManyHasAssociationMixin,
-  Association,
-  HasManyCountAssociationsMixin,
-  HasManyCreateAssociationMixin
-} from "sequelize";
+import { Sequelize } from "sequelize";
 
 // const sequelize = new Sequelize('UQRP7eS5tP', 'UQRP7eS5tP', 'HeCrNGQNYr', {
 //     host: 'remotemysql.com',

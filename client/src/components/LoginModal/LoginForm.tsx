@@ -44,7 +44,7 @@ export const LoginForm = ({ classes, styles }: props) => {
         email: SIEmail,
         password: SIPassword
       };
-      const response = await fetch("user/login", {
+      const response = await fetch("/api/user/login", {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
         mode: "cors", // no-cors, *cors, same-origin
         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -59,7 +59,6 @@ export const LoginForm = ({ classes, styles }: props) => {
       });
       // const user = await response.json();
       // console.log(user);
-      console.log(response);
       if (response.status === 200) {
         const user = await response.json();
         const { email, roleID, name, avatar, address } = user;
@@ -122,7 +121,7 @@ export const LoginForm = ({ classes, styles }: props) => {
       </a>
       {loadSI ? (
         <div className="mt-4 text-blue-400">
-          <SyncLoader size={20} color={"#54C6EB"} />
+          <SyncLoader size={20} />
         </div>
       ) : (
         <button

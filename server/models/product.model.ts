@@ -1,12 +1,4 @@
-import { Sequelize, Model, DataTypes, BuildOptions } from "sequelize";
-import {
-  HasManyGetAssociationsMixin,
-  HasManyAddAssociationMixin,
-  HasManyHasAssociationMixin,
-  Association,
-  HasManyCountAssociationsMixin,
-  HasManyCreateAssociationMixin
-} from "sequelize";
+import { Model, DataTypes } from "sequelize";
 import sequelize from "../config/sequelize";
 import { uuid } from "uuidv4";
 

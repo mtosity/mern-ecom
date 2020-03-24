@@ -1,10 +1,4 @@
-import express, { NextFunction, Request, Response } from "express";
-import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt";
-import { LoginError, SignUpError } from "../utils/ErrorType";
-import { RoleType } from "../utils/RoleType";
-import Category from "../models/category.model";
-import { uuid } from "uuidv4";
+import express uuid } from "uuidv4";
 
 const CategoryRoute = express.Router();
 require("dotenv").config();
