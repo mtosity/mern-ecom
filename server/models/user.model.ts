@@ -7,8 +7,8 @@ class User extends Model {
   public id!: number;
   public email!: string;
   public password!: string;
-  public roleId!: number;
   public name!: string;
+  public role!: string;
   public address!:string;
   public avatar!: string;
 

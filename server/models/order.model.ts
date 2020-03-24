@@ -5,6 +5,9 @@ class Order extends Model {
   public productID!: string;
   public userID!: string;
   public quantity!: number;
+  public color!: string;
+  public size!: string;
+  public status!: string;
 
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
@@ -59,6 +62,6 @@ Order.init(
     sequelize: sequelize,
     tableName: "cart"
   }
-  );
-  
-  export default Order;
+);
+
+export default Order;
