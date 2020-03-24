@@ -107,7 +107,7 @@ export const SignUpForm = ({
       />
       {loadSU ? (
         <div className="mt-4 text-blue-400">
-          <SyncLoader size={20} />
+          <SyncLoader size={20} color="red" />
         </div>
       ) : (
         <button
