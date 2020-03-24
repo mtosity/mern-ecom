@@ -20,8 +20,8 @@ const classes = {
 };
 const styles = {
   button: {
-    backgroundColor: "#54C6EB",
-    borderColor: "#54C6EB"
+    backgroundColor: "#FF4B2B",
+    border: "1px solid #FF4B2B"
   }
 };
 

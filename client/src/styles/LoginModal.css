@@ -109,8 +109,8 @@ input {
 
 .login-modal-overlay {
   background: #2C3748;
-  background: -webkit-linear-gradient(to right, #791E94, #54C6EB);
-  background: linear-gradient(to right, #791E94, #54C6EB);
+  background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+  background: linear-gradient(to right, #FF4B2B, #FF416C);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
