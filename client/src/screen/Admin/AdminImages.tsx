@@ -1,15 +1,21 @@
 import React from "react";
 import { AdminContent } from "../../components/Admin/AdminContent";
 import { AdminContentCard } from "../../components/Admin/Content/AdminContentCard";
-import { AddImages } from "../../components/Admin/Content/AddImages";
+import { AddImages } from "../../components/Admin/AdminImages/AddImages";
 import { AdminTitle } from "../../components/Admin/Content/AdminTitle";
+import { AdminAddProductImage } from "../../components/Admin/AdminImages/AdminAddProductImage";
 
 export const AdminImages = () => {
   return (
     <AdminContent>
-      <AdminTitle title="Upload image and create image url" />
+      <AdminTitle title="Images" />
       <AdminContentCard>
+        <AdminTitle title="Upload image and create image url"/>
         <AddImages />
+      </AdminContentCard>
+      <AdminContentCard>
+        <AdminTitle title="Upload image and create image url"/>
+        <AdminAddProductImage/>
       </AdminContentCard>
     </AdminContent>
   );
