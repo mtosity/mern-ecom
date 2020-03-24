@@ -13,68 +13,37 @@ import { useDispatch } from "react-redux";
 import { GlobalActionType } from "../Actions";
 import { AccountNav } from "./TopNav/AccountNav";
 import { Link } from "react-router-dom";
+import { NavLinks } from "./TopNav/NavLinks";
+import { NavLinksMobile } from "./TopNav/NavLinksMobile";
 
 export const TopNav = () => {
   const dispatcher = useDispatch();
+  const [showMbNav, setShowMbNav] = useState(false);
   return (
-    <div
-      className="w-full flex items-center px-16 justify-between md:px-8"
-      style={{ height: "82px" }}
-    >
-      {/* LOGO */}
-      <div className="flex items-center">
-        <Link className="flex items-center" to="/">
-          <FontAwesomeIcon icon={faStoreAlt} size="2x" color="red" />
-          <p className="text-xl text-red-600 font-bold ml-2">MTOS</p>
-          <p className="text-lg text-red-400">hop</p>
-        </Link>
-        <div className="flex ml-4 items-center lg:hidden">
-          <a
-            href="#"
-            className="inline-block px-4 ml-4 py-3 hover:bg-red-500 hover:text-white text-gray-700"
+    <div className=" text-center">
+      <div
+        className="w-full flex items-center px-16 justify-between md:px-8"
+        style={{ height: "82px" }}
+      >
+        {/* LOGO */}
+        <div className="flex items-center">
+          <Link className="flex items-center" to="/">
+            <FontAwesomeIcon icon={faStoreAlt} size="2x" color="red" />
+            <p className="text-xl text-red-600 font-bold ml-2">MTOS</p>
+            <p className="text-lg text-red-400">hop</p>
+          </Link>
+          <NavLinks />
+        </div>
+        <div className="flex">
+          <AccountNav />
+          <button className="py-2 px-8 flex items-center justify-center border border-red-400 rounded hidden lg:inline-block ml-4 md:py-0 focus:outline-none"
+            onClick={() => setShowMbNav(!showMbNav)}
           >
-            HOME
-          </a>
-          <a
-            href="#"
-            className="inline-block px-4 ml-4 py-3 hover:bg-red-500 hover:text-white text-gray-700"
-          >
-            ABOUT
-          </a>
-          <div className="group">
-            <a
-              href="#"
-              className="flex items-center hover:bg-red-500 hover:text-white text-gray-700 px-4 ml-4 py-3"
-            >
-              CATALOG
-              <FontAwesomeIcon icon={faChevronDown} className="h-3 w-3 ml-2" />
-            </a>
-            <CatalogDropDown />
-          </div>
-          <div className="group">
-            <a
-              href="#"
-              className="inline-block px-4 ml-4 py-3 hover:bg-red-500 hover:text-white text-gray-700"
-            >
-              BLOG
-              <FontAwesomeIcon icon={faChevronDown} className="h-3 w-3 ml-2" />
-            </a>
-            <BlogDropDown />
-          </div>
-          <a
-            href="#"
-            className="inline-block px-4 ml-4 py-3 hover:bg-red-500 hover:text-white text-gray-700"
-          >
-            CONTACT
-          </a>
+            <FontAwesomeIcon icon={faCaretDown} color="red" />
+          </button>
         </div>
       </div>
-      <div className="flex">
-        <AccountNav/>
-        <div className="py-2 px-8 flex items-center border border-red-400 rounded hidden lg:inline-block ml-4">
-          <FontAwesomeIcon icon={faCaretDown} color="red" />
-        </div>
-      </div>
+      <NavLinksMobile show={showMbNav}/>
     </div>
   );
 };
