@@ -57,7 +57,13 @@ User.init(
     },
     role: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        isIn: {
+          args: [["admin", "user"]],
+          msg: "User role must be admin or user"
+        }
+      }
     },
     name: {
       type: DataTypes.STRING,
