@@ -44,4 +44,4 @@ connect with backend to show, delete
 animatited icon, contact / email subscription footer)
 * Product detail (carousel, starts base on props put in, choose size / color, share button)
 # Week 9 (Products, user data):
-* Take product data from https://www.fashionnova.com/collections/matching-sets/products/knit-dont-matter-sweater-set-ivorys
+* Take product data from https://www.fashionnova.com/
