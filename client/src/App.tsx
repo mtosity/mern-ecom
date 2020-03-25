@@ -8,11 +8,11 @@ import { Nav } from "./components/Nav";
 import { Home } from "./screen/Home";
 
 import Store from "./Store";
-import { AppDownload } from "./screen/AppDownload";
 import { FOF } from "./screen/FOF";
 import { AdminScreen } from "./screen/AdminScreen";
 import "./styles/font.css";
 import "./styles/image-hover.css";
+import "animate.css";
 import { ProductDetail } from "./screen/ProductDetail";
 import { Footer } from "./components/Footer";
 const HomeSwitch = () => (
