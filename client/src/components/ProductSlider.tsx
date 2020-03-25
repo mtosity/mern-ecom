@@ -32,7 +32,7 @@ export const ProductSlider = () => {
           <ProductCard />
         </div>
         <div
-          className="absolute right-0 p-2 cursor-pointer z-20 bg-red-400"
+          className="absolute right-0 p-2 cursor-pointer z-10 bg-red-400"
           onClick={() => setX((x - jump) % (4 * jump))}
           style={{right: '5px'}}
         >
