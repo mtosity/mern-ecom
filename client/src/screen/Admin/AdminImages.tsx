@@ -4,6 +4,7 @@ import { AdminContentCard } from "../../components/Admin/Content/AdminContentCar
 import { AddImages } from "../../components/Admin/AdminImages/AddImages";
 import { AdminTitle } from "../../components/Admin/Content/AdminTitle";
 import { AdminAddProductImage } from "../../components/Admin/AdminImages/AdminAddProductImage";
+import { AdminSubImgTable } from "../../components/Admin/AdminImages/AminSubImgTable";
 
 export const AdminImages = () => {
   return (
@@ -16,6 +17,9 @@ export const AdminImages = () => {
       <AdminContentCard>
         <AdminTitle title="Add sub images for product"/>
         <AdminAddProductImage/>
+      </AdminContentCard>
+      <AdminContentCard>
+        <AdminSubImgTable/>
       </AdminContentCard>
     </AdminContent>
   );

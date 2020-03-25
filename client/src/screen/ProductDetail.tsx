@@ -25,13 +25,14 @@ export const ProductDetail = () => {
             <ProductStars stars={4.5} />
           </div>
           <ProductSectionTitle title="Quick Overview" />
-          <p className="">
-            There are many variations of passages of Lorem Ipsum avaable, b
+          <pre className="">
+            {/* There are many variations of passages of Lorem Ipsum avaable, b
             majority have suffered alteration in some form, by injected humour,
             or randomised words which don't look even slightly believable. make
             an ami jani nab majority have suffered alteration in some form,
-            variations of passages Lorem Ipsum avaable, b majority
-          </p>
+            variations of passages Lorem Ipsum avaable, b majority */}
+            {`Available In Black Crew NeckShort<br/>SleeveScreen<br/>Print100%<br/>Cotton`}
+          </pre>
           <ProductSectionTitle title="Select Size" />
           <ProductSizes />
           <ProductSectionTitle title="Select Color" />

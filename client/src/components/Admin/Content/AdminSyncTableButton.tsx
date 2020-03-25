@@ -8,7 +8,7 @@ interface props {
 export const AdminSyncTableButton = ({ tableName }: props) => {
   const [msg, setMsg] = useState("");
   const syncTable = async () => {
-    const res = await fetch(`/api/${tableName}/sync`);
+    const res = await fetch(`/api/${tableName}/sync/force`);
     const { msg } = await res.json();
     setMsg(msg);
   };
