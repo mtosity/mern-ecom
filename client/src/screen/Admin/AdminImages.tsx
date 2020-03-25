@@ -14,7 +14,7 @@ export const AdminImages = () => {
         <AddImages />
       </AdminContentCard>
       <AdminContentCard>
-        <AdminTitle title="Upload image and create image url"/>
+        <AdminTitle title="Add sub images for product"/>
         <AdminAddProductImage/>
       </AdminContentCard>
     </AdminContent>
