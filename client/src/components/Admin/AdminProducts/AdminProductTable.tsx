@@ -6,7 +6,8 @@ export const AdminProductTable = () => {
     {
       name: "Title",
       selector: "title",
-      sortable: true
+      sortable: true,
+      allowOverflow: true,
     },
     {
       name: "Quantity",

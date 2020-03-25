@@ -6,7 +6,14 @@ export const AdminCategoryTable = () => {
     {
       name: "Name",
       selector: "name",
-      sortable: true
+      sortable: true,
+      allowOverflow: true,
+    },
+    {
+      name: "Gender",
+      selector: "gender",
+      sortable: true,
+      allowOverflow: true,
     },
     {
       name: "Created At",
