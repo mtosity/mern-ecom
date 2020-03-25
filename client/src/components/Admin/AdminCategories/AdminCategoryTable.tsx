@@ -8,22 +8,26 @@ export const AdminCategoryTable = () => {
       selector: "name",
       sortable: true,
       allowOverflow: true,
+      wrap: true,
     },
     {
       name: "Gender",
       selector: "gender",
       sortable: true,
       allowOverflow: true,
+      wrap: true,
     },
     {
       name: "Created At",
       selector: "createdAt",
-      sortable: true
+      sortable: true,
+      wrap: true,
     },
     {
       name: "Updated At",
       selector: "updatedAt",
-      sortable: true
+      sortable: true,
+      wrap: true,
     }
   ];
   return (

@@ -7,12 +7,12 @@ export const AdminProductTable = () => {
       name: "Title",
       selector: "title",
       sortable: true,
-      allowOverflow: true,
+      wrap: true,
     },
     {
       name: "Quantity",
       selector: "quantity",
-      sortable: true
+      sortable: true,
     },
     {
       name: "Original price",
@@ -32,6 +32,6 @@ export const AdminProductTable = () => {
     
   ];
   return (
-    <AdminFuncTable columns={columns} tableName="product" tableTitle="Category"/>
+    <AdminFuncTable columns={columns} tableName="product" tableTitle="Product"/>
   )
 }

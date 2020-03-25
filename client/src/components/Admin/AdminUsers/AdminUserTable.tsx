@@ -7,31 +7,31 @@ export const AdminUserTable = () => {
       name: "Email",
       selector: "email",
       sortable: true,
-      allowOverflow: true,
+      wrap: true,
     },
     {
       name: "Role",
       selector: "role",
       sortable: true,
-      allowOverflow: true,
+      wrap: true,
     },
     {
       name: "Name",
       selector: "name",
       sortable: true,
-      allowOverflow: true,
+      wrap: true,
     },
     {
       name: "Address",
       selector: "address",
       sortable: true,
-      allowOverflow: true,
+      wrap: true,
     },
     {
       name: "Avatar URL",
       selector: "avatar",
       sortable: true,
-      allowOverflow: true,
+      wrap: true,
     },
   ];
   return (

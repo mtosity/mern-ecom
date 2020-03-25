@@ -7,16 +7,16 @@ export const AdminSubImgTable = () => {
       name: "Product ID",
       selector: "productID",
       sortable: true,
-      allowOverflow: true,
+      wrap: true,
     },
     {
       name: "Image URL",
       selector: "image",
       sortable: true,
-      allowOverflow: true,
+      wrap: true,
     }
   ];
   return (
-    <AdminFuncTable columns={columns} tableName="subimg" tableTitle="Category"/>
+    <AdminFuncTable columns={columns} tableName="subimg" tableTitle="Product images"/>
   )
 }
