@@ -25,13 +25,14 @@ CategoryRoute.delete("/truncate", async (req, res) => {
 });
 
 CategoryRoute.put("/", async (req, res) => {
-  const { name } = req.body;
+  const { name, gender } = req.body;
   try {
     const existedCate = await Category.findOne({ where: { name: name } });
     if (existedCate === null) {
       await Category.create({
         id: uuid(),
-        name: name
+        name: name,
+        gender: gender
       });
       res.status(200).json({ msg: "Added successful" });
     }else{
