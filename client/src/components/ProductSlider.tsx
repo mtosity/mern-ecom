@@ -14,7 +14,7 @@ export const ProductSlider = () => {
     <div className=" w-full pb-16 px-16 ">
       <div className="flex items-center overflow-hidden pb-4 relative" >
         <div
-          className=" absolute cursor-pointer z-20 p-2 bg-red-400"
+          className=" absolute cursor-pointer z-10 p-2 bg-red-400"
           onClick={() => setX((x + jump) % (4 * jump))}
           style={{left: '5px'}}
         >
