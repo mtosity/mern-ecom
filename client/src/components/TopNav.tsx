@@ -21,10 +21,10 @@ export const TopNav = () => {
   const dispatcher = useDispatch();
   const [showMbNav, setShowMbNav] = useState(false);
   return (
-    <div className=" text-center">
+    <div className=" top-0 sticky z-20 shadow" style={{backgroundColor: '#FFFDF2'}}>
       <div
         className="w-full flex items-center px-16 justify-between md:px-8"
-        style={{ height: "82px" }}
+        style={{ height: "58px" }}
       >
         {/* LOGO */}
         <div className="flex items-center">

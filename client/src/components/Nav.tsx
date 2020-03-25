@@ -11,7 +11,7 @@ import { TopNav } from "./TopNav";
 
 export const Nav = () => {
   return (
-    <div>
+    <>
       <TopInfo />
       <TopNav/>
       {/* <div className="w-full flex md:flex-col items-center justify-center mt-2">
@@ -40,6 +40,6 @@ export const Nav = () => {
           <CartNav />
         </div>
       </div> */}
-    </div>
+    </>
   );
 };
