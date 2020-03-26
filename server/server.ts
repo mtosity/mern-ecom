@@ -9,7 +9,6 @@ import ProductRoute from "./routes/product.route";
 import CategoryRoute from "./routes/category.route";
 import path from "path";
 import SubImgRoute from "./routes/subimg.route";
-import CateImgRoute from "./routes/cateimg.route";
 require("dotenv").config();
 
 const app = express();
@@ -25,7 +24,6 @@ api.use("/user", UserRoute);
 api.use("/product", ProductRoute);
 api.use("/category", CategoryRoute);
 api.use("/subimg", SubImgRoute);
-api.use("/cateimg", CateImgRoute);
 
 app.use("/api", api);
 // the __dirname is the current directory from where the script is running
