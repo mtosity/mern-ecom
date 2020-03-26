@@ -10,3 +10,7 @@ export enum AccountActionType {
   AddAccount = "AccountActionType/AddAccount",
   DeleteAccount = "AccountActionType/DeleteAccount",
 }
+
+export enum CategoriesActionType {
+  AddCategory = "CategoriesActionType/AddCategory"
+}
