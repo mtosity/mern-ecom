@@ -16,7 +16,7 @@ export const WomenDropDown = ({menu}: props) => {
           <DropDownTitle title="The best for female" />
           {
             menu.map(m => {
-              return <DropDownLink title={m.name} />
+              return <DropDownLink title={m.name} key={m.id}/>
             })
           }
         </div>
