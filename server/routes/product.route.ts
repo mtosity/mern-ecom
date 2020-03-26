@@ -23,7 +23,7 @@ ProductRoute.put("/", async (req, res) => {
     categoryID,
     gender
   } = req.body;
-
+  console.log(req.body);
   try {
     await Product.create({
       id: uuid(),
