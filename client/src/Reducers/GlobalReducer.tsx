@@ -11,7 +11,10 @@ const INIT_STATE: GlobalStateInterface = {
   authenticated: false
 };
 
-export const GlobalReducer = (state = INIT_STATE, action: Action) => {
+export const GlobalReducer: Reducer<
+GlobalStateInterface,
+  Action
+> = (state = INIT_STATE, action: Action) => {
   switch (action.type) {
     case GlobalActionType.SetOpenLoginModalTrue:
       return { ...state, OpenLoginModal: true };
