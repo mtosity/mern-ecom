@@ -60,4 +60,24 @@ CategoryRoute.get("/", async (req, res) => {
   res.json(categories);
 });
 
+CategoryRoute.get("/male", async (req, res) => {
+  const categories = await Category.findAll({
+    attributes: ["id", "name", "gender"],
+    where: {
+      gender: "male"
+    }
+  });
+  res.json(categories);
+});
+
+CategoryRoute.get("/female", async (req, res) => {
+  const categories = await Category.findAll({
+    attributes: ["id", "name", "gender"],
+    where: {
+      gender: "female"
+    }
+  });
+  res.json(categories);
+});
+
 export default CategoryRoute;
