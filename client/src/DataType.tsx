@@ -1,8 +1,9 @@
 export interface CategoryType {
   id: string;
   name: string;
-  createdAt: Date;
-  updatedAt: Date;
+  gender:string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface ProductType {
@@ -15,18 +16,18 @@ export interface ProductType {
   salePrice: number;
   categoryID: number;
   gender: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface UserType {
   id: number;
   email: string;
   password: string;
-  roleId: number;
+  role: number;
   name: string;
   address: string;
   avatar: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
 }
