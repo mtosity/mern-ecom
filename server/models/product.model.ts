@@ -64,7 +64,7 @@ Product.init({
     }
   },
   originPrice: {
-    type: DataTypes.NUMBER.UNSIGNED,
+    type: DataTypes.FLOAT.UNSIGNED,
     allowNull: false,
     validate: {
       notEmpty: {
@@ -77,7 +77,7 @@ Product.init({
     }
   },
   salePrice: {
-    type: DataTypes.NUMBER.UNSIGNED,
+    type: DataTypes.FLOAT.UNSIGNED,
     allowNull: false,
     validate: {
       notEmpty: {
