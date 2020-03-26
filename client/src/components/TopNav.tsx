@@ -1,24 +1,15 @@
 import React, { useState } from "react";
-import Logo from "../images/trade.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faChevronDown,
   faStoreAlt,
   faCaretDown
 } from "@fortawesome/free-solid-svg-icons";
-import { faUser } from "@fortawesome/free-regular-svg-icons";
-import { CatalogDropDown } from "./TopNav/CatalogDropDown";
-import { BlogDropDown } from "./TopNav/BlogDropDown";
-import { useDispatch, useSelector } from "react-redux";
-import { GlobalActionType } from "../Actions";
 import { AccountNav } from "./TopNav/AccountNav";
 import { Link } from "react-router-dom";
 import { NavLinks } from "./TopNav/NavLinks";
 import { NavLinksMobile } from "./TopNav/NavLinksMobile";
-import { ApplicationState } from "../Reducers/CombinedReducers";
 
 export const TopNav = () => {
-  const dispatcher = useDispatch();
   const [showMbNav, setShowMbNav] = useState(false);
   return (
     <div className=" top-0 sticky z-20 shadow" style={{backgroundColor: '#FFFDF2'}}>
