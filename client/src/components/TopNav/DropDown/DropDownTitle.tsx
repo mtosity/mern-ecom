@@ -7,8 +7,8 @@ interface props {
 export const DropDownTitle = ({title}: props) => {
     return (
         <>
-          <p className=" uppercase font-bold">{title}</p>
-          <div className="w-4 border-b border-gray-400 mt-2"></div>   
+          <span className=" uppercase font-bold w-40">{title}</span>
+          <div className="w-8 border-b border-gray-400 mt-2"></div>   
         </>
     )
 }
