@@ -1,6 +1,6 @@
-import React from "react";
-import { Provider } from "react-redux";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Provider, useDispatch } from "react-redux";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import "./index.css";
 import { Nav } from "./components/Nav";
@@ -15,17 +15,32 @@ import "./styles/image-hover.css";
 import "animate.css";
 import { ProductDetail } from "./screen/ProductDetail";
 import { Footer } from "./components/Footer";
-const HomeSwitch = () => (
+import { ProductCategories } from "./screen/ProductCategories";
+import { CategoriesActionType, GlobalActionType } from "./Actions";
+
+const HomeSwitch = () => {
+  const dispatcher = useDispatch();
+  useEffect(() => {
+    fetch("/api/category").then(res => {
+      res.json().then(cates => {
+        dispatcher({type: CategoriesActionType.AddCategory, payload: cates});
+        dispatcher({type: GlobalActionType.DoneLoading});
+      })
+    })
+  }, [])
+  return (
   <>
     <Nav></Nav>
     <Switch>
       <Route path="/" exact component={Home} />
+      <Route path="/categories" component={ProductCategories} />
       <Route path="/detail" exact component={ProductDetail} />
       <Route path="/" component={FOF} />
     </Switch>
     <Footer />
   </>
-);
+  )
+  };
 
 const App = () => {
   return (
