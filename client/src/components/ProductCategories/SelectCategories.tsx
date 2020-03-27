@@ -8,19 +8,19 @@ import { useLocation } from "react-router-dom";
 
 interface props {
   loading: boolean;
-  womenCate: Array<CategoryType>;
-  menCate: Array<CategoryType>;
+  categories: Array<CategoryType>;
   selectedCate: string;
   selectCate: Function;
 }
 
 export const SelectCategories = ({
   loading,
-  womenCate,
-  menCate,
+  categories,
   selectedCate,
   selectCate
 }: props) => {
+  const menCate = categories.filter(c => c.gender === "male");
+  const womenCate = categories.filter(c => c.gender === "female");
   return loading ? (
     <div>Loading categories</div>
   ) : (

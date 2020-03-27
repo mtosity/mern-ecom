@@ -24,12 +24,11 @@ export const ProductCategories = () => {
         selectCate(cate[0].name);
       }
     }
-  }, [loading, location]);
+  }, [categories, loading, location]);
   return (
     <div>
       <SelectCategories 
-        menCate={menCate}
-        womenCate={womenCate}
+        categories={categories}
         selectedCate={selectedCate}
         selectCate={selectCate}
         loading={loading}
