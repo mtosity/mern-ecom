@@ -2,6 +2,7 @@ import React from "react";
 import { PopupIcon } from "./PopupIcon";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { faHeart, faEye } from "@fortawesome/free-regular-svg-icons";
+import { ProductStars } from "../ProductDetail/ProductStars";
 export const ProductCard = () => {
   return (
     <div className="flex justify-center items-center">
@@ -19,16 +20,16 @@ export const ProductCard = () => {
           <PopupIcon icon={faHeart} />
           <PopupIcon icon={faEye} />
         </div>
-        <div className="w-56">
+        <div className="w-56 px-1 py-2">
           <a
             href="#"
-            className="text-lg font-semibold inline-block m-4 hover:text-red-700"
+            className="text-lg font-semibold inline-block ml-4 py-1 hover:text-red-700"
           >
             Qui Ratione Volup
           </a>
           <div className="flex justify-between">
             <p className="font-semibold ml-4">$49.00</p>
-            <p className="mr-4 mb-4 ">$49.00</p>
+            <ProductStars stars={4.5} onlyStars/>
           </div>
         </div>
       </div>
