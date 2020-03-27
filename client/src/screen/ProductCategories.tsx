@@ -13,21 +13,33 @@ export const ProductCategories = () => {
   const loading = useSelector<ApplicationState, boolean>(
     state => state.GlobalReducer.loading
   );
-  const menCate = categories.filter(c => c.gender === "male");
-  const womenCate = categories.filter(c => c.gender === "female");
   const [selectedCate, selectCate] = useState("");
+  const [products, setProducts] = useState([]);
   useEffect(() => {
     if (!loading) {
       const catePath = location.pathname.split("/")[2];
-      const cate = categories.filter(c => c.name === catePath);
-      if (cate.length === 1) {
-        selectCate(cate[0].name);
+      const cates = categories.filter(c => c.name === catePath);
+      if (cates.length === 1) {
+        const { name, id } = cates[0];
+        selectCate(name);
+        const body = { categoryID: id };
+        fetch("/api/product/category", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(body)
+        }).then(res => {
+          res.json().then(products => {
+            setProducts(products);
+          });
+        });
       }
     }
   }, [categories, loading, location]);
   return (
     <div>
-      <SelectCategories 
+      <SelectCategories
         categories={categories}
         selectedCate={selectedCate}
         selectCate={selectCate}

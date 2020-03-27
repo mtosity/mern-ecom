@@ -51,6 +51,22 @@ ProductRoute.get("/", async (req, res) => {
   }
 });
 
+ProductRoute.post("/category", async (req, res) => {
+  const {categoryID} = req.body;
+  // console.log(categoryID)
+  try {
+    const products = await Product.findAll({
+      where: {
+        categoryID: [categoryID]
+      }
+    });
+    // console.log(products)
+    res.json(products);
+  } catch (error) {
+    res.status(400).json(error);    
+  }
+});
+
 ProductRoute.delete("/truncate", async (req, res) => {
   try {
     await Product.destroy({ truncate: true });
