@@ -7,21 +7,21 @@ export interface CategoryType {
 }
 
 export interface ProductType {
-  id: number;
+  id: string;
   title: string;
   description: string;
   quantity: number;
   image: string;
   originPrice: number;
   salePrice: number;
-  categoryID: number;
+  categoryID: string;
   gender: string;
   createdAt: string;
   updatedAt: string;
 }
 
 export interface UserType {
-  id: number;
+  id: string;
   email: string;
   password: string;
   role: number;
@@ -30,4 +30,10 @@ export interface UserType {
   avatar: string;
   createdAt: string;
   updatedAt: string;
+}
+
+export interface SubImgType {
+  id: string;
+  productID: string;
+  image: string;
 }
