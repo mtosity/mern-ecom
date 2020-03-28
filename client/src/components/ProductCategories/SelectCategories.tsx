@@ -54,7 +54,7 @@ export const SelectCategories = ({
       </div>
       <div className="flex justify-center items-center w-full md:mt-4">
         <img
-          src="https://cocoandcreme.com/wp-content/uploads/2019/07/1-1024x756.jpg"
+          src="https://c.76.my/Malaysia/women-korean-fashion-couples-plaid-long-sleeved-fairy-style-skirt-snowfashionshop-1905-27-F1619380_1.jpg"
           alt=""
           className="mx-4 w-3/4 md:w-full"
         />
