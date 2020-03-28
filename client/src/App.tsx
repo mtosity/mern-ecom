@@ -34,7 +34,7 @@ const HomeSwitch = () => {
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/categories" component={ProductCategories} />
-      <Route path="/detail" exact component={ProductDetail} />
+      <Route path="/detail/:id" exact component={ProductDetail} />
       <Route path="/" component={FOF} />
     </Switch>
     <Footer />

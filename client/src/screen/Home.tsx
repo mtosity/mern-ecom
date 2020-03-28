@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { Banner } from "../components/Banner";
 import { FeatureCategories } from "../components/FeatureCategories";
 import { MiddleTitle } from "../components/MiddleTitle";
-import { ProductList } from "../components/ProductList";
+import { ProductGrid } from "../components/ProductGrid";
 import { MiddleBanner } from "../components/MiddleBanner";
 import { ProductSlider } from "../components/ProductSlider";
 import { Reviews } from "../components/Reviews";
@@ -15,7 +15,7 @@ export const Home = () => {
         <Banner />
         <FeatureCategories/>
         <MiddleTitle title="New Arrivals"/>
-        <ProductList/>
+        <ProductGrid products={[]}/>
         <MiddleBanner/>
         <MiddleTitle title="Featured Products"/>
         <ProductSlider/>

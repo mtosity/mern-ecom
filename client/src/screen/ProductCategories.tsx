@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { ApplicationState } from "../Reducers/CombinedReducers";
 import { useLocation } from "react-router-dom";
 import { CategoryType } from "../DataType";
+import { ProductGrid } from "../components/ProductGrid";
 
 export const ProductCategories = () => {
   let location = useLocation();
@@ -45,6 +46,7 @@ export const ProductCategories = () => {
         selectCate={selectCate}
         loading={loading}
       />
+      <ProductGrid products={products}/>
     </div>
   );
 };
