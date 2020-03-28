@@ -44,11 +44,11 @@ export const ProductDetail = ({ match }: props) => {
     <div>loading</div>
   ) : (
     <div>
-      <div className="w-full flex p-16">
+      <div className="w-full flex p-16 md:flex-col md:p-4">
         <div style={{ flex: 1 }}>
           <ProductCarousel SubImgs={imgs}/>
         </div>
-        <div style={{ flex: 1 }} className="ml-8">
+        <div style={{ flex: 5 }} className="ml-8">
           <p className="text-4xl jo-font font-extrabold tracking-wide">
             {product.title}
           </p>
@@ -57,7 +57,7 @@ export const ProductDetail = ({ match }: props) => {
             <ProductStars stars={4.5} />
           </div>
           <ProductSectionTitle title="Quick Overview" />
-          <pre className="">
+          <p className="">
             {/* There are many variations of passages of Lorem Ipsum avaable, b
             majority have suffered alteration in some form, by injected humour,
             or randomised words which don't look even slightly believable. make
@@ -66,7 +66,7 @@ export const ProductDetail = ({ match }: props) => {
             {product.description.split(".").map(line => {
               return <p>{line} <br/></p>
             })}
-          </pre>
+          </p>
           <ProductSectionTitle title="Select Size" />
           <ProductSizes />
           <ProductSectionTitle title="Select Color" />
