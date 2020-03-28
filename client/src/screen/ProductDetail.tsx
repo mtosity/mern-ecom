@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ProductCarousel } from "../components/ProductDetail/ProductCarousel";
 import { ProductSectionTitle } from "../components/ProductDetail/ProductSectionTitle";
 import { ProductPrice } from "../components/ProductDetail/ProductPrice";
@@ -8,20 +8,52 @@ import { ProductColors } from "../components/ProductDetail/ProductColors";
 import { AddToCartBtn } from "../components/ProductDetail/AddToCartBtn";
 import { ShareBtns } from "../components/ProductDetail/ShareBtns";
 import { ProductInfo } from "../components/ProductDetail/ProductInfo";
+import { RouteComponentProps } from "react-router-dom";
+import { ProductType } from "../DataType";
 
-export const ProductDetail = () => {
-  return (
+interface props extends RouteComponentProps<{ id: string }> {}
+
+export const ProductDetail = ({ match }: props) => {
+  const [product, setProduct] = useState<ProductType>({
+    id: "",
+    title: "",
+    description: "",
+    quantity: 0,
+    image: "",
+    originPrice: 0,
+    salePrice: 0,
+    categoryID: "",
+    gender: "",
+    createdAt: "",
+    updatedAt: ""
+  });
+  const [loading, setLoading] = useState(true);
+  const [imgs, setImgs] = useState([]);
+  useEffect(() => {
+    const { id } = match.params;
+    Promise.all([
+      fetch(`/api/product/id/${id}`).then(res => res.json()),
+      fetch(`/api/subimg/id/${id}`).then(res => res.json()),
+    ]).then(data => {
+      setProduct(data[0][0]);
+      setImgs(data[1])
+      setLoading(false);
+    })
+  }, []);
+  return loading ? (
+    <div>loading</div>
+  ) : (
     <div>
-      <div className="w-full flex px-16 pb-16">
+      <div className="w-full flex p-16">
         <div style={{ flex: 1 }}>
-          <ProductCarousel />
+          <ProductCarousel SubImgs={imgs}/>
         </div>
-        <div style={{ flex: 3 }} className="ml-8">
+        <div style={{ flex: 1 }} className="ml-8">
           <p className="text-4xl jo-font font-extrabold tracking-wide">
-            Proin Lectus Ipsum
+            {product.title}
           </p>
           <div className="flex justify-between">
-            <ProductPrice price={120} />
+            <ProductPrice price={product.salePrice} />
             <ProductStars stars={4.5} />
           </div>
           <ProductSectionTitle title="Quick Overview" />
@@ -31,7 +63,9 @@ export const ProductDetail = () => {
             or randomised words which don't look even slightly believable. make
             an ami jani nab majority have suffered alteration in some form,
             variations of passages Lorem Ipsum avaable, b majority */}
-            {`Available In Black Crew NeckShort<br/>SleeveScreen<br/>Print100%<br/>Cotton`}
+            {product.description.split(".").map(line => {
+              return <p>{line} <br/></p>
+            })}
           </pre>
           <ProductSectionTitle title="Select Size" />
           <ProductSizes />
