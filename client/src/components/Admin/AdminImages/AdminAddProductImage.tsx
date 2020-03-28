@@ -11,7 +11,7 @@ export const AdminAddProductImage = () => {
   const addImg = async () => {
     const body = { productID: proID, image: img };
     const res = await fetch("/api/subimg", {
-      method: "PUT",
+      method: "POST",
       mode: "cors",
       headers: {
         "Content-Type": "application/json"

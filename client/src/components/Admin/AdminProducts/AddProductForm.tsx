@@ -44,7 +44,7 @@ export const AddProductForm = () => {
       gender: gender
     };
     const res = await fetch("/api/product", {
-      method: "PUT",
+      method: "POST",
       mode: "cors",
       headers: {
         "Content-Type": "application/json"

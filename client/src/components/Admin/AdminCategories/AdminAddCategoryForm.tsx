@@ -12,7 +12,7 @@ export const AdmiAddCategoryForm = () => {
     const body = { name: name, gender: gender };
     console.log(body);
     const res = await fetch("/api/category", {
-      method: "PUT",
+      method: "POST",
       mode: "cors",
       headers: {
         "Content-Type": "application/json"
