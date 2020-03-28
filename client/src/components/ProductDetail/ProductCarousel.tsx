@@ -1,18 +1,21 @@
-import React from 'react'
+import React from "react";
 import { Carousel } from "react-responsive-carousel";
+import { SubImgType } from "../../DataType";
 
-export const ProductCarousel = () => {
-    return (
-        <Carousel>
-          <div>
-            <img src="https://preview.uideck.com/items/shopr-theme/assets/img/single-product/small/img5.jpg" />
-          </div>
-          <div>
-            <img src="https://preview.uideck.com/items/shopr-theme/assets/img/single-product/small/img5.jpg" />
-          </div>
-          <div>
-            <img src="https://preview.uideck.com/items/shopr-theme/assets/img/single-product/small/img5.jpg" />
-          </div>
-        </Carousel>
-    )
+interface props {
+  SubImgs: Array<SubImgType>;
 }
+
+export const ProductCarousel = ({ SubImgs }: props) => {
+  return (
+    <Carousel infiniteLoop showStatus={false}>
+      {SubImgs.map(subimg => {
+        return (
+          <div key={subimg.id} style={{backgroundColor: "#F5F5F5"}}>
+            <img src={subimg.image} style={{maxHeight: "600px", objectFit: "contain"}}/>
+          </div>
+        );
+      })}
+    </Carousel>
+  );
+};
