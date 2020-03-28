@@ -15,9 +15,8 @@ export const ProductCard = ({ product }: props) => {
     <div>
       <div
         className="flex flex-col bg-white shadow-md mx-2 hover:shadow-2xl img-hover-darker relative group"
-        style={{ width: "250px" }}
       >
-        <img className=" object-cover" src={product.image} alt=""  style={{width: "250px", height: "380px"}}/>
+        <img className=" object-cover w-full" src={product.image} alt="" />
         <div
           className="absolute top-0 left-0 w-full flex justify-center items-center
       -translate-y-5 group-hover:translate-y-0 transform duration-500 ease-in-out"
