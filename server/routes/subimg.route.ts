@@ -16,6 +16,21 @@ SubImgRoute.get("/sync", async (req, res) => {
   res.json({ msg: "Table synced" });
 });
 
+SubImgRoute.get("/id/:id", async (req, res) => {
+  const { id } = req.params;
+  console.log(id)
+  try {
+    const subimgs = await SubImg.findAll({
+      where: {
+        productID: id
+      }
+    });
+    res.json(subimgs);
+  } catch (error) {
+    res.status(400).json(error);
+  }
+});
+
 SubImgRoute.delete("/truncate", async (req, res) => {
   try {
     await SubImg.destroy({ truncate: true });
@@ -25,14 +40,16 @@ SubImgRoute.delete("/truncate", async (req, res) => {
   }
 });
 
-SubImgRoute.put("/", async (req, res) => {
+SubImgRoute.post("/", async (req, res) => {
   const { productID, image } = req.body;
   try {
     const existedPro = await Product.findOne({
       where: { id: productID }
     });
     if (existedPro === null) {
-      res.status(400).json({ errors: [{ message: "No product have this ID" }] });
+      res
+        .status(400)
+        .json({ errors: [{ message: "No product have this ID" }] });
     } else {
       await SubImg.create({
         id: uuid(),

@@ -16,7 +16,7 @@ UserRoute.get("/sync/force", (req, res) => {
   res.json({ sa: "sla" });
 });
 
-UserRoute.put("/", async (req, res) => {
+UserRoute.post("/", async (req, res) => {
   const user = await User.findOne({
     where: {
       email: req.body.email

@@ -12,7 +12,7 @@ ProductRoute.get("/sync/force", async (req, res) => {
   await Product.sync({ force: true });
   res.json({ msg: "Table synced" });
 });
-ProductRoute.put("/", async (req, res) => {
+ProductRoute.post("/", async (req, res) => {
   const {
     title,
     description,
@@ -58,6 +58,22 @@ ProductRoute.post("/category", async (req, res) => {
     const products = await Product.findAll({
       where: {
         categoryID: [categoryID]
+      }
+    });
+    // console.log(products)
+    res.json(products);
+  } catch (error) {
+    res.status(400).json(error);    
+  }
+});
+
+ProductRoute.get("/id/:id", async (req, res) => {
+  const {id} = req.params;
+  console.log(id)
+  try {
+    const products = await Product.findAll({
+      where: {
+        id: [id]
       }
     });
     // console.log(products)

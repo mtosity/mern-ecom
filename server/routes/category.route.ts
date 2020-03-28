@@ -24,7 +24,7 @@ CategoryRoute.delete("/truncate", async (req, res) => {
   }
 });
 
-CategoryRoute.put("/", async (req, res) => {
+CategoryRoute.post("/", async (req, res) => {
   const { name, gender } = req.body;
   try {
     const existedCate = await Category.findOne({ where: { name: name } });
