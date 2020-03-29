@@ -52,7 +52,7 @@ Order.init(
       allowNull: false,
       validate: {
         isIn: {
-          args: [["cart", "ordered", "delivered"]],
+          args: [["ordered", "delivered"]],
           msg: "Order status must be cart ordered delivered"
         }
       }
