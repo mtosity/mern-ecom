@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import classnames from "classnames";
 
-export const ProductSizes = () => {
-  const sizes = ["S", "M", "L", "XL"];
-  const [selectedSize, setSize] = useState("M");
+interface props {
+  selectedSize: string;
+  setSize: Function;
+  sizes: Array<string>;
+}
+
+export const ProductSizes = ({selectedSize, setSize, sizes}: props) => {
   return (
     <div className="flex items-center">
       {sizes.map(s => {

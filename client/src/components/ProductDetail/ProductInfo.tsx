@@ -10,6 +10,7 @@ export const ProductInfo = () => {
         {sections.map(s => {
           return (
             <button
+              key={s}
               className={classnames(
                 "flex justify-between font-bold items-center jo-font focus:outline-none px-6 py-3 md:px-4 py-1 uppercase mr-2 transform duration-300",
                 selectedSection === s

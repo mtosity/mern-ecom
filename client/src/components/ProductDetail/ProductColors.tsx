@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import classnames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
+interface props {
+  selectedColor: string;
+  setColor: Function;
+  colors: Array<string>;
+}
 
-export const ProductColors = () => {
-  const colors = ["red", "blue", "green", "black"];
-  const [selectedColor, setColor] = useState("red");
+export const ProductColors = ({selectedColor, setColor, colors}: props) => {
   return (
     <div className="flex items-center">
       {colors.map(c => {

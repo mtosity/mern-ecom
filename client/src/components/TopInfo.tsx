@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faPhoneAlt, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronDown,
+  faPhoneAlt,
+  faShoppingCart
+} from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import SearchBar from "./navbar/SearchBar";
+import { CartDropDown } from "./TopInfo/CartDropDown";
+import useOutsideClick from "../utils/useOutsideClick";
 
 export const TopInfo = () => {
+  const [showCart, setShowCart] = useState(false);
+  const ref = useRef(null);
+  useOutsideClick(ref, () => {
+    setShowCart(false);
+  });
   return (
     <div
       className="w-full flex justify px-16 md:px-4"
@@ -44,17 +55,20 @@ export const TopInfo = () => {
         <div className="flex md:w-full md:justify-center">
           <SearchBar />
 
-          <div
+          <button
             style={{ width: "38px", height: "38px" }}
-            className="bg-black flex justify-center items-center ml-8"
+            className="bg-black flex justify-center items-center ml-8 focus:outline-none"
           >
             <FontAwesomeIcon className="" icon={faHeart} color="white" />
-          </div>
+          </button>
           <div
             style={{ width: "38px", height: "38px" }}
-            className="bg-black flex justify-center items-center ml-1"
+            className="bg-black flex justify-center items-center ml-1 focus:outline-none relative cursor-pointer"
+            ref={ref}
+            onClick={() => setShowCart(!showCart)}
           >
             <FontAwesomeIcon className="" icon={faShoppingCart} color="white" />
+            <CartDropDown show={showCart}/>
           </div>
         </div>
       </div>

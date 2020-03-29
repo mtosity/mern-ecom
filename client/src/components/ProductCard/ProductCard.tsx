@@ -20,7 +20,7 @@ export const ProductCard = ({ product }: props) => {
         <div
           className="absolute top-0 left-0 w-full flex justify-center items-center
       -translate-y-5 group-hover:translate-y-0 transform duration-500 ease-in-out"
-      style={{height: "380px"}}
+      style={{height: "80%"}}
         >
           <PopupIcon icon={faCartPlus} />
           <PopupIcon icon={faHeart} />
