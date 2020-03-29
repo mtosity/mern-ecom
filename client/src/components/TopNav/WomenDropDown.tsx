@@ -22,7 +22,7 @@ export const WomenDropDown = ({menu}: props) => {
         </div>
         <div className="h-full overflow-hidden object-cover ">
           <img
-            src="https://cdn.shopify.com/s/files/1/0293/9277/products/10-17-19_Studio_2_OD_OM_14-38-28_32__D0124_Olive__25_NT_760x.jpg?v=1571691061"
+            src="https://prod.kooding.com/productDetailImage/207792-2/cefb78284fdbac4fee6524fd4720e9a05f9e5371.jpg"
             alt=""
             style={{ maxWidth: "200px", maxHeight: "100%" }}
           />

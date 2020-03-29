@@ -20,9 +20,9 @@ export const MenDropDown = ({menu}: props) => {
             })
           }
         </div>
-        <div className="pt-4">
+        <div>
           <img
-            src="https://preview.uideck.com/items/shopr-theme/assets/img/block_menu.jpg"
+            src="https://prod.kooding.com/productDetailImage/210569-2/8f790d60b135cba0afcd9760346afffe9c832878.jpg"
             alt=""
             style={{ maxWidth: "200px", maxHeight: "100%" }}
           />
