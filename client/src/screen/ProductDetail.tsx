@@ -10,10 +10,20 @@ import { ShareBtns } from "../components/ProductDetail/ShareBtns";
 import { ProductInfo } from "../components/ProductDetail/ProductInfo";
 import { RouteComponentProps } from "react-router-dom";
 import { ProductType } from "../DataType";
+import { useDispatch } from "react-redux";
+import { CartActionType } from "../Actions";
+import Swal from "sweetalert2";
 
 interface props extends RouteComponentProps<{ id: string }> {}
 
 export const ProductDetail = ({ match }: props) => {
+  const sizes = ["S", "M", "L", "XL"];
+  const [selectedSize, setSize] = useState("M");
+  const colors = ["red", "blue", "green", "black"];
+  const [selectedColor, setColor] = useState("red");
+  const [quantity, setQuantity] = useState("1");
+
+  const dispatcher = useDispatch();
   const [product, setProduct] = useState<ProductType>({
     id: "",
     title: "",
@@ -25,28 +35,34 @@ export const ProductDetail = ({ match }: props) => {
     categoryID: "",
     gender: "",
     createdAt: "",
-    updatedAt: ""
+    updatedAt: "",
   });
-  const [loading, setLoading] = useState(true);
   const [imgs, setImgs] = useState([]);
   useEffect(() => {
     const { id } = match.params;
     Promise.all([
       fetch(`/api/product/id/${id}`).then(res => res.json()),
-      fetch(`/api/subimg/id/${id}`).then(res => res.json()),
+      fetch(`/api/subimg/id/${id}`).then(res => res.json())
     ]).then(data => {
       setProduct(data[0][0]);
-      setImgs(data[1])
-      setLoading(false);
-    })
+      setImgs(data[1]);
+    });
   }, []);
-  return loading ? (
-    <div>loading</div>
-  ) : (
+  const addToCart = () => {
+    const newproductCart = {
+      ...product,
+      color: selectedColor,
+      size: selectedSize,
+      quantity: parseInt(quantity)
+    };
+    dispatcher({ type: CartActionType.AddProduct, payload: newproductCart });
+    Swal.fire("Added to cart!");
+  };
+  return (
     <div>
       <div className="w-full flex p-16 md:flex-col md:p-4">
         <div style={{ flex: 1 }}>
-          <ProductCarousel SubImgs={imgs}/>
+          <ProductCarousel SubImgs={imgs} />
         </div>
         <div style={{ flex: 5 }} className="ml-8">
           <p className="text-4xl jo-font font-extrabold tracking-wide">
@@ -57,22 +73,39 @@ export const ProductDetail = ({ match }: props) => {
             <ProductStars stars={4.5} />
           </div>
           <ProductSectionTitle title="Quick Overview" />
-          <p className="">
+          <div>
             {/* There are many variations of passages of Lorem Ipsum avaable, b
             majority have suffered alteration in some form, by injected humour,
             or randomised words which don't look even slightly believable. make
             an ami jani nab majority have suffered alteration in some form,
             variations of passages Lorem Ipsum avaable, b majority */}
             {product.description.split(".").map(line => {
-              return <p>{line} <br/></p>
+              return <p key={line}>{line}</p>;
             })}
-          </p>
+          </div>
+          <ProductSectionTitle title="Select quantity" />
+          <input
+            type="number"
+            name=""
+            id=""
+            className="outline-none px-4 py-2"
+            value={quantity}
+            onChange={e => setQuantity(e.target.value)}
+          />
           <ProductSectionTitle title="Select Size" />
-          <ProductSizes />
+          <ProductSizes
+            selectedSize={selectedSize}
+            setSize={setSize}
+            sizes={sizes}
+          />
           <ProductSectionTitle title="Select Color" />
-          <ProductColors />
+          <ProductColors
+            selectedColor={selectedColor}
+            setColor={setColor}
+            colors={colors}
+          />
           <div className="flex justify-between items-center mt-8">
-            <AddToCartBtn />
+            <AddToCartBtn onClick={addToCart} />
             <ShareBtns />
           </div>
         </div>
