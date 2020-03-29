@@ -37,3 +37,9 @@ export interface SubImgType {
   productID: string;
   image: string;
 }
+
+export interface CartType extends ProductType {
+  quantity: number;
+  color: string;
+  size: string;
+}
