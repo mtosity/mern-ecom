@@ -29,7 +29,7 @@ export const Reviews = () => {
   const [section, setSecion] = useState(0);
   return (
     <div
-      className="w-full flex flex-col items-center justify-center py-24"
+      className="w-full flex flex-col items-center justify-center py-24 overflow-hidden"
       style={{
         backgroundImage:
           "linear-gradient(to right top, #f50057, #f42256, #f43356, #f33f56, #f24a57)"

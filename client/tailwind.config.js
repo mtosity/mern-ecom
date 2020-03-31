@@ -49,5 +49,6 @@ module.exports = {
     textColor: ["hover", "active", "group-hover"],
     boxShadow: ['group-hover', 'hover'],
     rotate: ['group-hover'],
+    padding: ['responsive'],
   }
 };

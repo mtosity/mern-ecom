@@ -18,7 +18,7 @@ export const TopInfo = () => {
   });
   return (
     <div
-      className="w-full flex justify px-16 md:px-4"
+      className="w-screen flex justify px-16 md:px-4 sm:px-2"
       style={{
         height: "58px",
         backgroundColor: "#F5F5F5",
@@ -55,21 +55,17 @@ export const TopInfo = () => {
         <div className="flex md:w-full md:justify-center">
           <SearchBar />
 
-          <button
-            style={{ width: "38px", height: "38px" }}
-            className="bg-black flex justify-center items-center ml-8 focus:outline-none"
-          >
+          <button className="bg-black flex justify-center items-center ml-8 focus:outline-none sm:ml-2">
             <FontAwesomeIcon className="" icon={faHeart} color="white" />
           </button>
-          <div
-            style={{ width: "38px", height: "38px" }}
-            className="bg-black flex justify-center items-center ml-1 focus:outline-none relative cursor-pointer"
+          <button
+            className="bg-black flex justify-center items-center ml-1 focus:outline-none relative cursor-pointer sm:ml-2"
             ref={ref}
             onClick={() => setShowCart(!showCart)}
           >
             <FontAwesomeIcon className="" icon={faShoppingCart} color="white" />
-            <CartDropDown show={showCart}/>
-          </div>
+            <CartDropDown show={showCart} />
+          </button>
         </div>
       </div>
     </div>

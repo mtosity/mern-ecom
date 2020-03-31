@@ -9,11 +9,15 @@ body {
   font-size: 14px;
 }
 
+html,body{
+  /* overflow-x: hidden; */
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 .jo-font {
-  font-family: 'Josefin Sans';
+  font-family: 'Josefin Sans', sans-serif;
 }

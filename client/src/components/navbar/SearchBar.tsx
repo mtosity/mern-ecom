@@ -10,13 +10,12 @@ export default function SearchBar() {
   return (
     <div
       className="flex focus:shadow-lg border border-red-600 rounded"
-      style={{ height: "38px" }}
     >
       <div
-        className="flex items-center justify-center bg-red-600 text-white w-32 md:w-24"
+        className="flex items-center justify-center bg-red-600 text-white sm:text-xs p-2 sm:py-0"
       >
         <p>Categories</p>
-        <FontAwesomeIcon className="w-3 h-3 ml-1" icon={faChevronDown} />
+        <FontAwesomeIcon className="ml-1" icon={faChevronDown} />
       </div>
       <input
         type="text"
@@ -25,8 +24,7 @@ export default function SearchBar() {
       ></input>
       <button
         type="submit"
-        className="h-full outline-none bg-red-600"
-        style={{ width: "40px" }}
+        className="outline-none bg-red-600"
       >
         <FontAwesomeIcon className="" icon={faSearch} color="white" />
       </button>

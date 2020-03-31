@@ -46,7 +46,7 @@ const App = () => {
   return (
     <Provider store={Store}>
       <div
-        className="w-screen main-container"
+        className="w-screen"
         style={{ backgroundColor: "#FFFFF2" }}
       >
         <BrowserRouter>

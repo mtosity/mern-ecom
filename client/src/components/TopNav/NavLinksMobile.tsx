@@ -11,23 +11,23 @@ interface props {
 
 export const NavLinksMobile = ({ show }: props) => {
   return (
-    <div className={classnames("items-center w-full justify-center", show ? "flex" : "hidden")}>
+    <div className={classnames("", show ? "flex items-center justify-center" : "hidden")}>
       <a
         href="#"
-        className="inline-block px-4 ml-4 py-3 hover:bg-red-500 hover:text-white text-gray-700"
+        className="inline-block px-2 ml-1 py-1 hover:bg-red-500 hover:text-white text-gray-700 text-xs"
       >
         HOME
       </a>
       <a
         href="#"
-        className="inline-block px-4 ml-4 py-3 hover:bg-red-500 hover:text-white text-gray-700"
+        className="inline-block px-2 ml-1 py-1 hover:bg-red-500 hover:text-white text-gray-700 text-xs"
       >
         ABOUT
       </a>
       <div className="group">
         <a
           href="#"
-          className="flex items-center hover:bg-red-500 hover:text-white text-gray-700 px-4 ml-4 py-3"
+          className="flex items-center hover:bg-red-500 hover:text-white text-gray-700 px-2 py-1 ml-1 text-xs"
         >
           CATALOG
           <FontAwesomeIcon icon={faChevronDown} className="h-3 w-3 ml-2" />
@@ -37,7 +37,7 @@ export const NavLinksMobile = ({ show }: props) => {
       <div className="group">
         <a
           href="#"
-          className="inline-block px-4 ml-4 py-3 hover:bg-red-500 hover:text-white text-gray-700"
+          className="inline-block px-2 ml-1 py-1 hover:bg-red-500 hover:text-white text-gray-700 text-xs"
         >
           BLOG
           <FontAwesomeIcon icon={faChevronDown} className="h-3 w-3 ml-2" />
@@ -46,7 +46,7 @@ export const NavLinksMobile = ({ show }: props) => {
       </div>
       <a
         href="#"
-        className="inline-block px-4 ml-4 py-3 hover:bg-red-500 hover:text-white text-gray-700"
+        className="inline-block px-2 ml-1 py-1 hover:bg-red-500 hover:text-white text-gray-700 text-xs"
       >
         CONTACT
       </a>
