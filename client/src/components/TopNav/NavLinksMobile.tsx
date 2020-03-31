@@ -1,8 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { CatalogDropDown } from "./CatalogDropDown";
-import { BlogDropDown } from "./BlogDropDown";
 import classnames from "classnames";
 
 interface props {
@@ -10,46 +8,28 @@ interface props {
 }
 
 export const NavLinksMobile = ({ show }: props) => {
+  const [nav, setNav] = useState("");
+  const navs = ["HOME", "ABOUT", "CATALOG", "BLOG", "CONTACT"];
   return (
-    <div className={classnames("", show ? "flex items-center justify-center" : "hidden")}>
-      <a
-        href="#"
-        className="inline-block px-2 ml-1 py-1 hover:bg-red-500 hover:text-white text-gray-700 text-xs"
+    <div>
+      <div
+        className={classnames(
+          "",
+          show ? "flex items-center justify-center" : "hidden"
+        )}
       >
-        HOME
-      </a>
-      <a
-        href="#"
-        className="inline-block px-2 ml-1 py-1 hover:bg-red-500 hover:text-white text-gray-700 text-xs"
-      >
-        ABOUT
-      </a>
-      <div className="group">
-        <a
-          href="#"
-          className="flex items-center hover:bg-red-500 hover:text-white text-gray-700 px-2 py-1 ml-1 text-xs"
-        >
-          CATALOG
-          <FontAwesomeIcon icon={faChevronDown} className="h-3 w-3 ml-2" />
-        </a>
-        <CatalogDropDown />
+        {navs.map(n => {
+          return (
+            <button 
+              className="flex px-2 ml-1 py-1 hover:bg-red-500 hover:text-white text-gray-700 text-xs focus:outline-none"
+              onClick={() => setNav(n)}
+            >
+              {n}
+            </button>
+          );
+        })}
       </div>
-      <div className="group">
-        <a
-          href="#"
-          className="inline-block px-2 ml-1 py-1 hover:bg-red-500 hover:text-white text-gray-700 text-xs"
-        >
-          BLOG
-          <FontAwesomeIcon icon={faChevronDown} className="h-3 w-3 ml-2" />
-        </a>
-        <BlogDropDown />
-      </div>
-      <a
-        href="#"
-        className="inline-block px-2 ml-1 py-1 hover:bg-red-500 hover:text-white text-gray-700 text-xs"
-      >
-        CONTACT
-      </a>
+      <div className="">{nav}</div>
     </div>
   );
 };
