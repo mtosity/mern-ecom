@@ -8,7 +8,7 @@ export const Footer = () => {
   return (
     <div>
       <div
-        className="w-full flex p-16"
+        className="w-full flex p-16 sm:px-2"
         style={{ backgroundColor: "#171717", color: "#999999" }}
       >
         <div className="flex-1">
