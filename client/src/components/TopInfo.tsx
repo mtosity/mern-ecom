@@ -18,9 +18,8 @@ export const TopInfo = () => {
   });
   return (
     <div
-      className="w-screen flex justify px-16 md:px-4 sm:px-2"
+      className="w-screen flex justify px-16 py-4 md:px-4 sm:px-2 sm:py-4"
       style={{
-        height: "58px",
         backgroundColor: "#F5F5F5",
         fontFamily: "Open Sans"
       }}
@@ -52,18 +51,30 @@ export const TopInfo = () => {
             <p className="ml-1">Call Us: (123) 456- 789</p>
           </div>
         </div>
-        <div className="flex md:w-full md:justify-center">
+        <div className="flex md:w-full md:justify-around">
           <SearchBar />
 
-          <button className="bg-black flex justify-center items-center ml-8 focus:outline-none sm:ml-2">
-            <FontAwesomeIcon className="" icon={faHeart} color="white" />
+          <button 
+            className="bg-black flex justify-center items-center ml-8 focus:outline-none px-2 sm:ml-2 sm:p-1"
+          >
+            <FontAwesomeIcon
+              className=""
+              icon={faHeart}
+              color="white"
+              size="sm"
+            />
           </button>
           <button
-            className="bg-black flex justify-center items-center ml-1 focus:outline-none relative cursor-pointer sm:ml-2"
+            className="bg-black flex justify-center items-center ml-1 focus:outline-none relative cursor-pointer px-2 sm:ml-2 sm:p-1"
             ref={ref}
             onClick={() => setShowCart(!showCart)}
           >
-            <FontAwesomeIcon className="" icon={faShoppingCart} color="white" />
+            <FontAwesomeIcon
+              className=""
+              icon={faShoppingCart}
+              color="white"
+              size="sm"
+            />
             <CartDropDown show={showCart} />
           </button>
         </div>
