@@ -29,7 +29,7 @@ export const SingleReview = () => {
           }}
         ></div>
       </div>
-      <div className=" relative" style={{ width: "500px" }}>
+      <div className=" relative" style={{ width: "300px" }}>
         <p className="mt-8 text-center text-white tracking-widest">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit.
           Reprehenderit ratione quis dolorum, id recusandae quia ea nostrum
