@@ -29,6 +29,11 @@ export const SelectCategories = ({
       style={{ backgroundColor: "#F5F5F5" }}
     >
       <div className="flex flex-col">
+        <CategoryLink
+          title="all"
+          onClick={() => selectCate("all")}
+          active={selectedCate === "all"}
+        />
         <CategoryGenderTitle title="WOMEN" />
         {womenCate.map(cate => {
           return (

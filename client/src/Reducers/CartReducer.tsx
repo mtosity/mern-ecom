@@ -21,6 +21,13 @@ export const CartReducer: Reducer<CartStateInterface, CartActionInterface> = (
       return [...state, action.payload];
     case CartActionType.DeleteProduct:
       return state.filter(s => s.id !== action.payload.id);
+    case CartActionType.IncreaseQuantity:
+      return state.map(s => {
+        if(s.id === action.payload.id){
+          s.quantity += action.payload.quantity;
+        }
+        return s
+      });
     default:
       return state;
   }

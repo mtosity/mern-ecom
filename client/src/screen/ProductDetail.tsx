@@ -10,9 +10,11 @@ import { ShareBtns } from "../components/ProductDetail/ShareBtns";
 import { ProductInfo } from "../components/ProductDetail/ProductInfo";
 import { RouteComponentProps } from "react-router-dom";
 import { ProductType } from "../DataType";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { CartActionType } from "../Actions";
 import Swal from "sweetalert2";
+import { ApplicationState } from "../Reducers/CombinedReducers";
+import { CartStateInterface } from "../Reducers/CartReducer";
 
 interface props extends RouteComponentProps<{ id: string }> {}
 
@@ -24,6 +26,9 @@ export const ProductDetail = ({ match }: props) => {
   const [quantity, setQuantity] = useState("1");
 
   const dispatcher = useDispatch();
+  const cart = useSelector<ApplicationState, CartStateInterface>(
+    state => state.CartReducer
+  );
   const [product, setProduct] = useState<ProductType>({
     id: "",
     title: "",
@@ -35,7 +40,7 @@ export const ProductDetail = ({ match }: props) => {
     categoryID: "",
     gender: "",
     createdAt: "",
-    updatedAt: "",
+    updatedAt: ""
   });
   const [imgs, setImgs] = useState([]);
   useEffect(() => {
@@ -49,13 +54,40 @@ export const ProductDetail = ({ match }: props) => {
     });
   }, []);
   const addToCart = () => {
+    // const existedProduct = cart.filter(p => p.id === product.id);
+    // if (existedProduct.length === 0) {
+    //   const newproductCart = {
+    //     ...product,
+    //     color: selectedColor,
+    //     size: selectedSize,
+    //     quantity: parseInt(quantity)
+    //   };
+    //   dispatcher({ type: CartActionType.AddProduct, payload: newproductCart });
+    // } else {
+    //   const newproductCart = {
+    //     ...product,
+    //     color: selectedColor,
+    //     size: selectedSize,
+    //     quantity: parseInt(quantity)
+    //   };
+    //   dispatcher({ type: CartActionType.AddProduct, payload: newproductCart });
     const newproductCart = {
       ...product,
       color: selectedColor,
       size: selectedSize,
       quantity: parseInt(quantity)
     };
-    dispatcher({ type: CartActionType.AddProduct, payload: newproductCart });
+    if (cart.filter(p => p.id === product.id).length === 1) {
+      dispatcher({
+        type: CartActionType.IncreaseQuantity,
+        payload: newproductCart
+      });
+    } else {
+      dispatcher({
+        type: CartActionType.AddProduct,
+        payload: newproductCart
+      });    
+    }
     Swal.fire("Added to cart!");
   };
   return (

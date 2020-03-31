@@ -20,21 +20,37 @@ export const ProductCategories = () => {
     if (!loading) {
       const catePath = location.pathname.split("/")[2];
       const cates = categories.filter(c => c.name === catePath);
-      if (cates.length === 1) {
-        const { name, id } = cates[0];
-        selectCate(name);
-        const body = { categoryID: id };
-        fetch("/api/product/category", {
-          method: "POST",
+      console.log(catePath);
+      if (catePath === "all") {
+        selectCate("all");
+        fetch("/api/product", {
+          method: "GET",
           headers: {
             "Content-Type": "application/json"
-          },
-          body: JSON.stringify(body)
+          }
         }).then(res => {
           res.json().then(products => {
+            console.log(products);
             setProducts(products);
           });
         });
+      } else {
+        if (cates.length === 1) {
+          const { name, id } = cates[0];
+          selectCate(name);
+          const body = { categoryID: id };
+          fetch("/api/product/category", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(body)
+          }).then(res => {
+            res.json().then(products => {
+              setProducts(products);
+            });
+          });
+        }
       }
     }
   }, [categories, loading, location]);
@@ -46,7 +62,7 @@ export const ProductCategories = () => {
         selectCate={selectCate}
         loading={loading}
       />
-      <ProductGrid products={products}/>
+      <ProductGrid products={products} />
     </div>
   );
 };

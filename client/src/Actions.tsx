@@ -19,5 +19,6 @@ export enum CategoriesActionType {
 export enum CartActionType {
   AddProduct = "CartActionType/AddProduct",
   SetCart = "CartActionType/SetCart",
-  DeleteProduct = "CartActionType/DeleteProduct"
+  DeleteProduct = "CartActionType/DeleteProduct",
+  IncreaseQuantity = "CartActionType/IncreaseQuantity"
 }
