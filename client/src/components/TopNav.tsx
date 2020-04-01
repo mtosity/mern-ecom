@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faStoreAlt,
@@ -8,11 +8,18 @@ import { AccountNav } from "./TopNav/AccountNav";
 import { Link } from "react-router-dom";
 import { NavLinks } from "./TopNav/NavLinks";
 import { NavLinksMobile } from "./TopNav/NavLinksMobile";
+import useOutsideClick from "../utils/useOutsideClick";
 
 export const TopNav = () => {
   const [showMbNav, setShowMbNav] = useState(false);
+  const ref = useRef(null)
+
+  useOutsideClick(ref, () => {
+    setShowMbNav(false);
+  })
+
   return (
-    <div className=" top-0 sticky z-20 shadow" style={{backgroundColor: '#FFFDF2'}}>
+    <div className=" top-0 sticky z-20 shadow" style={{backgroundColor: '#FFFDF2'}} ref={ref}>
       <div
         className="w-full flex items-center px-16 justify-between md:px-8"
         style={{ height: "58px" }}
