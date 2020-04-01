@@ -5,22 +5,11 @@ import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { translate } from "react-range/lib/utils";
 import { ProductType } from "../DataType";
 
-const product: ProductType = {
-  id: "",
-  title: "Qui Ratione Volup",
-  description: "",
-  originPrice: 0,
-  salePrice: 49.0,
-  image:
-    "https://preview.uideck.com/items/shopr-theme/assets/img/products/img-08.jpg",
-  quantity: 3,
-  categoryID: "",
-  gender: "",
-  createdAt: "",
-  updatedAt: ""
-};
+interface props {
+  products: Array<ProductType>;
+}
 
-export const ProductSlider = () => {
+export const ProductSlider = ({products}: props) => {
   const jump = 270;
   const [x, setX] = useState(0);
   return (
@@ -37,12 +26,11 @@ export const ProductSlider = () => {
           className="flex transform duration-700 px-8 py-8"
           style={{ transform: `translateX(${x}px)` }}
         >
-          <ProductCard product={product} />
-          <ProductCard product={product} />
-          <ProductCard product={product} />
-          <ProductCard product={product} />
-          <ProductCard product={product} />
-          <ProductCard product={product} />
+          {
+            products.map(product => {
+              return <ProductCard key={`slider${product.id}`} product={product} />
+            })
+          }
         </div>
         <div
           className="absolute right-0 p-2 cursor-pointer z-10 bg-red-400"

@@ -16,8 +16,8 @@ export const Home = () => {
     const urls = ["/api/product/featured", "/api/product/new"];
     Promise.all(urls.map(url => fetch(url).then(res => res.json()))).then(
       data => {
-        setNews(data[0]);
-        setFeatured(data[1]);
+        setNews(data[1]);
+        setFeatured(data[0]);
       }
     );
   }, []);
@@ -26,10 +26,10 @@ export const Home = () => {
       <Banner />
       <FeatureCategories />
       <MiddleTitle title="New Arrivals" />
-      <ProductGrid products={[]} />
+      <ProductGrid products={news} />
       <MiddleBanner />
       <MiddleTitle title="Featured Products" />
-      <ProductSlider />
+      <ProductSlider products={featured}/>
       <Reviews />
       <Advantages />
     </div>
