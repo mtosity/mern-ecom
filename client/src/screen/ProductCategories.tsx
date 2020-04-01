@@ -20,7 +20,6 @@ export const ProductCategories = () => {
     if (!loading) {
       const catePath = location.pathname.split("/")[2];
       const cates = categories.filter(c => c.name === catePath);
-      console.log(catePath);
       if (catePath === "all") {
         selectCate("all");
         fetch("/api/product", {
@@ -30,7 +29,6 @@ export const ProductCategories = () => {
           }
         }).then(res => {
           res.json().then(products => {
-            console.log(products);
             setProducts(products);
           });
         });
