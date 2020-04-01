@@ -45,3 +45,5 @@ animatited icon, contact / email subscription footer)
 * Product detail (carousel, starts base on props put in, choose size / color, share button)
 # Week 9 (Products, user data):
 * Take product data from https://www.fashionnova.com/
+* Mobile Responsive
+ 
