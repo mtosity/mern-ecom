@@ -25,7 +25,7 @@ export const SelectCategories = ({
     <div>Loading categories</div>
   ) : (
     <div
-      className="w-full flex p-16 md:flex-col"
+      className="w-full flex p-16 md:flex-col sm:p-4"
       style={{ backgroundColor: "#F5F5F5" }}
     >
       <div className="flex flex-col">
