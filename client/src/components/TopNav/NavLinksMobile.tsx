@@ -9,7 +9,8 @@ interface props {
 
 export const NavLinksMobile = ({ show }: props) => {
   const [nav, setNav] = useState("");
-  const navs = ["HOME", "ABOUT", "CATALOG", "BLOG", "CONTACT"];
+  const navs = ["HOME", "ABOUT", "MEN", "WOMEN", "BLOG", "CONTACT"];
+  const dropNavs = ["MEN", "WOMEN", "BLOG"]
   return (
     <div>
       <div
@@ -25,6 +26,12 @@ export const NavLinksMobile = ({ show }: props) => {
               onClick={() => setNav(n)}
             >
               {n}
+              {
+                dropNavs.includes(n) ? 
+                <FontAwesomeIcon icon={faChevronDown} className="h-3 w-3 ml-2" />
+                : 
+                ""
+              }
             </button>
           );
         })}
