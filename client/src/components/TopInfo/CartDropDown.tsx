@@ -38,8 +38,7 @@ export const CartDropDown = ({ show }: props) => {
       <div className="bg-white cursor-auto shadow-lg" ref={ref}>
         {cart.length === 0 ? (
           <div
-            className="w-64 h-20
-         text-center pt-4"
+            className="w-64 h-20 pt-4"
           >
             No item
           </div>
@@ -47,7 +46,7 @@ export const CartDropDown = ({ show }: props) => {
           cart.map(product => {
             return (
               <div
-                className="h-40 p-2 flex items-center"
+                className="p-2 flex items-center"
                 key={`cart${product.id}`}
                 style={{ width: "350px" }}
               >

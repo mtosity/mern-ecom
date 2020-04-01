@@ -54,23 +54,6 @@ export const ProductDetail = ({ match }: props) => {
     });
   }, []);
   const addToCart = () => {
-    // const existedProduct = cart.filter(p => p.id === product.id);
-    // if (existedProduct.length === 0) {
-    //   const newproductCart = {
-    //     ...product,
-    //     color: selectedColor,
-    //     size: selectedSize,
-    //     quantity: parseInt(quantity)
-    //   };
-    //   dispatcher({ type: CartActionType.AddProduct, payload: newproductCart });
-    // } else {
-    //   const newproductCart = {
-    //     ...product,
-    //     color: selectedColor,
-    //     size: selectedSize,
-    //     quantity: parseInt(quantity)
-    //   };
-    //   dispatcher({ type: CartActionType.AddProduct, payload: newproductCart });
     const newproductCart = {
       ...product,
       color: selectedColor,
@@ -96,7 +79,7 @@ export const ProductDetail = ({ match }: props) => {
         <div style={{ flex: 1 }}>
           <ProductCarousel SubImgs={imgs} />
         </div>
-        <div style={{ flex: 5 }} className="ml-8">
+        <div style={{ flex: 5 }} className="ml-8 sm:ml-0">
           <p className="text-4xl jo-font font-extrabold tracking-wide">
             {product.title}
           </p>
@@ -106,11 +89,6 @@ export const ProductDetail = ({ match }: props) => {
           </div>
           <ProductSectionTitle title="Quick Overview" />
           <div>
-            {/* There are many variations of passages of Lorem Ipsum avaable, b
-            majority have suffered alteration in some form, by injected humour,
-            or randomised words which don't look even slightly believable. make
-            an ami jani nab majority have suffered alteration in some form,
-            variations of passages Lorem Ipsum avaable, b majority */}
             {product.description.split(".").map(line => {
               return <p key={line}>{line}</p>;
             })}

@@ -74,7 +74,7 @@ export const NavLinksMobile = ({ show }: props) => {
         {
           dropDownNavs.map(nav => {
             return (
-              <Link to={`/category/${nav.name}`} className="border border-gray-700 px-2 uppercase text-gray-700">
+              <Link to={`/category/${nav.name}`} className="border border-red-400 text-red-600 px-2 uppercase text-gray-700">
                 {nav.name}
               </Link>
             )

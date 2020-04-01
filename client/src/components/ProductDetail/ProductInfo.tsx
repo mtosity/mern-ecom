@@ -5,8 +5,8 @@ export const ProductInfo = () => {
   const sections = ["description", "reviews", "infomation", "tags"];
   const [selectedSection, setSection] = useState("description");
   return (
-    <div className="p-16 md:p-4" style={{ backgroundColor: "#F6F6F6" }}>
-      <div className="flex">
+    <div className="p-16 md:p-4 sm:p-4" style={{ backgroundColor: "#F6F6F6" }}>
+      <div className="grid grid-cols-4 sm:grid-cols-2">
         {sections.map(s => {
           return (
             <button

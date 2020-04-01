@@ -69,7 +69,6 @@ ProductRoute.post("/category", async (req, res) => {
 
 ProductRoute.get("/id/:id", async (req, res) => {
   const {id} = req.params;
-  console.log(id)
   try {
     const products = await Product.findAll({
       where: {
@@ -77,6 +76,34 @@ ProductRoute.get("/id/:id", async (req, res) => {
       }
     });
     // console.log(products)
+    res.json(products);
+  } catch (error) {
+    res.status(400).json(error);    
+  }
+});
+
+ProductRoute.get("/new", async (req, res) => {
+  try {
+    const products = await Product.findAll({
+      limit: 4,
+      order: [
+        ['createdAt', 'DESC'],
+      ] 
+    });
+    res.json(products);
+  } catch (error) {
+    res.status(400).json(error);    
+  }
+});
+
+ProductRoute.get("/featured", async (req, res) => {
+  try {
+    const products = await Product.findAll({
+      limit: 8,
+      order: [
+        ['createdAt', 'DESC'],
+      ] 
+    });
     res.json(products);
   } catch (error) {
     res.status(400).json(error);    

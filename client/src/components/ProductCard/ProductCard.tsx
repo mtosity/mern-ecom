@@ -13,10 +13,10 @@ interface props {
 export const ProductCard = ({ product }: props) => {
   return (
     <div>
-      <div
+    <div
         className="flex flex-col bg-white shadow-md mx-2 hover:shadow-2xl img-hover-darker relative group"
       >
-        <img className=" object-cover w-full" style={{height: "350px"}} src={product.image} alt="" />
+        <img className=" object-cover w-64" style={{height: "350px"}} src={product.image} alt="" />
         <div
           className="absolute top-0 left-0 w-full flex justify-center items-center
       -translate-y-5 group-hover:translate-y-0 transform duration-500 ease-in-out"
@@ -26,7 +26,7 @@ export const ProductCard = ({ product }: props) => {
           <PopupIcon icon={faHeart} />
           <PopupIcon icon={faEye} />
         </div>
-        <div className="w-56 px-1 py-2 h-24 flex flex-col justify-around">
+        <div className="w-64 px-1 py-2 h-24 flex flex-col justify-around">
           <Link
             to={`/detail/${product.id}`}
             className=" font-semibold inline-block ml-4 py-1 hover:text-red-700"

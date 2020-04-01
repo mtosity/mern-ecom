@@ -25,10 +25,10 @@ export const SelectCategories = ({
     <div>Loading categories</div>
   ) : (
     <div
-      className="w-full flex p-16 md:flex-col sm:p-4"
+      className="w-full flex p-16 sm:p-16 md:p-8 xs:p-4"
       style={{ backgroundColor: "#F5F5F5" }}
     >
-      <div className="flex flex-col">
+      <div className="flex flex-col w-1/3 md:w-1/3 sm:w-full sm:mx-12 xs:mx-0">
         <CategoryLink
           title="all"
           onClick={() => selectCate("all")}
@@ -57,11 +57,11 @@ export const SelectCategories = ({
           );
         })}
       </div>
-      <div className="flex justify-center items-center w-full md:mt-4">
+      <div className="flex justify-center items-center w-2/3 md:mt-4 px-8 md:w-2/3 sm:hidden">
         <img
           src="https://c.76.my/Malaysia/women-korean-fashion-couples-plaid-long-sleeved-fairy-style-skirt-snowfashionshop-1905-27-F1619380_1.jpg"
           alt=""
-          className="mx-4 w-3/4 md:w-full"
+          className="mx-4 w-full md:w-3/4"
         />
       </div>
     </div>
