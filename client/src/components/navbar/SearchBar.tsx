@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { ApplicationState } from "../../Reducers/CombinedReducers";
 import { CategoriesStateInterface } from "../../Reducers/CategoriesReducer";
 import useOutsideClick from "../../utils/useOutsideClick";
+import { Link } from "react-router-dom";
 
 export default function SearchBar() {
   const ref = useRef(null);
@@ -14,19 +15,7 @@ export default function SearchBar() {
     state => state.CategoriesReducer
   );
   const categoriesAndAll = [{ id: "allid", name: "all" }, ...categories];
-
   const [query, setQuery] = useState("");
-  const getSearchProducts = () => {
-    let cateID = "";
-    if (selectedCate !== "all") {
-      cateID = categories.filter(cate => cate.name === selectedCate)[0].id;
-    }
-    fetch(`/api/product/search?q=${query}&cate=${cateID}`).then(res => {
-      res.json().then(products => {
-        console.log(products);
-      });
-    });
-  };
 
   useOutsideClick(ref, () => {
     setShow(false);
@@ -76,13 +65,13 @@ export default function SearchBar() {
         value={query}
         onChange={e => setQuery(e.target.value)}
       ></input>
-      <button
+      <Link
+        to={`/category/${selectedCate}?q=${query}`}
         type="submit"
-        className="outline-none bg-red-600 px-2"
-        onClick={() => getSearchProducts()}
+        className="outline-none bg-red-600 px-2 flex items-center"
       >
         <FontAwesomeIcon className="" icon={faSearch} color="white" size="sm" />
-      </button>
+      </Link>
     </div>
   );
 }
