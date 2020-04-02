@@ -44,21 +44,34 @@ ProductRoute.post("/", async (req, res) => {
 });
 
 ProductRoute.get("/", async (req, res) => {
+  const query = req.query.q || "";
   try {
-    const products = await Product.findAll();
+    const products = await Product.findAll({
+      where: {
+        title: {
+          [Op.like]: [`%${query}%`]
+        }
+      }
+    });
     res.json(products);
   } catch (error) {
     res.status(400).json(error);
   }
 });
 
-ProductRoute.post("/category", async (req, res) => {
-  const { categoryID } = req.body;
-  // console.log(categoryID)
+ProductRoute.get("/category", async (req, res) => {
+  const query = req.query.q || "";
+  const category = req.query.cateID || "";
+  console.log(category, query);
   try {
     const products = await Product.findAll({
       where: {
-        categoryID: [categoryID]
+        title: {
+          [Op.like]: [`%${query}%`]
+        },
+        categoryID: {
+          [Op.like]: [`%${category}%`]
+        }
       }
     });
     // console.log(products)
