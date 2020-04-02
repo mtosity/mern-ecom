@@ -1,6 +1,7 @@
-import {uuid} from "uuidv4";
+import { uuid } from "uuidv4";
 import express from "express";
 import Product from "../models/product.model";
+import { Op } from "sequelize";
 const ProductRoute = express.Router();
 require("dotenv").config();
 
@@ -47,12 +48,12 @@ ProductRoute.get("/", async (req, res) => {
     const products = await Product.findAll();
     res.json(products);
   } catch (error) {
-    res.status(400).json(error);    
+    res.status(400).json(error);
   }
 });
 
 ProductRoute.post("/category", async (req, res) => {
-  const {categoryID} = req.body;
+  const { categoryID } = req.body;
   // console.log(categoryID)
   try {
     const products = await Product.findAll({
@@ -63,12 +64,12 @@ ProductRoute.post("/category", async (req, res) => {
     // console.log(products)
     res.json(products);
   } catch (error) {
-    res.status(400).json(error);    
+    res.status(400).json(error);
   }
 });
 
 ProductRoute.get("/id/:id", async (req, res) => {
-  const {id} = req.params;
+  const { id } = req.params;
   try {
     const products = await Product.findAll({
       where: {
@@ -78,7 +79,7 @@ ProductRoute.get("/id/:id", async (req, res) => {
     // console.log(products)
     res.json(products);
   } catch (error) {
-    res.status(400).json(error);    
+    res.status(400).json(error);
   }
 });
 
@@ -86,13 +87,11 @@ ProductRoute.get("/new", async (req, res) => {
   try {
     const products = await Product.findAll({
       limit: 4,
-      order: [
-        ['createdAt', 'DESC'],
-      ] 
+      order: [["createdAt", "DESC"]]
     });
     res.json(products);
   } catch (error) {
-    res.status(400).json(error);    
+    res.status(400).json(error);
   }
 });
 
@@ -100,13 +99,29 @@ ProductRoute.get("/featured", async (req, res) => {
   try {
     const products = await Product.findAll({
       limit: 8,
-      order: [
-        ['createdAt', 'DESC'],
-      ] 
+      order: [["createdAt", "DESC"]]
     });
     res.json(products);
   } catch (error) {
-    res.status(400).json(error);    
+    res.status(400).json(error);
+  }
+});
+
+ProductRoute.get("/search", async (req, res) => {
+  const query = req.query.q;
+  try {
+    const products = await Product.findAll({
+      limit: 8,
+      order: [["createdAt", "DESC"]],
+      where: {
+        title: {
+          [Op.like]: [query]
+        }
+      }
+    });
+    res.json(products);
+  } catch (error) {
+    res.status(400).json(error);
   }
 });
 
@@ -122,9 +137,11 @@ ProductRoute.delete("/truncate", async (req, res) => {
 ProductRoute.delete("/", async (req, res) => {
   const { id } = req.body;
   try {
-    await Product.destroy({where: {
-      id: id
-    }})
+    await Product.destroy({
+      where: {
+        id: id
+      }
+    });
     res.status(200).json({ msg: "Deleted successful" });
   } catch (error) {
     res.status(400).json(error);
