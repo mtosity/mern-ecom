@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
 import { ApplicationState } from "../../Reducers/CombinedReducers";
 import { CategoriesStateInterface } from "../../Reducers/CategoriesReducer";
+import useOutsideClick from "../../utils/useOutsideClick";
 
 export default function SearchBar() {
+  const ref = useRef(null);
   const [show, setShow] = useState(false);
   const [selectedCate, selecteCate] = useState("all");
   const categories = useSelector<ApplicationState, CategoriesStateInterface>(
@@ -25,8 +27,16 @@ export default function SearchBar() {
       });
     });
   };
+
+  useOutsideClick(ref, () => {
+    setShow(false);
+  });
+
   return (
-    <div className="flex focus:shadow-lg border border-red-600 rounded">
+    <div
+      className="flex focus:shadow-lg border border-red-600 rounded"
+      ref={ref}
+    >
       <div>
         <button
           className="flex items-center justify-center bg-red-600 text-white sm:text-xs w-32 focus:outline-none sm:w-24 sm:text-xs py-1"
