@@ -15,13 +15,16 @@ export default function SearchBar() {
 
   const [query, setQuery] = useState("");
   const getSearchProducts = () => {
-    const cateID = categories.filter(cate => cate.name === selectedCate)[0].id;
+    let cateID = "";
+    if (selectedCate !== "all") {
+      cateID = categories.filter(cate => cate.name === selectedCate)[0].id;
+    }
     fetch(`/api/product/search?q=${query}&cate=${cateID}`).then(res => {
       res.json().then(products => {
         console.log(products);
-      })
-    })
-  }
+      });
+    });
+  };
   return (
     <div className="flex focus:shadow-lg border border-red-600 rounded">
       <div>
@@ -29,7 +32,7 @@ export default function SearchBar() {
           className="flex items-center justify-center bg-red-600 text-white sm:text-xs w-32 focus:outline-none sm:w-24 sm:text-xs py-1"
           onClick={() => setShow(!show)}
         >
-          <p className="uppercase">{selectedCate}</p>
+          <p className="uppercase">{selectedCate.split(" ")[0]}</p>
           <FontAwesomeIcon className="ml-1" icon={faChevronDown} size="sm" />
         </button>
         <div className="relative">
@@ -63,7 +66,11 @@ export default function SearchBar() {
         value={query}
         onChange={e => setQuery(e.target.value)}
       ></input>
-      <button type="submit" className="outline-none bg-red-600 px-2" onClick={() => getSearchProducts()}>
+      <button
+        type="submit"
+        className="outline-none bg-red-600 px-2"
+        onClick={() => getSearchProducts()}
+      >
         <FontAwesomeIcon className="" icon={faSearch} color="white" size="sm" />
       </button>
     </div>
