@@ -12,6 +12,16 @@ export default function SearchBar() {
     state => state.CategoriesReducer
   );
   const categoriesAndAll = [{ id: "allid", name: "all" }, ...categories];
+
+  const [query, setQuery] = useState("");
+  const getSearchProducts = () => {
+    const cateID = categories.filter(cate => cate.name === selectedCate)[0].id;
+    fetch(`/api/product/search?q=${query}&cate=${cateID}`).then(res => {
+      res.json().then(products => {
+        console.log(products);
+      })
+    })
+  }
   return (
     <div className="flex focus:shadow-lg border border-red-600 rounded">
       <div>
@@ -32,7 +42,7 @@ export default function SearchBar() {
                     className="hover:bg-gray-600 hover:text-white text-center uppercase py-1 px-2 cursor-pointer sm:py-1"
                     key={`search${cate.id}`}
                     onClick={() => {
-                      selecteCate(catename);
+                      selecteCate(cate.name);
                       setShow(!show);
                     }}
                   >
@@ -50,8 +60,10 @@ export default function SearchBar() {
         type="text"
         className="outline-none px-2 text-xs bg-white w-64 md:w-40 py-0"
         placeholder="What are you looking for?"
+        value={query}
+        onChange={e => setQuery(e.target.value)}
       ></input>
-      <button type="submit" className="outline-none bg-red-600 px-2">
+      <button type="submit" className="outline-none bg-red-600 px-2" onClick={() => getSearchProducts()}>
         <FontAwesomeIcon className="" icon={faSearch} color="white" size="sm" />
       </button>
     </div>

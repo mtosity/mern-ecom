@@ -108,14 +108,18 @@ ProductRoute.get("/featured", async (req, res) => {
 });
 
 ProductRoute.get("/search", async (req, res) => {
-  const query = req.query.q;
+  const query = req.query.q || "";
+  const category = req.query.cate || "";
   try {
     const products = await Product.findAll({
       limit: 8,
       order: [["createdAt", "DESC"]],
       where: {
         title: {
-          [Op.like]: [query]
+          [Op.like]: [`%${query}%`]
+        },
+        categoryID: {
+          [Op.like]: [`%${category}%`]
         }
       }
     });
