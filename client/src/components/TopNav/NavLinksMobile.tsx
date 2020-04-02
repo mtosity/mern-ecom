@@ -49,6 +49,7 @@ export const NavLinksMobile = ({ show }: props) => {
         {navs.map(n => {
           return (
             <button
+              key={`mobilenav${n}`}
               className={classnames(
                 "flex justify-center items-center px-2 ml-1 py-1 text-xs focus:outline-none",
                 nav === n ? "bg-red-500 text-white" : "text-gray-700"
