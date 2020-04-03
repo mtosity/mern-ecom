@@ -5,10 +5,11 @@ import { useSelector } from "react-redux";
 import { ApplicationState } from "../../Reducers/CombinedReducers";
 import { CategoriesStateInterface } from "../../Reducers/CategoriesReducer";
 import useOutsideClick from "../../utils/useOutsideClick";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 export default function SearchBar() {
   const ref = useRef(null);
+  const history = useHistory();
   const [show, setShow] = useState(false);
   const [selectedCate, selecteCate] = useState("all");
   const categories = useSelector<ApplicationState, CategoriesStateInterface>(
@@ -64,6 +65,11 @@ export default function SearchBar() {
         placeholder="What are you looking for?"
         value={query}
         onChange={e => setQuery(e.target.value)}
+        onKeyPress={e => {
+          if (e.key === "Enter") {
+            history.push(`/category/${selectedCate}?q=${query}`);
+          }
+        }}
       ></input>
       <Link
         to={`/category/${selectedCate}?q=${query}`}
