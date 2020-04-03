@@ -6,11 +6,11 @@ export const InfoDescription = () => {
       <p className="font-bold text-xl text-center">
         MY 6 ESSENTIALS FOR WORKING FROM HOME
       </p>
-      <div className="w-full py-8">
+      <div className="w-full py-8 sm:px-2">
         <img
           src="https://www.hellofashionblog.com/wp-content/uploads/2020/03/bfrj8KaQ-scaled-e1585008808205.jpeg"
           alt=""
-          className="w-1/2  m-auto"
+          className="w-1/2 sm:w-full  m-auto"
         />
       </div>
       <p className="text-lg text-gray-900">

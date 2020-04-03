@@ -28,7 +28,7 @@ export const ProductInfo = () => {
           );
         })}
       </div>
-      <div className="p-16 bg-white mt-8 shadow-lg">
+      <div className="p-16 bg-white mt-8 shadow-lg sm:p-2">
         {selectedSection === "description" ? (
           <InfoDescription />
         ) : selectedSection === "shipping" ? (
