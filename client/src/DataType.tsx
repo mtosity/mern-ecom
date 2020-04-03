@@ -1,7 +1,7 @@
 export interface CategoryType {
   id: string;
   name: string;
-  gender:string;
+  gender: string;
   createdAt: string;
   updatedAt: string;
 }
@@ -42,4 +42,15 @@ export interface CartType extends ProductType {
   quantity: number;
   color: string;
   size: string;
+}
+
+export interface ReviewType {
+  id: string;
+  productID: string;
+  userID: string;
+  userName: string;
+  cmt: string;
+  stars: number;
+  createdAt: string;
+  updatedAt: string;
 }
