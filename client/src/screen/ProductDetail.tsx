@@ -60,7 +60,12 @@ export const ProductDetail = ({ match }: props) => {
       size: selectedSize,
       quantity: parseInt(quantity)
     };
-    if (cart.filter(p => p.id === product.id).length === 1) {
+    const sameProduct = cart.filter(p => p.id === product.id)[0];
+    if (
+      sameProduct &&
+      sameProduct.size === newproductCart.size &&
+      sameProduct.color === newproductCart.color
+    ) {
       dispatcher({
         type: CartActionType.IncreaseQuantity,
         payload: newproductCart
@@ -69,7 +74,7 @@ export const ProductDetail = ({ match }: props) => {
       dispatcher({
         type: CartActionType.AddProduct,
         payload: newproductCart
-      });    
+      });
     }
     Swal.fire("Added to cart!");
   };
