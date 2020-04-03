@@ -26,7 +26,7 @@ export const ProductStars = ({ stars, onlyStars }: props) => {
     }
     setStartIcons(tempStarIcons);
     setMsg(stars.toString());
-  }, []);
+  }, [stars]);
   return (
     <div className="flex items-center">
       {startIcons.map((s, i) => {
