@@ -125,7 +125,7 @@ export const ProductDetail = ({ match }: props) => {
           </div>
         </div>
       </div>
-      <ProductInfo />
+      <ProductInfo productID={product.id}/>
     </div>
   );
 };

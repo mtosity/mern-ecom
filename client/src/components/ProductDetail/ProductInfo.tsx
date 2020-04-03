@@ -5,7 +5,11 @@ import { InfoShipping } from "./ProductInfo/InfoShipping";
 import { InfoTags } from "./ProductInfo/InfoTags";
 import { InfoReviews } from "./ProductInfo/InfoReviews";
 
-export const ProductInfo = () => {
+interface props {
+  productID: string;
+}
+
+export const ProductInfo = ({productID}: props) => {
   const sections = ["description", "reviews", "shipping", "tags"];
   const [selectedSection, setSection] = useState("description");
   return (
@@ -36,7 +40,7 @@ export const ProductInfo = () => {
         ) : selectedSection === "tags" ? (
           <InfoTags />
         ) : selectedSection === "reviews" ? (
-          <InfoReviews />
+          <InfoReviews productID={productID}/>
         ) : (
           "SOMETHING WRONG"
         )}
