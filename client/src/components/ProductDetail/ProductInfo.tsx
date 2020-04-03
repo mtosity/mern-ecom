@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import classnames from "classnames";
+import { InfoDescription } from "./ProductInfo/InfoDescription";
+import { InfoShipping } from "./ProductInfo/InfoShipping";
+import { InfoTags } from "./ProductInfo/InfoTags";
+import { InfoReviews } from "./ProductInfo/InfoReviews";
 
 export const ProductInfo = () => {
-  const sections = ["description", "reviews", "infomation", "tags"];
+  const sections = ["description", "reviews", "shipping", "tags"];
   const [selectedSection, setSection] = useState("description");
   return (
     <div className="p-16 md:p-4 sm:p-4" style={{ backgroundColor: "#F6F6F6" }}>
@@ -24,7 +28,19 @@ export const ProductInfo = () => {
           );
         })}
       </div>
-      <div className="p-16 bg-white mt-8 shadow-lg">DUMMY PRODUCT NAME</div>
+      <div className="p-16 bg-white mt-8 shadow-lg">
+        {selectedSection === "description" ? (
+          <InfoDescription />
+        ) : selectedSection === "shipping" ? (
+          <InfoShipping />
+        ) : selectedSection === "tags" ? (
+          <InfoTags />
+        ) : selectedSection === "reviews" ? (
+          <InfoReviews />
+        ) : (
+          "SOMETHING WRONG"
+        )}
+      </div>
     </div>
   );
 };
