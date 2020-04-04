@@ -15,7 +15,7 @@ export const InfoReviews = ({ productID }: props) => {
         setReviews(reviews);
       });
     });
-  }, []);
+  }, [productID]);
   return (
     <div>
       <h1 className="jo-font font-bold text-lg mb-8">CUSTOMER REVIEW</h1>

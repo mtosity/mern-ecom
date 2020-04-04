@@ -18,7 +18,6 @@ export const ReviewForm = ({ productID }: props) => {
   );
   const submitReview = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(userID);
     const body = {
       productID,
       userID,

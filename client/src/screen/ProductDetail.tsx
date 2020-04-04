@@ -15,6 +15,7 @@ import { CartActionType } from "../Actions";
 import Swal from "sweetalert2";
 import { ApplicationState } from "../Reducers/CombinedReducers";
 import { CartStateInterface } from "../Reducers/CartReducer";
+import { uuid } from "uuidv4";
 
 interface props extends RouteComponentProps<{ id: string }> {}
 
@@ -27,7 +28,7 @@ export const ProductDetail = ({ match }: props) => {
 
   const dispatcher = useDispatch();
   const cart = useSelector<ApplicationState, CartStateInterface>(
-    state => state.CartReducer
+    (state) => state.CartReducer
   );
   const [product, setProduct] = useState<ProductType>({
     id: "",
@@ -40,15 +41,15 @@ export const ProductDetail = ({ match }: props) => {
     categoryID: "",
     gender: "",
     createdAt: "",
-    updatedAt: ""
+    updatedAt: "",
   });
   const [imgs, setImgs] = useState([]);
   useEffect(() => {
     const { id } = match.params;
     Promise.all([
-      fetch(`/api/product/id/${id}`).then(res => res.json()),
-      fetch(`/api/subimg/id/${id}`).then(res => res.json())
-    ]).then(data => {
+      fetch(`/api/product/id/${id}`).then((res) => res.json()),
+      fetch(`/api/subimg/id/${id}`).then((res) => res.json()),
+    ]).then((data) => {
       setProduct(data[0][0]);
       setImgs(data[1]);
     });
@@ -58,22 +59,25 @@ export const ProductDetail = ({ match }: props) => {
       ...product,
       color: selectedColor,
       size: selectedSize,
-      quantity: parseInt(quantity)
+      quantity: parseInt(quantity),
+      id: uuid(),
+      productID: product.id,
     };
-    const sameProduct = cart.filter(p => p.id === product.id)[0];
-    if (
-      sameProduct &&
-      sameProduct.size === newproductCart.size &&
-      sameProduct.color === newproductCart.color
-    ) {
+    const sameProduct = cart.filter(
+      (p) =>
+        p.productID === newproductCart.productID &&
+        p.color === newproductCart.color &&
+        p.size === newproductCart.size
+    );
+    if (sameProduct.length > 0) {
       dispatcher({
         type: CartActionType.IncreaseQuantity,
-        payload: newproductCart
+        payload: sameProduct[0],
       });
     } else {
       dispatcher({
         type: CartActionType.AddProduct,
-        payload: newproductCart
+        payload: newproductCart,
       });
     }
     Swal.fire("Added to cart!");
@@ -94,7 +98,7 @@ export const ProductDetail = ({ match }: props) => {
           </div>
           <ProductSectionTitle title="Quick Overview" />
           <div>
-            {product.description.split(".").map(line => {
+            {product.description.split(".").map((line) => {
               return <p key={line}>{line}</p>;
             })}
           </div>
@@ -105,7 +109,7 @@ export const ProductDetail = ({ match }: props) => {
             id=""
             className="outline-none px-4 py-2"
             value={quantity}
-            onChange={e => setQuantity(e.target.value)}
+            onChange={(e) => setQuantity(e.target.value)}
           />
           <ProductSectionTitle title="Select Size" />
           <ProductSizes
@@ -125,7 +129,7 @@ export const ProductDetail = ({ match }: props) => {
           </div>
         </div>
       </div>
-      <ProductInfo productID={product.id}/>
+      <ProductInfo productID={product.id} />
     </div>
   );
 };

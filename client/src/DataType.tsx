@@ -38,10 +38,21 @@ export interface SubImgType {
   image: string;
 }
 
-export interface CartType extends ProductType {
+export interface CartType {
+  id: string;
+  productID: string;
+  title: string;
+  description: string;
   quantity: number;
+  image: string;
+  originPrice: number;
+  salePrice: number;
+  categoryID: string;
+  gender: string;
   color: string;
   size: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface ReviewType {
