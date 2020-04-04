@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { ProductStars } from "../../../ProductStars";
 
-export const ReviewStar = () => {
-  const [stars, setStars] = useState("0");
+interface props {
+  stars: string;
+  setStars: Function;
+}
+
+export const ReviewStar = ({stars, setStars}: props) => {
 
   return (
     <div className="flex ml-2 mt-2">
