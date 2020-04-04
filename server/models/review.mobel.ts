@@ -23,7 +23,7 @@ Review.init(
     },
     productID: {
       type: DataTypes.UUID,
-      primaryKey: true,
+      allowNull: false,
       validate: {
         notEmpty: {
           msg: "Product not found"
@@ -32,7 +32,7 @@ Review.init(
     },
     userID: {
       type: DataTypes.UUID,
-      primaryKey: true,
+      allowNull: false,
       validate: {
         notEmpty: {
           msg: "You have to login first"
