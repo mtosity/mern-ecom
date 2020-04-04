@@ -61,10 +61,9 @@ export const LoginForm = ({ classes, styles }: props) => {
       // console.log(user);
       if (response.status === 200) {
         const user = await response.json();
-        const { email, roleID, name, avatar, address } = user;
         dispatcher({
           type: AccountActionType.AddAccount,
-          payload: { email, roleID, name, avatar, address }
+          payload: user
         });
         localStorage.setItem("auth-token", jwt.sign(user, "123"));
         setLoadSI(false);
