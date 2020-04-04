@@ -8,6 +8,7 @@ export interface AccountStateInterface {
   name: string;
   avatar: string;
   address: string;
+  phone:string;
 }
 
 const INIT_STATE: AccountStateInterface = {
@@ -16,7 +17,8 @@ const INIT_STATE: AccountStateInterface = {
   roleId: -1,
   name: "",
   avatar: "",
-  address: ""
+  address: "",
+  phone: ""
 };
 
 interface AccountActionInterface extends Action {
