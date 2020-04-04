@@ -17,38 +17,37 @@ import { ProductDetail } from "./screen/ProductDetail";
 import { Footer } from "./components/Footer";
 import { ProductCategories } from "./screen/ProductCategories";
 import { CategoriesActionType, GlobalActionType } from "./Actions";
+import { CheckOut } from "./screen/CheckOut";
 
 const HomeSwitch = () => {
   const dispatcher = useDispatch();
   useEffect(() => {
-    fetch("/api/category").then(res => {
-      res.json().then(cates => {
-        dispatcher({type: CategoriesActionType.AddCategory, payload: cates});
-        dispatcher({type: GlobalActionType.DoneLoading});
-      })
-    })
-  }, [])
+    fetch("/api/category").then((res) => {
+      res.json().then((cates) => {
+        dispatcher({ type: CategoriesActionType.AddCategory, payload: cates });
+        dispatcher({ type: GlobalActionType.DoneLoading });
+      });
+    });
+  }, []);
   return (
-  <>
-    <Nav></Nav>
-    <Switch>
-      <Route path="/" exact component={Home} />
-      <Route path="/category" component={ProductCategories} />
-      <Route path="/detail/:id" exact component={ProductDetail} />
-      <Route path="/" component={FOF} />
-    </Switch>
-    <Footer />
-  </>
-  )
-  };
+    <>
+      <Nav></Nav>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/category" component={ProductCategories} />
+        <Route path="/checkout" component={CheckOut} />
+        <Route path="/detail/:id" exact component={ProductDetail} />
+        <Route path="/" component={FOF} />
+      </Switch>
+      <Footer />
+    </>
+  );
+};
 
 const App = () => {
   return (
     <Provider store={Store}>
-      <div
-        className="w-screen"
-        style={{ backgroundColor: "#FFFFF2" }}
-      >
+      <div className="w-screen" style={{ backgroundColor: "#FFFFF2" }}>
         <BrowserRouter>
           <Switch>
             <Route path="/admin" component={AdminScreen} />
