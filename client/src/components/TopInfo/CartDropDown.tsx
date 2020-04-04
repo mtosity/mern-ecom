@@ -6,23 +6,45 @@ import { CartStateInterface } from "../../Reducers/CartReducer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-regular-svg-icons";
 import { CartActionType } from "../../Actions";
+import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import { ProductType, CartType } from "../../DataType";
 
 interface props {
   show: boolean;
 }
 
 export const CartDropDown = ({ show }: props) => {
+  const dispatcher = useDispatch();
   const ref = useRef(null);
   const cart = useSelector<ApplicationState, CartStateInterface>(
-    state => state.CartReducer
+    (state) => state.CartReducer
   );
-  const prices = cart.map(product => product.salePrice * product.quantity);
+  const prices = cart.map((product) => product.salePrice * product.quantity);
   const total =
     prices.length === 0
       ? 0
-      : prices.reduce((accumulator, current) => accumulator + current).toFixed(2);
+      : prices
+          .reduce((accumulator, current) => accumulator + current)
+          .toFixed(2);
 
-  const dispatcher = useDispatch();
+  const inscreaseProduct = (product: CartType) => {
+    dispatcher({
+      type: CartActionType.IncreaseQuantityByOne,
+      payload: product,
+    });
+  };
+
+  const decreaseProduct = (product: CartType) => {
+    if (product.quantity === 1) {
+      dispatcher({ type: CartActionType.DeleteProduct, payload: product });
+    } else {
+      dispatcher({
+        type: CartActionType.DecreaseQuantityByOne,
+        payload: product,
+      });
+    }
+  };
+
   return (
     <div
       style={{ top: "40px", maxHeight: "300px" }}
@@ -36,7 +58,7 @@ export const CartDropDown = ({ show }: props) => {
         style={{
           borderRight: "15px solid transparent",
           borderLeft: "15px solid transparent",
-          borderBottom: "15px solid red"
+          borderBottom: "15px solid red",
         }}
       ></div>
       <div
@@ -46,7 +68,7 @@ export const CartDropDown = ({ show }: props) => {
         {cart.length === 0 ? (
           <div className="w-64 h-20 pt-4">No item</div>
         ) : (
-          cart.map(product => {
+          cart.map((product: CartType) => {
             return (
               <div
                 className="p-2 flex"
@@ -68,10 +90,25 @@ export const CartDropDown = ({ show }: props) => {
                       {product.color}
                     </p>
                   </div>
-                  <p className="text-gray-600 text-sm bg">
-                    Quantity:{" "}
-                    <span className="font-bold">{product.quantity}</span>
-                  </p>
+                  <div className="flex items-center">
+                    <p className="text-gray-600 text-sm bg">
+                      Quantity:{" "}
+                      <span className="font-bold">{product.quantity}</span>
+                    </p>
+                    <FontAwesomeIcon
+                      icon={faPlus}
+                      className="ml-2 cursor-pointer"
+                      color="red"
+                      onClick={(e) => inscreaseProduct(product)}
+                    />
+                    <FontAwesomeIcon
+                      icon={faMinus}
+                      className="ml-2 cursor-pointer"
+                      color="red"
+                      onClick={(e) => decreaseProduct(product)}
+                    />
+                  </div>
+
                   <p className="text-red-600 font-bold text-lg">
                     ${product.salePrice.toFixed(2)}
                   </p>
@@ -82,7 +119,7 @@ export const CartDropDown = ({ show }: props) => {
                     onClick={() =>
                       dispatcher({
                         type: CartActionType.DeleteProduct,
-                        payload: product
+                        payload: product,
                       })
                     }
                     size="lg"
