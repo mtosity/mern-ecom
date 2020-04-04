@@ -26,6 +26,7 @@ ReviewRoute.delete("/truncate", async (req, res) => {
 
 ReviewRoute.post("/", async (req, res) => {
   const { productID, userID, cmt, userName, stars } = req.body;
+  console.log(req.body)
   try {
     const existedCate = await Review.findOne({
       where: { productID: productID, userID: userID }
@@ -39,9 +40,9 @@ ReviewRoute.post("/", async (req, res) => {
         userName,
         stars
       });
-      res.status(200).json({ msg: "Added successful" });
+      res.status(200).json({ message: "Added successful" });
     } else {
-      res.status(400).json({ errors: [{ message: "Existed review" }] });
+      res.status(400).json({ errors: [{ message: "You have already reviewed" }] });
     }
   } catch (error) {
     res.status(400).json(error);
