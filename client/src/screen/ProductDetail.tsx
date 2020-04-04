@@ -30,6 +30,9 @@ export const ProductDetail = ({ match }: props) => {
   const cart = useSelector<ApplicationState, CartStateInterface>(
     (state) => state.CartReducer
   );
+  const userID = useSelector<ApplicationState, string>(
+    (state) => state.AccountReducer.id
+  );
   const [product, setProduct] = useState<ProductType>({
     id: "",
     title: "",
@@ -59,6 +62,7 @@ export const ProductDetail = ({ match }: props) => {
       ...product,
       color: selectedColor,
       size: selectedSize,
+      userID: userID,
       quantity: parseInt(quantity),
       id: uuid(),
       productID: product.id,

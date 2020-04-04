@@ -41,6 +41,7 @@ export interface SubImgType {
 export interface CartType {
   id: string;
   productID: string;
+  userID: string;
   title: string;
   description: string;
   quantity: number;
