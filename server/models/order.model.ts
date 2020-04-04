@@ -68,7 +68,7 @@ Order.init(
       allowNull: false,
       validate: {
         isIn: {
-          args: [["sm", "md", "lg", "xl"]],
+          args: [["S", "M", "L", "XL"]],
           msg: "Order status must be sm md lg xl",
         },
       },
@@ -86,7 +86,7 @@ Order.init(
   },
   {
     sequelize: sequelize,
-    tableName: "cart",
+    tableName: "order",
   }
 );
 
