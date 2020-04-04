@@ -81,14 +81,15 @@ UserRoute.post("/signup", async (req, res) => {
   });
   if (!user) {
     try {
-      const {email, password, name, address, role} = req.body;
+      const {email, password, name, address, role, phone} = req.body;
       const hashPass = await bcrypt.hash(password, 10);
       await User.create({
         email: email,
         password: hashPass,
         name: name,
         address: address,
-        role: role
+        role: role,
+        phone: phone
       });
       res.status(200).json({ status: "user signned up" });
     } catch (err) {

@@ -9,5 +9,6 @@ export const LoginError = {
       "Password not contain at least one uppercase, one number or special character",
     NotName: "Name empty",
     NotAddress: "Address is empty",
+    NotPhone: "Phone number is empty",
   };
   
