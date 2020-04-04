@@ -63,6 +63,14 @@ Review.init(
       validate: {
         notEmpty: {
           msg: "Stars empty"
+        },
+        min: {
+          args: [0],
+          msg: "Rating from 0 to 5 stars ^^"
+        },
+        max: {
+          args: [5],
+          msg: "Rating from 0 to 5 stars ^^"
         }
       }
     }
