@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useRef } from "react";
 import classnames from "classnames";
 import { useSelector, useDispatch } from "react-redux";
 import { ApplicationState } from "../../Reducers/CombinedReducers";
@@ -7,7 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-regular-svg-icons";
 import { CartActionType } from "../../Actions";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
-import { ProductType, CartType } from "../../DataType";
+import { CartType } from "../../DataType";
+import { Link } from "react-router-dom";
 
 interface props {
   show: boolean;
@@ -130,9 +131,9 @@ export const CartDropDown = ({ show }: props) => {
           })
         )}
         <div className="flex">
-          <div className="flex-1 justify-center items-center bg-red-600 text-white font-bold p-2">
+          <Link to="/checkout" className="flex-1 justify-center items-center bg-red-600 text-white font-bold p-2">
             <p>CHECK OUT</p>
-          </div>
+          </Link>
           <div className="flex-1 justify-center items-center text-red-600 font-bold p-2 border-t border-red text-sm">
             <p>Total: ${total}</p>
           </div>

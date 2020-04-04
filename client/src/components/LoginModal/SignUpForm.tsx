@@ -15,6 +15,7 @@ export const SignUpForm = ({
   const [SUEmail, setSUEmail] = useState("");
   const [SUPassword, setSUPassword] = useState("");
   const [SUAddress, setSUAddress] = useState("");
+  const [SUPhone, setSUPhone] = useState("");
   const [loadSU, setLoadSU] = useState(false);
   const [SUError, setSUError] = useState({
     isError: false,
@@ -29,6 +30,7 @@ export const SignUpForm = ({
       password: SUPassword,
       name: SUName,
       address: SUAddress,
+      phone: SUPhone,
       role: "user"
     };
     const response = await fetch("/api/user/signup", {
@@ -73,6 +75,9 @@ export const SignUpForm = ({
   const addressInputClasses = classnames(classes.input, {
     "border border-red-600": path === "address" && isError
   });
+  const phoneInputClasses = classnames(classes.input, {
+    "border border-red-600": path === "address" && isError
+  });
   return (
     <form className={classes.form} action="#">
       <h1 className={classes.h1}>Create Account</h1>
@@ -104,6 +109,13 @@ export const SignUpForm = ({
         placeholder="Address"
         value={SUAddress}
         onChange={e => setSUAddress(e.target.value)}
+      />
+      <input
+        className={phoneInputClasses}
+        type="tel"
+        placeholder="Phone number"
+        value={SUPhone}
+        onChange={e => setSUPhone(e.target.value)}
       />
       {loadSU ? (
         <div className="mt-4 text-blue-400">
