@@ -2,6 +2,7 @@ import { Reducer, Action } from "redux";
 import { GlobalActionType, AccountActionType } from "../Actions";
 
 export interface AccountStateInterface {
+  id: string;
   email: string;
   roleId: number;
   name: string;
@@ -10,6 +11,7 @@ export interface AccountStateInterface {
 }
 
 const INIT_STATE: AccountStateInterface = {
+  id: "",
   email: "",
   roleId: -1,
   name: "",
@@ -22,7 +24,7 @@ interface AccountActionInterface extends Action {
 }
 
 export const AccountReducer: Reducer<
-AccountStateInterface,
+  AccountStateInterface,
   AccountActionInterface
 > = (state = INIT_STATE, action: AccountActionInterface) => {
   switch (action.type) {
