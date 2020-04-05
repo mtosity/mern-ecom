@@ -16,8 +16,8 @@ interface props {
 export const NavLinksMobile = ({ show }: props) => {
   const [nav, setNav] = useState("HOME");
   const [dropDownNavs, setDDNavs] = useState<Array<CategoryType>>([]);
-  const navs = ["HOME", "ABOUT", "MEN", "WOMEN", "BLOG", "CONTACT"];
-  const dropNavs = ["MEN", "WOMEN", "BLOG"];
+  const navs = ["HOME", "MEN", "WOMEN", "ORDER"];
+  const dropNavs = ["MEN", "WOMEN"];
 
   const categories = useSelector<ApplicationState, CategoriesStateInterface>(
     state => state.CategoriesReducer
@@ -43,7 +43,7 @@ export const NavLinksMobile = ({ show }: props) => {
   return (
     <div>
       <div
-        className={classnames("grid-cols-3 w-screen")}
+        className={classnames("grid-cols-4 w-screen")}
         style={{ display: show ? "grid" : "none", justifyItems: "center" }}
       >
         {navs.map(n => {
@@ -75,7 +75,7 @@ export const NavLinksMobile = ({ show }: props) => {
         {
           dropDownNavs.map(nav => {
             return (
-              <Link to={`/category/${nav.name}`} className="border border-red-400 text-red-600 px-2 uppercase text-gray-700">
+              <Link key={nav.id} to={`/category/${nav.name}`} className="border border-red-400 text-red-600 px-2 uppercase text-gray-700">
                 {nav.name}
               </Link>
             )

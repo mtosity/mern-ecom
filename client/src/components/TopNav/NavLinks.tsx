@@ -13,7 +13,7 @@ export const NavLinks = () => {
   const menCate = categories.filter(c => c.gender === "male")
   const womenCate = categories.filter(c => c.gender === "female")
   return (
-    <div className="flex ml-4 items-center lg:hidden">
+    <div className="flex ml-4 items-center md:hidden">
       <Link
         to="/"
         className="inline-block px-4 ml-4 py-3 hover:bg-red-500 hover:text-white text-gray-700"

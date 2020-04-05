@@ -73,7 +73,7 @@ export const TopNav = () => {
             <AccountNav />
           </div>
           <button
-            className="flex items-center justify-center border border-red-400 rounded hidden lg:inline-block focus:outline-none h-8 w-16 ml-2"
+            className="flex items-center justify-center border border-red-400 rounded hidden md:inline-block focus:outline-none h-8 w-16 ml-2"
             onClick={() => setShowMbNav(!showMbNav)}
           >
             <FontAwesomeIcon icon={faCaretDown} color="red" />

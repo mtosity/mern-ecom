@@ -37,7 +37,7 @@ export default function SearchBar() {
         </button>
         <div className="relative">
           {show ? (
-            <div className="absolute top-1 left-0 z-30 bg-white shadow w-32 sm:w-24 sm:text-xs">
+            <div className="absolute top-1 left-0 z-30 bg-white shadow w-32 sm:text-xs">
               {categoriesAndAll.map(cate => {
                 const catename = cate.name.split(" ")[0];
                 return (
@@ -61,7 +61,7 @@ export default function SearchBar() {
       </div>
       <input
         type="text"
-        className="outline-none px-2 text-xs bg-white w-64 md:w-40 py-0"
+        className="outline-none px-2 text-xs bg-white w-64 sm:w-56 py-0"
         placeholder="What are you looking for?"
         value={query}
         onChange={e => setQuery(e.target.value)}
