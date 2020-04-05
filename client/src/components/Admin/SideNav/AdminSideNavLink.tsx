@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import classnames from "classnames";
-import { Link, RouteComponentProps, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 interface props {
   icon: IconProp;

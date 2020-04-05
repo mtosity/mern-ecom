@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Provider, useDispatch } from "react-redux";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import "./index.css";
 import { Nav } from "./components/Nav";

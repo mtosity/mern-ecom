@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { ProductCard } from "./ProductCard/ProductCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { translate } from "react-range/lib/utils";
 import { ProductType } from "../DataType";
 
 interface props {

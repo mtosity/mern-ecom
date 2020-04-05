@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { ApplicationState } from "../Reducers/CombinedReducers";
-import DataTable, {
-  createTheme,
-  IDataTableColumn,
-} from "react-data-table-component";
+import DataTable from "react-data-table-component";
 
 const columns = [
   {

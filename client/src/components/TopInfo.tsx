@@ -1,17 +1,10 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronDown,
   faPhoneAlt,
-  faShoppingCart,
-  faStoreAlt
 } from "@fortawesome/free-solid-svg-icons";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import SearchBar from "./navbar/SearchBar";
-import { CartDropDown } from "./TopInfo/CartDropDown";
-import { Link } from "react-router-dom";
-import useOutsideClick from "../utils/useOutsideClick";
-import { NavLinks } from "./TopNav/NavLinks";
 
 export const TopInfo = () => {
   return (

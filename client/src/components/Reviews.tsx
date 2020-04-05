@@ -4,27 +4,6 @@ import { faCircle } from "@fortawesome/free-regular-svg-icons";
 import { faCircle as faCircleSolid } from "@fortawesome/free-solid-svg-icons";
 import { SingleReview } from "./Reviews/SingleReview";
 
-const reviews = [
-  {
-    name: "Johnathan",
-    job: "Web Developer",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit ratione quis dolorum, id recusandae quia ea nostrum optio quisquam iusto voluptatibus dolores expedita animi consequuntur possimus totam quibusdam praesentium ipsam!"
-  },
-  {
-    name: "Johnathan",
-    job: "Web Developer",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit ratione quis dolorum, id recusandae quia ea nostrum optio quisquam iusto voluptatibus dolores expedita animi consequuntur possimus totam quibusdam praesentium ipsam!"
-  },
-  {
-    name: "Johnathan",
-    job: "Web Developer",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit ratione quis dolorum, id recusandae quia ea nostrum optio quisquam iusto voluptatibus dolores expedita animi consequuntur possimus totam quibusdam praesentium ipsam!"
-  }
-];
-
 export const Reviews = () => {
   const [section, setSecion] = useState(0);
   return (

@@ -1,6 +1,4 @@
 import React from "react";
-import classnames from 'classnames'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faCubes, faUserFriends, faPeopleCarry, faTh, faImage } from "@fortawesome/free-solid-svg-icons";
 import { AdminSideNavLink } from "./SideNav/AdminSideNavLink";
 

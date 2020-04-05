@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { ReviewStar } from "./ReviewForm/ReviewStar";
 import { useSelector } from "react-redux";
 import { ApplicationState } from "../../../../Reducers/CombinedReducers";
-import { stringify } from "querystring";
 import swa2 from "sweetalert2";
 
 interface props {

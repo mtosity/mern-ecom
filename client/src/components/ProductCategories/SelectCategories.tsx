@@ -1,10 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { CategoryLink } from "./CategoryLink";
 import { CategoryGenderTitle } from "./CategoryGenderTitle";
-import { useSelector } from "react-redux";
-import { ApplicationState } from "../../Reducers/CombinedReducers";
 import { CategoryType } from "../../DataType";
-import { useLocation } from "react-router-dom";
 
 interface props {
   loading: boolean;

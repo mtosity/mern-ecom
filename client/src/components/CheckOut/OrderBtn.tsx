@@ -16,9 +16,8 @@ export const OrderBtn = () => {
   );
   const orderPressed = async () => {
     if (cart.length > 0) {
-      console.log(cart);
       if (authenticated) {
-        setOrdering(false);
+        setOrdering(true);
         const res = await fetch("/api/order/all", {
           method: "POST",
           headers: {
@@ -37,11 +36,14 @@ export const OrderBtn = () => {
       } else {
         swa2.fire("You have to login first ^^");
       }
+      setOrdering(false);
     } else {
       swa2.fire("Cart is empty");
     }
   };
-  return (
+  return ordering ? (
+    <div className="text-blue-600 font-semibold text-lg text-center">ORDERING FOR YOU ^^</div>
+  ) : (
     <button
       className="flex justify-between font-bold items-center jo-font focus:outline-none px-6 py-3 mt-16 rounded
         bg-red-600 hover:bg-red-500 text-white shadow-lg transform duration-500 ml-4 items-center sm:px-4 sm:ml-0"

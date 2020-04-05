@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import classnames from "classnames";
 import { AdminInputTitle } from "../Content/AdminInputTitle";
 import { AdminInput } from "../Content/AdminInput";
 import { AdminInputRange } from "../Content/AdminInputRange";

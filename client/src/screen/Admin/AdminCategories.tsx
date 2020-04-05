@@ -2,10 +2,8 @@ import React from "react";
 import { AdminTitle } from "../../components/Admin/Content/AdminTitle";
 import { AdminContentCard } from "../../components/Admin/Content/AdminContentCard";
 import { AdminContent } from "../../components/Admin/AdminContent";
-import { AddProductForm } from "../../components/Admin/AdminProducts/AddProductForm";
 import { AdminSyncTableButton } from "../../components/Admin/Content/AdminSyncTableButton";
 import { AdmiAddCategoryForm } from "../../components/Admin/AdminCategories/AdminAddCategoryForm";
-import { AdminTable } from "../../components/Admin/Content/AdminTable";
 import { AdminCategoryTable } from "../../components/Admin/AdminCategories/AdminCategoryTable";
 
 export const AdminCategories = () => {

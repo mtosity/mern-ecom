@@ -1,5 +1,5 @@
 import { Reducer, Action } from "redux";
-import { GlobalActionType, AccountActionType } from "../Actions";
+import { AccountActionType } from "../Actions";
 
 export interface AccountStateInterface {
   id: string;

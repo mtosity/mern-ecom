@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ImageUploader from "react-images-upload";
 import { AdminButton } from "../Content/AdminButton";
-import Swal from "sweetalert2"
 
 export const AddImages = (props: any) => {
   const [picture, setPicture] = useState<File>();
