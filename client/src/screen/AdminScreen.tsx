@@ -7,6 +7,8 @@ import { FOF } from './FOF'
 import { AdminCategories } from './Admin/AdminCategories'
 import { AdminImages } from './Admin/AdminImages'
 import { AdminUsers } from './Admin/AdminUsers'
+import { AdminOrders } from './Admin/AdminOrders'
+import { AdminDashboard } from './Admin/AdminDashboard'
 
 export const AdminScreen = () => {
     return (
@@ -18,10 +20,12 @@ export const AdminScreen = () => {
                 </div>
                 <div className="">
                     <Switch>
+                        <Route path="/admin/dashboard" exact component={AdminDashboard}/>
                         <Route path="/admin/products" exact component={AdminProducts}/>
                         <Route path="/admin/categories" exact component={AdminCategories}/>
                         <Route path="/admin/images" exact component={AdminImages}/>
                         <Route path="/admin/users" exact component={AdminUsers}/>
+                        <Route path="/admin/orders" exact component={AdminOrders}/>
                     </Switch>
                 </div>
             </div>

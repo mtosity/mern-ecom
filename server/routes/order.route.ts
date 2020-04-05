@@ -114,13 +114,46 @@ OrderRoute.delete("/", async (req, res) => {
 });
 
 OrderRoute.get("/:userID", async (req, res) => {
-  const { userID } = req.params;
-  const orders = await Order.findAll({
-    where: {
-      userID: userID,
-    },
-  });
+  try {
+    const { userID } = req.params;
+    const orders = await Order.findAll({
+      where: {
+        userID: userID,
+      },
+    });
+    res.status(200).json(orders); 
+  } catch (error) {
+    res.status(400).json(error);
+  }
+});
+
+OrderRoute.get("/", async (req, res) => {
+  const orders = await Order.findAll();
   res.json(orders);
+});
+
+OrderRoute.put("/delivered/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const orders = await Order.update({status: "delivered"}, {where: {
+      id: id
+    }});
+    res.status(200).json({message: "Updated Successful"}); 
+  } catch (error) {
+    res.status(400).json(error);  
+  }
+});
+
+OrderRoute.put("/ordered/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const orders = await Order.update({status: "ordered"}, {where: {
+      id: id
+    }});
+    res.status(200).json({message: "Updated Successful"}); 
+  } catch (error) {
+    res.status(400).json(error);  
+  }
 });
 
 export default OrderRoute;
