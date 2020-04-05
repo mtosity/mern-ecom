@@ -8,7 +8,7 @@ export const CheckoutShipping = () => {
     (state) => state.AccountReducer
   );
   return (
-    <div className="w-2/3">
+    <div className="w-2/3 sm:w-full">
       <div className="w-full border-b border-gray-600 mt-4 mb-8"></div>
       <div className="bg-white cursor-auto shadow-lg">
         <div style={{ marginLeft: "15%" }} className="text-lg pt-8">

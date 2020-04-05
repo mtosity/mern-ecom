@@ -38,7 +38,7 @@ export const OrderSummary = () => {
     }
   };
   return (
-    <div className="p-4 w-2/3">
+    <div className="p-4 w-2/3 sm:w-full">
       <h1 className="text-center text-xl">Order Summary</h1>
       <div className="w-full border-b border-gray-600 mt-4 mb-8"></div>
       <div className="bg-white cursor-auto shadow-lg">
@@ -51,7 +51,7 @@ export const OrderSummary = () => {
                 <img
                   src={product.image}
                   alt=""
-                  className="h-64 w-64 object-contain"
+                  className="h-64 w-64 object-contain sm:w-32 sm:h-48"
                 />
                 <div className="h-full overflow-hidden ml-2 flex flex-col items-start justify-center w-full">
                   <div className="flex w-full justify-between items-center">
