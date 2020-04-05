@@ -48,6 +48,7 @@ export const ProductDetail = ({ match }: props) => {
   });
   const [imgs, setImgs] = useState([]);
   useEffect(() => {
+    window.scrollTo(0, 0);
     const { id } = match.params;
     Promise.all([
       fetch(`/api/product/id/${id}`).then((res) => res.json()),
