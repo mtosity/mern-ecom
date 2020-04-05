@@ -18,6 +18,7 @@ import { Footer } from "./components/Footer";
 import { ProductCategories } from "./screen/ProductCategories";
 import { CategoriesActionType, GlobalActionType } from "./Actions";
 import { CheckOut } from "./screen/CheckOut";
+import { Orders } from "./screen/Orders";
 
 const HomeSwitch = () => {
   const dispatcher = useDispatch();
@@ -36,6 +37,7 @@ const HomeSwitch = () => {
         <Route path="/" exact component={Home} />
         <Route path="/category" component={ProductCategories} />
         <Route path="/checkout" component={CheckOut} />
+        <Route path="/orders" component={Orders} />
         <Route path="/detail/:id" exact component={ProductDetail} />
         <Route path="/" component={FOF} />
       </Switch>

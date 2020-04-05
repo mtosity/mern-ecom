@@ -41,7 +41,7 @@ export const NavLinks = () => {
         <MenDropDown menu={menCate}/>
       </div>
       <Link
-        to="/order"
+        to="/orders"
         className="inline-block px-4 ml-4 py-3 hover:bg-red-500 hover:text-white text-gray-700"
       >
         ORDERS

@@ -16,6 +16,7 @@ export const OrderBtn = () => {
   );
   const orderPressed = async () => {
     if (cart.length > 0) {
+      console.log(cart);
       if (authenticated) {
         setOrdering(false);
         const res = await fetch("/api/order/all", {

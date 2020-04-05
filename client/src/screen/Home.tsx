@@ -14,8 +14,8 @@ export const Home = () => {
   const [news, setNews] = useState([]);
   useEffect(() => {
     const urls = ["/api/product/featured", "/api/product/new"];
-    Promise.all(urls.map(url => fetch(url).then(res => res.json()))).then(
-      data => {
+    Promise.all(urls.map((url) => fetch(url).then((res) => res.json()))).then(
+      (data) => {
         setNews(data[1]);
         setFeatured(data[0]);
       }
@@ -29,7 +29,7 @@ export const Home = () => {
       <ProductGrid products={news} />
       <MiddleBanner />
       <MiddleTitle title="Featured Products" />
-      <ProductSlider products={featured}/>
+      <ProductSlider products={featured} />
       <Reviews />
       <Advantages />
     </div>

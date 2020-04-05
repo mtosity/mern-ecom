@@ -63,6 +63,8 @@ export const ProductDetail = ({ match }: props) => {
       ...product,
       color: selectedColor,
       size: selectedSize,
+      productName: product.title,
+      price: product.salePrice,
       userID: userID,
       quantity: parseInt(quantity),
       id: uuid(),

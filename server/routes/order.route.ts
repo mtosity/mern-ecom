@@ -26,7 +26,15 @@ OrderRoute.delete("/truncate", async (req, res) => {
 });
 
 OrderRoute.post("/", async (req, res) => {
-  const { productID, userID, quantity, color, size } = req.body;
+  const {
+    productID,
+    userID,
+    quantity,
+    color,
+    size,
+    productName,
+    price,
+  } = req.body;
   console.log(req.body);
   try {
     const existedCate = await Order.findOne({
@@ -36,6 +44,8 @@ OrderRoute.post("/", async (req, res) => {
       await Order.create({
         id: uuid(),
         productID,
+        productName,
+        price,
         userID,
         quantity,
         color,
@@ -55,15 +65,25 @@ OrderRoute.post("/", async (req, res) => {
 
 OrderRoute.post("/all", async (req, res) => {
   const { order } = req.body;
-  if(order.length === 0){
-    res.status(400).json({errors: [{message: "Empty order"}]});
+  if (order.length === 0) {
+    res.status(400).json({ errors: [{ message: "Empty order" }] });
   }
   order.forEach(async (cart: any, index: number) => {
-    const { productID, userID, quantity, color, size } = cart;
+    const {
+      productID,
+      userID,
+      quantity,
+      color,
+      size,
+      productName,
+      price,
+    } = cart;
     try {
       await Order.create({
         id: uuid(),
         productID,
+        productName,
+        price,
         userID,
         quantity,
         color,
@@ -93,14 +113,14 @@ OrderRoute.delete("/", async (req, res) => {
   }
 });
 
-OrderRoute.get("/:productID", async (req, res) => {
-  const { productID } = req.params;
-  const categories = await Order.findAll({
+OrderRoute.get("/:userID", async (req, res) => {
+  const { userID } = req.params;
+  const orders = await Order.findAll({
     where: {
-      productID: productID,
+      userID: userID,
     },
   });
-  res.json(categories);
+  res.json(orders);
 });
 
 export default OrderRoute;

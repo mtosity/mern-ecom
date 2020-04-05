@@ -5,11 +5,13 @@ import { uuid } from "uuidv4";
 class Order extends Model {
   public id!: string;
   public productID!: string;
+  public productName!: string;
   public userID!: string;
   public quantity!: number;
   public color!: string;
   public size!: string;
   public status!: string;
+  public price!: number;
 
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
@@ -53,6 +55,15 @@ Order.init(
         },
       },
     },
+    productName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: "Order must have product name",
+        },
+      },
+    },
     color: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -80,6 +91,16 @@ Order.init(
         isIn: {
           args: [["ordered", "delivered"]],
           msg: "Order status must be cart ordered delivered",
+        },
+      },
+    },
+    price: {
+      type: DataTypes.FLOAT.UNSIGNED,
+      allowNull: false,
+      validate: {
+        min: {
+          args: [0],
+          msg: "Price must bigger than 0",
         },
       },
     },
