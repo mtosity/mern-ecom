@@ -14,10 +14,16 @@ import { Sequelize } from "sequelize";
 //     port: 3306,
 //     dialect: 'mysql'
 // });
-const sequelize = new Sequelize('mern-ecom', 'root', '12121212', {
-    host: 'localhost',
-    dialect: 'mysql'
-});
+require("dotenv").config();
+const sequelize = new Sequelize(
+  process.env.MYSQL_DATABASE || "",
+  process.env.MYSQL_USERNAME || "",
+  process.env.MYSQL_PASSWORD || "",
+  {
+    host: process.env.MYSQL_HOST || "",
+    dialect: "mysql",
+  }
+);
 
 // sequelize
 //   .sync()
@@ -34,4 +40,3 @@ const sequelize = new Sequelize('mern-ecom', 'root', '12121212', {
 //     );
 //   });
 export default sequelize;
-

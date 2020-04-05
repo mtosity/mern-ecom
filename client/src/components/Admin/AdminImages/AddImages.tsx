@@ -14,10 +14,9 @@ export const AddImages = (props: any) => {
     if (picture) {
       setUrl("uploading...")
       var myHeaders = new Headers();
-      // myHeaders.append("Authorization", "Client-ID a8fbbe85d3e9bbe");
       myHeaders.append(
         "Authorization",
-        "Bearer 72f4f8c97dbc1d7eb0d89a93b554358a35d1d589"
+        `Bearer ${process.env.REACT_APP_IMGUR_AUTH}`
       );
 
       var formdata = new FormData();

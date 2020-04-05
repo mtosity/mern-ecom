@@ -10,7 +10,7 @@ export const AdminNavTop = () => {
       <div className="w-full flex h-16 items-center justify-around">
         <div className="flex items-center">
           <img src={Logo} alt="" className="w-12 h-12" />
-          <p className="ml-4 text-admin-title">Dashboard</p>
+          <p className="ml-4 text-admin-title text-2xl">Admin minhtamoshop</p>
         </div>
         <div className="flex items-center">
           <FontAwesomeIcon className="text-admin-title" icon={faSearch} />
@@ -19,7 +19,7 @@ export const AdminNavTop = () => {
             name=""
             id=""
             placeholder="search..."
-            className="ml-2 outline-none text-sm h-8 ml-4 text-admin-word bg-admin-topnav"
+            className="ml-2 outline-none text-sm h-8 w-56 ml-4 text-admin-word bg-admin-topnav"
           />
           <FontAwesomeIcon icon={faBell} className="ml-4 text-admin-title" />
         </div>

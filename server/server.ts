@@ -11,7 +11,6 @@ import path from "path";
 import SubImgRoute from "./routes/subimg.route";
 import ReviewRoute from "./routes/review.route";
 import OrderRoute from "./routes/order.route";
-require("dotenv").config();
 
 const app = express();
 app.use(cors());
@@ -20,7 +19,6 @@ app.use(bodyParsers());
 app.get("/register", (req: Request, res: Response) => {
   res.redirect("/");
 });
-
 const api = express.Router();
 api.use("/user", UserRoute);
 api.use("/product", ProductRoute);
