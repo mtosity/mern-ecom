@@ -65,13 +65,13 @@ export const AccountNav = () => {
   return (
     <div>
       <button
-        className="py-2 px-8 flex items-center border border-red-400 rounded focus:outline-none"
+        className="flex items-center justify-center border border-red-400 rounded focus:outline-none h-8 w-40"
         onClick={() =>
           dispatcher({ type: GlobalActionType.SetOpenLoginModalTrue })
         }
       >
         <FontAwesomeIcon icon={faUser} color="red" />
-      <p className="ml-2 text-red-600 md:hidden">{
+      <p className="ml-2 text-red-600">{
         authenticated ? UserName : "Account"
       }</p>
       </button>

@@ -3,29 +3,27 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronDown,
   faPhoneAlt,
-  faShoppingCart
+  faShoppingCart,
+  faStoreAlt
 } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import SearchBar from "./navbar/SearchBar";
 import { CartDropDown } from "./TopInfo/CartDropDown";
+import { Link } from "react-router-dom";
 import useOutsideClick from "../utils/useOutsideClick";
+import { NavLinks } from "./TopNav/NavLinks";
 
 export const TopInfo = () => {
-  const [showCart, setShowCart] = useState(false);
-  const ref = useRef(null);
-  useOutsideClick(ref, () => {
-    setShowCart(false);
-  });
   return (
     <div
-      className="w-screen flex justify px-16 py-4 md:px-4 sm:px-2 sm:py-4"
+      className="w-screen flex justify px-16 py-4 md:px-8 sm:px-2 sm:py-4"
       style={{
         backgroundColor: "#F5F5F5",
         fontFamily: "Open Sans"
       }}
     >
-      <div className="flex items-center justify-between w-full">
-        <div className="flex items-center md:hidden">
+      <div className="flex items-center justify-between w-full sm:justify-center">
+        <div className="flex items-center sm:hidden">
           {/* langues */}
           <div className="flex items-center cursor-pointer">
             <img
@@ -42,7 +40,7 @@ export const TopInfo = () => {
             <FontAwesomeIcon icon={faChevronDown} className=" w-2 h-2" />
           </div>
           {/* Currency */}
-          <div className="flex items-center cursor-pointer inline-block ml-8 lg:hidden">
+          <div className="flex items-center cursor-pointer inline-block ml-8 md:hidden">
             <FontAwesomeIcon
               icon={faPhoneAlt}
               color="hitw"
@@ -51,33 +49,7 @@ export const TopInfo = () => {
             <p className="ml-1">Call Us: (123) 456- 789</p>
           </div>
         </div>
-        <div className="flex md:w-full md:justify-around">
-          <SearchBar />
-
-          <button 
-            className="bg-black flex justify-center items-center ml-8 focus:outline-none px-2 sm:ml-2 sm:p-1"
-          >
-            <FontAwesomeIcon
-              className=""
-              icon={faHeart}
-              color="white"
-              size="sm"
-            />
-          </button>
-          <button
-            className="bg-black flex justify-center items-center ml-1 focus:outline-none relative cursor-pointer px-2 sm:ml-2 sm:p-1"
-            ref={ref}
-            onClick={() => setShowCart(!showCart)}
-          >
-            <FontAwesomeIcon
-              className=""
-              icon={faShoppingCart}
-              color="white"
-              size="sm"
-            />
-            <CartDropDown show={showCart} />
-          </button>
-        </div>
+        <SearchBar />
       </div>
     </div>
   );

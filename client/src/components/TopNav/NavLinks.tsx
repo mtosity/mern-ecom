@@ -1,12 +1,12 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { BlogDropDown } from "./BlogDropDown";
 import { MenDropDown } from "./MenDropDown";
 import { WomenDropDown } from "./WomenDropDown";
 import { useSelector } from "react-redux";
 import { ApplicationState } from "../../Reducers/CombinedReducers";
 import { CategoryType } from "../../DataType";
+import { Link } from "react-router-dom";
 
 export const NavLinks = () => {
   const categories = useSelector<ApplicationState, Array<CategoryType>>(state => state.CategoriesReducer);
@@ -14,18 +14,12 @@ export const NavLinks = () => {
   const womenCate = categories.filter(c => c.gender === "female")
   return (
     <div className="flex ml-4 items-center lg:hidden">
-      <a
-        href="#"
+      <Link
+        to="/"
         className="inline-block px-4 ml-4 py-3 hover:bg-red-500 hover:text-white text-gray-700"
       >
         HOME
-      </a>
-      <a
-        href="#"
-        className="inline-block px-4 ml-4 py-3 hover:bg-red-500 hover:text-white text-gray-700"
-      >
-        ABOUT
-      </a>
+      </Link>
       <div className="group">
         <a
           href="#"
@@ -46,22 +40,12 @@ export const NavLinks = () => {
         </a>
         <MenDropDown menu={menCate}/>
       </div>
-      <div className="group">
-        <a
-          href="#"
-          className="inline-block px-4 ml-4 py-3 hover:bg-red-500 hover:text-white text-gray-700"
-        >
-          BLOG
-          <FontAwesomeIcon icon={faChevronDown} className="h-3 w-3 ml-2" />
-        </a>
-        <BlogDropDown />
-      </div>
-      <a
-        href="#"
+      <Link
+        to="/order"
         className="inline-block px-4 ml-4 py-3 hover:bg-red-500 hover:text-white text-gray-700"
       >
-        CONTACT
-      </a>
+        ORDERS
+      </Link>
     </div>
   );
 };
