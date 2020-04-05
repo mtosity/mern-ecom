@@ -63,8 +63,9 @@ export const CartDropDown = ({ show }: props) => {
         }}
       ></div>
       <div
-        className="bg-white cursor-auto shadow-lg border border-red-600"
+        className="bg-white cursor-auto shadow-lg border border-red-600 overflow-auto"
         ref={ref}
+        style={{maxHeight: "200px"}}
       >
         {cart.length === 0 ? (
           <div className="w-64 h-20 pt-4">No item</div>
