@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { PopupIcon } from "./PopupIcon";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { faHeart, faEye } from "@fortawesome/free-regular-svg-icons";
@@ -10,6 +10,8 @@ import { CartActionType } from "../../Actions";
 import { ApplicationState } from "../../Reducers/CombinedReducers";
 import { uuid } from "uuidv4";
 import swa2 from "sweetalert2";
+import classNames from "classnames";
+import useOutsideClick from "../../utils/useOutsideClick";
 
 interface props {
   product: ProductType;
@@ -18,12 +20,25 @@ interface props {
 export const ProductCard = ({ product }: props) => {
   const dispatch = useDispatch();
   const history = useHistory();
+  const ref = useRef(null);
   const userID = useSelector<ApplicationState, string>(
     (state) => state.AccountReducer.id
   );
+  const [clicked, setClicked] = useState(false);
+  useOutsideClick(ref, () => {
+    setClicked(false);
+  });
   return (
     <div>
-      <div className="flex flex-col bg-white shadow-md mx-2 hover:shadow-2xl img-hover-darker relative group">
+      <div
+        ref={ref}
+        className="flex flex-col bg-white shadow-md mx-2 hover:shadow-2xl img-hover-darker relative group"
+        onClick={async () => {
+          setTimeout(() => {
+            setClicked(true);
+          }, 310);
+        }}
+      >
         <img
           className=" object-cover w-64"
           style={{ height: "350px" }}
@@ -31,13 +46,16 @@ export const ProductCard = ({ product }: props) => {
           alt=""
         />
         <div
-          className="absolute top-0 left-0 w-full flex justify-center items-center
-      -translate-y-5 group-hover:translate-y-0 transform duration-500 ease-in-out"
+          className={classNames(
+            "absolute top-0 left-0 w-full flex justify-center items-center -translate-y-5 group-hover:translate-y-0 transform duration-500 ease-in-out sm:duration-300",
+            clicked ? "sm:pointer-events-auto" : "sm:pointer-events-none"
+          )}
           style={{ height: "80%" }}
         >
           <PopupIcon
             icon={faCartPlus}
             onClick={() => {
+              setClicked(false);
               dispatch({
                 type: CartActionType.AddProduct,
                 payload: {
@@ -55,7 +73,10 @@ export const ProductCard = ({ product }: props) => {
           />
           <PopupIcon
             icon={faHeart}
-            onClick={() => swa2.fire("You loved the product, thank you ^^")}
+            onClick={() => {
+              setClicked(false);
+              swa2.fire("You loved the product, thank you ^^");
+            }}
           />
           <PopupIcon
             icon={faEye}

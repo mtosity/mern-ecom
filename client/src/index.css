@@ -7446,6 +7446,14 @@ video {
   pointer-events: auto;
 }
 
+.hover\:pointer-events-none:hover {
+  pointer-events: none;
+}
+
+.hover\:pointer-events-auto:hover {
+  pointer-events: auto;
+}
+
 .static {
   position: static;
 }
@@ -15905,6 +15913,30 @@ video {
     color: #702459;
   }
 
+  .lg\:pointer-events-none {
+    pointer-events: none;
+  }
+
+  .lg\:pointer-events-auto {
+    pointer-events: auto;
+  }
+
+  .group:hover .lg\:group-hover\:pointer-events-none {
+    pointer-events: none;
+  }
+
+  .group:hover .lg\:group-hover\:pointer-events-auto {
+    pointer-events: auto;
+  }
+
+  .lg\:hover\:pointer-events-none:hover {
+    pointer-events: none;
+  }
+
+  .lg\:hover\:pointer-events-auto:hover {
+    pointer-events: auto;
+  }
+
   .lg\:static {
     position: static;
   }
@@ -21555,6 +21587,30 @@ video {
 
   .md\:focus\:placeholder-pink-900:focus::placeholder {
     color: #702459;
+  }
+
+  .md\:pointer-events-none {
+    pointer-events: none;
+  }
+
+  .md\:pointer-events-auto {
+    pointer-events: auto;
+  }
+
+  .group:hover .md\:group-hover\:pointer-events-none {
+    pointer-events: none;
+  }
+
+  .group:hover .md\:group-hover\:pointer-events-auto {
+    pointer-events: auto;
+  }
+
+  .md\:hover\:pointer-events-none:hover {
+    pointer-events: none;
+  }
+
+  .md\:hover\:pointer-events-auto:hover {
+    pointer-events: auto;
   }
 
   .md\:static {
@@ -27209,6 +27265,30 @@ video {
     color: #702459;
   }
 
+  .sm\:pointer-events-none {
+    pointer-events: none;
+  }
+
+  .sm\:pointer-events-auto {
+    pointer-events: auto;
+  }
+
+  .group:hover .sm\:group-hover\:pointer-events-none {
+    pointer-events: none;
+  }
+
+  .group:hover .sm\:group-hover\:pointer-events-auto {
+    pointer-events: auto;
+  }
+
+  .sm\:hover\:pointer-events-none:hover {
+    pointer-events: none;
+  }
+
+  .sm\:hover\:pointer-events-auto:hover {
+    pointer-events: auto;
+  }
+
   .sm\:static {
     position: static;
   }
@@ -32859,6 +32939,30 @@ video {
 
   .xs\:focus\:placeholder-pink-900:focus::placeholder {
     color: #702459;
+  }
+
+  .xs\:pointer-events-none {
+    pointer-events: none;
+  }
+
+  .xs\:pointer-events-auto {
+    pointer-events: auto;
+  }
+
+  .group:hover .xs\:group-hover\:pointer-events-none {
+    pointer-events: none;
+  }
+
+  .group:hover .xs\:group-hover\:pointer-events-auto {
+    pointer-events: auto;
+  }
+
+  .xs\:hover\:pointer-events-none:hover {
+    pointer-events: none;
+  }
+
+  .xs\:hover\:pointer-events-auto:hover {
+    pointer-events: auto;
   }
 
   .xs\:static {
