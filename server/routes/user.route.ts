@@ -24,14 +24,15 @@ UserRoute.post("/", async (req, res) => {
   });
   if (!user) {
     try {
-      const {email, password, name, address, role} = req.body;
+      const {email, password, name, address, role, phone} = req.body;
       const hashPass = await bcrypt.hash(password, 10);
       await User.create({
         email: email,
         password: hashPass,
         name: name,
         address: address,
-        role: role
+        role: role,
+        phone
       });
       res.status(200).json({ msg: "user signned up" });
     } catch (err) {
@@ -82,6 +83,7 @@ UserRoute.post("/signup", async (req, res) => {
   if (!user) {
     try {
       const {email, password, name, address, role, phone} = req.body;
+      console.log(phone)
       const hashPass = await bcrypt.hash(password, 10);
       await User.create({
         email: email,
@@ -129,6 +131,39 @@ UserRoute.post("/login", (req, res) => {
           .json({
             name: "UserLoginError",
             errors: [{ message: LoginError.UserNotExisted, path: "email" }]
+          });
+      }
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+});
+
+UserRoute.post("/login/admin", (req, res) => {
+  User.findOne({
+    where: {
+      email: req.body.email,
+      role: "admin"
+    }
+  })
+    .then(user => {
+      if (user) {
+        if (bcrypt.compareSync(req.body.password, user.password)) {
+          res.status(200).json(user);
+        } else {
+          res
+            .status(400)
+            .json({
+              name: "UserLoginError",
+              errors: [{ message: LoginError.WrongPass, path: "password" }]
+            });
+        }
+      } else {
+        res
+          .status(400)
+          .json({
+            name: "UserLoginError",
+            errors: [{ message: LoginError.AdminNotExisted, path: "email" }]
           });
       }
     })

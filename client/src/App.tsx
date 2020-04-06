@@ -19,6 +19,7 @@ import { ProductCategories } from "./screen/ProductCategories";
 import { CategoriesActionType, GlobalActionType } from "./Actions";
 import { CheckOut } from "./screen/CheckOut";
 import { Orders } from "./screen/Orders";
+import { AdminLogin } from "./screen/Admin/AdminLogin";
 
 const HomeSwitch = () => {
   const dispatcher = useDispatch();
@@ -53,6 +54,7 @@ const App = () => {
       <div className="w-screen" style={{ backgroundColor: "#FFFFF2" }}>
         <BrowserRouter>
           <Switch>
+            <Route path="/admin/login" exact component={AdminLogin} />
             <Route path="/admin" component={AdminScreen} />
             <Route path="/" component={HomeSwitch} />
           </Switch>

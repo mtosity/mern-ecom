@@ -8,7 +8,7 @@ import { ProductColors } from "../components/ProductDetail/ProductColors";
 import { AddToCartBtn } from "../components/ProductDetail/AddToCartBtn";
 import { ShareBtns } from "../components/ProductDetail/ShareBtns";
 import { ProductInfo } from "../components/ProductDetail/ProductInfo";
-import { RouteComponentProps } from "react-router-dom";
+import { RouteComponentProps, Link } from "react-router-dom";
 import { ProductType } from "../DataType";
 import { useDispatch, useSelector } from "react-redux";
 import { CartActionType } from "../Actions";
@@ -134,6 +134,13 @@ export const ProductDetail = ({ match }: props) => {
             <AddToCartBtn onClick={addToCart} />
             <ShareBtns />
           </div>
+          <Link
+            to="/checkout"
+            className="flex justify-center font-bold items-center jo-font focus:outline-none py-3 w-32 mt-8
+    bg-red-700 hover:bg-red-500 text-white shadow-lg transform duration-500 ml-4 items-center sm:px-4 sm:ml-0"
+          >
+            <p>CHECKOUT</p>
+          </Link>
         </div>
       </div>
       <ProductInfo productID={product.id} />

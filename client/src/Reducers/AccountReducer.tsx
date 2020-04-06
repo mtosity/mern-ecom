@@ -4,7 +4,7 @@ import { AccountActionType } from "../Actions";
 export interface AccountStateInterface {
   id: string;
   email: string;
-  roleId: number;
+  role: string;
   name: string;
   avatar: string;
   address: string;
@@ -14,7 +14,7 @@ export interface AccountStateInterface {
 const INIT_STATE: AccountStateInterface = {
   id: "",
   email: "",
-  roleId: -1,
+  role: "",
   name: "",
   avatar: "",
   address: "",

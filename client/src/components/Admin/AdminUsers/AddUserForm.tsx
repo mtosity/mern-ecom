@@ -13,6 +13,7 @@ export const AddUserForm = () => {
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
   const [address, setAddress] = useState("");
+  const [phone, setPhone] = useState("");
 
   const addUser = async () => {
     const body = {
@@ -21,7 +22,8 @@ export const AddUserForm = () => {
       role,
       name,
       avatar,
-      address
+      address,
+      phone
     };
     const res = await fetch("/api/user", {
       method: "POST",
@@ -106,6 +108,14 @@ export const AddUserForm = () => {
         placeholder="viet nam"
         value={address}
         onChange={setAddress}
+      />
+      <AdminInputTitle title="Phone number" classname="mt-4" />
+      <AdminInput
+        name="phone"
+        type="number"
+        placeholder="0912"
+        value={phone}
+        onChange={setPhone}
       />
       <div className="mt-4">
         <AdminButton title="Add user" onClick={addUser} />
