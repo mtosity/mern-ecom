@@ -8,7 +8,8 @@ module.exports = {
               './src/**/*.tsx',
               './public/index.html'
             ],
-            css: ['./src/**/*.css']
+            css: ['./src/**/*.css'],
+            defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || [],
         })
     ],
 };
