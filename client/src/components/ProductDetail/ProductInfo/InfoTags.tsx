@@ -8,7 +8,6 @@ export const InfoTags = () => {
         <Tag title="Women" />
         <Tag title="Men" />
         <Tag title="Dresses" />
-        <Tag title="Jeans" />
       </div>
       <div className="flex">
         <Tag title="Shoes" />
