@@ -4,6 +4,7 @@ export enum GlobalActionType {
   SetAuthenticatedTrue = "Global/SetAuthenticatedTrue",
   SetAuthenticatedFalse = "Global/SetAuthenticatedFalse",
   UserLoggedIn = "Global/UserLoggedIn",
+  UserLoggedOut = "Global/UserLoggedOut",
   DoneLoading = "Global/DoneLoading",
 }
 

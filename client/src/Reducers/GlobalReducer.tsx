@@ -28,6 +28,8 @@ export const GlobalReducer: Reducer<GlobalStateInterface, Action> = (
       return { ...state, authenticated: false };
     case GlobalActionType.UserLoggedIn:
       return { ...state, authenticated: true, OpenLoginModal: false };
+      case GlobalActionType.UserLoggedOut:
+        return { ...state, authenticated: false, OpenLoginModal: false };
     case GlobalActionType.DoneLoading:
       return { ...state, loading: false };
     default:

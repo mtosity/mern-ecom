@@ -4,8 +4,10 @@ import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SyncLoader } from "react-spinners";
 import { GlobalActionType, AccountActionType } from "../../Actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import jwt from "jsonwebtoken";
+import { ApplicationState } from "../../Reducers/CombinedReducers";
+import { AccountReducer } from "../../Reducers/AccountReducer";
 
 interface props {
   classes: any;
@@ -14,6 +16,9 @@ interface props {
 
 export const LoginForm = ({ classes, styles }: props) => {
   const dispatcher = useDispatch();
+  const authenticated = useSelector<ApplicationState, boolean>(
+    (state) => state.GlobalReducer.authenticated
+  );
   let isMounted = true;
   useEffect(() => {
     return () => {
@@ -26,7 +31,7 @@ export const LoginForm = ({ classes, styles }: props) => {
   const [SIError, setSIError] = useState({
     isError: false,
     path: "",
-    message: ""
+    message: "",
   });
   const [loadSI, setLoadSI] = useState(false);
 
@@ -41,7 +46,7 @@ export const LoginForm = ({ classes, styles }: props) => {
     } else {
       const body = {
         email: SIEmail,
-        password: SIPassword
+        password: SIPassword,
       };
       const response = await fetch("/api/user/login", {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
@@ -49,12 +54,12 @@ export const LoginForm = ({ classes, styles }: props) => {
         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
         credentials: "same-origin", // include, *same-origin, omit
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
           // 'Content-Type': 'application/x-www-form-urlencoded',
         },
         redirect: "follow", // manual, *follow, error
         referrerPolicy: "no-referrer", // no-referrer, *client
-        body: JSON.stringify(body) // body data type must match "Content-Type" header
+        body: JSON.stringify(body), // body data type must match "Content-Type" header
       });
       // const user = await response.json();
       // console.log(user);
@@ -62,9 +67,12 @@ export const LoginForm = ({ classes, styles }: props) => {
         const user = await response.json();
         dispatcher({
           type: AccountActionType.AddAccount,
-          payload: user
+          payload: user,
         });
-        localStorage.setItem("auth-token", jwt.sign(user, process.env.REACT_APP_JWT || ""));
+        localStorage.setItem(
+          "auth-token",
+          jwt.sign(user, process.env.REACT_APP_JWT || "")
+        );
         setLoadSI(false);
         dispatcher({ type: GlobalActionType.UserLoggedIn });
       } else {
@@ -72,20 +80,36 @@ export const LoginForm = ({ classes, styles }: props) => {
         setSIError({
           isError: true,
           path: res_error.errors[0].path,
-          message: res_error.errors[0].message
+          message: res_error.errors[0].message,
         });
         setLoadSI(false);
       }
     }
   };
+  const logOut = () => {
+    dispatcher({ type: AccountActionType.DeleteAccount });
+    localStorage.removeItem("auth-token");
+    dispatcher({ type: GlobalActionType.UserLoggedOut });
+  }
   const { isError, path, message } = SIError;
   const emailInputClasses = classnames(classes.input, {
-    "border border-red-600": path === "email" && isError
+    "border border-red-600": path === "email" && isError,
   });
   const passwordInputClasses = classnames(classes.input, {
-    "border border-red-600": path === "password" && isError
+    "border border-red-600": path === "password" && isError,
   });
-  return (
+  return authenticated ? (
+    <div className={classes.form} style={{ zIndex: 999 }}>
+      <h1 className={classnames(classes.h1, "mt-32")}>Already sign in</h1>
+      <button
+        className={classes.button}
+        style={styles.button}
+        onClick={logOut}
+      >
+        LOG OUT
+      </button>
+    </div>
+  ) : (
     <form className={classes.form} action="#" style={{ zIndex: 999 }}>
       <h1 className={classes.h1}>Login</h1>
       <div className="login-modal-social-container">
@@ -105,14 +129,14 @@ export const LoginForm = ({ classes, styles }: props) => {
         type="email"
         placeholder="Email"
         value={SIEmail}
-        onChange={e => setSIEmail(e.target.value)}
+        onChange={(e) => setSIEmail(e.target.value)}
       />
       <input
         className={passwordInputClasses}
         type="password"
         placeholder="Password"
         value={SIPassword}
-        onChange={e => setSIPassword(e.target.value)}
+        onChange={(e) => setSIPassword(e.target.value)}
       />
       <a href="#" className={classes.aclasses}>
         Forgot your password?
@@ -125,7 +149,7 @@ export const LoginForm = ({ classes, styles }: props) => {
         <button
           className={classes.button}
           style={styles.button}
-          onClick={e => handleSIForm(e)}
+          onClick={(e) => handleSIForm(e)}
         >
           Login
         </button>
