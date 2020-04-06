@@ -51,5 +51,6 @@ module.exports = {
     rotate: ["group-hover"],
     padding: ["responsive"],
     transitionDuration: ["responsive"],
+    outline: ["focus"],
   },
 };
