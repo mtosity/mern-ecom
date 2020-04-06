@@ -16,10 +16,11 @@ import "animate.css";
 import { ProductDetail } from "./screen/ProductDetail";
 import { Footer } from "./components/Footer";
 import { ProductCategories } from "./screen/ProductCategories";
-import { CategoriesActionType, GlobalActionType } from "./Actions";
+import { CategoriesActionType, GlobalActionType, AccountActionType } from "./Actions";
 import { CheckOut } from "./screen/CheckOut";
 import { Orders } from "./screen/Orders";
 import { AdminLogin } from "./screen/Admin/AdminLogin";
+import jwt from "jsonwebtoken";
 
 const HomeSwitch = () => {
   const dispatcher = useDispatch();
@@ -30,6 +31,39 @@ const HomeSwitch = () => {
         dispatcher({ type: GlobalActionType.DoneLoading });
       });
     });
+    const token = localStorage.getItem("auth-token");
+    if (token) {
+      const user: any = jwt.verify(token, process.env.REACT_APP_JWT || "");
+      if (user) {
+        const body = {
+          email: user.email,
+          password: user.password,
+        };
+        fetch("/api/user/load", {
+          method: "POST", // *GET, POST, PUT, DELETE, etc.
+          mode: "cors", // no-cors, *cors, same-origin
+          cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+          credentials: "same-origin", // include, *same-origin, omit
+          headers: {
+            "Content-Type": "application/json",
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          redirect: "follow", // manual, *follow, error
+          referrerPolicy: "no-referrer", // no-referrer, *client
+          body: JSON.stringify(body), // body data type must match "Content-Type" header
+        }).then((res) => {
+          if (res.status === 200) {
+            res.json().then((user) => {
+              dispatcher({
+                type: AccountActionType.AddAccount,
+                payload: user,
+              });
+              dispatcher({ type: GlobalActionType.UserLoggedIn });
+            });
+          }
+        });
+      }
+    }
   }, []);
   return (
     <>

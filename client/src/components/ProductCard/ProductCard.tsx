@@ -66,6 +66,8 @@ export const ProductCard = ({ product }: props) => {
                   quantity: 1,
                   id: uuid(),
                   productID: product.id,
+                  productName: product.title,
+                  price: product.salePrice
                 },
               });
               swa2.fire("Added to cart");

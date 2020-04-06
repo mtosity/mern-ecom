@@ -22,7 +22,7 @@ ProductRoute.post("/", async (req, res) => {
     originPrice,
     salePrice,
     categoryID,
-    gender
+    gender,
   } = req.body;
   console.log(req.body);
   try {
@@ -35,7 +35,7 @@ ProductRoute.post("/", async (req, res) => {
       originPrice,
       salePrice,
       categoryID,
-      gender
+      gender,
     });
     res.status(200).json({ msg: "Added successful" });
   } catch (error) {
@@ -49,9 +49,9 @@ ProductRoute.get("/", async (req, res) => {
     const products = await Product.findAll({
       where: {
         title: {
-          [Op.like]: [`%${query}%`]
-        }
-      }
+          [Op.like]: [`%${query}%`],
+        },
+      },
     });
     res.json(products);
   } catch (error) {
@@ -67,12 +67,12 @@ ProductRoute.get("/category", async (req, res) => {
     const products = await Product.findAll({
       where: {
         title: {
-          [Op.like]: [`%${query}%`]
+          [Op.like]: [`%${query}%`],
         },
         categoryID: {
-          [Op.like]: [`%${category}%`]
-        }
-      }
+          [Op.like]: [`%${category}%`],
+        },
+      },
     });
     // console.log(products)
     res.json(products);
@@ -86,8 +86,8 @@ ProductRoute.get("/id/:id", async (req, res) => {
   try {
     const products = await Product.findAll({
       where: {
-        id: [id]
-      }
+        id: [id],
+      },
     });
     // console.log(products)
     res.json(products);
@@ -100,7 +100,7 @@ ProductRoute.get("/new", async (req, res) => {
   try {
     const products = await Product.findAll({
       limit: 4,
-      order: [["createdAt", "DESC"]]
+      order: [["createdAt", "DESC"]],
     });
     res.json(products);
   } catch (error) {
@@ -112,7 +112,10 @@ ProductRoute.get("/featured", async (req, res) => {
   try {
     const products = await Product.findAll({
       limit: 8,
-      order: [["createdAt", "DESC"]]
+      order: [["createdAt", "DESC"]],
+      where: {
+        gender: "female",
+      },
     });
     res.json(products);
   } catch (error) {
@@ -129,12 +132,12 @@ ProductRoute.get("/search", async (req, res) => {
       order: [["createdAt", "DESC"]],
       where: {
         title: {
-          [Op.like]: [`%${query}%`]
+          [Op.like]: [`%${query}%`],
         },
         categoryID: {
-          [Op.like]: [`%${category}%`]
-        }
-      }
+          [Op.like]: [`%${category}%`],
+        },
+      },
     });
     res.json(products);
   } catch (error) {
@@ -156,8 +159,8 @@ ProductRoute.delete("/", async (req, res) => {
   try {
     await Product.destroy({
       where: {
-        id: id
-      }
+        id: id,
+      },
     });
     res.status(200).json({ msg: "Deleted successful" });
   } catch (error) {
