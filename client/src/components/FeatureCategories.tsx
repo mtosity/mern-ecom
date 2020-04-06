@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const FeatureCategories = () => {
   return (
@@ -21,11 +22,12 @@ export const FeatureCategories = () => {
             </p>
             <p>New Collection</p>
           </div>
-          <input
-            type="button"
-            value="SHOP NOW"
+          <Link
+            to="/category/all"
             className="outline-none py-3 px-8 mt-4 md:py-2 md:px-4 bg-btn hover:bg-btn-hovered cursor-pointer text-white rounded"
-          />
+          >
+            SHOP NOW
+          </Link>
         </div>
       </div>
       <div className="flex-1 photobox relative">
@@ -46,11 +48,12 @@ export const FeatureCategories = () => {
             </p>
             <p>Up to 40% OFF</p>
           </div>
-          <input
-            type="button"
-            value="SHOP NOW"
+          <Link
+            to="/category/all"
             className="outline-none py-3 px-8 mt-4 md:py-2 md:px-4 bg-btn hover:bg-btn-hovered cursor-pointer text-white rounded"
-          />
+          >
+            SHOP NOW
+          </Link>
         </div>
       </div>
       <div className="flex-1 flex flex-col justify-between sm:hidden">
@@ -72,11 +75,12 @@ export const FeatureCategories = () => {
               </p>
               <p className="md:text-xs">Up to 40% OFF</p>
             </div>
-            <input
-              type="button"
-              value="SHOP NOW"
+            <Link
+              to="/category/all"
               className="outline-none py-3 px-8 mt-4 md:py-2 md:px-4 bg-btn hover:bg-btn-hovered cursor-pointer text-white rounded"
-            />
+            >
+              SHOP NOW
+            </Link>
           </div>
         </div>
         <div
@@ -100,11 +104,10 @@ export const FeatureCategories = () => {
               </p>
               <p className="md:text-xs">Up to 40% OFF</p>
             </div>
-            <input
-              type="button"
-              value="SHOP NOW"
+            <Link
+              to="/category/all"
               className="outline-none py-3 px-8 mt-4 md:py-2 md:px-4 bg-btn hover:bg-btn-hovered cursor-pointer text-white rounded"
-            />
+            >SHOP NOW</Link>
           </div>
         </div>
       </div>

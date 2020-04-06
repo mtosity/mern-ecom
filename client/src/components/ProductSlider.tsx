@@ -33,7 +33,7 @@ export const ProductSlider = ({products}: props) => {
         </div>
         <div
           className="absolute right-0 p-2 cursor-pointer z-10 bg-red-400"
-          onClick={() => setX((x - jump) % (4 * jump))}
+          onClick={() => setX((x - jump) % ((products.length - 3) * jump))}
           style={{ right: "5px" }}
         >
           <FontAwesomeIcon icon={faArrowRight} size="2x" color="white" />

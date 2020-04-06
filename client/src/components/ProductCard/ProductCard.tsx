@@ -67,7 +67,7 @@ export const ProductCard = ({ product }: props) => {
                   id: uuid(),
                   productID: product.id,
                   productName: product.title,
-                  price: product.salePrice
+                  price: product.salePrice,
                 },
               });
               swa2.fire("Added to cart");
@@ -92,9 +92,19 @@ export const ProductCard = ({ product }: props) => {
           >
             {product.title}
           </Link>
-          <div className="flex justify-between">
-            <p className="font-semibold ml-4">${product.salePrice}</p>
-            <ProductStars stars={4.5} onlyStars />
+          <div className="flex justify-between px-4">
+            <div className="flex">
+              <p className="font-semibold ">${product.salePrice}</p>
+              <p
+                className="font-semibold line-through text-red-600"
+                style={{ textDecoration: "line-through" }}
+              >
+                ${product.originPrice}
+              </p>
+            </div>
+            <div>
+              <p className="font-semibold ">{product.quantity} items left</p>
+            </div>
           </div>
         </div>
       </div>

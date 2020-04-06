@@ -18,8 +18,8 @@ export const Reviews = () => {
         <div
           className="flex transform duration-700"
           style={{
-            width: "300px",
-            transform: `translateX(${section * -300}px)`
+            width: "70vw",
+            transform: `translateX(${section * -70}vw)`
           }}
         >
           <SingleReview />

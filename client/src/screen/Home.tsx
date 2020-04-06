@@ -8,14 +8,10 @@ import { MiddleBanner } from "../components/MiddleBanner";
 import { ProductSlider } from "../components/ProductSlider";
 import { Reviews } from "../components/Reviews";
 import { Advantages } from "../components/Advantages";
-import { useDispatch } from "react-redux";
-import { UserType } from "../DataType";
-import { AccountActionType, GlobalActionType } from "../Actions";
 
 export const Home = () => {
   const [featured, setFeatured] = useState([]);
   const [news, setNews] = useState([]);
-  const dispatch = useDispatch();
   useEffect(() => {
     const urls = ["/api/product/featured", "/api/product/new"];
     Promise.all(urls.map((url) => fetch(url).then((res) => res.json()))).then(
