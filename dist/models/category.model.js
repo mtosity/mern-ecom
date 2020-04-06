@@ -19,10 +19,23 @@ Category.init({
         allowNull: false,
         validate: {
             notEmpty: {
-                msg: "Product have no name"
+                msg: "Category have no name"
             },
         }
     },
+    gender: {
+        type: sequelize_1.DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: {
+                msg: "Category have no gender"
+            },
+            isIn: {
+                args: [["female", "male"]],
+                msg: "Category have gender not in female, male or both"
+            }
+        }
+    }
 }, {
     sequelize: sequelize_2.default,
     tableName: "category"

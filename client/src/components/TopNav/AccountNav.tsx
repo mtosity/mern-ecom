@@ -20,7 +20,7 @@ const customStyles: any = {
     overflow: "hidden",
     boxShadow: "5px 10px",
     border: "none",
-    borderRadius: "20px"
+    borderRadius: "20px",
   },
   overlay: {
     top: "0",
@@ -28,20 +28,20 @@ const customStyles: any = {
     right: "0",
     bottom: "0",
     backgroundColor: "rgba(0,0,0,.6)",
-    zIndex: 20
-  }
+    zIndex: 20,
+  },
 };
 
 export const AccountNav = () => {
   const dispatcher = useDispatch();
   const OpenLoginModal = useSelector<ApplicationState, boolean>(
-    state => state.GlobalReducer.OpenLoginModal
+    (state) => state.GlobalReducer.OpenLoginModal
   );
   const authenticated = useSelector<ApplicationState, boolean>(
-    state => state.GlobalReducer.authenticated
+    (state) => state.GlobalReducer.authenticated
   );
   const UserName = useSelector<ApplicationState, string>(
-    state => state.AccountReducer.name
+    (state) => state.AccountReducer.name
   );
   function openModal() {}
 
@@ -49,7 +49,7 @@ export const AccountNav = () => {
     customStyles.content = {
       ...customStyles.content,
       transform: "translate(-50%, -50%) scale(1)",
-      transition: "transform 300ms ease-out"
+      transition: "transform 300ms ease-out",
     };
   }
 
@@ -58,23 +58,25 @@ export const AccountNav = () => {
     customStyles.content = {
       ...customStyles.content,
       transform: "translate(-50%, -50%) scale(0.5)",
-      transition: "transform 0"
+      transition: "transform 0",
     };
   }
 
   return (
     <div>
       <button
-        className="flex items-center justify-center border border-red-400 rounded focus:outline-none h-8 w-40 px-2"
-        
+        className="flex items-center justify-center border border-red-400 rounded focus:outline-none outline-none h-8 w-40 px-2"
         onClick={() =>
           dispatcher({ type: GlobalActionType.SetOpenLoginModalTrue })
         }
       >
         <FontAwesomeIcon icon={faUser} color="red" />
-      <p className="ml-2 text-red-600" style={{textOverflow: "ellipsis", overflow: "hidden"}}>{
-        authenticated ? UserName : "Account"
-      }</p>
+        <p
+          className="ml-2 text-red-600"
+          style={{ textOverflow: "ellipsis", overflow: "hidden" }}
+        >
+          {authenticated ? UserName : "Account"}
+        </p>
       </button>
       {/* Login modal, open when click sign in/sign up */}
       <Modal

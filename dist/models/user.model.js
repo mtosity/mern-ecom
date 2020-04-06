@@ -40,7 +40,13 @@ User.init({
     },
     role: {
         type: sequelize_1.DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            isIn: {
+                args: [["admin", "user"]],
+                msg: "User role must be admin or user"
+            }
+        }
     },
     name: {
         type: sequelize_1.DataTypes.STRING,
@@ -57,6 +63,15 @@ User.init({
         defaultValue: "https://i.ibb.co/kJ9W9LL/0f9a7f73af1e8fbada4deb9e78631e33-man-user-operator-clip-art-at-clkercom-vector-clip-art-online-360-598.png"
     },
     address: {
+        type: sequelize_1.DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: {
+                msg: ErrorType_1.SignUpError.NotAddress
+            }
+        }
+    },
+    phone: {
         type: sequelize_1.DataTypes.STRING,
         allowNull: false,
         validate: {

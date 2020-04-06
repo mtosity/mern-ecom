@@ -3,5 +3,12 @@ module.exports = {
     plugins: [
         tailwindcss('./tailwind.config.js'),
         require('autoprefixer'),
+        require('@fullhuman/postcss-purgecss')({
+            content: [
+              './src/**/*.tsx',
+              './public/index.html'
+            ],
+            css: ['./src/**/*.css']
+        })
     ],
 };

@@ -25,14 +25,15 @@ CategoryRoute.delete("/truncate", async (req, res) => {
         res.status(400).json(error);
     }
 });
-CategoryRoute.put("/", async (req, res) => {
-    const { name } = req.body;
+CategoryRoute.post("/", async (req, res) => {
+    const { name, gender } = req.body;
     try {
         const existedCate = await category_model_1.default.findOne({ where: { name: name } });
         if (existedCate === null) {
             await category_model_1.default.create({
                 id: uuidv4_1.uuid(),
-                name: name
+                name: name,
+                gender: gender
             });
             res.status(200).json({ msg: "Added successful" });
         }
@@ -56,12 +57,26 @@ CategoryRoute.delete("/", async (req, res) => {
         res.status(400).json(error);
     }
 });
-// CategoryRoute.delete("/sync", async (req, res) => {
-//   await Product.sync();
-//   res.json({ msg: "Table synced" });
-// });
 CategoryRoute.get("/", async (req, res) => {
     const categories = await category_model_1.default.findAll();
+    res.json(categories);
+});
+CategoryRoute.get("/male", async (req, res) => {
+    const categories = await category_model_1.default.findAll({
+        attributes: ["id", "name", "gender"],
+        where: {
+            gender: "male"
+        }
+    });
+    res.json(categories);
+});
+CategoryRoute.get("/female", async (req, res) => {
+    const categories = await category_model_1.default.findAll({
+        attributes: ["id", "name", "gender"],
+        where: {
+            gender: "female"
+        }
+    });
     res.json(categories);
 });
 exports.default = CategoryRoute;

@@ -11,6 +11,7 @@
     "heroku-postbuild": "yarn run iall && tsc && cd client && yarn build",
     "dev": "concurrently \"cd server && nodemon server.ts\" \"cd client && yarn start\"",
     "ts-build": "tsc",
+    "deploy": "git push heroku master",
     "remove-unsed-import": "node ./node_modules/tslint/bin/tslint --config tslint-imports.json --fix --project ."
   },
   "author": "minhtamos",

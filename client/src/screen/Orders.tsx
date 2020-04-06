@@ -38,19 +38,21 @@ export const Orders = () => {
   );
   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    fetch(`/api/order/${userID}`).then((res) => {
-      if (res.status === 200) {
-        console.log(res);
-        res.json().then((orders) => {
-          console.log(orders);
-          setOrders(orders);
-        });
-      } else {
-        res.json().then((error) => {
-          console.log(error);
-        });
-      }
-    });
+    if (userID !== "") {
+      fetch(`/api/order/${userID}`).then((res) => {
+        if (res.status === 200) {
+          console.log(res);
+          res.json().then((orders) => {
+            console.log(orders);
+            setOrders(orders);
+          });
+        } else {
+          res.json().then((error) => {
+            console.log(error);
+          });
+        }
+      });
+    }
   }, [userID]);
   return (
     <div className="p-16">

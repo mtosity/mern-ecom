@@ -4,9 +4,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const bcrypt_1 = __importDefault(require("bcrypt"));
-const user_model_1 = __importDefault(require("../models/user.model"));
 const ErrorType_1 = require("../utils/ErrorType");
+const user_model_1 = __importDefault(require("../models/user.model"));
+const bcrypt_1 = __importDefault(require("bcrypt"));
 const UserRoute = express_1.default.Router();
 require("dotenv").config();
 UserRoute.get("/sync", (req, res) => {
@@ -17,7 +17,7 @@ UserRoute.get("/sync/force", (req, res) => {
     user_model_1.default.sync({ force: true });
     res.json({ sa: "sla" });
 });
-UserRoute.put("/", async (req, res) => {
+UserRoute.post("/", async (req, res) => {
     const user = await user_model_1.default.findOne({
         where: {
             email: req.body.email
@@ -25,14 +25,15 @@ UserRoute.put("/", async (req, res) => {
     });
     if (!user) {
         try {
-            const { email, password, name, address, role } = req.body;
+            const { email, password, name, address, role, phone } = req.body;
             const hashPass = await bcrypt_1.default.hash(password, 10);
             await user_model_1.default.create({
                 email: email,
                 password: hashPass,
                 name: name,
                 address: address,
-                role: role
+                role: role,
+                phone
             });
             res.status(200).json({ msg: "user signned up" });
         }
@@ -82,14 +83,16 @@ UserRoute.post("/signup", async (req, res) => {
     });
     if (!user) {
         try {
-            const { email, password, name, address, role } = req.body;
+            const { email, password, name, address, role, phone } = req.body;
+            console.log(phone);
             const hashPass = await bcrypt_1.default.hash(password, 10);
             await user_model_1.default.create({
                 email: email,
                 password: hashPass,
                 name: name,
                 address: address,
-                role: role
+                role: role,
+                phone: phone
             });
             res.status(200).json({ status: "user signned up" });
         }
@@ -132,6 +135,73 @@ UserRoute.post("/login", (req, res) => {
                 .json({
                 name: "UserLoginError",
                 errors: [{ message: ErrorType_1.LoginError.UserNotExisted, path: "email" }]
+            });
+        }
+    })
+        .catch(err => {
+        res.status(400).json(err);
+    });
+});
+UserRoute.post("/load", (req, res) => {
+    user_model_1.default.findOne({
+        where: {
+            email: req.body.email
+        }
+    })
+        .then(user => {
+        if (user) {
+            if (req.body.password === user.password) {
+                res.status(200).json(user);
+            }
+            else {
+                res
+                    .status(400)
+                    .json({
+                    name: "UserLoginError",
+                    errors: [{ message: ErrorType_1.LoginError.WrongPass, path: "password" }]
+                });
+            }
+        }
+        else {
+            res
+                .status(400)
+                .json({
+                name: "UserLoginError",
+                errors: [{ message: ErrorType_1.LoginError.UserNotExisted, path: "email" }]
+            });
+        }
+    })
+        .catch(err => {
+        res.status(400).json(err);
+    });
+});
+UserRoute.post("/login/admin", (req, res) => {
+    user_model_1.default.findOne({
+        where: {
+            email: req.body.email,
+            role: "admin"
+        }
+    })
+        .then(user => {
+        if (user) {
+            if (bcrypt_1.default.compareSync(req.body.password, user.password)) {
+                res.status(200).json(user);
+            }
+            else {
+                res
+                    .status(400)
+                    .json({
+                    name: "UserLoginError",
+                    errors: [{ message: ErrorType_1.LoginError.WrongPass, path: "password" }]
+                });
+            }
+        }
+        else {
+            res
+                .status(400)
+                .json({
+                name: "UserLoginError",
+                errors: [{ message: ErrorType_1.LoginError.AdminNotExisted, path: "email" }]
             });
         }
     })

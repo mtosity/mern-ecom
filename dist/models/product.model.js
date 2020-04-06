@@ -55,7 +55,7 @@ Product.init({
         }
     },
     originPrice: {
-        type: sequelize_1.DataTypes.INTEGER.UNSIGNED,
+        type: sequelize_1.DataTypes.FLOAT.UNSIGNED,
         allowNull: false,
         validate: {
             notEmpty: {
@@ -68,7 +68,7 @@ Product.init({
         }
     },
     salePrice: {
-        type: sequelize_1.DataTypes.INTEGER.UNSIGNED,
+        type: sequelize_1.DataTypes.FLOAT.UNSIGNED,
         allowNull: false,
         validate: {
             notEmpty: {
