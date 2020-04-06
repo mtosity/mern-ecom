@@ -180,5 +180,5 @@
     ]
   },
   "proxy": "http://localhost:5000",
-  "homepage": "."
+  "homepage": "https://mtoshop.herokuapp.com"
 }
