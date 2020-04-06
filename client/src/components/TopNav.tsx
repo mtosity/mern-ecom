@@ -12,6 +12,7 @@ import { NavLinks } from "./TopNav/NavLinks";
 import { NavLinksMobile } from "./TopNav/NavLinksMobile";
 import useOutsideClick from "../utils/useOutsideClick";
 import { CartDropDown } from "./TopInfo/CartDropDown";
+import Swal from "sweetalert2";
 
 export const TopNav = () => {
   const [showCart, setShowCart] = useState(false);
@@ -51,7 +52,10 @@ export const TopNav = () => {
           <div className="ml-2">
             <AccountNav />
           </div>
-          <button className="bg-red-600 flex justify-center items-center focus:outline-none w-8 h-8 rounded">
+          <button
+            className="bg-red-600 flex justify-center items-center focus:outline-none w-8 h-8 rounded"
+            onClick={() => Swal.fire("Thanks for show me some love ^^")}
+          >
             <FontAwesomeIcon
               className=""
               icon={faHeart}

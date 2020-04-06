@@ -110,7 +110,7 @@ export const LoginForm = ({ classes, styles }: props) => {
       </button>
     </div>
   ) : (
-    <form className={classes.form} action="#" style={{ zIndex: 999 }}>
+    <form className={classes.form} action="#" style={{ zIndex: 99 }}>
       <h1 className={classes.h1}>Login</h1>
       <div className="login-modal-social-container">
         <a href="#" className={classes.aclasses}>

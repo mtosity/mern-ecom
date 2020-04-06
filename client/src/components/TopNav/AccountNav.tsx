@@ -65,7 +65,7 @@ export const AccountNav = () => {
   return (
     <div>
       <button
-        className="flex items-center justify-center border border-red-400 rounded focus:outline-none outline-none h-8 w-40 px-2"
+        className="flex items-center justify-center border border-red-400 rounded focus:outline-none outline-none h-8 w-40 px-2 mr-2"
         onClick={() =>
           dispatcher({ type: GlobalActionType.SetOpenLoginModalTrue })
         }
