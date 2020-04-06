@@ -48,6 +48,9 @@ export const TopNav = () => {
           <NavLinks />
         </div>
         <div className="flex items-center">
+          <div className="ml-2">
+            <AccountNav />
+          </div>
           <button className="bg-red-600 flex justify-center items-center focus:outline-none w-8 h-8 rounded">
             <FontAwesomeIcon
               className=""
@@ -69,9 +72,6 @@ export const TopNav = () => {
             />
             <CartDropDown show={showCart} />
           </button>
-          <div className="ml-2">
-            <AccountNav />
-          </div>
           <button
             className="flex items-center justify-center border border-red-400 rounded hidden md:inline-block focus:outline-none h-8 w-16 ml-2"
             onClick={() => setShowMbNav(!showMbNav)}
