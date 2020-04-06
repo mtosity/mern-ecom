@@ -139,6 +139,38 @@ UserRoute.post("/login", (req, res) => {
     });
 });
 
+UserRoute.post("/load", (req, res) => {
+  User.findOne({
+    where: {
+      email: req.body.email
+    }
+  })
+    .then(user => {
+      if (user) {
+        if (req.body.password === user.password) {
+          res.status(200).json(user);
+        } else {
+          res
+            .status(400)
+            .json({
+              name: "UserLoginError",
+              errors: [{ message: LoginError.WrongPass, path: "password" }]
+            });
+        }
+      } else {
+        res
+          .status(400)
+          .json({
+            name: "UserLoginError",
+            errors: [{ message: LoginError.UserNotExisted, path: "email" }]
+          });
+      }
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+});
+
 UserRoute.post("/login/admin", (req, res) => {
   User.findOne({
     where: {

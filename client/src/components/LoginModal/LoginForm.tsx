@@ -33,7 +33,6 @@ export const LoginForm = ({ classes, styles }: props) => {
   const handleSIForm = async (e: any) => {
     e.preventDefault();
     setLoadSI(true);
-    const oldToken = await localStorage.getItem("token");
     if (!isMounted) {
       // var decoded = jwt.verify(oldToken, "123");
       // console.log(decoded);
@@ -65,7 +64,7 @@ export const LoginForm = ({ classes, styles }: props) => {
           type: AccountActionType.AddAccount,
           payload: user
         });
-        localStorage.setItem("auth-token", jwt.sign(user, "123"));
+        localStorage.setItem("auth-token", jwt.sign(user, process.env.REACT_APP_JWT || ""));
         setLoadSI(false);
         dispatcher({ type: GlobalActionType.UserLoggedIn });
       } else {

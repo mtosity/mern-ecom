@@ -24,7 +24,6 @@ import { AdminLogin } from "./screen/Admin/AdminLogin";
 const HomeSwitch = () => {
   const dispatcher = useDispatch();
   useEffect(() => {
-    console.log(process.env);
     fetch("/api/category").then((res) => {
       res.json().then((cates) => {
         dispatcher({ type: CategoriesActionType.AddCategory, payload: cates });
