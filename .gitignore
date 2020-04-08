@@ -1,5 +1,5 @@
 /node_modules
-.vscode/
-dist/
-client/.env
-server/.env
+.vscode
+/dist
+/client/.env
+/server/.env
