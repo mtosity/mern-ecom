@@ -55,13 +55,13 @@ animatited icon, contact / email subscription footer)
 admin can mark as delivered in admin page, see orders in table.
 * Cut size tailwindcss using Purecss. Add env, deploy to heroku.
 # I'm done! Well maybe not, todo list:
-- [] Finish my changes
- [ ] Better database design, relation.
+- [ ] Better database design, relation.
 - [ ] Login with facebook, google (maybe passport?).
 - [ ] Security.
 - [ ] Pagination.
 - [ ] Recommend size for user.
 - [ ] Sale coupon
+- [ ] Send news email to user.
 
 
 
