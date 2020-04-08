@@ -1,0 +1,9 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+.btn-nav:hover {
+    @apply text-orange-500 border-r border-l border-solid border-white ;
+}
+
+@import "tailwindcss/utilities";
