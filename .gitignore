@@ -3,3 +3,4 @@
 /dist
 /client/.env
 /server/.env
+/client/src/index.css
