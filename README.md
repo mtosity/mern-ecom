@@ -17,7 +17,7 @@ A Korean Shopping site, can handle user and orders. 10 weeks to make it and stil
 
 ## Installation
 
-Clone the project, add .env like .env.example (both in root and /client) and in project folder run
+Clone the project, add .env like .env.example (both in /server and /client) and in project folder run
 
 ```sh
 yarn
