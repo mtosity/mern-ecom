@@ -42,6 +42,14 @@ yarn run deploy
 - [Client Shop design I used](https://preview.uideck.com/items/shopr-theme/index.html)
 - [Admin page design I used](https://preview.themeforest.net/item/material-admin-extended-dark-responsive-template/full_screen_preview/19199417?_ga=2.225058522.1117022391.1583339517-704068843.1583316266)
 
+# Well I'm done with the project, todo list:
+- [ ] Better database design, relation.
+- [ ] Login with facebook, google (maybe passport?).
+- [ ] Security.
+- [ ] Pagination.
+- [ ] Recommend size for user.
+- [ ] Sale coupon
+- [ ] Send news email to user.
 
 ## Support
 
