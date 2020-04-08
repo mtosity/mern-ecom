@@ -1,4 +1,4 @@
-# MERN stack ecommerce project [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](LICENSE.md) [![GitHub release](https://img.shields.io/badge/version-1.0.1-blue)](https://github.com/Carthage/Carthage/releases)
+# MERN stack ecommerce project [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](LICENSE.md) [![GitHub release](https://img.shields.io/github/v/release/minhtamos/mern-ecom)](https://mtoshop.herokuapp.com/)
 
 A Korean Shopping site, can handle user and orders. 10 weeks to make it and still develop new features. Based on design on themeforest and do it from scratch
 
