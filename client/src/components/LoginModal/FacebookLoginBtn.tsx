@@ -55,7 +55,7 @@ export const FacebookLoginBtn = ({ setMsg, setLoadSI }: props) => {
 
   return (
     <FacebookLogin
-      appId="2240398129600421"
+      appId={process.env.REACT_APP_FACEBOOK_AUTH || ""}
       autoLoad={false}
       textButton="Login"
       fields="name,email,picture"

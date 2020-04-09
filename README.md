@@ -45,7 +45,7 @@ yarn run deploy
 
 ## Well I'm not done with the project, todo list:
 - [ ] Better database design, relation.
-- [ ] Login with facebook, google (maybe passport?).
+- [x] Login with facebook, google.
 - [ ] Security.
 - [ ] Pagination.
 - [ ] Recommend size for user.
