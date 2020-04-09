@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import jwt from "jsonwebtoken";
 import { ApplicationState } from "../../Reducers/CombinedReducers";
 import { AccountReducer } from "../../Reducers/AccountReducer";
+import { GoogleLoginBtn } from "./GoogleLoginBtn";
+import { FacebookLoginBtn } from "./FacebookLoginBtn";
 
 interface props {
   classes: any;
@@ -112,16 +114,9 @@ export const LoginForm = ({ classes, styles }: props) => {
   ) : (
     <form className={classes.form} action="#" style={{ zIndex: 99 }}>
       <h1 className={classes.h1}>Login</h1>
-      <div className="login-modal-social-container">
-        <a href="#" className={classes.aclasses}>
-          <FontAwesomeIcon icon={faFacebookF} />
-        </a>
-        <a href="#" className={classes.aclasses}>
-          <FontAwesomeIcon icon={faFacebookF} />
-        </a>
-        <a href="#" className={classes.aclasses}>
-          <FontAwesomeIcon icon={faFacebookF} />
-        </a>
+      <div className="login-modal-social-container flex">
+        <GoogleLoginBtn setMsg={setSIError} setLoadSI={setLoadSI}/>
+        <FacebookLoginBtn setMsg={setSIError} setLoadSI={setLoadSI}/>
       </div>
       <span className={classes.span}>or use your account</span>
       <input

@@ -48,6 +48,37 @@ UserRoute.post("/", async (req, res) => {
   }
 });
 
+
+
+UserRoute.post("/loginwithfg", async (req, res) => {
+  const user = await User.findOne({
+    where: {
+      email: req.body.email
+    }
+  });
+  if (!user) {
+    try {
+      const {email, password, name, address, role, phone} = req.body;
+      const hashPass = await bcrypt.hash(password, 10);
+      const newUser = await User.create({
+        email: email,
+        password: hashPass,
+        name: name,
+        address: address,
+        role: role,
+        phone
+      });
+      res.status(200).json(newUser);
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  } else {
+    res
+      .status(200)
+      .json(user);
+  }
+});
+
 UserRoute.get("/", async (req, res) => {
   const products = await User.findAll();
   res.json( products );
