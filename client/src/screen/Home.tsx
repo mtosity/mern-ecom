@@ -13,6 +13,9 @@ export const Home = () => {
   const [featured, setFeatured] = useState([]);
   const [news, setNews] = useState([]);
   useEffect(() => {
+    console.log(process.env.REACT_APP_FACEBOOK_AUTH);
+    console.log(process.env.REACT_APP_GOOGLE_AUTH);
+    console.log(process.env.REACT_APP_JWT);
     const urls = ["/api/product/featured", "/api/product/new"];
     Promise.all(urls.map((url) => fetch(url).then((res) => res.json()))).then(
       (data) => {
