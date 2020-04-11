@@ -5,6 +5,8 @@ import { faHome, faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FooterCopyRight } from "./Footer/FooterCopyRight";
 
 export const Footer = () => {
+  const sendEmail = () => {
+  };
   return (
     <div>
       <div
@@ -32,7 +34,10 @@ export const Footer = () => {
             placeholder="Enter email"
           />
           <br />
-          <button className="py-2 px-4 text-white bg-red-600 mt-4 rounded active:bg-red-800 outline-none focus:outline-none">
+          <button
+            className="py-2 px-4 text-white bg-red-600 mt-4 rounded active:bg-red-800 outline-none focus:outline-none"
+            onClick={() => sendEmail()}
+          >
             SUBSCRIBE
           </button>
         </div>

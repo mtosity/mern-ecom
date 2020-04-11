@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { ProductCard } from "./ProductCard/ProductCard";
 import { ProductType } from "../DataType";
+import ReactPaginate from "react-paginate";
 
 interface props {
   products: Array<ProductType>;
@@ -14,7 +15,7 @@ export const ProductGrid = ({ products }: props) => {
     gap-8 lg:gap-16 md:gap-16 sm:gap-4"
       style={{ justifyItems: "center" }}
     >
-      {products.map(product => {
+      {products.map((product) => {
         return <ProductCard product={product} key={product.id} />;
       })}
     </div>

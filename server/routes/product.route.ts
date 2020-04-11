@@ -45,26 +45,10 @@ ProductRoute.post("/", async (req, res) => {
 
 ProductRoute.get("/", async (req, res) => {
   const query = req.query.q || "";
+  const category = req.query.cate || "";
+  const page = parseInt(req.query.page) || 1;
   try {
-    const products = await Product.findAll({
-      where: {
-        title: {
-          [Op.like]: [`%${query}%`],
-        },
-      },
-    });
-    res.json(products);
-  } catch (error) {
-    res.status(400).json(error);
-  }
-});
-
-ProductRoute.get("/category", async (req, res) => {
-  const query = req.query.q || "";
-  const category = req.query.cateID || "";
-  console.log(category, query);
-  try {
-    const products = await Product.findAll({
+    const products = await Product.findAndCountAll({
       where: {
         title: {
           [Op.like]: [`%${query}%`],
@@ -73,8 +57,9 @@ ProductRoute.get("/category", async (req, res) => {
           [Op.like]: [`%${category}%`],
         },
       },
+      limit: 8,
+      offset: (page-1) * 8,
     });
-    // console.log(products)
     res.json(products);
   } catch (error) {
     res.status(400).json(error);
@@ -138,6 +123,19 @@ ProductRoute.get("/search", async (req, res) => {
           [Op.like]: [`%${category}%`],
         },
       },
+    });
+    res.json(products);
+  } catch (error) {
+    res.status(400).json(error);
+  }
+});
+
+ProductRoute.get("/page/:page", async (req, res) => {
+  const page = parseInt(req.params.page);
+  try {
+    const products = await Product.findAndCountAll({
+      limit: 8,
+      offset: page * 8,
     });
     res.json(products);
   } catch (error) {
