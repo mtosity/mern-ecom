@@ -47,7 +47,7 @@ yarn run deploy
 - [ ] Better database design, relation.
 - [x] Login with facebook, google.
 - [ ] Security.
-- [ ] Pagination.
+- [x] Pagination.
 - [ ] Recommend size for user.
 - [ ] Sale coupon
 - [ ] Send news email to user.
