@@ -16,8 +16,6 @@ export const Footer = () => {
       Swal.fire("Sent! Welcome to MTOShop ^^");
     } else {
       Swal.fire("Error sending! It's not you fault ^^");
-      const data = await res.json();
-      console.log(data);
     }
     setLoading(false);
   };
