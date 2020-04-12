@@ -3,7 +3,7 @@ import React from "react";
 export const MiddleBanner = () => {
   return (
     <div
-      className="w-full flex flex-col justify-center items-center text-white sm:text-center"
+      className="w-full flex flex-col justify-center items-center text-white sm:text-center overflow-hidden"
       style={{
         backgroundImage:
           "url('https://preview.uideck.com/items/shopr-theme/assets/img/bg/dsc-bg.jpg')",
