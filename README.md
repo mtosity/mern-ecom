@@ -48,6 +48,7 @@ yarn run deploy
 - [x] Login with facebook, google.
 - [ ] Security.
 - [x] Pagination.
+- [x] Send subscribe email in footer with mailjet.
 - [ ] Recommend size for user.
 - [ ] Sale coupon
 - [ ] Send news email to user.

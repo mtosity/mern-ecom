@@ -218,6 +218,7 @@ UserRoute.post("/login/admin", (req, res) => {
 });
 
 UserRoute.get("/mail", (req, res) => {
+  const email = req.query.email || "";
   const mailjet = require("node-mailjet").connect(
     process.env.MJ_APIKEY_PUBLIC,
     process.env.MJ_APIKEY_PRIVATE
@@ -231,7 +232,7 @@ UserRoute.get("/mail", (req, res) => {
         },
         To: [
           {
-            Email: "minhtamoshop@gmail.com",
+            Email: email,
             Name: "nguyen",
           },
         ],
@@ -245,10 +246,10 @@ UserRoute.get("/mail", (req, res) => {
   });
   request
     .then((result: any) => {
-      console.log(result.body);
+      res.status(200).json(result.body);
     })
     .catch((err: any) => {
-      console.log(err.statusCode);
+      res.status(500).json(err.statusCode);
     });
 });
 export default UserRoute;
