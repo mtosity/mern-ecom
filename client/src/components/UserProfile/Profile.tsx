@@ -43,6 +43,7 @@ export const Profile = () => {
       <p className="uppercase jo-font font-bold text-lg my-4">
         You information
       </p>
+      <p className="mt-2 text-red-600">Please update your info correctly</p>
       <p className="mt-2">Email</p>
       <ProfileInput value={email} onChange={setEmail} />
       <p className="mt-2">Full Name</p>
