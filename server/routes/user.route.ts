@@ -217,6 +217,26 @@ UserRoute.post("/login/admin", (req, res) => {
     });
 });
 
+UserRoute.put("/profile", async (req, res) => {
+  const { email, name, address, phone, id } = req.body;
+  try {
+    const user = await User.update({ email, name, address, phone }, { where: { id: id } });
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(400).json(error);
+  }
+});
+
+UserRoute.put("/avatar", async (req, res) => {
+  const { avatar, id } = req.body;
+  try {
+    const user = await User.update({ avatar }, { where: { id: id } });
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(400).json(error);
+  }
+});
+
 UserRoute.get("/mail", (req, res) => {
   const email = req.query.email || "";
   const mailjet = require("node-mailjet").connect(
@@ -238,8 +258,7 @@ UserRoute.get("/mail", (req, res) => {
         ],
         Subject: "Greetings from MTOSHOP.",
         TextPart: "Welcome",
-        HTMLPart:
-          "<h3>Hi, Welcome to minhtamoshop!",
+        HTMLPart: "<h3>Hi, Welcome to minhtamoshop!",
         CustomID: "AppGettingStartedTest",
       },
     ],

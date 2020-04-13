@@ -21,6 +21,7 @@ import { CheckOut } from "./screen/CheckOut";
 import { Orders } from "./screen/Orders";
 import { AdminLogin } from "./screen/Admin/AdminLogin";
 import jwt from "jsonwebtoken";
+import { UserProfile } from "./screen/UserProfile";
 
 const HomeSwitch = () => {
   const dispatcher = useDispatch();
@@ -74,6 +75,7 @@ const HomeSwitch = () => {
         <Route path="/checkout" component={CheckOut} />
         <Route path="/orders" component={Orders} />
         <Route path="/detail/:id" exact component={ProductDetail} />
+        <Route path="/profile" exact component={UserProfile} />
         <Route path="/" component={FOF} />
       </Switch>
       <Footer />

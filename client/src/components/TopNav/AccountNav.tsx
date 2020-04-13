@@ -7,6 +7,7 @@ import { ApplicationState } from "../../Reducers/CombinedReducers";
 import { useDispatch, useSelector } from "react-redux";
 import { GlobalActionType } from "../../Actions";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
+import { useHistory } from "react-router-dom";
 Modal.setAppElement("#root");
 
 const customStyles: any = {
@@ -34,6 +35,7 @@ const customStyles: any = {
 
 export const AccountNav = () => {
   const dispatcher = useDispatch();
+  const history = useHistory();
   const OpenLoginModal = useSelector<ApplicationState, boolean>(
     (state) => state.GlobalReducer.OpenLoginModal
   );
@@ -62,13 +64,19 @@ export const AccountNav = () => {
     };
   }
 
+  const handleAccountNavClick = () => {
+    if (authenticated) {
+      history.push("/profile")
+    } else {
+      dispatcher({ type: GlobalActionType.SetOpenLoginModalTrue });
+    }
+  };
+
   return (
     <div>
       <button
         className="flex items-center justify-center border border-red-400 rounded focus:outline-none outline-none h-8 w-40 px-2 mr-2"
-        onClick={() =>
-          dispatcher({ type: GlobalActionType.SetOpenLoginModalTrue })
-        }
+        onClick={handleAccountNavClick}
       >
         <FontAwesomeIcon icon={faUser} color="red" />
         <p
