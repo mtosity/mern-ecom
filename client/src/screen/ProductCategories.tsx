@@ -56,7 +56,8 @@ export const ProductCategories = () => {
         selectCate={selectCate}
         loading={loading}
       />
-      <p className="uppercase jo-font font-bold text-2xl ml-16 mt-16 sm:mt-8">{selectedCate}</p>
+      <p className="uppercase jo-font font-bold text-2xl ml-16 mt-16 sm:mt-8 text-red-500">{selectedCate}</p>
+      <div className="w-32 border-b ml-16"></div>
       <ProductGrid products={products} />
       <div className="flex justify-center w-full my-8">
         <ReactPaginate
