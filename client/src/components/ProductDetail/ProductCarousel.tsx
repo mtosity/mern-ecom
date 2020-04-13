@@ -8,7 +8,7 @@ interface props {
 
 export const ProductCarousel = ({ SubImgs }: props) => {
   return (
-    <Carousel showStatus={false}>
+    <Carousel showStatus={false} infiniteLoop>
       {SubImgs.map(subimg => {
         return (
           <div key={subimg.id} style={{ backgroundColor: "#F5F5F5" }}>
