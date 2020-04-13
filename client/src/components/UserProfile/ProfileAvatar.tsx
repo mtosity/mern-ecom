@@ -73,7 +73,7 @@ export const ProfileAvatar = () => {
     history.replace("/");
   };
   return (
-    <div className="" style={{ flex: 1 }}>
+    <div className="sm:mt-4" style={{ flex: 1 }}>
       <p className="uppercase jo-font font-bold text-lg mb-8">
         Profile Picture
       </p>

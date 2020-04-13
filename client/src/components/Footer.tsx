@@ -42,7 +42,7 @@ export const Footer = () => {
           </p>
           <input
             type="text"
-            className="outline-none text-black mt-4 p-4 rounded w-1/2"
+            className="outline-none text-black mt-4 p-4 rounded w-1/2 sm:w-full"
             placeholder="Enter email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
