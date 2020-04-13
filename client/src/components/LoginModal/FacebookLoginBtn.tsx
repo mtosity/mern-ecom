@@ -24,8 +24,8 @@ export const FacebookLoginBtn = ({ setMsg, setLoadSI }: props) => {
       avatar,
       name,
       role: "user",
-      address: "facebook",
-      phone: "facebook",
+      address: "",
+      phone: "",
     };
     const res = await fetch("/api/user/loginwithfg", {
       method: "POST",

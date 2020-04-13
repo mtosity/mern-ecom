@@ -20,8 +20,8 @@ export const GoogleLoginBtn = ({ setMsg, setLoadSI }: props) => {
       avatar: imageUrl,
       name,
       role: "user",
-      address: "google",
-      phone: "google",
+      address: "",
+      phone: "",
     };
     const res = await fetch("/api/user/loginwithfg", {
       method: "POST",

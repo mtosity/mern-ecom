@@ -75,21 +75,11 @@ User.init(
     },
     address: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: {
-          msg: SignUpError.NotAddress
-        }
-      }
+      allowNull: false
     },
     phone: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: {
-          msg: SignUpError.NotAddress
-        }
-      }
+      allowNull: false
     }
   },
   {
