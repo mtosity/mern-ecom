@@ -45,7 +45,7 @@ export const ProductCategories = () => {
           setProducts(data.rows);
         });
       });
-      window.scrollTo(0, 800);
+      window.scrollTo(0, 0);
     }
   }, [categories, loading, location, page]);
   return (
@@ -56,8 +56,9 @@ export const ProductCategories = () => {
         selectCate={selectCate}
         loading={loading}
       />
+      <p className="uppercase jo-font font-bold text-2xl ml-16 mt-16 sm:mt-8">{selectedCate}</p>
       <ProductGrid products={products} />
-      <div className="ml-48 mb-8">
+      <div className="flex justify-center w-full my-8">
         <ReactPaginate
           previousLabel={
             <p className=" bg-admin-body text-white p-2 rounded">{"<prev"}</p>
