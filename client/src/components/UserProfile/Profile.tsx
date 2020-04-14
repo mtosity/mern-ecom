@@ -29,6 +29,7 @@ export const Profile = () => {
 
   const updateProfile = async () => {
     const body = { email, name, phone, address, id: user.id };
+    console.log(body);
     setLoading(true);
     const res = await fetch("/api/user/profile", {
       method: "PUT",
