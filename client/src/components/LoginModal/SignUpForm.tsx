@@ -79,7 +79,7 @@ export const SignUpForm = ({
     "border border-red-600": path === "address" && isError
   });
   return (
-    <form className={classes.form} action="#">
+    <form className={classes.form} action="#" autoComplete="off">
       <h1 className={classes.h1}>Create Account</h1>
       <span className={classes.span}>or use your email for registration</span>
       <input

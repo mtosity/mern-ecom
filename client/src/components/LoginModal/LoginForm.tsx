@@ -112,7 +112,7 @@ export const LoginForm = ({ classes, styles }: props) => {
       </button>
     </div>
   ) : (
-    <form className={classes.form} action="#" style={{ zIndex: 99 }}>
+    <form className={classes.form} action="#" style={{ zIndex: 99 }} autoComplete="off">
       <h1 className={classes.h1}>Login</h1>
       <div className="login-modal-social-container flex">
         <GoogleLoginBtn setMsg={setSIError} setLoadSI={setLoadSI}/>
