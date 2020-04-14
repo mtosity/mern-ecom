@@ -63,9 +63,9 @@ export const CartDropDown = ({ show }: props) => {
         }}
       ></div>
       <div
-        className="bg-white cursor-auto shadow-lg border border-red-600 overflow-auto"
+        className="bg-white cursor-auto shadow-lg border-t border-l border-r border-red-600 overflow-auto"
         ref={ref}
-        style={{maxHeight: "200px"}}
+        style={{ maxHeight: "200px" }}
       >
         {cart.length === 0 ? (
           <div className="w-64 h-20 pt-4">No item</div>
@@ -75,12 +75,12 @@ export const CartDropDown = ({ show }: props) => {
               <div
                 className="p-2 flex"
                 key={`cart${product.id}`}
-                style={{ width: "350px" }}
+                style={{ width: "280px" }}
               >
                 <img
                   src={product.image}
                   alt=""
-                  className="h-32 w-32 object-contain"
+                  className="h-32 w-24 object-contain"
                 />
                 <div className="h-full overflow-hidden ml-2 flex flex-col items-start justify-center">
                   <p className="font-bold text-lg">{product.title}</p>
@@ -131,13 +131,16 @@ export const CartDropDown = ({ show }: props) => {
             );
           })
         )}
-        <div className="flex">
-          <Link to="/checkout" className="flex-1 justify-center items-center bg-red-600 text-white font-bold p-2">
-            <p>CHECK OUT</p>
-          </Link>
-          <div className="flex-1 justify-center items-center text-red-600 font-bold p-2 border-t border-red text-sm">
-            <p>Total: ${total}</p>
-          </div>
+      </div>
+      <div className="flex w-full bg-white border-b border-l border-r border-red-600">
+        <Link
+          to="/checkout"
+          className="flex-1 justify-center items-center bg-red-600 text-white font-bold p-2"
+        >
+          <p>CHECK OUT</p>
+        </Link>
+        <div className="flex-1 justify-center items-center text-red-600 font-bold p-2 border-t border-red text-sm">
+          <p>Total: ${total}</p>
         </div>
       </div>
     </div>
