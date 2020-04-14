@@ -52,7 +52,7 @@ yarn run deploy
 - [x] Send subscribe email in footer with mailjet.
 - [ ] Recommend size for user.
 - [ ] Sale coupon
-- [ ] Send news email to user.
+- [x] User can update their info, also avatar.
 
 ## Support
 
