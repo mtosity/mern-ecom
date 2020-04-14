@@ -43,6 +43,8 @@ export const Profile = () => {
       Swal.fire("Update successful!");
     } else {
       Swal.fire("Can not update!");
+      const error = await res.json();
+      console.log(error)
     }
     setLoading(false);
   };
