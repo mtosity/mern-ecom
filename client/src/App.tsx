@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Provider, useDispatch } from "react-redux";
+import { Provider, useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import "./index.css";
@@ -16,15 +16,32 @@ import "animate.css";
 import { ProductDetail } from "./screen/ProductDetail";
 import { Footer } from "./components/Footer";
 import { ProductCategories } from "./screen/ProductCategories";
-import { CategoriesActionType, GlobalActionType, AccountActionType } from "./Actions";
+import {
+  CategoriesActionType,
+  GlobalActionType,
+  AccountActionType,
+} from "./Actions";
 import { CheckOut } from "./screen/CheckOut";
 import { Orders } from "./screen/Orders";
 import { AdminLogin } from "./screen/Admin/AdminLogin";
 import jwt from "jsonwebtoken";
 import { UserProfile } from "./screen/UserProfile";
+import { ApplicationState } from "./Reducers/CombinedReducers";
+import { AccountStateInterface } from "./Reducers/AccountReducer";
 
 const HomeSwitch = () => {
   const dispatcher = useDispatch();
+  const user = useSelector<ApplicationState, AccountStateInterface>(
+    (state) => state.AccountReducer
+  );
+  useEffect(() => {
+    if (user.id !== "") {
+      localStorage.setItem(
+        "auth-token",
+        jwt.sign(user, process.env.REACT_APP_JWT || "")
+      );
+    }
+  }, [user]);
   useEffect(() => {
     fetch("/api/category").then((res) => {
       res.json().then((cates) => {

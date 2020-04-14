@@ -40,10 +40,6 @@ export const FacebookLoginBtn = ({ setMsg, setLoadSI }: props) => {
         type: AccountActionType.AddAccount,
         payload: user,
       });
-      localStorage.setItem(
-        "auth-token",
-        jwt.sign(user, process.env.REACT_APP_JWT || "")
-      );
       dispatch({ type: GlobalActionType.UserLoggedIn });
     } else {
       const msg = await res.json();

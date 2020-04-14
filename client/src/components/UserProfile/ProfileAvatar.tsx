@@ -5,13 +5,12 @@ import Swal from "sweetalert2";
 import { DotLoader } from "react-spinners";
 import { AccountActionType, GlobalActionType } from "../../Actions";
 import { useHistory } from "react-router-dom";
+import { AccountStateInterface } from "../../Reducers/AccountReducer";
+import jwt from "jsonwebtoken";
 
 export const ProfileAvatar = () => {
-  const avatar = useSelector<ApplicationState, string>(
-    (state) => state.AccountReducer.avatar
-  );
-  const id = useSelector<ApplicationState, string>(
-    (state) => state.AccountReducer.id
+  const user = useSelector<ApplicationState, AccountStateInterface>(
+    (state) => state.AccountReducer
   );
   const dispatch = useDispatch();
   const history = useHistory();
@@ -43,8 +42,8 @@ export const ProfileAvatar = () => {
         .then((response) => response.json())
         .then(async (result) => {
           const avatar = result.data.link;
-          const body = { avatar, id };
-          const res = await fetch("/api/user/profile", {
+          const body = { avatar, id: user.id };
+          const res = await fetch("/api/user/avatar", {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
@@ -92,7 +91,7 @@ export const ProfileAvatar = () => {
       </p>
       <div className="bg-white shadow-lg p-4" style={{ flex: 1 }}>
         <img
-          src={avatar}
+          src={user.avatar}
           alt=""
           className=" rounded-full m-auto w-32 h-32 object-contain shadow-lg border border-gray-200"
         />

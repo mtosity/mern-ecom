@@ -7,6 +7,7 @@ import { AccountStateInterface } from "../../Reducers/AccountReducer";
 import Swal from "sweetalert2";
 import { AccountActionType } from "../../Actions";
 import { DotLoader } from "react-spinners";
+import jwt from "jsonwebtoken";
 
 export const Profile = () => {
   const user = useSelector<ApplicationState, AccountStateInterface>(
@@ -41,7 +42,7 @@ export const Profile = () => {
     } else {
       Swal.fire("Can not update!");
       const error = await res.json();
-      console.log(error)
+      console.log(error);
     }
     setLoading(false);
   };
@@ -53,7 +54,11 @@ export const Profile = () => {
       </p>
       <p className="mt-2 text-red-600">Please update your info correctly</p>
       <p className="mt-2">Email (read only)</p>
-      <input readOnly className="p-2 w-2/3 my-2 border border-gray-400 bg-gray-100 focus:bg-white outline-none sm:w-full" value={user.email}/>
+      <input
+        readOnly
+        className="p-2 w-2/3 my-2 border border-gray-400 bg-gray-100 focus:bg-white outline-none sm:w-full"
+        value={user.email}
+      />
       <p className="mt-2">Full Name</p>
       <ProfileInput value={name} onChange={setName} />
       <p className="mt-2">Address</p>
@@ -68,7 +73,7 @@ export const Profile = () => {
         >
           UPDATE
         </button>
-        {loading ? <DotLoader color="red"/> : ""}
+        {loading ? <DotLoader color="red" /> : ""}
       </div>
     </div>
   );
