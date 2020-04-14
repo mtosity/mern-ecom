@@ -7,7 +7,7 @@ interface props {
 }
 export const FooterIcon = ({icon}: props) => {
   return (
-    <div className="rounded-full w-8 h-8 bg-red-600 flex items-center justify-center">
+    <div className="rounded-full w-8 h-8 bg-red-600 flex items-center justify-center sm:ml-2">
       <FontAwesomeIcon icon={icon} color="white" />
     </div>
   );

@@ -33,7 +33,7 @@ module.exports = {
       "admin-word": "#566C7C",
       "admin-title": "#C2D8E3",
       "admin-input": "#7C98AB",
-    }),
+    })
   },
   variants: {
     backgroundColor: ["hover", "focus", "active"],
@@ -52,5 +52,6 @@ module.exports = {
     padding: ["responsive"],
     transitionDuration: ["responsive"],
     outline: ["focus"],
+    inset: ['responsive']
   },
 };

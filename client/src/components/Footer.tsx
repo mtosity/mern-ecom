@@ -37,8 +37,8 @@ export const Footer = () => {
         <div className="flex-1">
           <FooterTitle title="NEWSLETTER" />
           <p className="mt-4">
-            Quisque a nunc interdum tellus placerat cursus. Quisque facilisis
-            dapibus facilisis! Vivamus dictum lectus ut porta volutpat.
+            Always update your style, we will send you the lastest fashion news and 
+            our products update 
           </p>
           <input
             type="text"

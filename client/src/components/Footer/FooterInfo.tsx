@@ -9,9 +9,9 @@ interface props {
 
 export const FooterInfo = ({ title, icon }: props) => {
   return (
-    <div className="flex items-center mt-4 sm:flex-col sm:justify-center">
+    <div className="flex items-center mt-4 sm:flex-col sm:justify-center sm:items-start ">
       <FooterIcon icon={icon} />
-      <p className="pl-4 sm:p-0">{title}</p>
+      <p className="pl-4 sm:p-0 sm:mt-1">{title}</p>
     </div>
   );
 };

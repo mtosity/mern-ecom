@@ -21,3 +21,7 @@ code {
 .jo-font {
   font-family: 'Josefin Sans', sans-serif;
 }
+
+right-cart {
+  right: 30px;
+}
