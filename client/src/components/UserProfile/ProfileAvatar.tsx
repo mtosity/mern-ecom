@@ -120,7 +120,7 @@ export const ProfileAvatar = () => {
         </div>
       </div>
       <button
-        className="flex justify-center px-6 py-3 items-center border border-red-600 text-red-600 rounded mt-8"
+        className="flex justify-center px-6 py-3 items-center border border-red-600 text-red-600 rounded mt-8 focus:outline-none"
         onClick={logOut}
       >
         LOGOUT
