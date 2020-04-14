@@ -57,7 +57,7 @@ export const ProductDetail = ({ match }: props) => {
       setProduct(data[0][0]);
       setImgs(data[1]);
     });
-  }, []);
+  }, [match.params]);
   const addToCart = () => {
     const newproductCart = {
       ...product,

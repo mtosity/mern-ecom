@@ -6,7 +6,6 @@ import { DotLoader } from "react-spinners";
 import { AccountActionType, GlobalActionType } from "../../Actions";
 import { useHistory } from "react-router-dom";
 import { AccountStateInterface } from "../../Reducers/AccountReducer";
-import jwt from "jsonwebtoken";
 
 export const ProfileAvatar = () => {
   const user = useSelector<ApplicationState, AccountStateInterface>(

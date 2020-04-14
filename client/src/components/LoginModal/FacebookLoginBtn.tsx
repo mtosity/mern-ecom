@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { useDispatch } from "react-redux";
 import { AccountActionType, GlobalActionType } from "../../Actions";
-import jwt from "jsonwebtoken";
 
 interface props {
   setMsg: Function;

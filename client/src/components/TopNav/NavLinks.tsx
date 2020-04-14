@@ -21,23 +21,21 @@ export const NavLinks = () => {
         HOME
       </Link>
       <div className="group">
-        <a
-          href="#"
+        <div
           className="flex items-center hover:bg-red-500 hover:text-white text-gray-700 px-4 ml-4 py-3"
         >
           WOMEN
           <FontAwesomeIcon icon={faChevronDown} className="h-3 w-3 ml-2" />
-        </a>
+        </div>
         <WomenDropDown menu={womenCate}/>
       </div>
       <div className="group">
-        <a
-          href="#"
+        <div
           className="flex items-center hover:bg-red-500 hover:text-white text-gray-700 px-4 ml-4 py-3"
         >
           MEN
           <FontAwesomeIcon icon={faChevronDown} className="h-3 w-3 ml-2" />
-        </a>
+        </div>
         <MenDropDown menu={menCate}/>
       </div>
       <Link

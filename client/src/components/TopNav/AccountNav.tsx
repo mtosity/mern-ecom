@@ -45,7 +45,7 @@ export const AccountNav = () => {
   const UserName = useSelector<ApplicationState, string>(
     (state) => state.AccountReducer.name
   );
-  function openModal() {}
+  // function openModal() {}
 
   function afterOpenModal() {
     customStyles.content = {

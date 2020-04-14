@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import classnames from "classnames";
-import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SyncLoader } from "react-spinners";
 import { GlobalActionType, AccountActionType } from "../../Actions";
 import { useDispatch, useSelector } from "react-redux";
 import jwt from "jsonwebtoken";
 import { ApplicationState } from "../../Reducers/CombinedReducers";
-import { AccountReducer } from "../../Reducers/AccountReducer";
 import { GoogleLoginBtn } from "./GoogleLoginBtn";
 import { FacebookLoginBtn } from "./FacebookLoginBtn";
 
@@ -133,9 +130,9 @@ export const LoginForm = ({ classes, styles }: props) => {
         value={SIPassword}
         onChange={(e) => setSIPassword(e.target.value)}
       />
-      <a href="#" className={classes.aclasses}>
+      <div className={classes.aclasses}>
         Forgot your password?
-      </a>
+      </div>
       {loadSI ? (
         <div className="mt-4 text-blue-400">
           <SyncLoader size={20} color="red" />

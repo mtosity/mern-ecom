@@ -2,12 +2,10 @@ import React, { useState, useEffect } from "react";
 import { ProfileInput } from "./ProfileInput";
 import { useSelector, useDispatch } from "react-redux";
 import { ApplicationState } from "../../Reducers/CombinedReducers";
-import { UserType } from "../../DataType";
 import { AccountStateInterface } from "../../Reducers/AccountReducer";
 import Swal from "sweetalert2";
 import { AccountActionType } from "../../Actions";
 import { DotLoader } from "react-spinners";
-import jwt from "jsonwebtoken";
 
 export const Profile = () => {
   const user = useSelector<ApplicationState, AccountStateInterface>(

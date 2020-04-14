@@ -2,7 +2,6 @@ import React, { useState, useRef } from "react";
 import { PopupIcon } from "./PopupIcon";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { faHeart, faEye } from "@fortawesome/free-regular-svg-icons";
-import { ProductStars } from "../ProductDetail/ProductStars";
 import { ProductType } from "../../DataType";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";

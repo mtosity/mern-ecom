@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { ProductCard } from "./ProductCard/ProductCard";
 import { ProductType } from "../DataType";
-import ReactPaginate from "react-paginate";
 
 interface props {
   products: Array<ProductType>;

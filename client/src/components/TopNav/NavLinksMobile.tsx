@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import classnames from "classnames";
@@ -7,7 +7,6 @@ import { ApplicationState } from "../../Reducers/CombinedReducers";
 import { CategoriesStateInterface } from "../../Reducers/CategoriesReducer";
 import { CategoryType } from "../../DataType";
 import { Link, useHistory } from "react-router-dom";
-import useOutsideClick from "../../utils/useOutsideClick";
 
 interface props {
   show: boolean;
