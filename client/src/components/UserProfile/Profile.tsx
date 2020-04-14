@@ -12,7 +12,6 @@ export const Profile = () => {
   const user = useSelector<ApplicationState, AccountStateInterface>(
     (state) => state.AccountReducer
   );
-  const [email, setEmail] = useState(user.email);
   const [name, setName] = useState(user.name);
   const [address, setAddress] = useState(user.address);
   const [phone, setPhone] = useState(user.phone);
@@ -21,14 +20,13 @@ export const Profile = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setEmail(user.email);
     setName(user.name);
     setAddress(user.address);
     setPhone(user.phone);
   }, [user]);
 
   const updateProfile = async () => {
-    const body = { email, name, phone, address, id: user.id };
+    const body = { name, phone, address, id: user.id };
     setLoading(true);
     const res = await fetch("/api/user/profile", {
       method: "PUT",
@@ -54,8 +52,8 @@ export const Profile = () => {
         You information
       </p>
       <p className="mt-2 text-red-600">Please update your info correctly</p>
-      <p className="mt-2">Email</p>
-      <ProfileInput value={email} onChange={setEmail} />
+      <p className="mt-2">Email (read only)</p>
+      <input readOnly className="p-2 w-2/3 my-2 border border-gray-400 bg-gray-100 focus:bg-white outline-none sm:w-full" value={user.email}/>
       <p className="mt-2">Full Name</p>
       <ProfileInput value={name} onChange={setName} />
       <p className="mt-2">Address</p>
