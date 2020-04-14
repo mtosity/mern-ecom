@@ -31,7 +31,7 @@ export const AccountReducer: Reducer<
 > = (state = INIT_STATE, action: AccountActionInterface) => {
   switch (action.type) {
     case AccountActionType.AddAccount:
-      return action.payload;
+      return {...state, ...action.payload};
     case AccountActionType.DeleteAccount:
       return JSON.parse(JSON.stringify(INIT_STATE));
     default:

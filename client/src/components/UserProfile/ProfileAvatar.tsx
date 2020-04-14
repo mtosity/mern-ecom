@@ -52,6 +52,7 @@ export const ProfileAvatar = () => {
             body: JSON.stringify(body),
           });
           if (res.status === 200) {
+            dispatch({type: AccountActionType.AddAccount, payload: {avatar}})
             Swal.fire("Update successful!");
           } else {
             Swal.fire("Can not update!");

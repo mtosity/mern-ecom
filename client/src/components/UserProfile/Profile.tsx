@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { ProfileInput } from "./ProfileInput";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { ApplicationState } from "../../Reducers/CombinedReducers";
 import { UserType } from "../../DataType";
 import { AccountStateInterface } from "../../Reducers/AccountReducer";
 import Swal from "sweetalert2";
+import { AccountActionType } from "../../Actions";
+import { DotLoader } from "react-spinners";
 
 export const Profile = () => {
   const user = useSelector<ApplicationState, AccountStateInterface>(
@@ -14,6 +16,9 @@ export const Profile = () => {
   const [name, setName] = useState(user.name);
   const [address, setAddress] = useState(user.address);
   const [phone, setPhone] = useState(user.phone);
+  const [loading, setLoading] = useState(false);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setEmail(user.email);
@@ -24,6 +29,7 @@ export const Profile = () => {
 
   const updateProfile = async () => {
     const body = { email, name, phone, address, id: user.id };
+    setLoading(true);
     const res = await fetch("/api/user/profile", {
       method: "PUT",
       headers: {
@@ -32,10 +38,12 @@ export const Profile = () => {
       body: JSON.stringify(body),
     });
     if (res.status === 200) {
+      dispatch({ type: AccountActionType.AddAccount, payload: body });
       Swal.fire("Update successful!");
     } else {
       Swal.fire("Can not update!");
     }
+    setLoading(false);
   };
 
   return (
@@ -43,7 +51,7 @@ export const Profile = () => {
       <p className="uppercase jo-font font-bold text-lg my-4">
         You information
       </p>
-      <p className="mt-2">Please update your info</p>
+      <p className="mt-2 text-red-600">Please update your info correctly</p>
       <p className="mt-2">Email</p>
       <ProfileInput value={email} onChange={setEmail} />
       <p className="mt-2">Full Name</p>
@@ -52,13 +60,16 @@ export const Profile = () => {
       <ProfileInput value={address} onChange={setAddress} />
       <p className="mt-2">Phone</p>
       <ProfileInput value={phone} onChange={setPhone} />
-      <button
-        className="flex justify-between font-bold items-center jo-font focus:outline-none px-6 py-3 
-    bg-red-700 hover:bg-red-500 text-white shadow-lg transform duration-500 ml-4 items-center sm:px-4 sm:ml-0 mt-4"
-        onClick={updateProfile}
-      >
-        UPDATE
-      </button>
+      <div className="flex">
+        <button
+          className="flex justify-between font-bold items-center jo-font focus:outline-none px-6 py-3 
+        bg-red-700 hover:bg-red-500 text-white shadow-lg transform duration-500 ml-4 mr-4 items-center sm:px-4 sm:ml-0 mt-4"
+          onClick={updateProfile}
+        >
+          UPDATE
+        </button>
+        {loading ? <DotLoader color="red"/> : ""}
+      </div>
     </div>
   );
 };

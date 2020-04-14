@@ -2,6 +2,7 @@ import express from "express";
 import { LoginError, SignUpError } from "../utils/ErrorType";
 import User from "../models/user.model";
 import bcrypt from "bcrypt";
+import { Op } from "sequelize";
 
 const UserRoute = express.Router();
 require("dotenv").config();
@@ -74,8 +75,19 @@ UserRoute.post("/loginwithfg", async (req, res) => {
 });
 
 UserRoute.get("/", async (req, res) => {
-  const products = await User.findAll();
-  res.json(products);
+  const id = req.query.id || "";
+  try {
+    const users = await User.findAll({
+      where: {
+        id: {
+          [Op.like]: [`%${id}%`],
+        },
+      }
+    });
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(400).json(error);
+  }
 });
 
 UserRoute.delete("/truncate", async (req, res) => {
