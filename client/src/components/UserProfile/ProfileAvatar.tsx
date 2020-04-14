@@ -52,7 +52,10 @@ export const ProfileAvatar = () => {
             body: JSON.stringify(body),
           });
           if (res.status === 200) {
-            dispatch({type: AccountActionType.AddAccount, payload: {avatar}})
+            dispatch({
+              type: AccountActionType.AddAccount,
+              payload: { avatar },
+            });
             Swal.fire("Update successful!");
           } else {
             Swal.fire("Can not update!");
@@ -68,10 +71,19 @@ export const ProfileAvatar = () => {
     }
   };
   const logOut = () => {
-    dispatch({ type: AccountActionType.DeleteAccount });
-    localStorage.removeItem("auth-token");
-    dispatch({ type: GlobalActionType.UserLoggedOut });
-    history.replace("/");
+    Swal.fire({
+      title: `Do you want to LOGOUT?`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes",
+    }).then(async (result) => {
+      if (result.value) {
+        dispatch({ type: AccountActionType.DeleteAccount });
+        localStorage.removeItem("auth-token");
+        dispatch({ type: GlobalActionType.UserLoggedOut });
+        history.replace("/");
+      }
+    });
   };
   return (
     <div className="sm:mt-4" style={{ flex: 1 }}>
