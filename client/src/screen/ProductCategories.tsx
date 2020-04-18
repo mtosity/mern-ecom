@@ -56,7 +56,9 @@ export const ProductCategories = () => {
         selectCate={selectCate}
         loading={loading}
       />
-      <p className="uppercase jo-font font-bold text-2xl ml-16 mt-16 sm:mt-8 text-red-500">{selectedCate}</p>
+      <p className="uppercase jo-font font-bold text-2xl ml-16 mt-16 sm:mt-8 text-red-500">
+        {selectedCate}
+      </p>
       <div className="w-32 border-b ml-16"></div>
       <ProductGrid products={products} />
       <div className="flex justify-center w-full my-8">
@@ -84,6 +86,7 @@ export const ProductCategories = () => {
           breakLinkClassName="outline-none bg-gray-300"
         />
       </div>
+      <div className="shadow-2xl text-gray-900 bg-gray-300 mx-1 text-gray-600 w-10 h-10 duration-300 transform text-red-100"></div>
     </div>
   );
 };
