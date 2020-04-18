@@ -11,7 +11,8 @@ import { uuid } from "uuidv4";
 import swa2 from "sweetalert2";
 import classNames from "classnames";
 import useOutsideClick from "../../utils/useOutsideClick";
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 interface props {
   product: ProductType;
 }
@@ -38,11 +39,12 @@ export const ProductCard = ({ product }: props) => {
           }, 310);
         }}
       >
-        <img
+        <LazyLoadImage
           className=" object-cover w-64"
           style={{ height: "350px" }}
           src={product.image}
           alt=""
+          effect="blur"
         />
         <div
           className={classNames(
