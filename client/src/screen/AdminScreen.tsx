@@ -20,7 +20,6 @@ export const AdminScreen = () => {
     (state) => state.AccountReducer.role
   );
   useEffect(() => {
-    console.log(authenticated, role);
     if (authenticated && role === "admin") {
       history.push("/admin/dashboard");
     } else {

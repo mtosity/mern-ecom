@@ -2,6 +2,9 @@
 
 A Korean Shopping site, can handle user and orders. 10 weeks to make it and still develop new features. Based on design on themeforest and do it from scratch
 
+![Home](images/home.png)
+![Home-mobile](images/home-mobile.png)
+
 ## Frameworks / Library used
 
 - MySQL, Express, ReactJS, NodeJS

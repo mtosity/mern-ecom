@@ -122,7 +122,6 @@ UserRoute.post("/signup", async (req, res) => {
   if (!user) {
     try {
       const { email, password, name, address, role, phone } = req.body;
-      console.log(phone);
       const hashPass = await bcrypt.hash(password, 10);
       await User.create({
         email: email,
