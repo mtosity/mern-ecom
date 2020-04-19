@@ -40,6 +40,11 @@ To deploy to heroku run
 yarn run deploy
 ```
 
+Admin account: <https://mtoshop.herokuapp.com/admin>
+Email: admin1@gmail.com
+Password: admin
+Note: I don't want to clean up your mess :(
+
 ## Links
 
 - [My week to week process](READMEs/ProcessByWeeks.md)
