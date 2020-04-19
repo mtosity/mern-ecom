@@ -2,8 +2,8 @@
 
 A Korean Shopping site, can handle user and orders. 10 weeks to make it and still develop new features. Based on design on themeforest and do it from scratch
 
-![Home](images/home.png)
-![Home-mobile](images/home-mobile.png)
+![Home](/READMEs/images/home.png)
+![admin-orders](/READMEs/images/admin-orders.png)
 
 ## Frameworks / Library used
 
@@ -12,8 +12,9 @@ A Korean Shopping site, can handle user and orders. 10 weeks to make it and stil
 
 ## Special features
 
-- Authenticate user (normal user and admin)
+- Authenticate user (normal user and admin), login with Facebook and Google
 - Save user token to login automatically
+- Send subscribe email
 - Some pure css animation (navbar, login modal, text slide in, product card)
 - User can review product, but only one review per product
 - Admin page to manage user, add new products, categories, handle orders
@@ -42,6 +43,7 @@ yarn run deploy
 ## Links
 
 - [My week to week process](READMEs/ProcessByWeeks.md)
+- [More screen shots](READMEs/ScreenShot.md)
 - [Client Shop design I used](https://preview.uideck.com/items/shopr-theme/index.html)
 - [Admin page design I used](https://preview.themeforest.net/item/material-admin-extended-dark-responsive-template/full_screen_preview/19199417?_ga=2.225058522.1117022391.1583339517-704068843.1583316266)
 - [Products data](https://www.kooding.com/)
