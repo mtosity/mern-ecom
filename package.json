@@ -42,7 +42,7 @@
     "@types/uuidv4": "^5.0.0",
     "@types/validator": "^12.0.1",
     "autoprefixer": "^9.7.4",
-    "bcrypt": "^3.0.8",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
