@@ -46,7 +46,7 @@ ProductRoute.post("/", async (req, res) => {
 ProductRoute.get("/", async (req, res) => {
   const query = req.query.q || "";
   const category = req.query.cate || "";
-  const page = parseInt(req.query.page) || 1;
+  const page = parseInt(req.query.page!.toString() || "1") || 1;
   try {
     const products = await Product.findAndCountAll({
       where: {
