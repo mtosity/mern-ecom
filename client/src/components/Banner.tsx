@@ -1,18 +1,20 @@
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Link } from "react-router-dom";
+import BannerImage from "../images/banner.jpg";
 
 export function Banner() {
   return (
     <div className="relative overflow-hidden">
       <img
-        src="https://cdn.shopify.com/s/files/1/2024/0999/files/parallax_01n_9954b41f-0b9e-4811-a1b5-b0d2eec18423.jpg?v=1497598668"
+        src={BannerImage}
         alt=""
         style={{
           width: "100vw",
           height: "500px",
           display: "block",
           objectFit: "cover",
+          objectPosition: "left middle"
         }}
       />
       <div
