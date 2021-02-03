@@ -1,6 +1,7 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import { SubImgType } from "../../DataType";
+import "../../styles/carousel.min.css"
 
 interface props {
   SubImgs: Array<SubImgType>;
