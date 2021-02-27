@@ -8,10 +8,11 @@ export const FeatureCategories = () => {
         <img
           src="https://preview.uideck.com/items/shopr-theme/assets/img/feature/img1.jpg"
           alt=""
+          // style={{width: '80%'}}
         />
         <div
-          className="w-full absolute top-0 left-0 flex flex-col justify-center items-center"
-          style={{ top: "40%" }}
+          className="absolute top-0 left-0 flex flex-col justify-center items-center"
+          style={{ top: "40%", width: '80%' }}
         >
           <div
             className="w-3/4 flex flex-col justify-center items-center py-2"
@@ -37,7 +38,7 @@ export const FeatureCategories = () => {
         />
         <div
           className="w-full absolute top-0 left-0 flex flex-col justify-center items-center"
-          style={{ top: "40%" }}
+          style={{ top: "40%", width: '80%' }}
         >
           <div
             className="w-3/4 flex flex-col justify-center items-center py-2"
@@ -64,7 +65,7 @@ export const FeatureCategories = () => {
           />
           <div
             className="w-full absolute top-0 left-0 flex flex-col justify-center items-center"
-            style={{ top: "10%" }}
+            style={{ top: "40%", width: '80%' }}
           >
             <div
               className="w-3/4 flex flex-col justify-center items-center py-2"
@@ -84,7 +85,7 @@ export const FeatureCategories = () => {
           </div>
         </div>
         <div
-          className="flex-1 photobox relative flex justify-end"
+          className="flex-1 photobox relative"
           style={{ marginTop: "0" }}
         >
           <img
@@ -92,8 +93,8 @@ export const FeatureCategories = () => {
             alt=""
           />
           <div
-            className="w-full absolute top-0 left-0 flex flex-col justify-center items-center"
-            style={{ top: "10%" }}
+            className="absolute top-0 left-0 flex flex-col justify-center items-center"
+            style={{ top: "40%", width: '80%' }}
           >
             <div
               className="w-3/4 flex flex-col font-black justify-center items-center py-2"

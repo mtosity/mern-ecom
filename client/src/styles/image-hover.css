@@ -4,13 +4,15 @@
 }
 
 .photobox img {
-  width: 100%;
+  width: 80%;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   -ms-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
   object-fit: cover;
+  object-position: center;
+  border-radius: 1rem;
 }
 
 .photobox:hover img {

@@ -7,19 +7,18 @@ export function Banner() {
   return (
     <div className="relative overflow-hidden">
       <img
-        src={BannerImage}
+        src="https://bestwebcreator.com/ATZShop/demo/image/slider-img-8.jpg"
         alt=""
         style={{
           width: "100vw",
           height: "500px",
           display: "block",
           objectFit: "cover",
-          objectPosition: "left middle"
         }}
       />
       <div
         className="absolute top-0 left-0 jo-font font md:mt-32"
-        style={{ top: "120px", left: "50px" }}
+        style={{ top: "120px", left: "100px" }}
       >
         <h1
           className="animated bounceInDown 
